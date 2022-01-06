@@ -67,12 +67,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CustomerLanding.aspx" />
+    <Content Include="CustomerMain.css" />
+    <Content Include="CustomerMainPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerLanding.aspx.cs">
+      <DependentUpon>CustomerLanding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerLanding.aspx.designer.cs">
+      <DependentUpon>CustomerLanding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerMain.Master.cs">
+      <DependentUpon>CustomerMain.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerMain.Master.designer.cs">
+      <DependentUpon>CustomerMain.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerMainPage.aspx.cs">
+      <DependentUpon>CustomerMainPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerMainPage.aspx.designer.cs">
+      <DependentUpon>CustomerMainPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CustomerMain.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

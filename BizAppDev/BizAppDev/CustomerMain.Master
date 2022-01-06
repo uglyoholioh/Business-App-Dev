@@ -6,27 +6,54 @@
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
-        
+      
+             <link rel="stylesheet" href="CustomerMain.css" type="text/css" />
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
     </asp:ContentPlaceHolder>
 
+    </head>
+
 <body>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/multi/2-0/vendor/bootstrap/css/bootstrap.min.css">
+
+
+    <header>      <nav class="navbar navbar-expand-lg py-lg-0">
+        <div class="container"><a href="/" class="navbar-brand text-uppercase font-weight-bold">HYATT</a>
+          <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right small"><span class="text-uppercase mr-2">Menu</span><i class="fas fa-bars"></i></button>
+          <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <<ul class="navbar-nav ml-auto d-lg-flex align-items-lg-center">
+              <li class="nav-item"><a href="index.html" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4 active">Home</a>
+              </li>
+               <li class="nav-item dropdown"><a id="navbarFacilityDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4 dropdown-toggle">Facility</a>
+                <div aria-labelledby="navbarFacilityDropdownMenuLink" class="dropdown-menu mt-0">
+                    <a href="/CUST_Facility" class="dropdown-item small text-uppercase">View All Facilities</a>
+                    <a href="/CUST_CheckInOutDetail" class="dropdown-item small text-uppercase">View Check In detial</a>
+                </div>
+              </li>
+                <li class="nav-item"><a href="/CUST_Membership" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Membership </a>
+              </li>
+              <li class="nav-item"><a href="contact.html" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Contact </a>
+              </li>
+
+              <li class="nav-item mt-4 mt-lg-0">
+       
+                  
+                <button type="button" data-toggle="modal" data-target="#loginModal" class="btn btn-outline-primary nav-btn btn-sm"> <i class="fas fa-sign-out-alt mr-2"></i>
+                    <a href="/log_in">Login</a></button>
+               
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav></header>
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-            <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid"> <a class="navbar-brand name" href="gosnippets.com" target="_blank">CHIBAI KIMZUA</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">About</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Categories</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Blog</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Contact</a> </li>
-                </ul>
-           
-            </div>
-        </div>
-    </nav>
+
         </div>
     </form>
 </body>
