@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
+<<<<<<< Updated upstream
     "",
     "\\BizAppDev"
+=======
+    ""
+>>>>>>> Stashed changes
   ],
-  "SelectedNode": "\\BizAppDev\\BizAppDev.sln",
+  "SelectedNode": "\\BizAppDev.sln",
   "PreviewInSolutionExplorer": false
 }

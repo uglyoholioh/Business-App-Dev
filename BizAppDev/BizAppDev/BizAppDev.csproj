@@ -67,12 +67,44 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+    <Content Include="contact.aspx" />
+    <Content Include="css\contact.css" />
+    <Content Include="CustomerEditDetails.aspx" />
+    <Content Include="CustomerViewDetails.aspx" />
+>>>>>>> Stashed changes
     <Content Include="CustomerLanding.aspx" />
     <Content Include="CustomerMain.css" />
     <Content Include="CustomerMainPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+    <Compile Include="contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerEditDetails.aspx.cs">
+      <DependentUpon>CustomerEditDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerEditDetails.aspx.designer.cs">
+      <DependentUpon>CustomerEditDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerViewDetails.aspx.cs">
+      <DependentUpon>CustomerViewDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerViewDetails.aspx.designer.cs">
+      <DependentUpon>CustomerViewDetails.aspx</DependentUpon>
+    </Compile>
+>>>>>>> Stashed changes
     <Compile Include="CustomerLanding.aspx.cs">
       <DependentUpon>CustomerLanding.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
