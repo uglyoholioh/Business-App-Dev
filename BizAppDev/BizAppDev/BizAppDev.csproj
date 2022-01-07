@@ -73,6 +73,9 @@
     <Content Include="css\contact.css" />
     <Content Include="CustomerEditDetails.aspx" />
     <Content Include="CustomerViewDetails.aspx" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     <Content Include="CustomerLanding.aspx" />
     <Content Include="CustomerMain.css" />
@@ -104,6 +107,9 @@
     <Compile Include="CustomerViewDetails.aspx.designer.cs">
       <DependentUpon>CustomerViewDetails.aspx</DependentUpon>
     </Compile>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     <Compile Include="CustomerLanding.aspx.cs">
       <DependentUpon>CustomerLanding.aspx</DependentUpon>
