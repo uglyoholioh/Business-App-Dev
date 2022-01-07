@@ -51,18 +51,33 @@
                 <h3>Contact Info</h3>
                 <div class="infoBox">
                     <div>
-                        <span></span>
-                        <p>The Trilinq, Clementi<br />Singapore</p>
+                        <span><ion-icon name="location-outline"></ion-icon></span>
+                        <p>The Trilinq,<br />Singapore 128807</p>
 
                     </div>
                     <div>
-                        <span></span>
-                  
+                        <span><ion-icon name="mail"></ion-icon></span>
+                        <a href="mailto:josspapery2@gmail.com">josspapery2@gmail.com</a>
 
                     </div>
+                    <div>
+                        <span><ion-icon name="call"></ion-icon></span>
+                        <a href="tel:+6599126292">+(65) 99126292</a>
+
+                    </div>
+                    <ul class="sci">
+                        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon> </a></li>
+                        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="contact map"></div>
+            <div class="contact map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.761570448808!2d103.7594858153311!3d1.3187326620405668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1a9a9fcd5483%3A0x25a9c4635d70ede!2sThe%20Trilinq!5e0!3m2!1sen!2ssg!4v1641551951827!5m2!1sen!2ssg"  style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </asp:Content>
