@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="contact.aspx" />
+    <Content Include="css\contact.css" />
     <Content Include="CustomerLanding.aspx" />
     <Content Include="CustomerMain.css" />
     <Content Include="CustomerMainPage.aspx" />
