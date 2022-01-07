@@ -67,9 +67,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Admin.mdf" />
+    <Content Include="App_Data\Admin_log.ldf">
+      <DependentUpon>Admin.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Customer.mdf" />
+    <Content Include="App_Data\Customer_log.ldf">
+      <DependentUpon>Customer.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Products.mdf" />
+    <Content Include="App_Data\Products_log.ldf">
+      <DependentUpon>Products.mdf</DependentUpon>
+    </Content>
     <Content Include="CustomerLanding.aspx" />
     <Content Include="CustomerMain.css" />
     <Content Include="CustomerMainPage.aspx" />
+    <Content Include="Rewards.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +108,13 @@
       <DependentUpon>CustomerMainPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rewards.aspx.cs">
+      <DependentUpon>Rewards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rewards.aspx.designer.cs">
+      <DependentUpon>Rewards.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CustomerMain.Master" />
