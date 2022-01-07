@@ -56,3 +56,4 @@ C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\obj\Debug\Bi
 C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\obj\Debug\BizAppDev.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\obj\Debug\BizAppDev.dll
 C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\obj\Debug\BizAppDev.pdb
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\obj\Debug\BizAppDev.csproj.CopyComplete
