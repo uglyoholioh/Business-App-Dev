@@ -24,13 +24,13 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.TextBox tb_name;
 
         /// <summary>
-        /// tb_email control.
+        /// tb_lastname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_email;
+        protected global::System.Web.UI.WebControls.TextBox tb_lastname;
 
         /// <summary>
         /// tb_subject control.
@@ -40,6 +40,15 @@ namespace BizAppDev
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tb_subject;
+
+        /// <summary>
+        /// tb_email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_email;
 
         /// <summary>
         /// tb_message control.
