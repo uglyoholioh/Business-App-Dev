@@ -67,12 +67,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="contact.aspx" />
     <Content Include="CustomerLanding.aspx" />
     <Content Include="CustomerMain.css" />
     <Content Include="CustomerMainPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerLanding.aspx.cs">
       <DependentUpon>CustomerLanding.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
