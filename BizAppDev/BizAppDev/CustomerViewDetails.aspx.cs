@@ -35,7 +35,7 @@ namespace BizAppDev
 
 		protected void btn_Edit_Click1(object sender, EventArgs e)
         {
-
+			Response.Redirect("CustomerEditDetails.aspx");
         }
     }
 }
