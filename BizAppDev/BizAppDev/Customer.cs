@@ -97,7 +97,7 @@ namespace BizAppDev
         public Customer getCustomer(int CustID)
         {
             Customer custDetail = null;
-            string first_Name, last_Name, phone_No, email, address, DOB, gender,username;
+            string first_Name, last_Name, phone_No, email, address, DOB, gender, username;
             int points;
 
             string queryStr = "SELECT * FROM Customer WHERE Cust_ID = @CustID";
@@ -121,15 +121,12 @@ namespace BizAppDev
                 email = dr["Email"].ToString();
                 username = dr["Username"].ToString();
 
-                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender,username);
+                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender, username);
                 return custDetail;
-                
+
             }
             else
             {
-                string something = "hello";
-                int somenumber = 1;
-                custDetail = new Customer(somenumber, something, something, something, somenumber, something, something, something,something,something);
                 custDetail = null;
             }
 
@@ -137,10 +134,49 @@ namespace BizAppDev
             dr.Close();
             dr.Dispose();
 
+
             return custDetail;
         }
+        public int CustomerUpdate(string CustID, string first_Name, string last_Name, string email, int points, string address, string phone_No, string DOB, string gender, string username)
+        {
+            string queryStr = "UPDATE Customer SET" +
+                " Cust_ID = @CustID, " +
+                " first_Name = @first_Name, " +
+                " last_Name = @last_Name," +
+                " email = @email," +
+                " points = @points," +
+                " address = @address," +
+                " phone_No = @phone_No," +
+                " DOB = @DOB," +
+                " gender = @gender," +
+                " username = @username" +
+                " WHERE Product_ID = @productID";
+
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@CustID", CustID);
+            cmd.Parameters.AddWithValue("@first_Name", first_Name);
+            cmd.Parameters.AddWithValue("@last_Name",last_Name);
+            cmd.Parameters.AddWithValue("@last_Name", last_Name);
+            cmd.Parameters.AddWithValue("@email",email);
+            cmd.Parameters.AddWithValue("@points",points);
+            cmd.Parameters.AddWithValue("@address",address);
+            cmd.Parameters.AddWithValue("@phone_No",phone_No);
+            cmd.Parameters.AddWithValue("@DOB",DOB);
+            cmd.Parameters.AddWithValue("@gender",gender);
+            cmd.Parameters.AddWithValue("@username",username);
 
 
+            conn.Open();
+            int nofRow = 0;
+            nofRow = cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+            return nofRow;
+
+
+        }
     }
 }
 

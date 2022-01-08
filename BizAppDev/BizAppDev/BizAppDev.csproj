@@ -68,8 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\contact.css" />
+    <Content Include="CustomerDetails.aspx" />
     <Content Include="CustomerEditDetails.aspx" />
-    <Content Include="CustomerViewDetails.aspx" />
     <Content Include="CustomerLanding.aspx" />
     <Content Include="CustomerMain.css" />
     <Content Include="CustomerMainPage.aspx" />
@@ -77,19 +77,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerDetails.aspx.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerDetails.aspx.designer.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerEditDetails.aspx.cs">
       <DependentUpon>CustomerEditDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CustomerEditDetails.aspx.designer.cs">
       <DependentUpon>CustomerEditDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerViewDetails.aspx.cs">
-      <DependentUpon>CustomerViewDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerViewDetails.aspx.designer.cs">
-      <DependentUpon>CustomerViewDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerLanding.aspx.cs">
       <DependentUpon>CustomerLanding.aspx</DependentUpon>

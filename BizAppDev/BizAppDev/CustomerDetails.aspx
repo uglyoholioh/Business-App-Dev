@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerMain.Master" AutoEventWireup="true" CodeBehind="CustomerViewDetails.aspx.cs" inherits="BizAppDev.CustomerViewDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerMain.Master" AutoEventWireup="true" CodeBehind="CustomerDetails.aspx.cs" Inherits="BizAppDev.CustomerDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
+        <style type="text/css">
         body{
             max-width: max-content;
         }
@@ -41,7 +41,7 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br/>
     <div id="Details">
     <h1 class ="tableHeader"><strong>Account Details</strong></h1>
@@ -89,7 +89,7 @@
             </td>
         </tr>
     </table>
-    <asp:Button ID="btn_Edit" runat="server" ForeColor="Black" Text="Edit" CssClass="button-54" />
+    <asp:Button ID="btn_Edit" runat="server" ForeColor="Black" Text="Edit" CssClass="button-54" OnClick="btn_Edit_Click" />
     <asp:Button ID="btn_Delete" runat="server" Text="Delete" CssClass="button-54" />
         </div>
 </asp:Content>

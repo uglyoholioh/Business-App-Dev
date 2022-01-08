@@ -11,7 +11,7 @@ namespace BizAppDev
 {
 
 
-    public partial class CustomerViewDetails
+    public partial class CustomerDetails
     {
 
         /// <summary>

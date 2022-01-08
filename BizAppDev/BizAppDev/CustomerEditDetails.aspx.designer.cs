@@ -11,88 +11,88 @@ namespace BizAppDev
 {
 
 
-    public partial class CustomerEditDetails
+    public partial class CustomerEditDetails1
     {
 
         /// <summary>
-        /// lbl_Username control.
+        /// tb_Username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Username;
+        protected global::System.Web.UI.WebControls.TextBox tb_Username;
 
         /// <summary>
-        /// lbl_Name control.
+        /// tb_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Name;
+        protected global::System.Web.UI.WebControls.TextBox tb_Name;
 
         /// <summary>
-        /// lbl_Email control.
+        /// tb_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Email;
+        protected global::System.Web.UI.WebControls.TextBox tb_Email;
 
         /// <summary>
-        /// lbl_PhoneNo control.
+        /// tb_PhoneNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_PhoneNo;
+        protected global::System.Web.UI.WebControls.TextBox tb_PhoneNo;
 
         /// <summary>
-        /// lbl_Gender control.
+        /// tb_Gender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Gender;
+        protected global::System.Web.UI.WebControls.TextBox tb_Gender;
 
         /// <summary>
-        /// lbl_DOB control.
+        /// tb_DOB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_DOB;
+        protected global::System.Web.UI.WebControls.TextBox tb_DOB;
 
         /// <summary>
-        /// lbl_Address control.
+        /// tb_Address control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Address;
+        protected global::System.Web.UI.WebControls.TextBox tb_Address;
 
         /// <summary>
-        /// btn_Edit control.
+        /// btn_Save control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Edit;
+        protected global::System.Web.UI.WebControls.Button btn_Save;
 
         /// <summary>
-        /// btn_Delete control.
+        /// btn_Cancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Delete;
+        protected global::System.Web.UI.WebControls.Button btn_Cancel;
     }
 }
