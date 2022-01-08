@@ -5,11 +5,22 @@
             width: 100%;
         }
         .auto-style2 {
-            width: 150px;
+            width: 264px;
+        }
+        .auto-style3 {
+            width: 264px;
+            height: 29px;
+        }
+        .auto-style4 {
+            height: 29px;
+        }
+        #editdetails {
+                      margin-left:300px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div id="editdetails">
     <h1><strong>Edit Details</strong><br />
     </h1>
     <table class="auto-style1">
@@ -20,9 +31,15 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">Name:</td>
+            <td class="auto-style2">First name:</td>
             <td>
-                <asp:TextBox ID="tb_Name" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tb_FirstName" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">Last name:</td>
+            <td>
+                <asp:TextBox ID="tb_LastName" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -32,8 +49,8 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">Phone number:</td>
-            <td>
+            <td class="auto-style3">Phone number:</td>
+            <td class="auto-style4">
                 <asp:TextBox ID="tb_PhoneNo" runat="server"></asp:TextBox>
             </td>
         </tr>
@@ -61,11 +78,12 @@
         </tr>
         <tr>
             <td class="auto-style2">
-                <asp:Button ID="btn_Save" runat="server" Text="Button" />
+                <asp:Button ID="btn_Save" runat="server" Text="Save" OnClick="btn_Save_Click" />
             </td>
             <td>
-                <asp:Button ID="btn_Cancel" runat="server" Text="Button" />
+                <asp:Button ID="btn_Cancel" runat="server" Text="Cancel" OnClick="btn_Cancel_Click" />
             </td>
         </tr>
     </table>
+        </div>
 </asp:Content>

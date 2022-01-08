@@ -137,29 +137,25 @@ namespace BizAppDev
 
             return custDetail;
         }
-        public int CustomerUpdate(string CustID, string first_Name, string last_Name, string email, int points, string address, string phone_No, string DOB, string gender, string username)
+        public int CustomerUpdate(int CustID, string first_Name, string last_Name, string email, string address, string phone_No, string DOB, string gender, string username)
         {
             string queryStr = "UPDATE Customer SET" +
-                " Cust_ID = @CustID, " +
                 " first_Name = @first_Name, " +
                 " last_Name = @last_Name," +
                 " email = @email," +
-                " points = @points," +
                 " address = @address," +
-                " phone_No = @phone_No," +
+                " phoneNo = @phone_No," +
                 " DOB = @DOB," +
                 " gender = @gender," +
                 " username = @username" +
-                " WHERE Product_ID = @productID";
+                " WHERE Cust_ID = @CustID";
 
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@CustID", CustID);
+            cmd.Parameters.AddWithValue("@CustID",CustID);
             cmd.Parameters.AddWithValue("@first_Name", first_Name);
             cmd.Parameters.AddWithValue("@last_Name",last_Name);
-            cmd.Parameters.AddWithValue("@last_Name", last_Name);
             cmd.Parameters.AddWithValue("@email",email);
-            cmd.Parameters.AddWithValue("@points",points);
             cmd.Parameters.AddWithValue("@address",address);
             cmd.Parameters.AddWithValue("@phone_No",phone_No);
             cmd.Parameters.AddWithValue("@DOB",DOB);
