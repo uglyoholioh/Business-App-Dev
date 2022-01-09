@@ -111,6 +111,43 @@ namespace BizAppDev
             conn.Close();
             return nofRow;
         }
+        public Coupon getCoupon(int CustID)
+        {
+            Coupon coupDetail = null;
+            string cDesc, cName, duration, expiry, code;
+            int CouponID, amount, cost;
+            string queryStr = "SELECT * FROM Coupon WHERE Cust_ID = @CustID";
+
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@CustID", CustID);
+
+
+            conn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                cDesc = dr["cDesc"].ToString();
+                cName = dr["cName"].ToString();
+                duration = dr["duration"].ToString();
+                expiry = dr["expiry"].ToString();
+
+                code = dr["code"].ToString();
+                CouponID = int.Parse(dr["CouponID"].ToString());
+                amount = int.Parse(dr["amount"].ToString());
+                cost = int.Parse(dr["cost"].ToString());
+
+
+                coupDetail = new Coupon(CouponID,cDesc,cName,amount,cost,duration,expiry,code,CustID);
+                return coupDetail;
+
+            }
+            else
+            {
+                coupDetail = null;
+                return coupDetail;
+            }
+        }
 
     }
 
