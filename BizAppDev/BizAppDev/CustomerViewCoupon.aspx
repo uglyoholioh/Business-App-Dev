@@ -28,7 +28,9 @@ section{padding:5% 0;}
 .dl .coupon .code{letter-spacing:1px;border-radius:4px;margin-top:10px;padding:10px 15px;color:#f1c40f;background:#f0f0f0}
 .floatycontain {
     float:left;
-    width:20%;
+    width:30%;
+    margin-left:10%;
+    scale:80%;
 }
 .brand {
     height:160px;
@@ -36,7 +38,7 @@ section{padding:5% 0;}
 }
 
 .descr {
-    height:200px;
+    height:160px;
 }
 .row {
     width: 50%;
@@ -46,7 +48,8 @@ section{padding:5% 0;}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Repeater ID ="CouponRepeater" runat ="server">
+    <h1 style ="margin-left:25%;">Your vouchers</h1>
+    <asp:Repeater ID ="CouponRepeater" runat ="server" OnItemDataBound="CouponRepeater_ItemDataBound">
     <ItemTemplate>
         <div class="floatycontain">
 <section id="labels">
@@ -62,8 +65,8 @@ section{padding:5% 0;}
             </div>
             <div class="descr">
                 <strong><%# Eval("cDesc") %></strong><br />
-                <span> Expires:
-               <%# Eval("expiry") %></span>
+                <span>Expires:</span>
+                  <asp:Label ID="expiry" runat="server" Text='<%#Eval("expiry") %>'/>
             </div>
             <div class="ends">
                 <small>* Conditions and restrictions apply.</small>

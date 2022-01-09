@@ -16,7 +16,7 @@ namespace BizAppDev
         private string _cName = string.Empty;
         private int _amount = 0;
         private int _cost = 0;
-        private string _duration = string.Empty;
+        private string _discount = string.Empty;
         private string _expiry = string.Empty;
         private string _code = string.Empty;
         private int _Cust_ID = 0;
@@ -25,14 +25,14 @@ namespace BizAppDev
         {
 
         }
-        public Coupon(int couponID, string cDesc, string cName, int amount, int cost, string duration, string expiry, string code, int cust_ID)
+        public Coupon(int couponID, string cDesc, string cName, int amount, int cost, string discount, string expiry, string code, int cust_ID)
         {
             _CouponID = couponID;
             _cDesc = cDesc;
             _cName = cName;
             _amount = amount;
             _cost = cost;
-            _duration = duration;
+            _discount = discount;
             _expiry = expiry;
             _code = code;
             _Cust_ID = cust_ID;
@@ -65,10 +65,10 @@ namespace BizAppDev
             set { _cost = value; }
 
         }
-        public string duration
+        public string discount
         {
-            get { return _duration; }
-            set { _duration = value; }
+            get { return _discount; }
+            set { _discount = value; }
         }
 
         public string expiry
@@ -89,7 +89,7 @@ namespace BizAppDev
 
         public int claimCoupon(int CustID, string code)
         {
-            string cDesc, cName, duration, expiry;
+            string cDesc, cName, discount, expiry;
             int CouponID, amount, cost;
 
             string queryStr = "UPDATE Coupon SET" +
@@ -114,7 +114,7 @@ namespace BizAppDev
         public Coupon getCoupon(int CustID)
         {
             Coupon coupDetail = null;
-            string cDesc, cName, duration, expiry, code;
+            string cDesc, cName, discount, expiry, code;
             int CouponID, amount, cost;
             string queryStr = "SELECT * FROM Coupon WHERE Cust_ID = @CustID";
 
@@ -129,7 +129,7 @@ namespace BizAppDev
             {
                 cDesc = dr["cDesc"].ToString();
                 cName = dr["cName"].ToString();
-                duration = dr["duration"].ToString();
+                discount = dr["discount"].ToString();
                 expiry = dr["expiry"].ToString();
 
                 code = dr["code"].ToString();
@@ -138,15 +138,21 @@ namespace BizAppDev
                 cost = int.Parse(dr["cost"].ToString());
 
 
-                coupDetail = new Coupon(CouponID,cDesc,cName,amount,cost,duration,expiry,code,CustID);
+                coupDetail = new Coupon(CouponID,cDesc,cName,amount,cost,discount,expiry,code,CustID);
+                conn.Close();
+
                 return coupDetail;
 
             }
             else
             {
                 coupDetail = null;
+                conn.Close();
+
                 return coupDetail;
+
             }
+
         }
         public int redeemCoupon(int CustID,string code)
         {

@@ -20,6 +20,7 @@ namespace BizAppDev
         {
             if (!Page.IsPostBack)
             {
+
                 Session["CustID"] = 1;
                 int CustID = (int)(Session["CustID"]);
                 acoup = coup.getCoupon(CustID);
@@ -36,7 +37,24 @@ namespace BizAppDev
                 CouponRepeater.DataBind();
 
                 con.Close();
+            }
+        }
+        protected void CouponRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item)
+            {
+                Label lbl = e.Item.FindControl("expiry") as Label;    
 
+                DateTime coupExpiry = Convert.ToDateTime(lbl.Text);
+                if (DateTime.Now.Subtract(coupExpiry).Days < 15)
+                {
+                    string expiring = "expiring";
+                    lbl.Text = expiring;
+                }
+                else
+                {
+                    Response.Write("<script>alert('Customer updated successfully');</script>");
+                }
             }
         }
 

@@ -73,6 +73,7 @@
     <Content Include="CustomerLanding.aspx" />
     <Content Include="CustomerMain.css" />
     <Content Include="CustomerMainPage.aspx" />
+    <Content Include="CustomerPoints.aspx" />
     <Content Include="CustomerViewCoupon.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -121,6 +122,13 @@
     <Compile Include="CustomerMainPage.aspx.designer.cs">
       <DependentUpon>CustomerMainPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerPoints.aspx.cs">
+      <DependentUpon>CustomerPoints.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPoints.aspx.designer.cs">
+      <DependentUpon>CustomerPoints.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerViewCoupon.aspx.cs">
       <DependentUpon>CustomerViewCoupon.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -128,6 +136,7 @@
     <Compile Include="CustomerViewCoupon.aspx.designer.cs">
       <DependentUpon>CustomerViewCoupon.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
