@@ -46,14 +46,15 @@ namespace BizAppDev
                 Label lbl = e.Item.FindControl("expiry") as Label;    
 
                 DateTime coupExpiry = Convert.ToDateTime(lbl.Text);
-                if (DateTime.Now.Subtract(coupExpiry).Days < 15)
+                if (coupExpiry.Subtract(DateTime.Now).Days > 7)
                 {
-                    string expiring = "expiring";
-                    lbl.Text = expiring;
+                    lbl.ForeColor = System.Drawing.Color.Green;
                 }
                 else
                 {
-                    Response.Write("<script>alert('Customer updated successfully');</script>");
+                    string expiring = " (Expiring soon!)";
+                    lbl.Text += expiring;
+                    lbl.ForeColor = System.Drawing.Color.Red;
                 }
             }
         }
