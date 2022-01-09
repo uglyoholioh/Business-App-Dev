@@ -148,6 +148,22 @@ namespace BizAppDev
                 return coupDetail;
             }
         }
+        public int redeemCoupon(int CustID,string code)
+        {
+            string queryStr = "DELETE FROM Coupon WHERE Cust_ID = @CustID and code = @code";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@CustID", CustID);
+            cmd.Parameters.AddWithValue("@code", code);
+            conn.Open();
+            int nofRow = 0;
+            nofRow = cmd.ExecuteNonQuery();
+            conn.Close();
+            return nofRow;
+
+
+
+        }
 
     }
 

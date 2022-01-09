@@ -5,7 +5,7 @@
         @import url('https://fonts.googleapis.com/css?family=Oswald');
 
 
-section{padding:5% 0;display:flex;}
+section{padding:5% 0;}
 .alizarin{background:#e74c3c}
 .amethyst{background:#9b59b6}
 .emerald{background:#2ecc71}
@@ -22,13 +22,21 @@ section{padding:5% 0;display:flex;}
 .dl .discount.amethyst:after{border-top:20px solid #9b59b6}
 .dl .discount .type{font-size:20px;letter-spacing:1px;text-transform:uppercase;margin-top:-30px}
 .dl .descr{color:#999;margin-top:10px;padding:20px 15px}
-.dl .ends{padding:0 15px;color:#f1c40f;margin-bottom:10px}
+.dl .ends{padding:0 15px;color:coral;margin-bottom:10px}
 .dl .coupon{min-height:50px;text-align:center;text-transform:uppercase;font-weight:700;font-size:18px;padding:20px 15px}
 .dl .coupon a.open-code{color:#16a085}
 .dl .coupon .code{letter-spacing:1px;border-radius:4px;margin-top:10px;padding:10px 15px;color:#f1c40f;background:#f0f0f0}
 .floatycontain {
     float:left;
+    width:20%;
+}
+.brand {
+    height:160px;
 
+}
+
+.descr {
+    height:200px;
 }
 .row {
     width: 50%;
@@ -49,21 +57,25 @@ section{padding:5% 0;display:flex;}
             <div class="brand">
                 <h2><%# Eval("cName") %></h2>
             </div>
-            <div class="discount alizarin">30%
+            <div class="discount alizarin"><%# Eval("amount") %>
                 <div class="type">off</div>
             </div>
             <div class="descr">
-                <strong>Mei mucius gloriatur reprimique mollis*.</strong> 
-                Ad sonet perfecto antiopam mei, denique molestie ne has. 
+                <strong><%# Eval("cDesc") %></strong><br />
+                <span> Expires:
+               <%# Eval("expiry") %></span>
             </div>
             <div class="ends">
                 <small>* Conditions and restrictions apply.</small>
             </div>
-            <div class="coupon midnight-blue">
-                <a data-toggle="collapse" href="#code-1" class="open-code">Get a code</a>
-                <div id="code-1" class="collapse code">LV5MAY14</div>
-            </div>
+              <div class="coupon midnight-blue">
+                  <a data-toggle="collapse" href="#code-1" class="open-code">            <asp:Label ID="CouponCode" runat="server" Text='<%#Eval("code") %>'/>
+</a>
+                  <div id="code-1" class="collapse code"><%#Eval("code") %></div>
+              </div>
           </div>
+                <asp:Button ID="btn_Claim" runat="server" OnClick="btn_Claim_Click" Text="Claim" />
+
         </div>
 
 	</div>
@@ -73,7 +85,9 @@ section{padding:5% 0;display:flex;}
         </ItemTemplate>
     </asp:Repeater>
 
+
     <script>
+        https://goo.gl/YaXBll
 
     </script>
 </asp:Content>
