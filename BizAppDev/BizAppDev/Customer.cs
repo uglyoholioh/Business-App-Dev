@@ -23,12 +23,13 @@ namespace BizAppDev
         private string _DOB = string.Empty;
         private string _gender = string.Empty;
         private string _username = string.Empty;
+        private int _pointTierID = 0;
 
         public Customer()
         {
 
         }
-        public Customer(int CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username)
+        public Customer(int CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username, int pointTierID)
         {
             _CustID = CustID;
             _firstName = firstName;
@@ -40,7 +41,7 @@ namespace BizAppDev
             _DOB = DOB;
             _gender = gender;
             _username = username;
-
+            _pointTierID = pointTierID;
         }
         public int Cust_ID
         {
@@ -94,11 +95,17 @@ namespace BizAppDev
             set { _username = value; }
         }
 
+        public int pointTierID
+        {
+            get { return _pointTierID; }
+            set { _pointTierID = value; }
+        }
+
         public Customer getCustomer(int CustID)
         {
             Customer custDetail = null;
             string first_Name, last_Name, phone_No, email, address, DOB, gender, username;
-            int points;
+            int points,pointTierID;
 
             string queryStr = "SELECT * FROM Customer WHERE Cust_ID = @CustID";
 
@@ -114,14 +121,14 @@ namespace BizAppDev
                 last_Name = dr["Last_Name"].ToString();
                 address = dr["Address"].ToString();
                 DOB = dr["DOB"].ToString();
-
+                pointTierID = int.Parse(dr["pointTierID"].ToString());
                 phone_No = dr["PhoneNo"].ToString();
                 points = int.Parse(dr["Points"].ToString());
                 gender = dr["Gender"].ToString();
                 email = dr["Email"].ToString();
                 username = dr["Username"].ToString();
 
-                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender, username);
+                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender, username,pointTierID);
                 return custDetail;
 
             }

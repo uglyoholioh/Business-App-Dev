@@ -91,5 +91,6 @@
     </table>
     <asp:Button ID="btn_Edit" runat="server" ForeColor="Black" Text="Edit" CssClass="button-54" OnClick="btn_Edit_Click" />
     <asp:Button ID="btn_Delete" runat="server" Text="Delete" CssClass="button-54" />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
         </div>
 </asp:Content>

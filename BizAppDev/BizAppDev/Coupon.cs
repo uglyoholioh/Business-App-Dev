@@ -11,7 +11,7 @@ namespace BizAppDev
     public class Coupon
     {
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-        private int _CouponID = 1;
+        private int _CouponID = 0;
         private string _cDesc = string.Empty;
         private string _cName = string.Empty;
         private int _amount = 0;

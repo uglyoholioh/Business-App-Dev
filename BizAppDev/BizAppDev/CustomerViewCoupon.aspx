@@ -29,8 +29,7 @@ section{padding:5% 0;}
 .floatycontain {
     float:left;
     width:30%;
-    margin-left:10%;
-    scale:80%;
+
 }
 .brand {
     height:160px;
