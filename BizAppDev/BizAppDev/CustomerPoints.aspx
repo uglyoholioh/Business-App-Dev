@@ -28,7 +28,14 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">&nbsp;</td>
+            <td class="auto-style2">Points tier:</td>
+            <td>
+                <asp:Label ID="lbl_TierName" runat="server"></asp:Label>
+&nbsp;<asp:Button ID="btn_Perks" runat="server" OnClick="btn_Perks_Click" Text="View Perks" />
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">Your coupons</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -36,32 +43,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" DataKeyField="pointTierID" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
-                    <ItemTemplate>
-                        pointTierID:
-                        <asp:Label ID="pointTierIDLabel" runat="server" Text='<%# Eval("pointTierID") %>' />
-                        <br />
-                        name:
-                        <asp:Label ID="nameLabel" runat="server" Text='<%# Eval("name") %>' />
-                        <br />
-                        desc:
-                        <asp:Label ID="descLabel" runat="server" Text='<%# Eval("desc") %>' />
-                        <br />
-                        price:
-                        <asp:Label ID="priceLabel" runat="server" Text='<%# Eval("price") %>' />
-                        <br />
-                        benefits:
-                        <asp:Label ID="benefitsLabel" runat="server" Text='<%# Eval("benefits") %>' />
-                        <br />
-<br />
-                    </ItemTemplate>
-                </asp:DataList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [PointTiers] WHERE ([pointTierID] = @pointTierID)">
-                    <SelectParameters>
-                        <asp:QueryStringParameter Name="pointTierID" QueryStringField="pointTierID" Type="Int32" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
-            </td>
+                &nbsp;</td>
         </tr>
     </table>
 </asp:Content>

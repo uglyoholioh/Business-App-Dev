@@ -76,6 +76,7 @@
     <Content Include="CustomerMainPage.aspx" />
     <Content Include="CustomerPoints.aspx" />
     <Content Include="CustomerViewCoupon.aspx" />
+    <Content Include="CustomerViewPerks.aspx" />
     <Content Include="StaffAddPointTier.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -137,6 +138,13 @@
     </Compile>
     <Compile Include="CustomerViewCoupon.aspx.designer.cs">
       <DependentUpon>CustomerViewCoupon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerViewPerks.aspx.cs">
+      <DependentUpon>CustomerViewPerks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerViewPerks.aspx.designer.cs">
+      <DependentUpon>CustomerViewPerks.aspx</DependentUpon>
     </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="pointsTier.cs" />
