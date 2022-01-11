@@ -52,6 +52,7 @@
                         <br />
                         benefits:
                         <asp:Label ID="benefitsLabel" runat="server" Text='<%# Eval("benefits") %>' />
+                        <br />
 <br />
                     </ItemTemplate>
                 </asp:DataList>
