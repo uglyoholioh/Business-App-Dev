@@ -32,12 +32,7 @@ namespace BizAppDev
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-			Session["CustID"] = 1;
-			int CustID = (int)(Session["CustID"]);
-			Customer cust = new Customer();
-			Customer acust = new Customer();
-			acust = cust.getCustomer(CustID);
-			Response.Redirect("CustomerPoints.aspx?pointTierID=" + acust.pointTierID);
+
 		}
     }
 }
