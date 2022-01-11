@@ -22,8 +22,6 @@ namespace BizAppDev
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-<<<<<<< Updated upstream
-=======
 
         /// <summary>
         /// tb_Name control.
@@ -123,6 +121,5 @@ namespace BizAppDev
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource staffPerkadd;
->>>>>>> Stashed changes
     }
 }
