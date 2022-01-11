@@ -15,19 +15,17 @@ namespace BizAppDev
         private string _name = string.Empty;
         private string _desc = string.Empty;
         private int _price = 0;
-        private string _benefits = string.Empty;
 
         public pointsTier()
         {
 
         }
-        public pointsTier(int pointsTierID, string name, string desc, int price, string benefits)
+        public pointsTier(int pointsTierID, string name, string desc, int price)
         {
             _pointsTierID = pointsTierID;
             _name = name;
             _desc = desc;
             _price = price;
-            _benefits = benefits;
 
         }
         public int pointsTierID
@@ -54,11 +52,7 @@ namespace BizAppDev
             set { _price = value; }
         }
 
-        public string benefits
-        {
-            get { return _benefits; }
-            set { _benefits = value; }
-        }
+
 
 
         public pointsTier getPointsTier(int pointTierID)
@@ -80,11 +74,10 @@ namespace BizAppDev
                 name = dr["name"].ToString();
                 desc = dr["desc"].ToString();
                 price = int.Parse(dr["price"].ToString());
-                benefits = dr["benefits"].ToString();
 
 
 
-                tierDetail = new pointsTier(pointTierID, name, desc, price, benefits);
+                tierDetail = new pointsTier(pointTierID, name, desc, price);
                 conn.Close();
 
                 return tierDetail;
