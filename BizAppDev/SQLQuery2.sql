@@ -1,1 +1,0 @@
-﻿INSERT INTO PointTiers values (2,'hello','world',200);
