@@ -33,13 +33,13 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.TextBox tb_Name;
 
         /// <summary>
-        /// tb_desc control.
+        /// tb_descr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_desc;
+        protected global::System.Web.UI.WebControls.TextBox tb_descr;
 
         /// <summary>
         /// tb_price control.
@@ -49,15 +49,6 @@ namespace BizAppDev
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tb_price;
-
-        /// <summary>
-        /// lbl_Check control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Check;
 
         /// <summary>
         /// cbl_Perks control.

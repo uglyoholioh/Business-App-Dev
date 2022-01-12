@@ -13,7 +13,7 @@ namespace BizAppDev
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
         private int _pointsTierID = 0;
         private string _name = string.Empty;
-        private string _desc = string.Empty;
+        private string _descr = string.Empty;
         private int _price = 0;
         private string _benefits = string.Empty;
 
@@ -21,11 +21,11 @@ namespace BizAppDev
         {
 
         }
-        public pointsTier(int pointsTierID, string name, string desc, int price)
+        public pointsTier(int pointsTierID, string name, string descr, int price)
         {
             _pointsTierID = pointsTierID;
             _name = name;
-            _desc = desc;
+            _descr = descr;
             _price = price;
 
         }
@@ -41,10 +41,10 @@ namespace BizAppDev
             set { _name = value; }
         }
 
-        public string desc
+        public string descr
         {
-            get { return _desc; }
-            set { _desc = value; }
+            get { return _descr; }
+            set { _descr = value; }
         }
 
         public int price
@@ -59,7 +59,7 @@ namespace BizAppDev
         public pointsTier getPointsTier(int pointTierID)
         {
             pointsTier tierDetail = null;
-            string name, desc;
+            string name, descr;
             int price;
             string queryStr = "SELECT * FROM PointTiers WHERE pointTierID = @pointTierID";
 
@@ -73,11 +73,11 @@ namespace BizAppDev
             if (dr.Read())
             {
                 name = dr["name"].ToString();
-                desc = dr["desc"].ToString();
+                descr = dr["descr"].ToString();
                 price = int.Parse(dr["price"].ToString());
 
 
-                tierDetail = new pointsTier(pointTierID, name, desc, price);
+                tierDetail = new pointsTier(pointTierID, name, descr, price);
                 conn.Close();
 
                 return tierDetail;
@@ -107,18 +107,18 @@ namespace BizAppDev
             return nofRow;
 
         }
-        public int TierUpdate(int pointTierID,string name, string desc, int price)
+        public int TierUpdate(int pointTierID,string name, string descr, int price)
         {
-            string queryStr = "UPDATE PointTiers SET " +
-                "name = @name, " +
-                "desc = @desc, " +
-                "price = @price" +
+            string queryStr = "UPDATE PointTiers SET" +
+                " name = @name," +
+                " descr = @descr," +
+                " price = @price"+
                 " WHERE pointTierID = @pointTierID";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
             cmd.Parameters.AddWithValue("@name", name);
-            cmd.Parameters.AddWithValue("@desc", desc);
+            cmd.Parameters.AddWithValue("@descr", descr);
             cmd.Parameters.AddWithValue("@price", price);
 
             conn.Open();

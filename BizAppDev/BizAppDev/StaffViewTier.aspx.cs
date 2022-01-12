@@ -68,14 +68,14 @@ namespace BizAppDev
         {
             pointsTier aTier = new pointsTier();
             TextBox newName = (TextBox)(e.Item.FindControl("tb_Name"));
-            TextBox newDesc = (TextBox)(e.Item.FindControl("tb_Desc"));
+            TextBox newdescr = (TextBox)(e.Item.FindControl("tb_descr"));
             TextBox newPrice = (TextBox)(e.Item.FindControl("tb_Price"));
             Label newpointTierID = (Label)(e.Item.FindControl("pointTierIDLabel"));
             int newpointTierIDInt = int.Parse(newpointTierID.Text);
             string newNameStr = newName.Text;
-            string newDescStr = newDesc.Text;
+            string newdescrStr = newdescr.Text;
             int newPriceInt= int.Parse(newPrice.Text);
-            aTier.TierUpdate(newpointTierIDInt,newNameStr, newDescStr, newPriceInt);
+            aTier.TierUpdate(newpointTierIDInt,newNameStr, newdescrStr, newPriceInt);
             DataList1.EditItemIndex = -1;
             DataList1.DataBind();
 
@@ -92,6 +92,11 @@ namespace BizAppDev
         {
             DataList1.EditItemIndex = e.Item.ItemIndex;
             DataList1.DataBind();
+        }
+
+        protected void btn_Back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("StaffAddPointTier.aspx");
         }
     }
 }

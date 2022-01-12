@@ -15,21 +15,21 @@ namespace BizAppDev
     {
 
         /// <summary>
-        /// tb_Code control.
+        /// CouponDatalist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_Code;
+        protected global::System.Web.UI.WebControls.DataList CouponDatalist;
 
         /// <summary>
-        /// btn_Submit control.
+        /// couponDatlist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Submit;
+        protected global::System.Web.UI.WebControls.SqlDataSource couponDatlist;
     }
 }

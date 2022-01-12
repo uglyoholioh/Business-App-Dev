@@ -23,7 +23,7 @@ namespace BizAppDev
             addedPerks = (List<int>)HttpContext.Current.Session["list"];
             addedPerks.Add(1);
             HttpContext.Current.Session["list"] = addedPerks;
-            string perkIDqueryStr = "SELECT top 1 pointTierID from PointTiers order by pointTierID Desc";
+            string perkIDqueryStr = "SELECT top 1 pointTierID from PointTiers order by pointTierID desc";
             string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
             SqlConnection IDconn = new SqlConnection(_connStr);
             SqlCommand IDcmd = new SqlCommand(perkIDqueryStr, IDconn);
@@ -50,17 +50,17 @@ namespace BizAppDev
         {
             int pointtierresult = 0;
             bool valid = true;
-            string tierqueryStr = "INSERT INTO PointTiers" + " values (@pointTierID,@name,@desc,@price)";
+            string tierqueryStr = "INSERT INTO PointTiers" + " values (@pointTierID,@name,@descr,@price)";
             string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
             SqlConnection tierconn = new SqlConnection(_connStr);
             SqlCommand tiercmd = new SqlCommand(tierqueryStr, tierconn);
             string name = tb_Name.Text;
-            string desc = tb_desc.Text;
+            string descr = tb_descr.Text;
             int pointTierID = int.Parse(Session["tierID"].ToString());
             int price = int.Parse(tb_price.Text);
             tiercmd.Parameters.AddWithValue("@pointTierID", pointTierID);
             tiercmd.Parameters.AddWithValue("@name", name);
-            tiercmd.Parameters.AddWithValue("@desc", desc);
+            tiercmd.Parameters.AddWithValue("@descr", descr);
             tiercmd.Parameters.AddWithValue("@price", price);
 
             tierconn.Open();

@@ -87,18 +87,13 @@ namespace BizAppDev
             set { _Cust_ID = value; }
         }
 
-        public int claimCoupon(int CustID, string code)
+        public int claimCoupon(int CustID,int CouponID, string code)
         {
-            string cDesc, cName, discount, expiry;
-            int CouponID, amount, cost;
-
-            string queryStr = "UPDATE Coupon SET" +
-                " Cust_ID = @CustID" +
-                " WHERE code = @code";
-
+            string queryStr = "INSERT into CustCoupon " + "values(@Cust_ID,@CouponID,@code)";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@CustID", CustID);
+            cmd.Parameters.AddWithValue("@Cust_ID", CustID);
+            cmd.Parameters.AddWithValue("@CouponID", CouponID);
             cmd.Parameters.AddWithValue("@code", code);
 
 

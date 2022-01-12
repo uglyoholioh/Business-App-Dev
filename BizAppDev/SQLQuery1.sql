@@ -1,0 +1,1 @@
+﻿update PointTiers set descr ='aadw'
