@@ -11,7 +11,9 @@ namespace BizAppDev
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            int crap = 1;
+            string urlString = "~/Coupons(lermin).aspx?pointTierID=" + crap.ToString(); ;
+            hrefString.Text = urlString;
         }
     }
 }

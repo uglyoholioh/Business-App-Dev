@@ -5,28 +5,33 @@
                       <p class="text-sm">Create points tier</p>
                         <div class="mb-3">
                           <label class="form-label">Tier Name</label>
-                          <input class="form-control" id="exampleInputEmail1">
+                            <asp:TextBox ID="tb_Name" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="mb-3">
                           <label class="form-label">Tier Description</label>
-                          <input class="form-control">
+                            <asp:TextBox ID="tb_desc" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="mb-3">
                           <label class="form-label">Point expenditure requirement to reach tier</label>
-                          <input class="form-control">
+                            <asp:TextBox ID="tb_price" runat="server" CssClass="form-control"></asp:TextBox>
                             </div>
 
                                                     <div class="mb-3">
                                   <label class="form-label">Perks to be included</label>
                                                         <br />
+                                                        <br />
                                                         <asp:Label ID="lbl_Check" runat="server" Text="Label"></asp:Label>
+                                                        <asp:CheckBoxList ID="cbl_Perks" runat="server" DataSourceID="checkboxData" DataTextField="PerkID" DataValueField="PerkID">
+                                                        </asp:CheckBoxList>
+                                                        <asp:SqlDataSource ID="checkboxData" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [PerkID] FROM [Perks]"></asp:SqlDataSource>
                                                         <asp:Label ID="lbl_PerkList" runat="server" CssClass="form-control"></asp:Label>
                           <asp:DataList ID="DataList1" runat="server" DataKeyField="PerkID" DataSourceID="staffPerkadd" RepeatColumns="4" RepeatDirection="Horizontal" CellPadding="20" CellSpacing="-1" Width="1371px" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" OnItemCommand="DataList1_ItemCommand1">
                               <ItemTemplate>
                       <div style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;" class="card-body">
-                      <h4 class="card-title"><asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' /></h4>
+                      <h4 class="card-title"><asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
+                          <asp:Label ID="Label2" runat="server" Text='<%# Eval("PerkID") %>' />
+                          </h4>
                       <p class="card-text"><asp:Label ID="Label1" runat="server" Text='<%# Eval("Desc") %>' /></p>
-                          <asp:Button ID="btn_Add" runat="server" Text="Add" CssClass="btn btn-primary" CommandName="AddPerk" CommandArgument ='<%# Eval("perkID") %>'/>
                     </div>
                                   </div>
 
@@ -43,7 +48,7 @@
                               </ItemTemplate>
         </asp:DataList>
                       <asp:SqlDataSource ID="staffPerkadd" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Perks]"></asp:SqlDataSource>
-                                <button class="btn btn-primary" type="submit">Submit</button>
+                                                        <asp:Button ID="btn_Submit" runat="server" Text="Button" CssClass="btn btn-primary" OnClick="btn_Submit_Click1" />
 
     </form>
                       </form>

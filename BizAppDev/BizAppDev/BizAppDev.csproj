@@ -78,6 +78,8 @@
     <Content Include="CustomerViewCoupon.aspx" />
     <Content Include="CustomerViewPerks.aspx" />
     <Content Include="StaffAddPointTier.aspx" />
+    <Content Include="StaffEditTier.aspx" />
+    <Content Include="StaffViewTier.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +164,20 @@
     </Compile>
     <Compile Include="StaffAddPointTier.aspx.designer.cs">
       <DependentUpon>StaffAddPointTier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffEditTier.aspx.cs">
+      <DependentUpon>StaffEditTier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffEditTier.aspx.designer.cs">
+      <DependentUpon>StaffEditTier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffViewTier.aspx.cs">
+      <DependentUpon>StaffViewTier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffViewTier.aspx.designer.cs">
+      <DependentUpon>StaffViewTier.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

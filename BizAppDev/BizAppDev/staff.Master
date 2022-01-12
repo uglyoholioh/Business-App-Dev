@@ -122,7 +122,9 @@
        <!-- Sidebar navigation-->
        <span class="heading">Customer Information</span>
           <ul class="list-unstyled">
-                <li class="active"><a runat="server" href="~/Coupons(lermin).aspx">Coupons</a></li>
+                              <li>
+                                  <a href="<asp:literal id="hrefString" runat="server"></asp:literal>">Edit your profile</a></li>
+                <li class="active"><a runat="server" href="~/Coupons(lermin).aspx">Coupon</a></li>
                 <li><a runat="server" href="~/MembershipTierList.aspx">Member Tier List</a></li>
                 <li><a runat="server" href="~/Offers(lermin).aspx">Offers</a></li>
                 <li><a runat="server" href="~/Customer.aspx">Customer Details</a></li>

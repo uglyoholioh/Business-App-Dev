@@ -21,13 +21,12 @@ namespace BizAppDev
         {
 
         }
-        public pointsTier(int pointsTierID, string name, string desc, int price, string benefits)
+        public pointsTier(int pointsTierID, string name, string desc, int price)
         {
             _pointsTierID = pointsTierID;
             _name = name;
             _desc = desc;
             _price = price;
-            _benefits = benefits;
 
         }
         public int pointsTierID
@@ -54,17 +53,13 @@ namespace BizAppDev
             set { _price = value; }
         }
 
-        public string benefits
-        {
-            get { return _benefits; }
-            set { _benefits = value; }
-        }
+
 
 
         public pointsTier getPointsTier(int pointTierID)
         {
             pointsTier tierDetail = null;
-            string name, desc, benefits;
+            string name, desc;
             int price;
             string queryStr = "SELECT * FROM PointTiers WHERE pointTierID = @pointTierID";
 
@@ -80,11 +75,9 @@ namespace BizAppDev
                 name = dr["name"].ToString();
                 desc = dr["desc"].ToString();
                 price = int.Parse(dr["price"].ToString());
-                benefits = dr["benefits"].ToString();
 
 
-
-                tierDetail = new pointsTier(pointTierID, name, desc, price, benefits);
+                tierDetail = new pointsTier(pointTierID, name, desc, price);
                 conn.Close();
 
                 return tierDetail;
@@ -98,6 +91,41 @@ namespace BizAppDev
                 return tierDetail;
 
             }
+
+        }
+        public int TierDelete(int pointTierID)
+        {
+            string queryStr = "DELETE FROM PointTiers WHERE pointTierID=@pointTierID";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
+            conn.Open();
+            int nofRow = 0;
+            nofRow = cmd.ExecuteNonQuery();
+            //  Response.Write("<script>alert('Delete successful');</script>");
+            conn.Close();
+            return nofRow;
+
+        }
+        public int TierUpdate(int pointTierID,string name, string desc, int price)
+        {
+            string queryStr = "UPDATE PointTiers SET " +
+                "name = @name, " +
+                "desc = @desc, " +
+                "price = @price" +
+                " WHERE pointTierID = @pointTierID";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@desc", desc);
+            cmd.Parameters.AddWithValue("@price", price);
+
+            conn.Open();
+            int noofrow = 0;
+            noofrow = cmd.ExecuteNonQuery();
+            conn.Close();
+            return noofrow;
 
         }
     }
