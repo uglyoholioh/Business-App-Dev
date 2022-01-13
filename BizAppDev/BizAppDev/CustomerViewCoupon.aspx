@@ -47,6 +47,25 @@ section{padding:5% 0;}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="CouponRetrieve">
+        <ItemTemplate>
+            CouponID:
+            <asp:Label ID="CouponIDLabel" runat="server" Text='<%# Eval("CouponID") %>' />
+            <br />
+            Cust_ID:
+            <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("Cust_ID") %>' />
+            <br />
+            Code:
+            <asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("Code") %>' />
+            <br />
+<br />
+        </ItemTemplate>
+    </asp:DataList>
+    <asp:SqlDataSource ID="CouponRetrieve" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [CouponID], [Cust_ID], [Code] FROM [CustCoupon] WHERE ([Cust_ID] = @Cust_ID)">
+        <SelectParameters>
+            <asp:SessionParameter DefaultValue="1" Name="Cust_ID" SessionField="CustID" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
     <h1 style ="margin-left:25%;">Your vouchers</h1>
     <asp:Repeater ID ="CouponRepeater" runat ="server" OnItemDataBound="CouponRepeater_ItemDataBound">
     <ItemTemplate>

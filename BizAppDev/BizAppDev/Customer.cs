@@ -24,12 +24,13 @@ namespace BizAppDev
         private string _gender = string.Empty;
         private string _username = string.Empty;
         private int _pointTierID = 0;
+        private int _lvlPoints = 0;
 
         public Customer()
         {
 
         }
-        public Customer(int CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username, int pointTierID)
+        public Customer(int CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username, int pointTierID, int lvlPoints)
         {
             _CustID = CustID;
             _firstName = firstName;
@@ -42,6 +43,7 @@ namespace BizAppDev
             _gender = gender;
             _username = username;
             _pointTierID = pointTierID;
+            _lvlPoints = lvlPoints;
         }
         public int Cust_ID
         {
@@ -100,12 +102,17 @@ namespace BizAppDev
             get { return _pointTierID; }
             set { _pointTierID = value; }
         }
+        public int lvlPoints
+        {
+            get { return _lvlPoints; }
+            set { _lvlPoints = value; }
+        }
 
         public Customer getCustomer(int CustID)
         {
             Customer custDetail = null;
             string first_Name, last_Name, phone_No, email, address, DOB, gender, username;
-            int points,pointTierID;
+            int points, pointTierID, lvlPoints;
 
             string queryStr = "SELECT * FROM Customer WHERE Cust_ID = @CustID";
 
@@ -127,8 +134,9 @@ namespace BizAppDev
                 gender = dr["Gender"].ToString();
                 email = dr["Email"].ToString();
                 username = dr["Username"].ToString();
+                lvlPoints = int.Parse(dr["lvlPoints"].ToString());
 
-                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender, username,pointTierID);
+                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender, username,pointTierID,lvlPoints);
                 return custDetail;
 
             }
@@ -179,6 +187,23 @@ namespace BizAppDev
             return nofRow;
 
 
+        }
+        public int CustomerUpdatePoints(int CustID,int addedpoints)
+        {
+            string queryStr = "UPDATE Customer SET" +
+                " lvlPoints = lvlpoints +@addedpoints " +
+                " WHERE Cust_ID = @CustID";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@CustID", CustID);
+            cmd.Parameters.AddWithValue("@addedpoints", addedpoints);
+            conn.Open();
+            int nofRow = 0;
+            nofRow = cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+            return nofRow;
         }
     }
 }

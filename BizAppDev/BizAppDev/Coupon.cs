@@ -87,24 +87,25 @@ namespace BizAppDev
             set { _Cust_ID = value; }
         }
 
-        public int claimCoupon(int CustID,int CouponID, string code)
+        public int claimCoupon(int CustID,int CouponID, string code,string coupName, int coupQuantity, int coupDiscount, string coupExpiry)
         {
-            string queryStr = "INSERT into CustCoupon " + "values(@Cust_ID,@CouponID,@code)";
-            SqlConnection conn = new SqlConnection(_connStr);
-            SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@Cust_ID", CustID);
-            cmd.Parameters.AddWithValue("@CouponID", CouponID);
-            cmd.Parameters.AddWithValue("@code", code);
 
+                string queryStr = "INSERT into CustCoupon " + "values(@Cust_ID,@CouponID,@code,@coupName,@coupQuantity,@coupDiscount,@coupExpiry)";
+                SqlConnection conn = new SqlConnection(_connStr);
+                SqlCommand cmd = new SqlCommand(queryStr, conn);
+                cmd.Parameters.AddWithValue("@Cust_ID", CustID);
+                cmd.Parameters.AddWithValue("@CouponID", CouponID);
+                cmd.Parameters.AddWithValue("@code", code);
+                cmd.Parameters.AddWithValue("@coupName", coupName);
+                cmd.Parameters.AddWithValue("@coupQuantity", 1);
+                cmd.Parameters.AddWithValue("@coupDiscount", coupDiscount);
+                cmd.Parameters.AddWithValue("@coupExpiry", coupExpiry);
+                conn.Open();
+                int nofRow = 0;
+                nofRow += cmd.ExecuteNonQuery();
 
-
-
-            conn.Open();
-            int nofRow = 0;
-            nofRow = cmd.ExecuteNonQuery();
-
-            conn.Close();
-            return nofRow;
+                conn.Close();
+                return nofRow;
         }
         public Coupon getCoupon(int CustID)
         {
@@ -149,7 +150,7 @@ namespace BizAppDev
             }
 
         }
-        public int redeemCoupon(int CustID,string code)
+        public int useCoupon(int CustID,string code)
         {
             string queryStr = "DELETE FROM Coupon WHERE Cust_ID = @CustID and code = @code";
             SqlConnection conn = new SqlConnection(_connStr);

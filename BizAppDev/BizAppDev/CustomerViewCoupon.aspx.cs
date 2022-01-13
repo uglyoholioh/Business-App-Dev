@@ -61,20 +61,6 @@ namespace BizAppDev
 
         protected void btn_Claim_Click(object sender, EventArgs e)
         {
-            RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
-            string code = (item.FindControl("CouponCode") as Label).Text;
-            int CustID = (int)(Session["CustID"]);
-            int result = 0;
-            result = coup.redeemCoupon(CustID, code);
-            if (result > 0)
-            {
-                Response.Write("<script>alert('Coupon redemption successful!');</script>");
-                Response.Redirect("CustomerViewCoupon.aspx");
-            }
-            else
-            {
-                Response.Write("<script>alert('Coupon redemption unsuccessful');</script>");
-            }
 
 
         }
