@@ -36,7 +36,4 @@
                     </ItemTemplate>
                 </asp:DataList>
                 <asp:SqlDataSource ID="couponDatlist" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Coupon]"></asp:SqlDataSource>
-
-    <asp:Label ID="lbl_date" runat="server" Text="Label"></asp:Label>
-
 </asp:Content>

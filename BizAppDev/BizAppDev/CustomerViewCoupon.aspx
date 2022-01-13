@@ -28,7 +28,6 @@ section{padding:5% 0;}
 .dl .coupon .code{letter-spacing:1px;border-radius:4px;margin-top:10px;padding:10px 15px;color:#f1c40f;background:#f0f0f0}
 .floatycontain {
     float:left;
-    width:30%;
 
 }
 .brand {
@@ -40,35 +39,15 @@ section{padding:5% 0;}
     height:160px;
 }
 .row {
-    width: 50%;
+    width: 51%;
     float:right;
     padding: 20px;
-}  
+}   
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:DataList ID="DataList1" runat="server" DataSourceID="CouponRetrieve">
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="CouponRetrieve" RepeatColumns="3" RepeatDirection="Horizontal" OnItemCommand="DataList1_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
         <ItemTemplate>
-            CouponID:
-            <asp:Label ID="CouponIDLabel" runat="server" Text='<%# Eval("CouponID") %>' />
-            <br />
-            Cust_ID:
-            <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("Cust_ID") %>' />
-            <br />
-            Code:
-            <asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("Code") %>' />
-            <br />
-<br />
-        </ItemTemplate>
-    </asp:DataList>
-    <asp:SqlDataSource ID="CouponRetrieve" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [CouponID], [Cust_ID], [Code] FROM [CustCoupon] WHERE ([Cust_ID] = @Cust_ID)">
-        <SelectParameters>
-            <asp:SessionParameter DefaultValue="1" Name="Cust_ID" SessionField="CustID" Type="Int32" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-    <h1 style ="margin-left:25%;">Your vouchers</h1>
-    <asp:Repeater ID ="CouponRepeater" runat ="server" OnItemDataBound="CouponRepeater_ItemDataBound">
-    <ItemTemplate>
         <div class="floatycontain">
 <section id="labels">
   <div class="container">
@@ -76,40 +55,47 @@ section{padding:5% 0;}
         <div class="col-sm-6 col-md-3">
           <div class="dl">
             <div class="brand">
-                <h2><%# Eval("cName") %></h2>
+                <h2><asp:Label ID="CouponIDLabel" runat="server" Text='<%# Eval("CouponID") %>' />
+</h2>
             </div>
-            <div class="discount alizarin"><%# Eval("amount") %>
+            <div class="discount alizarin"><%# Eval("coupDiscount") %>
                 <div class="type">off</div>
             </div>
             <div class="descr">
-                <strong><%# Eval("cDesc") %></strong><br />
+                <strong><asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("Code") %>' /></strong><br />
                 <span>Expires:</span>
-                  <asp:Label ID="expiry" runat="server" Text='<%#Eval("expiry") %>'/>
+                  <asp:Label ID="expiry" runat="server" Text='<%#Eval("coupexpiry") %>'/>
             </div>
             <div class="ends">
-                <small>* Conditions and restrictions apply.</small>
+                <small>                  <asp:Label ID="coupQuantityLabel" runat="server" Text='<%#Eval("coupQuantity") %>'/>
+* Conditions and restrictions apply.</small>
             </div>
               <div class="coupon midnight-blue">
                   <a data-toggle="collapse" href="#code-1" class="open-code">            <asp:Label ID="CouponCode" runat="server" Text='<%#Eval("code") %>'/>
 </a>
+                  <asp:Button ID="btn_Use" runat="server" CommandName="UseCoupon" Text="Use" CssClass ="btn-dark"/>
                   <div id="code-1" class="collapse code"><%#Eval("code") %></div>
               </div>
           </div>
-                <asp:Button ID="btn_Claim" runat="server" OnClick="btn_Claim_Click" Text="Claim" />
 
         </div>
 
 	</div>
   </div>
     </div>
-</section>
+
+            <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("Cust_ID") %>' />
+
         </ItemTemplate>
-    </asp:Repeater>
+
+    </asp:DataList>
+            <asp:SqlDataSource ID="CouponRetrieve" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE ([Cust_ID] = @Cust_ID)">
+                <SelectParameters>
+                    <asp:SessionParameter Name="Cust_ID" SessionField="CustID" Type="Int32" />
+                </SelectParameters>
+    </asp:SqlDataSource>
 
 
-    <script>
-        https://goo.gl/YaXBll
 
-    </script>
 </asp:Content>
 

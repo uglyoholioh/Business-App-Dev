@@ -18,51 +18,63 @@ namespace BizAppDev
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\USERS\USER\DOCUMENTS\GITHUB\BUSINESS-APP-DEV\BIZAPPDEV\BIZAPPDEV\APP_DATA\CUSTOMER.MDF;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-
-                Session["CustID"] = 1;
-                int CustID = (int)(Session["CustID"]);
-                acoup = coup.getCoupon(CustID);
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Coupon where Cust_ID = @CustID";
-                cmd.Parameters.AddWithValue("@CustID", CustID);
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                CouponRepeater.DataSource = dt;
-                CouponRepeater.DataBind();
-
-                con.Close();
-            }
+            Session["CustID"] = 1; //change after login completed
         }
-        protected void CouponRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.Item)
-            {
-                Label lbl = e.Item.FindControl("expiry") as Label;    
 
-                DateTime coupExpiry = Convert.ToDateTime(lbl.Text);
-                if (coupExpiry.Subtract(DateTime.Now).Days > 7)
-                {
-                    lbl.ForeColor = System.Drawing.Color.Green;
-                }
-                else
-                {
-                    string expiring = " (Expiring soon!)";
-                    lbl.Text += expiring;
-                    lbl.ForeColor = System.Drawing.Color.Red;
-                }
-            }
-        }
 
         protected void btn_Claim_Click(object sender, EventArgs e)
         {
 
 
+        }
+
+        protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "UseCoupon")
+            {
+                Label lblQuantity = (Label)(e.Item.FindControl("coupQuantityLabel"));
+                int quantity = int.Parse(lblQuantity.Text);
+                Label lbldelCode = (Label)(e.Item.FindControl("CodeLabel"));
+                string Code = lbldelCode.Text;
+                string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+                if (quantity == 1)
+                {
+                    string delqueryStr = "DELETE from CustCoupon WHERE Code = @Code";
+                    SqlConnection delconn = new SqlConnection(_connStr);
+                    SqlCommand delcmd = new SqlCommand(delqueryStr, delconn);
+                    delcmd.Parameters.AddWithValue("@Code", Code);
+                    delconn.Open();
+                    int delnofRow = 0;
+                    delnofRow = delcmd.ExecuteNonQuery();
+                    Response.Redirect("CustomerViewCoupon.aspx");
+
+                }
+                else
+                {
+                    string queryStr = "UPDATE CustCoupon SET" +
+                    " coupQuantity = coupQuantity - 1" +
+                    " WHERE Code = @Code";
+
+                    Label lblCouponID = (Label)(e.Item.FindControl("CouponIDLabel"));
+                    int CustID = int.Parse(Session["CustID"].ToString());
+                    int CouponID = int.Parse(lblCouponID.Text);
+                    SqlConnection conn = new SqlConnection(_connStr);
+                    SqlCommand cmd = new SqlCommand(queryStr, conn);
+                    cmd.Parameters.AddWithValue("@Code", Code);
+                    cmd.Parameters.AddWithValue("@CouponID", CouponID);
+                    conn.Open();
+                    int nofRow = 0;
+                    nofRow = cmd.ExecuteNonQuery();
+                    conn.Close();
+                    Response.Redirect("CustomerViewCoupon.aspx");
+                }
+
+            }
         }
     }
 }
