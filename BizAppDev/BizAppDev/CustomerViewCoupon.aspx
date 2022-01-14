@@ -32,28 +32,29 @@ section{padding:5% 0;}
 }
 .brand {
     height:160px;
-
 }
 
 .descr {
     height:160px;
 }
 .row {
-    width: 51%;
+    width: 100%;
     float:right;
     padding: 20px;
 }   
+.discount alizarin {
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:DataList ID="DataList1" runat="server" DataSourceID="CouponRetrieve" RepeatColumns="3" RepeatDirection="Horizontal" OnItemCommand="DataList1_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="CouponRetrieve" RepeatColumns="5" RepeatDirection="Horizontal" OnItemCommand="DataList1_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
         <ItemTemplate>
         <div class="floatycontain">
 <section id="labels">
   <div class="container">
 	<div class="row">
         <div class="col-sm-6 col-md-3">
-          <div class="dl">
+          <div class="dl" style="width:200px;">
             <div class="brand">
                 <h2><asp:Label ID="CouponIDLabel" runat="server" Text='<%# Eval("CouponID") %>' />
 </h2>
@@ -73,7 +74,7 @@ section{padding:5% 0;}
               <div class="coupon midnight-blue">
                   <a data-toggle="collapse" href="#code-1" class="open-code">            <asp:Label ID="CouponCode" runat="server" Text='<%#Eval("code") %>'/>
 </a>
-                  <asp:Button ID="btn_Use" runat="server" CommandName="UseCoupon" Text="Use" CssClass ="btn-dark"/>
+                  <br /> <asp:Button ID="btn_Use" runat="server" CommandName="UseCoupon" Text="Use" CssClass ="btn-dark"/>
                   <div id="code-1" class="collapse code"><%#Eval("code") %></div>
               </div>
           </div>
@@ -93,6 +94,56 @@ section{padding:5% 0;}
                 <SelectParameters>
                     <asp:SessionParameter Name="Cust_ID" SessionField="CustID" Type="Int32" />
                 </SelectParameters>
+    </asp:SqlDataSource>
+
+<!--NEW DATALIST-->
+    <h1>SEASONAL COUPONS</h1>
+    <asp:DataList ID="dl_SeasonalCoupon" runat="server" DataSourceID="ds_SeasonalCoupon" RepeatColumns="3" RepeatDirection="Horizontal" OnItemCommand="dl_SeasonalCoupon_ItemCommand" OnSelectedIndexChanged="dl_SeasonalCoupon_SelectedIndexChanged">
+        <ItemTemplate>
+        <div class="floatycontain">
+<section id="labels">
+  <div class="container">
+	<div class="row">
+        <div class="col-sm-6 col-md-3">
+          <div  style="width:200px" class="dl">
+            <div class="brand">
+                <h2><asp:Label ID="Coupon_IDLabel" runat="server" Text='<%# Eval("Coupon_ID") %>' />
+</h2>
+            </div>
+            <div class="discount alizarin"><%# Eval("coupon_Name") %>
+                <div class="type">off</div>
+            </div>
+            <div class="descr">
+                                <strong><asp:Label ID="Label1" runat="server" Text='<%# Eval("coupon_startDate") %>' /></strong><br />
+
+                <strong><asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("coupon_endDate") %>' /></strong><br />
+                <span>Expires:</span>
+                  <asp:Label ID="expiry" runat="server" Text='<%#Eval("coup_Desc") %>'/>
+            </div>
+            <div class="ends">
+                <small>                  <asp:Label ID="coupQuantityLabel" runat="server" Text='<%#Eval("coup_discountamt") %>'/>
+* Conditions and restrictions apply.</small>
+            </div>
+              <div class="coupon midnight-blue">
+                  <a data-toggle="collapse" href="#code-1" class="open-code">            <asp:Label ID="CouponCode" runat="server" Text='placeholder'/>
+</a>
+                  <asp:Button ID="btn_Use" runat="server" CommandName="UseCoupon" Text="Use" CssClass ="btn-dark"/>
+                  <div id="code-1" class="collapse code"><%#Eval("coupon_Name") %></div>
+              </div>
+          </div>
+
+        </div>
+
+	</div>
+  </div>
+    </div>
+
+            <asp:Label ID="Cust_IDLabel" runat="server" Text='placeholder' />
+
+        </ItemTemplate>
+
+    </asp:DataList>
+            <asp:SqlDataSource ID="ds_SeasonalCoupon" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [SeasonalCoupon]">
     </asp:SqlDataSource>
 
 

@@ -76,5 +76,15 @@ namespace BizAppDev
 
             }
         }
+
+        protected void dl_SeasonalCoupon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void dl_SeasonalCoupon_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+
+        }
     }
 }

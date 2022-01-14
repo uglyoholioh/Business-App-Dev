@@ -31,5 +31,23 @@ namespace BizAppDev
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource CouponRetrieve;
+
+        /// <summary>
+        /// dl_SeasonalCoupon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dl_SeasonalCoupon;
+
+        /// <summary>
+        /// ds_SeasonalCoupon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource ds_SeasonalCoupon;
     }
 }

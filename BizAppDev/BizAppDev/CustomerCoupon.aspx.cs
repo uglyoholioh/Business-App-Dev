@@ -39,8 +39,12 @@ namespace BizAppDev
                 int CouponQuantity = int.Parse(lblCouponQuantity.Text);
                 Label lblCouponDiscount = (Label)(e.Item.FindControl("discountLabel"));
                 int CouponDiscount = int.Parse(lblCouponDiscount.Text);
-                Label lblCouponExpiry = (Label)(e.Item.FindControl("expiryLabel"));
-                string CouponExpiry =lblCouponExpiry.Text;
+                Label lblvalidDays = (Label)(e.Item.FindControl("validDaysLabel"));
+                int validDays = int.Parse(lblvalidDays.Text);
+                Label lblvalidMonths = (Label)(e.Item.FindControl("validMonthsLabel"));
+                int validMonths = int.Parse(lblvalidMonths.Text);
+                Label lblvalidYears = (Label)(e.Item.FindControl("validYearsLabel"));
+                int validYears = int.Parse(lblvalidYears.Text);
 
                 for (int i = 0; i < 5; i++)
                 {
@@ -48,7 +52,7 @@ namespace BizAppDev
                 }
                 var kan = new String(mypass);
 
-                result = coup.claimCoupon(CustID, CouponID, kan, coupName, CouponQuantity, CouponDiscount, CouponExpiry);
+                result = coup.claimCoupon(CustID, CouponID, kan, coupName, CouponQuantity, CouponDiscount, validDays,validMonths,validYears);
                 if (result > 0)
                 {
                     string queryStr = "UPDATE Customer SET" +

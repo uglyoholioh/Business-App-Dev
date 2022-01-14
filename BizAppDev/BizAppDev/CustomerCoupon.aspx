@@ -24,11 +24,13 @@
                         <br />
                         Description: <asp:Label ID="lbl_Desc" runat="server" Text='<%# Eval("cDesc") %>' /><br />
                         Discount: <asp:Label ID="discountLabel" runat="server" Text='<%# Eval("discount") %>' /><br />
-                        Expiry: <asp:Label ID="expiryLabel" runat="server" Text='<%# Eval("expiry") %>' /><br />
+                        Valid for : <asp:Label ID="validDaysLabel" runat="server" Text='<%# Eval("validDays") %>' /> days<br />
+                        Valid for : <asp:Label ID="validMonthsLabel" runat="server" Text='<%# Eval("validMonths") %>' />Months<br />
+                        Valid for :  <asp:Label ID="validYearsLabel" runat="server" Text='<%# Eval("validYears") %>' />Years<br />
 
                         </div>
                     </p>
-                    <asp:TextBox ID="tb_quantity" runat="server"></asp:TextBox>
+                    Quantity:<asp:TextBox ID="tb_quantity" runat="server" CssClass="form-control"></asp:TextBox>
                     <p class="card-text">
 
                         <asp:Button ID="btn_Purchase" runat="server" CommandName="makePurchase" Text="Buy" />

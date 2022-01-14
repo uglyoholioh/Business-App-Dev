@@ -17,15 +17,16 @@ namespace BizAppDev
         private int _amount = 0;
         private int _cost = 0;
         private string _discount = string.Empty;
-        private string _expiry = string.Empty;
         private string _code = string.Empty;
-        private int _Cust_ID = 0;
-        
+        private int _validDays = 0;
+        private int _validMonths = 0;
+        private int _validYears = 0;
+
         public Coupon()
         {
 
         }
-        public Coupon(int couponID, string cDesc, string cName, int amount, int cost, string discount, string expiry, string code, int cust_ID)
+        public Coupon(int couponID, string cDesc, string cName, int amount, int cost, string discount, string expiry, string code, int validDays, int validMonths, int validYears)
         {
             _CouponID = couponID;
             _cDesc = cDesc;
@@ -33,10 +34,27 @@ namespace BizAppDev
             _amount = amount;
             _cost = cost;
             _discount = discount;
-            _expiry = expiry;
             _code = code;
-            _Cust_ID = cust_ID;
+            _validDays = validDays;
+            _validMonths = validMonths;
+            _validYears = validYears;
         }
+        public int validDays
+        {
+            get { return _validDays; }
+            set { _validYears = value; }
+        }
+        public int validMonths
+        {
+            get { return _validMonths; }
+            set { _validMonths = value; }
+        }
+        public int validYears
+        {
+            get { return _validYears; }
+            set { _validYears = value; }
+        }
+
         public int CouponID
         {
             get { return _CouponID; }
@@ -71,47 +89,44 @@ namespace BizAppDev
             set { _discount = value; }
         }
 
-        public string expiry
-        {
-            get { return _expiry; }
-            set { _expiry = value; }
-        }
+        
         public string code
         {
             get { return _code; }
             set { _code = value; }
         }
-        public int CustID
-        {
-            get { return _Cust_ID; }
-            set { _Cust_ID = value; }
-        }
 
-        public int claimCoupon(int CustID,int CouponID, string code,string coupName, int coupQuantity, int coupDiscount, string coupExpiry)
+        public int claimCoupon(int CustID,int CouponID, string code,string coupName, int coupQuantity, int coupDiscount, int validDays, int validMonths, int validYears)
         {
 
-                string queryStr = "INSERT into CustCoupon " + "values(@Cust_ID,@CouponID,@code,@coupName,@coupQuantity,@coupDiscount,@coupExpiry)";
-                SqlConnection conn = new SqlConnection(_connStr);
-                SqlCommand cmd = new SqlCommand(queryStr, conn);
-                cmd.Parameters.AddWithValue("@Cust_ID", CustID);
-                cmd.Parameters.AddWithValue("@CouponID", CouponID);
-                cmd.Parameters.AddWithValue("@code", code);
-                cmd.Parameters.AddWithValue("@coupName", coupName);
-                cmd.Parameters.AddWithValue("@coupQuantity", 1);
-                cmd.Parameters.AddWithValue("@coupDiscount", coupDiscount);
-                cmd.Parameters.AddWithValue("@coupExpiry", coupExpiry);
-                conn.Open();
-                int nofRow = 0;
-                nofRow += cmd.ExecuteNonQuery();
+            string queryStr = "INSERT into CustCoupon " + "values(@Cust_ID,@CouponID,@code,@coupName,@coupQuantity,@coupDiscount,@coupExpiry)";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            DateTime purchaseDateTime = DateTime.Now;
+            purchaseDateTime = purchaseDateTime.AddDays(validDays);
+            purchaseDateTime = purchaseDateTime.AddMonths(validMonths);
+            purchaseDateTime = purchaseDateTime.AddYears(validYears);
+            string expiry = Convert.ToString(purchaseDateTime);
+            cmd.Parameters.AddWithValue("@Cust_ID", CustID);
+            cmd.Parameters.AddWithValue("@CouponID", CouponID);
+            cmd.Parameters.AddWithValue("@code", code);
+            cmd.Parameters.AddWithValue("@coupName", coupName);
+            cmd.Parameters.AddWithValue("@coupQuantity", coupQuantity);
+            cmd.Parameters.AddWithValue("@coupDiscount", coupDiscount);
+            cmd.Parameters.AddWithValue("@coupExpiry", expiry);
+            conn.Open();
+            int nofRow = 0;
+            nofRow += cmd.ExecuteNonQuery();
 
-                conn.Close();
-                return nofRow;
+            conn.Close();
+            return nofRow;
         }
+
         public Coupon getCoupon(int CustID)
         {
             Coupon coupDetail = null;
             string cDesc, cName, discount, expiry, code;
-            int CouponID, amount, cost;
+            int CouponID, amount, cost, vDays, vMonths, vYears;
             string queryStr = "SELECT * FROM Coupon WHERE Cust_ID = @CustID";
 
             SqlConnection conn = new SqlConnection(_connStr);
@@ -127,14 +142,15 @@ namespace BizAppDev
                 cName = dr["cName"].ToString();
                 discount = dr["discount"].ToString();
                 expiry = dr["expiry"].ToString();
-
                 code = dr["code"].ToString();
                 CouponID = int.Parse(dr["CouponID"].ToString());
                 amount = int.Parse(dr["amount"].ToString());
                 cost = int.Parse(dr["cost"].ToString());
+                vDays = int.Parse(dr["validDays"].ToString());
+                vMonths = int.Parse(dr["validMonths"].ToString());
+                vYears = int.Parse(dr["validYears"].ToString());
 
-
-                coupDetail = new Coupon(CouponID,cDesc,cName,amount,cost,discount,expiry,code,CustID);
+                coupDetail = new Coupon(CouponID,cDesc,cName,amount,cost,discount,expiry,code,vDays,vMonths,vYears);
                 conn.Close();
 
                 return coupDetail;
