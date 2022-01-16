@@ -13,7 +13,6 @@ namespace BizAppDev
         {
             int crap = 1;
             string urlString = "~/Coupons(lermin).aspx?pointTierID=" + crap.ToString(); ;
-            hrefString.Text = urlString;
         }
     }
 }

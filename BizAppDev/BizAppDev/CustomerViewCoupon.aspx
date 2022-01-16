@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerMain.Master" AutoEventWireup="true" CodeBehind="CustomerViewCoupon.aspx.cs" Inherits="BizAppDev.CustomerViewCoupon" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style type="text/css">
             <link rel="stylesheet" href="/css/form.css" type="text/css" />
         @import url('https://fonts.googleapis.com/css?family=Oswald');
@@ -46,7 +46,7 @@ section{padding:5% 0;}
 }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <asp:DataList ID="DataList1" runat="server" DataSourceID="CouponRetrieve" RepeatColumns="5" RepeatDirection="Horizontal" OnItemCommand="DataList1_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
         <ItemTemplate>
         <div class="floatycontain">

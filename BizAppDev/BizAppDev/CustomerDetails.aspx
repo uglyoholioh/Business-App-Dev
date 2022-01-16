@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerMain.Master" AutoEventWireup="true" CodeBehind="CustomerDetails.aspx.cs" Inherits="BizAppDev.CustomerDetails" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <style type="text/css">
         body{
             max-width: max-content;
@@ -40,8 +40,7 @@
         .tableHeader{
         }
     </style>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <br/>
     <div id="Details">
     <h1 class ="tableHeader"><strong>Account Details</strong></h1>
