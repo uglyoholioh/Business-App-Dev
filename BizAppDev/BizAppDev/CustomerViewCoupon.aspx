@@ -45,9 +45,8 @@ section{padding:5% 0;}
 .discount alizarin {
 }
     </style>
-</asp:Content>
 
-    <asp:DataList ID="DataList1" runat="server" DataSourceID="CouponRetrieve" RepeatColumns="5" RepeatDirection="Horizontal" OnItemCommand="DataList1_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="CouponRetrieve" RepeatColumns="4" RepeatDirection="Horizontal" OnItemCommand="DataList1_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
         <ItemTemplate>
         <div class="floatycontain">
 <section id="labels">
