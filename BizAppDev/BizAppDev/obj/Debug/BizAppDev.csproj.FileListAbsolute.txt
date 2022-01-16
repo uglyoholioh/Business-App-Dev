@@ -115,3 +115,14 @@ C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\obj\Debug\B
 C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\obj\Debug\BizAppDev.dll
 C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\obj\Debug\BizAppDev.pdb
 C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\obj\Debug\BizAppDev.csproj.AssemblyReference.cache
+C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Newtonsoft.Json.dll
+C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Stripe.net.dll
+C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Newtonsoft.Json.xml
+C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Stripe.net.pdb
+C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Stripe.net.xml
+C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\System.Threading.Tasks.Extensions.xml

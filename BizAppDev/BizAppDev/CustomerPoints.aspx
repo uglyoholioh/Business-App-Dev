@@ -16,7 +16,6 @@
             height: 26px;
         }
     </style>
-</asp:Content>
 
     <h1><strong>Your Points</strong><br />
     </h1>

@@ -15,7 +15,7 @@ namespace BizAppDev
         Coupon coup = new Coupon();
         Coupon acoup = new Coupon();
 
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\USERS\USER\DOCUMENTS\GITHUB\BUSINESS-APP-DEV\BIZAPPDEV\BIZAPPDEV\APP_DATA\CUSTOMER.MDF;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CUSTOMER.MDF;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["CustID"] = 1; //change after login completed
