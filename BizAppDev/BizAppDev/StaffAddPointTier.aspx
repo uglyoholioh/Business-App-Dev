@@ -20,9 +20,6 @@
                                   <label class="form-label">Perks to be included</label>
                                                         <br />
                                                         <br />
-                                                        <asp:CheckBoxList ID="cbl_Perks" runat="server" DataSourceID="checkboxData" DataTextField="PerkID" DataValueField="PerkID">
-                                                        </asp:CheckBoxList>
-                                                        <asp:SqlDataSource ID="checkboxData" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [PerkID] FROM [Perks]"></asp:SqlDataSource>
                                                         <asp:Label ID="lbl_PerkList" runat="server" Text="List of Perks:" CssClass="card-title"></asp:Label>
                           <asp:DataList ID="DataList1" runat="server" DataKeyField="PerkID" DataSourceID="staffPerkadd" RepeatColumns="4" RepeatDirection="Horizontal" CellPadding="20" CellSpacing="-1" Width="1371px" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" OnItemCommand="DataList1_ItemCommand1">
                               <ItemTemplate>
@@ -30,7 +27,10 @@
                       <h4 class="card-title"><asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
                           <asp:Label ID="Label2" runat="server" Text='<%# Eval("PerkID") %>' />
                           </h4>
-                      <p class="card-text"><asp:Label ID="Label1" runat="server" Text='<%# Eval("desc") %>' /></p>
+                      <p class="card-text"><asp:Label ID="Label1" runat="server" Text='<%# Eval("desc") %>' />
+                          </p>
+                          
+                          <asp:CheckBox ID="cb_Perks" runat="server" Text='<%# Eval("PerkID") %>' />
                     </div>
                                   </div>
 
@@ -47,9 +47,9 @@
                               </ItemTemplate>
         </asp:DataList>
                       <asp:SqlDataSource ID="staffPerkadd" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Perks]"></asp:SqlDataSource>
-                                                        <asp:Button ID="btn_Submit" runat="server" Text="Button" CssClass="btn btn-primary" OnClick="btn_Submit_Click1" />
+                                                        <asp:Button ID="btn_Submit" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btn_Submit_Click1" />
 
-    </form>
-                      </form>
+                        </div>
                     </div>
+</form>
 </asp:Content>

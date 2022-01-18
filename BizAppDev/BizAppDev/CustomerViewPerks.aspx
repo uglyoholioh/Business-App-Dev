@@ -5,7 +5,6 @@
             width: 100%;
         }
     </style>
-</asp:Content>
 
     <h1><strong>Your Perks</strong></h1>
     <table class="auto-style1">

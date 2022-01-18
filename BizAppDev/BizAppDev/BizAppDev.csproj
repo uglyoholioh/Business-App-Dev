@@ -105,9 +105,12 @@
     <Content Include="images\winston-chen-5XBn_RTp7ik-unsplash.jpg" />
     <Content Include="payment.aspx" />
     <Content Include="product_desc.aspx" />
+    <Content Include="StaffAddPerks.aspx" />
     <Content Include="StaffAddPointTier.aspx" />
     <Content Include="StaffEditTier.aspx" />
+    <Content Include="StaffViewPerks.aspx" />
     <Content Include="StaffViewTier.aspx" />
+    <Content Include="StaffViewTiers.aspx" />
     <Content Include="success.aspx" />
     <Content Include="success.html" />
     <Content Include="ViewCart.aspx" />
@@ -240,6 +243,13 @@
     <Compile Include="staff.Master.designer.cs">
       <DependentUpon>staff.Master</DependentUpon>
     </Compile>
+    <Compile Include="StaffAddPerks.aspx.cs">
+      <DependentUpon>StaffAddPerks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffAddPerks.aspx.designer.cs">
+      <DependentUpon>StaffAddPerks.aspx</DependentUpon>
+    </Compile>
     <Compile Include="StaffAddPointTier.aspx.cs">
       <DependentUpon>StaffAddPointTier.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -254,12 +264,26 @@
     <Compile Include="StaffEditTier.aspx.designer.cs">
       <DependentUpon>StaffEditTier.aspx</DependentUpon>
     </Compile>
+    <Compile Include="StaffViewPerks.aspx.cs">
+      <DependentUpon>StaffViewPerks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffViewPerks.aspx.designer.cs">
+      <DependentUpon>StaffViewPerks.aspx</DependentUpon>
+    </Compile>
     <Compile Include="StaffViewTier.aspx.cs">
       <DependentUpon>StaffViewTier.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="StaffViewTier.aspx.designer.cs">
       <DependentUpon>StaffViewTier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffViewTiers.aspx.cs">
+      <DependentUpon>StaffViewTiers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffViewTiers.aspx.designer.cs">
+      <DependentUpon>StaffViewTiers.aspx</DependentUpon>
     </Compile>
     <Compile Include="success.aspx.cs">
       <DependentUpon>success.aspx</DependentUpon>

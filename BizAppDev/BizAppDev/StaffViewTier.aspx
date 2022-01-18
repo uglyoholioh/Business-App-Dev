@@ -25,6 +25,13 @@
                                                   <label class="form-label">Price</label>
 
                         <asp:TextBox ID="tb_Price" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:CheckBoxList ID="cbl_EditPerks" runat="server" DataSourceID="PointTierPerksList" DataTextField="PerkID" DataValueField="PerkID">
+                        </asp:CheckBoxList>
+                        <asp:SqlDataSource ID="PointTierPerksList" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [PerkID] FROM [PointTiersPerks] WHERE ([pointTierID] = @pointTierID)">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="pointTierIDLabel" Name="pointTierID" PropertyName="Text" Type="Int32" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                                                 <br />
                         </div>
                     </h4>

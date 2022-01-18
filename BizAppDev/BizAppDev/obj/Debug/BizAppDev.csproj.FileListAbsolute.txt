@@ -126,3 +126,14 @@ C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Stripe.
 C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Stripe.net.xml
 C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\olive\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Newtonsoft.Json.dll
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Stripe.net.dll
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Newtonsoft.Json.xml
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Stripe.net.pdb
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Stripe.net.xml
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\System.Threading.Tasks.Extensions.xml

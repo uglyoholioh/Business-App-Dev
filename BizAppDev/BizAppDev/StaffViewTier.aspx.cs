@@ -11,6 +11,7 @@ namespace BizAppDev
 {
     public partial class StaffViewTier : System.Web.UI.Page
     {
+        string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -19,10 +20,7 @@ namespace BizAppDev
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
             pointsTier aTier = new pointsTier();
-            if (e.CommandName == "EditTier")
-            {
-                Response.Redirect("StaffEditTier.aspx?pointTierID="+int.Parse(e.CommandArgument.ToString()));
-            }
+
             if (e.CommandName=="deleteTier")
             {
                 try
@@ -71,6 +69,25 @@ namespace BizAppDev
             TextBox newdescr = (TextBox)(e.Item.FindControl("tb_descr"));
             TextBox newPrice = (TextBox)(e.Item.FindControl("tb_Price"));
             Label newpointTierID = (Label)(e.Item.FindControl("pointTierIDLabel"));
+            CheckBoxList cbl_EditPerkList = (CheckBoxList)(e.Item.FindControl("cbl_EditPerks"));
+            int result = 0;
+            foreach (ListItem item in cbl_EditPerkList.Items)
+            {
+                if (item.Selected)
+                {
+                }
+                else
+                {
+                    string queryStr = "DELETE from PointTiersPerks where PerkID = @PerkID and pointTierID = @pointTierID";
+                    SqlConnection conn = new SqlConnection(_connStr);
+                    SqlCommand cmd = new SqlCommand(queryStr, conn);
+                    int PerkID = int.Parse(item.Text);
+                    cmd.Parameters.AddWithValue("@PerkID", PerkID);
+                    cmd.Parameters.AddWithValue("@pointTierID", int.Parse(newpointTierID.Text));
+                    conn.Open();
+                    result += cmd.ExecuteNonQuery();
+                }
+            }
             int newpointTierIDInt = int.Parse(newpointTierID.Text);
             string newNameStr = newName.Text;
             string newdescrStr = newdescr.Text;

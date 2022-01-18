@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <style type="text/css">
         body{
-            max-width: max-content;
         }
 
         .button-54 {
@@ -36,6 +35,7 @@
         #Details {
             float:right;
             margin-top:50px;
+            margin-left:200px;
         }
         .tableHeader{
         }

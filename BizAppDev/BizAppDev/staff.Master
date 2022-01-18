@@ -146,6 +146,7 @@
       <div>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
+
             <hr />
             <footer style="width:800px;">
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>

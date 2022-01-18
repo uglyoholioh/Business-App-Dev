@@ -121,13 +121,13 @@
       </div>
        <!-- Sidebar navigation-->
      <ul>
-        <li class="active"><a href="/manager_home"> <i class="icon-home"></i>Home</a></li>
+        <li class="active"><a href="home.aspx"> <i class="icon-home"></i>Home</a></li>
       </ul>
         <span class="heading">Employee management</span>
       <ul class="list-unstyled">
-         <li><a href="Employeelist.aspx"> <i class="fa fa-bar-chart"></i>Employee list</a></li>
-          <li><a href="Adminlist.aspx"> <i class="fa fa-bar-chart"></i>Admin list</a></li>
-     <li><a href="Addemployee.aspx"> <i class="fa fa-bar-chart"></i>Add employee form</a></li>
+         <li><a href="CustomerDetails.aspx"> <i class="fa fa-bar-chart"></i>Your profile</a></li>
+          <li><a href="CustomerPoints.aspx"> <i class="fa fa-bar-chart"></i>Rewards</a></li>
+     <li><a href="CustomerCoupon.aspx"> <i class="fa fa-bar-chart"></i>Your coupons</a></li>
       </ul>
       <span class="heading">Order management</span>
       <ul class="list-unstyled">

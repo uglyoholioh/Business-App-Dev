@@ -73,48 +73,42 @@ namespace BizAppDev
             {
                 valid = false;
             }
-            if (cbl_Perks.SelectedIndex > -1)
+            int result = 0;
+            int no_Perks = 0;
+            foreach (DataListItem item in DataList1.Items)
             {
-                int result = 0;
-                int selected = 0;
 
-                for (int i = 0; i < cbl_Perks.Items.Count; i++)
+                CheckBox check = (CheckBox)item.FindControl("cb_Perks");
+                if (check.Checked)
                 {
-                    if (cbl_Perks.Items[i].Selected)
-                    {
-                        selected += 1;
-                        string queryStr = "INSERT INTO PointTiersPerks(PerkID,pointTierID)"
-                            + " values (@PerkID,@pointTierID)";
-                        SqlConnection conn = new SqlConnection(_connStr);
-                        SqlCommand cmd = new SqlCommand(queryStr, conn);
-                        int PerkID = int.Parse(cbl_Perks.Items[i].ToString());
-                        cmd.Parameters.AddWithValue("@PerkID", PerkID);
-                        cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
-                        conn.Open();
-                        result += cmd.ExecuteNonQuery();
-
-                    }
-                }
-                if (result == selected)
-                {
+                    no_Perks += 1;
+                    string queryStr = "INSERT INTO PointTiersPerks(PerkID,pointTierID)"
+                           + " values (@PerkID,@pointTierID)";
+                    SqlConnection conn = new SqlConnection(_connStr);
+                    SqlCommand cmd = new SqlCommand(queryStr, conn);
+                    int PerkID = int.Parse(check.Text);
+                    cmd.Parameters.AddWithValue("@PerkID", PerkID);
+                    cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
+                    conn.Open();
+                    result += cmd.ExecuteNonQuery();
 
                 }
-                else
-                {
-                    valid = false;
-                }
-
             }
-            if (valid == false)
+            if (no_Perks == result)
             {
-                Response.Write("<script>alert('Point tier creation unsuccessful');</script>");
+                Response.Write("<script>alert('Points tier created!');</script>");
+
             }
             else
             {
-                Response.Write("<script>alert('Points tier created!');</script>");
+                Response.Write("<script>alert('Point tier creation unsuccessful');</script>");
             }
 
+
         }
+
+
+        
 
         protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
         {
