@@ -11,7 +11,11 @@ namespace BizAppDev
 {
     public class Admin
     {
+<<<<<<< Updated upstream
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+=======
+        string _connStr = ConfigurationManager.ConnectionStrings["HealthDBContext"].ConnectionString;
+>>>>>>> Stashed changes
         private string _AdmID = null;
         private string _AdmName = "";
         private string _NRIC = "";
