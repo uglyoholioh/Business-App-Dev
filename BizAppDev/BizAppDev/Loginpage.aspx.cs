@@ -14,9 +14,7 @@ namespace BizAppDev
         protected void Login_Btn_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
-=======
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["HealthDBContext"].ToString());
->>>>>>> Stashed changes
+
             Employee emp = new Employee();
             string queryStr = "SELECT * FROM Employee WHERE EmpID = @EmpID AND Password = @Password";
             SqlCommand cmd = new SqlCommand(queryStr, con);
