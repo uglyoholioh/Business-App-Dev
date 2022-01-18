@@ -33,7 +33,7 @@ namespace BizAppDev
             GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
             string name = ((TextBox)row.Cells[1].Controls[0]).Text;
             string descr = ((TextBox)row.Cells[2].Controls[0]).Text;
-            string pointTierID = GridView1.DataKeys[e.RowIndex].Value.ToString();
+            int pointTierID = int.Parse(GridView1.DataKeys[e.RowIndex].Value.ToString());
             string queryStr = "UPDATE PointTiers SET" +
             " name = @name," +
             " descr = @descr" +
@@ -46,32 +46,55 @@ namespace BizAppDev
             conn.Open();
             int result = cmd.ExecuteNonQuery();
             GridView1.EditIndex = -1;
-            GridView1.DataBind();
+            bind();
         }
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
-
+            GridView1.EditIndex = e.NewEditIndex;
+            bind();
         }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int result = 0;
+            pointsTier tier = new pointsTier();
+            int pointTierID = int.Parse(GridView1.DataKeys[e.RowIndex].Value.ToString());
+            result = tier.TierDelete(pointTierID);
+
+            if (result > 0)
+            {
+                Response.Write("<script>alert('Tier Removed successfully');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Tier NOT removed successfully');</script>");
+            }
+
+            Response.Redirect("StaffViewTiers.aspx");
 
         }
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-
+            GridView1.EditIndex = -1;
+            bind();
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            GridViewRow row = GridView1.SelectedRow;
 
+            int TierID = int.Parse(row.Cells[0].Text);
+            Response.Redirect("StaffViewPerks.aspx?pointTierID=" + TierID);
         }
 
         protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
         {
+            GridViewRow row = GridView1.SelectedRow;
 
+            int TierID = int.Parse(row.Cells[0].Text);
+            Response.Redirect("StaffViewPerks.aspx?pointTierID=" + TierID);
         }
     }
 }

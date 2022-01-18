@@ -11,14 +11,21 @@ namespace BizAppDev
     public class pointsTier
     {
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-        private int _pointsTierID = 0;
+        private int _pointTierID = 0;
         private string _name = string.Empty;
         private string _descr = string.Empty;
         private int _price = 0;
-        private string _benefits = string.Empty;
 
         public pointsTier()
         {
+
+        }
+        public pointsTier(int pointTierID,string name, string descr, int price)
+        {
+            _pointTierID = pointTierID;
+            _name = name;
+            _descr = descr;
+            _price = price;
 
         }
         public pointsTier(string name, string descr, int price)
@@ -29,14 +36,11 @@ namespace BizAppDev
 
         }
 
-        public pointsTier(int pointTierID, string name, string descr, int price)
-        {
 
-        }
-        public int pointsTierID
+        public int pointTierID
         {
-            get { return _pointsTierID; }
-            set { _pointsTierID = value; }
+            get { return _pointTierID; }
+            set { _pointTierID = value; }
         }
 
         public string name
@@ -139,7 +143,7 @@ namespace BizAppDev
             string name, descr;
             int pointTierID,price;
 
-            string queryStr = "SELECT * FROM PointTiers Order By name";
+            string queryStr = "SELECT * FROM PointTiers Order By pointTierID";
 
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
