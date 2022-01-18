@@ -94,7 +94,7 @@ namespace BizAppDev
             GridViewRow row = GridView1.SelectedRow;
 
             int TierID = int.Parse(row.Cells[0].Text);
-            Response.Redirect("StaffViewTierPerks.aspx?pointTierID=" + TierID);
+            Response.Redirect("StaffViewPerks.aspx?pointTierID=" + TierID);
         }
     }
 }
