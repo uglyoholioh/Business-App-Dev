@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 namespace BizAppDev
 {
     public partial class StaffViewTiers : System.Web.UI.Page
@@ -94,7 +90,7 @@ namespace BizAppDev
             GridViewRow row = GridView1.SelectedRow;
 
             int TierID = int.Parse(row.Cells[0].Text);
-            Response.Redirect("StaffViewTierPerks.aspx?pointTierID=" + TierID);
+            Response.Redirect("StaffViewPerks.aspx?pointTierID=" + TierID);
         }
     }
 }

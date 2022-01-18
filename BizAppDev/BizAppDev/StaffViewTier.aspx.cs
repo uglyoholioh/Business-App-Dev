@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 namespace BizAppDev
 {
     public partial class StaffViewTier : System.Web.UI.Page
@@ -21,7 +16,7 @@ namespace BizAppDev
         {
             pointsTier aTier = new pointsTier();
 
-            if (e.CommandName=="deleteTier")
+            if (e.CommandName == "deleteTier")
             {
                 try
                 {
@@ -91,8 +86,8 @@ namespace BizAppDev
             int newpointTierIDInt = int.Parse(newpointTierID.Text);
             string newNameStr = newName.Text;
             string newdescrStr = newdescr.Text;
-            int newPriceInt= int.Parse(newPrice.Text);
-            aTier.TierUpdate(newpointTierIDInt,newNameStr, newdescrStr, newPriceInt);
+            int newPriceInt = int.Parse(newPrice.Text);
+            aTier.TierUpdate(newpointTierIDInt, newNameStr, newdescrStr, newPriceInt);
             DataList1.EditItemIndex = -1;
             DataList1.DataBind();
 

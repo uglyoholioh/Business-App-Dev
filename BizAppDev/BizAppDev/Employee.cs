@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-using System.Data;
-using System.Data.SqlClient;
+﻿using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 
 namespace BizAppDev
 {
     public class Employee
     {
-<<<<<<< Updated upstream
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-=======
-        string _connStr = ConfigurationManager.ConnectionStrings["HealthDBContext"].ConnectionString;
->>>>>>> Stashed changes
+
         private string _EmpID = null;
         private string _EmpName = "";
         private string _NRIC = "";

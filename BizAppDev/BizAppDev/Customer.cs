@@ -1,22 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-using System.Data;
+﻿using System.Configuration;
 using System.Data.SqlClient;
-using System.Configuration;
 
 
 namespace BizAppDev
 {
     public class Customer
     {
-<<<<<<< Updated upstream
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-=======
-        string _connStr = ConfigurationManager.ConnectionStrings["HealthDBContext"].ConnectionString;
->>>>>>> Stashed changes
+
         private string _CustID = string.Empty;
         private string _firstName = string.Empty;
         private string _lastName = string.Empty;
@@ -31,33 +22,14 @@ namespace BizAppDev
         private int _lvlPoints = 0;
         private string _Password = string.Empty;
         private string _Cfmpassword = string.Empty;
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
+
         public Customer()
         {
 
         }
-<<<<<<< Updated upstream
         public Customer(string CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username, int pointTierID, int lvlPoints)
-=======
-        public Customer(string CustID, string firstName, string lastName, string gender, string email, string address, string phoneNo, string DOB, string Password, string Cfmpassword)
-        {
-            _CustID = CustID;
-            _firstName = firstName;
-            _lastName = lastName;
-            _gender = gender;
-            _email = email;
-            _address = address;
-            _phoneNo = phoneNo;
-            _DOB = DOB;
-            _Password = Password;
-            _Cfmpassword = Cfmpassword;
-        }
 
-        public Customer(int CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username, int pointTierID, int lvlPoints)
->>>>>>> Stashed changes
         {
             _CustID = CustID;
             _firstName = firstName;
@@ -187,7 +159,7 @@ namespace BizAppDev
                 username = dr["Username"].ToString();
                 lvlPoints = int.Parse(dr["lvlPoints"].ToString());
 
-                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender, username,pointTierID,lvlPoints);
+                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender, username, pointTierID, lvlPoints);
                 return custDetail;
 
             }
@@ -218,15 +190,15 @@ namespace BizAppDev
 
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@CustID",CustID);
+            cmd.Parameters.AddWithValue("@CustID", CustID);
             cmd.Parameters.AddWithValue("@first_Name", first_Name);
-            cmd.Parameters.AddWithValue("@last_Name",last_Name);
-            cmd.Parameters.AddWithValue("@email",email);
-            cmd.Parameters.AddWithValue("@address",address);
-            cmd.Parameters.AddWithValue("@phone_No",phone_No);
-            cmd.Parameters.AddWithValue("@DOB",DOB);
-            cmd.Parameters.AddWithValue("@gender",gender);
-            cmd.Parameters.AddWithValue("@username",username);
+            cmd.Parameters.AddWithValue("@last_Name", last_Name);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@address", address);
+            cmd.Parameters.AddWithValue("@phone_No", phone_No);
+            cmd.Parameters.AddWithValue("@DOB", DOB);
+            cmd.Parameters.AddWithValue("@gender", gender);
+            cmd.Parameters.AddWithValue("@username", username);
 
 
             conn.Open();
@@ -239,7 +211,7 @@ namespace BizAppDev
 
 
         }
-        public int CustomerUpdatePoints(string CustID,int addedpoints)
+        public int CustomerUpdatePoints(string CustID, int addedpoints)
         {
             string queryStr = "UPDATE Customer SET" +
                 " lvlPoints = lvlpoints +@addedpoints " +

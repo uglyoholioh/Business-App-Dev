@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Threading;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
+using System.Web.UI.WebControls;
 namespace BizAppDev
 {
     public partial class checkout : System.Web.UI.Page
@@ -351,7 +346,7 @@ namespace BizAppDev
                 cmd.Parameters.AddWithValue("@product_id", product_id);
                 cmd.Parameters.AddWithValue("@product_name", Convert.ToString(dt.Rows[i]["Product_Name"]));
                 cmd.Parameters.AddWithValue("@price", Convert.ToDecimal(dt.Rows[i]["Unit_Price"]));
-                cmd.Parameters.AddWithValue("@quantity",Convert.ToInt64(dt.Rows[i]["quantity"])); 
+                cmd.Parameters.AddWithValue("@quantity", Convert.ToInt64(dt.Rows[i]["quantity"]));
                 cmd.Parameters.AddWithValue("@deliveryoption", DropDownList1.Text);
                 cmd.Parameters.AddWithValue("@deliverydate", Calendar2.SelectedDate);
                 cmd.Parameters.AddWithValue("@grandtotal", Convert.ToDecimal(Labelgrandtotal.Text));
