@@ -7,7 +7,10 @@ namespace BizAppDev
     public class Admin
     {
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of a1a92a5 (workinglogin)
         private string _AdmID = null;
         private string _AdmName = "";
         private string _NRIC = "";

@@ -7,7 +7,10 @@ namespace BizAppDev
     public class Employee
     {
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of a1a92a5 (workinglogin)
         private string _EmpID = null;
         private string _EmpName = "";
         private string _NRIC = "";

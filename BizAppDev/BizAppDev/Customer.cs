@@ -7,7 +7,10 @@ namespace BizAppDev
     public class Customer
     {
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of a1a92a5 (workinglogin)
         private string _CustID = string.Empty;
         private string _firstName = string.Empty;
         private string _lastName = string.Empty;
@@ -23,13 +26,19 @@ namespace BizAppDev
         private string _Password = string.Empty;
         private string _Cfmpassword = string.Empty;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of a1a92a5 (workinglogin)
         public Customer()
         {
 
         }
         public Customer(string CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username, int pointTierID, int lvlPoints)
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of a1a92a5 (workinglogin)
         {
             _CustID = CustID;
             _firstName = firstName;
