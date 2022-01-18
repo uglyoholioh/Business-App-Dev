@@ -110,6 +110,7 @@
     <Content Include="StaffEditTier.aspx" />
     <Content Include="StaffViewPerks.aspx" />
     <Content Include="StaffViewTier.aspx" />
+    <Content Include="StaffViewTierPerks.aspx" />
     <Content Include="StaffViewTiers.aspx" />
     <Content Include="success.aspx" />
     <Content Include="success.html" />
@@ -277,6 +278,13 @@
     </Compile>
     <Compile Include="StaffViewTier.aspx.designer.cs">
       <DependentUpon>StaffViewTier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffViewTierPerks.aspx.cs">
+      <DependentUpon>StaffViewTierPerks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffViewTierPerks.aspx.designer.cs">
+      <DependentUpon>StaffViewTierPerks.aspx</DependentUpon>
     </Compile>
     <Compile Include="StaffViewTiers.aspx.cs">
       <DependentUpon>StaffViewTiers.aspx</DependentUpon>
