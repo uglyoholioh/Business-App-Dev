@@ -16,7 +16,7 @@ namespace BizAppDev
 
 		protected void Page_Load(object sender, EventArgs e)
         {
-			int CID = 1;
+			string CID = "C1";
 			Session["CID"] = CID;
 			Cust = aCust.getCustomer(CID);
 			lbl_Points.Text = Cust.points.ToString();

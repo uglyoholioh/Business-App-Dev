@@ -14,7 +14,7 @@ namespace BizAppDev
         Customer Cust = new Customer();
         protected void Page_Load(object sender, EventArgs e)
         {
-            int CID = 1;
+            string CID = "C1";
             Session["CustID"] = CID;
             Cust = aCust.getCustomer(CID);
 
@@ -23,7 +23,7 @@ namespace BizAppDev
 
         protected void btn_Save_Click(object sender, EventArgs e)
         {
-            int CID = 1;
+            string CID = "C1";
             int result = 0;
             string firstName = tb_FirstName.Text;
             string lastName = tb_LastName.Text;

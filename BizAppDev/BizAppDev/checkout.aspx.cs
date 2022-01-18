@@ -145,11 +145,11 @@ namespace BizAppDev
         {
             DataTable dt1;
             int Product_ID;
-            int queryproductid = Convert.ToInt16(Request.QueryString["id"]);
+            int queryproductid = int.Parse(Request.QueryString["id"]);
             dt1 = (DataTable)Session["buyitems"];
             foreach (DataRow row in dt1.Rows)
             {
-                Product_ID = Convert.ToInt16(row["Product_ID"].ToString());
+                Product_ID = int.Parse(row["Product_ID"].ToString());
                 if (Product_ID == queryproductid)
                 {
                     availabledesignid = true;
@@ -160,14 +160,14 @@ namespace BizAppDev
         {
             DataTable dt1;
             int Product_ID;
-            int queryproductid = Convert.ToInt16(Request.QueryString["id"]);
+            int queryproductid = int.Parse(Request.QueryString["id"]);
             dt1 = (DataTable)Session["buyitems"];
             foreach (DataRow row in dt1.Rows)
             {
-                Product_ID = Convert.ToInt16(row["Product_ID"].ToString());
+                Product_ID = int.Parse(row["Product_ID"].ToString());
                 if (Product_ID == queryproductid)
                 {
-                    int newquantity = Convert.ToInt16(row["quantity"].ToString()) + Convert.ToInt16(Request.QueryString["quantity"].ToString());
+                    int newquantity = int.Parse(row["quantity"].ToString()) + int.Parse(Request.QueryString["quantity"].ToString());
                     row["quantity"] = newquantity;
                     decimal price = decimal.Parse(row["Unit_Price"].ToString());
                     decimal totalprice = price * newquantity;
@@ -351,7 +351,7 @@ namespace BizAppDev
                 cmd.Parameters.AddWithValue("@product_id", product_id);
                 cmd.Parameters.AddWithValue("@product_name", Convert.ToString(dt.Rows[i]["Product_Name"]));
                 cmd.Parameters.AddWithValue("@price", Convert.ToDecimal(dt.Rows[i]["Unit_Price"]));
-                cmd.Parameters.AddWithValue("@quantity", Convert.ToInt16(dt.Rows[i]["quantity"]));
+                cmd.Parameters.AddWithValue("@quantity",Convert.ToInt64(dt.Rows[i]["quantity"])); 
                 cmd.Parameters.AddWithValue("@deliveryoption", DropDownList1.Text);
                 cmd.Parameters.AddWithValue("@deliverydate", Calendar2.SelectedDate);
                 cmd.Parameters.AddWithValue("@grandtotal", Convert.ToDecimal(Labelgrandtotal.Text));

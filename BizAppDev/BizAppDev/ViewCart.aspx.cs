@@ -138,11 +138,11 @@ namespace BizAppDev
         {
             DataTable dt1;
             int Product_ID;
-            int queryproductid = Convert.ToInt16(Request.QueryString["id"]);
+            int queryproductid = int.Parse(Request.QueryString["id"]);
             dt1 = (DataTable)Session["buyitems"];
             foreach (DataRow row in dt1.Rows)
             {
-                Product_ID = Convert.ToInt16(row["Product_ID"].ToString());
+                Product_ID = int.Parse(row["Product_ID"].ToString());
                 if (Product_ID == queryproductid)
                 {
                     availabledesignid = true;
@@ -153,14 +153,14 @@ namespace BizAppDev
         {
             DataTable dt1;
             int Product_ID;
-            int queryproductid = Convert.ToInt16(Request.QueryString["id"]);
+            int queryproductid = int.Parse(Request.QueryString["id"]);
             dt1 = (DataTable)Session["buyitems"];
             foreach (DataRow row in dt1.Rows)
             {
-                Product_ID = Convert.ToInt16(row["Product_ID"].ToString());
+                Product_ID = int.Parse(row["Product_ID"].ToString());
                 if (Product_ID == queryproductid)
                 {
-                    int newquantity = Convert.ToInt16(row["quantity"].ToString()) + Convert.ToInt16(Request.QueryString["quantity"].ToString());
+                    int newquantity = int.Parse(row["quantity"].ToString()) + int.Parse(Request.QueryString["quantity"].ToString());
                     row["quantity"] = newquantity;
                     decimal price = decimal.Parse(row["Unit_Price"].ToString());
                     decimal totalprice = price * newquantity;

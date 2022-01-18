@@ -13,7 +13,7 @@ namespace BizAppDev
     public class Customer
     {
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-        private int _CustID = 1;
+        private string _CustID = string.Empty;
         private string _firstName = string.Empty;
         private string _lastName = string.Empty;
         private string _email = string.Empty;
@@ -25,12 +25,14 @@ namespace BizAppDev
         private string _username = string.Empty;
         private int _pointTierID = 0;
         private int _lvlPoints = 0;
+        private string _Password = string.Empty;
+        private string _Cfmpassword = string.Empty;
 
         public Customer()
         {
 
         }
-        public Customer(int CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username, int pointTierID, int lvlPoints)
+        public Customer(string CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username, int pointTierID, int lvlPoints)
         {
             _CustID = CustID;
             _firstName = firstName;
@@ -45,7 +47,20 @@ namespace BizAppDev
             _pointTierID = pointTierID;
             _lvlPoints = lvlPoints;
         }
-        public int Cust_ID
+        public Customer(string CustID, string firstName, string lastName, string gender, string email, string address, string phoneNo, string DOB, string Password, string Cfmpassword)
+        {
+            _CustID = CustID;
+            _firstName = firstName;
+            _lastName = lastName;
+            _gender = gender;
+            _email = email;
+            _address = address;
+            _phoneNo = phoneNo;
+            _DOB = DOB;
+            _Password = Password;
+            _Cfmpassword = Cfmpassword;
+        }
+        public string Cust_ID
         {
             get { return _CustID; }
             set { _CustID = value; }
@@ -75,7 +90,7 @@ namespace BizAppDev
             get { return _points; }
             set { _points = value; }
         }
-        public string phone_No
+        public string phoneNo
         {
             get { return _phoneNo; }
             set { _phoneNo = value; }
@@ -108,7 +123,18 @@ namespace BizAppDev
             set { _lvlPoints = value; }
         }
 
-        public Customer getCustomer(int CustID)
+        public string Password
+        {
+            get { return _Password; }
+            set { _Password = value; }
+        }
+
+        public string Cfmpassword
+        {
+            get { return _Cfmpassword; }
+            set { _Cfmpassword = value; }
+        }
+        public Customer getCustomer(string CustID)
         {
             Customer custDetail = null;
             string first_Name, last_Name, phone_No, email, address, DOB, gender, username;
@@ -152,7 +178,7 @@ namespace BizAppDev
 
             return custDetail;
         }
-        public int CustomerUpdate(int CustID, string first_Name, string last_Name, string email, string address, string phone_No, string DOB, string gender, string username)
+        public int CustomerUpdate(string CustID, string first_Name, string last_Name, string email, string address, string phone_No, string DOB, string gender, string username)
         {
             string queryStr = "UPDATE Customer SET" +
                 " first_Name = @first_Name, " +
@@ -188,7 +214,7 @@ namespace BizAppDev
 
 
         }
-        public int CustomerUpdatePoints(int CustID,int addedpoints)
+        public int CustomerUpdatePoints(string CustID,int addedpoints)
         {
             string queryStr = "UPDATE Customer SET" +
                 " lvlPoints = lvlpoints +@addedpoints " +
@@ -204,6 +230,33 @@ namespace BizAppDev
             conn.Close();
 
             return nofRow;
+        }
+        public int CustomerInsert()
+        {
+            int result = 0;
+
+            string queryStr = "INSERT INTO Customer(Cust_ID, first_Name, last_Name, gender, email, address, phoneNo, DOB, Password, Cfmpassword)"
+                + " values (@CustID, @firstName, @lastName, @gender, @email, @address, @phoneNo, @DOB, @Password, @Cfmpassword)";
+
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+
+            cmd.Parameters.AddWithValue("@CustID", Cust_ID);
+            cmd.Parameters.AddWithValue("@firstName", first_Name);
+            cmd.Parameters.AddWithValue("@lastName", last_Name);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@address", address);
+            cmd.Parameters.AddWithValue("@phoneNo", phoneNo);
+            cmd.Parameters.AddWithValue("@DOB", DOB);
+            cmd.Parameters.AddWithValue("@gender", gender);
+            cmd.Parameters.AddWithValue("@Password", Password);
+            cmd.Parameters.AddWithValue("@Cfmpassword", Cfmpassword);
+
+            conn.Open();
+            result += cmd.ExecuteNonQuery();
+            conn.Close();
+
+            return result;
         }
     }
 }

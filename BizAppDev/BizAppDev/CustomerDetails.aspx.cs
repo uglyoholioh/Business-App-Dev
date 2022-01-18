@@ -13,7 +13,7 @@ namespace BizAppDev
 		Customer Cust = new Customer();
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			int CID = 1;
+			string CID = "C1";
 			Session["CID"] = CID;
 			Cust = aCust.getCustomer(CID);
 			lbl_Address.Text = Cust.address.ToString();
@@ -33,7 +33,7 @@ namespace BizAppDev
         protected void Button1_Click(object sender, EventArgs e)
         {
 			Session["CustID"] = 1;
-			int CustID = (int)(Session["CustID"]);
+			string CustID = (int)(Session["CustID"]);
 			Customer cust = new Customer();
 			Customer acust = new Customer();
 			acust = cust.getCustomer(CustID);

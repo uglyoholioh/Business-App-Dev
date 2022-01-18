@@ -96,7 +96,7 @@ namespace BizAppDev
             set { _code = value; }
         }
 
-        public int claimCoupon(int CustID,int CouponID, string code,string coupName, int coupQuantity, int coupDiscount, int validDays, int validMonths, int validYears)
+        public int claimCoupon(string CustID,int CouponID, string code,string coupName, int coupQuantity, int coupDiscount, int validDays, int validMonths, int validYears)
         {
 
             string queryStr = "INSERT into CustCoupon " + "values(@Cust_ID,@CouponID,@code,@coupName,@coupQuantity,@coupDiscount,@coupExpiry)";
@@ -122,7 +122,7 @@ namespace BizAppDev
             return nofRow;
         }
 
-        public Coupon getCoupon(int CustID)
+        public Coupon getCoupon(string CustID)
         {
             Coupon coupDetail = null;
             string cDesc, cName, discount, expiry, code;
@@ -166,7 +166,7 @@ namespace BizAppDev
             }
 
         }
-        public int useCoupon(int CustID,string code)
+        public int useCoupon(string CustID,string code)
         {
             string queryStr = "DELETE FROM Coupon WHERE Cust_ID = @CustID and code = @code";
             SqlConnection conn = new SqlConnection(_connStr);

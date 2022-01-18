@@ -29,7 +29,7 @@ namespace BizAppDev
                 Label lblCouponID = (Label)(e.Item.FindControl("CouponIDLabel"));
                 int CouponID = int.Parse(lblCouponID.Text);
                 int result = 0;
-                int CustID = 1; //SESSION
+                string CustID = 1; //SESSION
                 string pass = "1234567890";
                 Random r = new Random();
                 char[] mypass = new char[5];
