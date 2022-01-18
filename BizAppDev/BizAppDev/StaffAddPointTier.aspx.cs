@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using System.Data;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Web;
+using System.Web.UI.WebControls;
 
 namespace BizAppDev
 {
@@ -16,10 +12,10 @@ namespace BizAppDev
         protected void Page_Load(object sender, EventArgs e)
         {
             int tierID = 0;
-            Session["tierID"] = tierID; 
+            Session["tierID"] = tierID;
             List<int> addedPerks = new List<int>();
             addedPerks.Add(2);
-            HttpContext.Current.Session["list"] = addedPerks ;
+            HttpContext.Current.Session["list"] = addedPerks;
             addedPerks = (List<int>)HttpContext.Current.Session["list"];
             addedPerks.Add(1);
             HttpContext.Current.Session["list"] = addedPerks;
@@ -108,7 +104,7 @@ namespace BizAppDev
         }
 
 
-        
+
 
         protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
         {

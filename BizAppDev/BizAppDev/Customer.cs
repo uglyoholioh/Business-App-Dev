@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-using System.Data;
+﻿using System.Configuration;
 using System.Data.SqlClient;
-using System.Configuration;
 
 
 namespace BizAppDev
@@ -187,7 +181,7 @@ namespace BizAppDev
                 username = dr["Username"].ToString();
                 lvlPoints = int.Parse(dr["lvlPoints"].ToString());
 
-                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender, username,pointTierID,lvlPoints);
+                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender, username, pointTierID, lvlPoints);
                 return custDetail;
 
             }
@@ -218,15 +212,15 @@ namespace BizAppDev
 
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@CustID",CustID);
+            cmd.Parameters.AddWithValue("@CustID", CustID);
             cmd.Parameters.AddWithValue("@first_Name", first_Name);
-            cmd.Parameters.AddWithValue("@last_Name",last_Name);
-            cmd.Parameters.AddWithValue("@email",email);
-            cmd.Parameters.AddWithValue("@address",address);
-            cmd.Parameters.AddWithValue("@phone_No",phone_No);
-            cmd.Parameters.AddWithValue("@DOB",DOB);
-            cmd.Parameters.AddWithValue("@gender",gender);
-            cmd.Parameters.AddWithValue("@username",username);
+            cmd.Parameters.AddWithValue("@last_Name", last_Name);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@address", address);
+            cmd.Parameters.AddWithValue("@phone_No", phone_No);
+            cmd.Parameters.AddWithValue("@DOB", DOB);
+            cmd.Parameters.AddWithValue("@gender", gender);
+            cmd.Parameters.AddWithValue("@username", username);
 
 
             conn.Open();
@@ -239,7 +233,7 @@ namespace BizAppDev
 
 
         }
-        public int CustomerUpdatePoints(string CustID,int addedpoints)
+        public int CustomerUpdatePoints(string CustID, int addedpoints)
         {
             string queryStr = "UPDATE Customer SET" +
                 " lvlPoints = lvlpoints +@addedpoints " +

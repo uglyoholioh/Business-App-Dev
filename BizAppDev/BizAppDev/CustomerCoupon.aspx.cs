@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using System.Data;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 namespace BizAppDev
 {
     public partial class CustomerCoupon : System.Web.UI.Page
@@ -52,7 +46,7 @@ namespace BizAppDev
                 }
                 var kan = new String(mypass);
 
-                result = coup.claimCoupon(CustID, CouponID, kan, coupName, CouponQuantity, CouponDiscount, validDays,validMonths,validYears);
+                result = coup.claimCoupon(CustID, CouponID, kan, coupName, CouponQuantity, CouponDiscount, validDays, validMonths, validYears);
                 if (result > 0)
                 {
                     string queryStr = "UPDATE Customer SET" +
@@ -76,7 +70,8 @@ namespace BizAppDev
                     int nofRow = 0;
                     nofRow = cmd.ExecuteNonQuery();
                     conn.Close();
-                    if (nofRow > 0) {
+                    if (nofRow > 0)
+                    {
                         Response.Write("<script>alert('Purchase successful!');</script>");
                     }
                     else { Response.Write("<script>alert('Purchase NOT successful!');</script>"); }
@@ -86,7 +81,7 @@ namespace BizAppDev
                 {
                     Response.Write("<script>alert('Purchase unsuccessful!');</script>");
                 }
-        }
+            }
         }
     }
-    }
+}

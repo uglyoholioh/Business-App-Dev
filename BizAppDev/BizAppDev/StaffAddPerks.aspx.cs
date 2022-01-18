@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.SqlClient;
 namespace BizAppDev
 {
     public partial class StaffAddPerks : System.Web.UI.Page
@@ -20,7 +14,7 @@ namespace BizAppDev
 
         protected void btn_Submit_Click(object sender, EventArgs e)
         {
-            string queryStr = "INSERT into Perks(Name,PDesc)" + "values(@perkName,@perkDesc)"; 
+            string queryStr = "INSERT into Perks(Name,PDesc)" + "values(@perkName,@perkDesc)";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             string perkName = tb_Name.Text;
@@ -39,4 +33,4 @@ namespace BizAppDev
             }
         }
     }
-    }
+}

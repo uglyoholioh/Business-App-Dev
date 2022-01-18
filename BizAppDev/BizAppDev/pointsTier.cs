@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-using System.Data;
-using System.Data.SqlClient;
+﻿using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 namespace BizAppDev
 {
     public class pointsTier
@@ -20,7 +15,7 @@ namespace BizAppDev
         {
 
         }
-        public pointsTier(int pointTierID,string name, string descr, int price)
+        public pointsTier(int pointTierID, string name, string descr, int price)
         {
             _pointTierID = pointTierID;
             _name = name;
@@ -115,12 +110,12 @@ namespace BizAppDev
             return nofRow;
 
         }
-        public int TierUpdate(int pointTierID,string name, string descr, int price)
+        public int TierUpdate(int pointTierID, string name, string descr, int price)
         {
             string queryStr = "UPDATE PointTiers SET" +
                 " name = @name," +
                 " descr = @descr," +
-                " price = @price"+
+                " price = @price" +
                 " WHERE pointTierID = @pointTierID";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
@@ -141,7 +136,7 @@ namespace BizAppDev
             List<pointsTier> tierList = new List<pointsTier>();
 
             string name, descr;
-            int pointTierID,price;
+            int pointTierID, price;
 
             string queryStr = "SELECT * FROM PointTiers Order By pointTierID";
 
@@ -157,7 +152,7 @@ namespace BizAppDev
                 descr = dr["descr"].ToString();
                 pointTierID = int.Parse(dr["pointTierID"].ToString());
                 price = int.Parse(dr["price"].ToString());
-                pointsTier a = new pointsTier(pointTierID,name,descr,price);    
+                pointsTier a = new pointsTier(pointTierID, name, descr, price);
                 tierList.Add(a);
             }
 
