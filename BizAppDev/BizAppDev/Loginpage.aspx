@@ -24,11 +24,8 @@
     <link rel="stylesheet" href="https://colorlib.com/polygon/octopus/assets/vendor/bootstrap-datepicker/css/datepicker3.css">
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/daterangepicker/daterangepicker.css">
 </head>
-<<<<<<< Updated upstream
     <body>
-=======
-    <body>z
->>>>>>> Stashed changes
+
        <div class="page login-page">
       <div class="container d-flex align-items-center">
         <div class="form-holder has-shadow">
@@ -73,8 +70,5 @@
         </div>
       </div>
 </body>
-<<<<<<< Updated upstream
 </html>
-=======
-</html>
->>>>>>> Stashed changes
+

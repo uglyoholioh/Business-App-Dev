@@ -11,11 +11,8 @@ namespace BizAppDev
 {
     public class Employee
     {
-<<<<<<< Updated upstream
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-=======
-        string _connStr = ConfigurationManager.ConnectionStrings["HealthDBContext"].ConnectionString;
->>>>>>> Stashed changes
+
         private string _EmpID = null;
         private string _EmpName = "";
         private string _NRIC = "";

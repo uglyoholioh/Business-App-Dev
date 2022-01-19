@@ -61,7 +61,7 @@ namespace BizAppDev
                     " WHERE Code = @Code";
 
                     Label lblCouponID = (Label)(e.Item.FindControl("CouponIDLabel"));
-                    string CustID = int.Parse(Session["CustID"].ToString());
+                    string CustID = (Session["CustID"].ToString());
                     int CouponID = int.Parse(lblCouponID.Text);
                     SqlConnection conn = new SqlConnection(_connStr);
                     SqlCommand cmd = new SqlCommand(queryStr, conn);

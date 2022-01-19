@@ -34,6 +34,7 @@ namespace BizAppDev
             conn.Close();
             if (nofRow > 0)
             {
+                Response.Redirect("StaffViewPerks.aspx");
                 Response.Write("<script>alert('Perk creation successful');</script>");
 
             }

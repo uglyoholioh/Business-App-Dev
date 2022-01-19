@@ -21,7 +21,7 @@ namespace BizAppDev
 			lbl_Email.Text = Cust.email.ToString();
 			lbl_Gender.Text = Cust.gender.ToString();
 			lbl_Name.Text = Cust.first_Name.ToString() + " " + Cust.last_Name.ToString();
-			lbl_PhoneNo.Text = Cust.phone_No.ToString();
+			lbl_PhoneNo.Text = Cust.phoneNo.ToString();
 			lbl_Username.Text = Cust.username.ToString();
 		}
 
@@ -33,7 +33,7 @@ namespace BizAppDev
         protected void Button1_Click(object sender, EventArgs e)
         {
 			Session["CustID"] = 1;
-			string CustID = (int)(Session["CustID"]);
+			string CustID = (string)(Session["CustID"]);
 			Customer cust = new Customer();
 			Customer acust = new Customer();
 			acust = cust.getCustomer(CustID);

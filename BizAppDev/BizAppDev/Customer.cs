@@ -12,11 +12,8 @@ namespace BizAppDev
 {
     public class Customer
     {
-<<<<<<< Updated upstream
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-=======
-        string _connStr = ConfigurationManager.ConnectionStrings["HealthDBContext"].ConnectionString;
->>>>>>> Stashed changes
+
         private string _CustID = string.Empty;
         private string _firstName = string.Empty;
         private string _lastName = string.Empty;
@@ -31,33 +28,14 @@ namespace BizAppDev
         private int _lvlPoints = 0;
         private string _Password = string.Empty;
         private string _Cfmpassword = string.Empty;
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
+
         public Customer()
         {
 
         }
-<<<<<<< Updated upstream
         public Customer(string CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username, int pointTierID, int lvlPoints)
-=======
-        public Customer(string CustID, string firstName, string lastName, string gender, string email, string address, string phoneNo, string DOB, string Password, string Cfmpassword)
-        {
-            _CustID = CustID;
-            _firstName = firstName;
-            _lastName = lastName;
-            _gender = gender;
-            _email = email;
-            _address = address;
-            _phoneNo = phoneNo;
-            _DOB = DOB;
-            _Password = Password;
-            _Cfmpassword = Cfmpassword;
-        }
 
-        public Customer(int CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username, int pointTierID, int lvlPoints)
->>>>>>> Stashed changes
         {
             _CustID = CustID;
             _firstName = firstName;

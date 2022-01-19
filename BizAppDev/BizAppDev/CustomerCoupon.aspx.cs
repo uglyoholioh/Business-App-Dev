@@ -23,13 +23,13 @@ namespace BizAppDev
             Coupon coup = new Coupon();
             Customer cust = new Customer();
             Customer acust = new Customer();
-            acust = cust.getCustomer(1);//SESSION ID = 1
+            acust = cust.getCustomer("C1");//SESSION ID = 1
             if (e.CommandName == "makePurchase")
             {
                 Label lblCouponID = (Label)(e.Item.FindControl("CouponIDLabel"));
                 int CouponID = int.Parse(lblCouponID.Text);
                 int result = 0;
-                string CustID = 1; //SESSION
+                string CustID = "C1"; //SESSION
                 string pass = "1234567890";
                 Random r = new Random();
                 char[] mypass = new char[5];

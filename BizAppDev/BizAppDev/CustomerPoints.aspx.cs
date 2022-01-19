@@ -20,7 +20,8 @@ namespace BizAppDev
 			Session["CID"] = CID;
 			Cust = aCust.getCustomer(CID);
 			lbl_Points.Text = Cust.points.ToString();
-            Tier = aTier.getPointsTier(CID);
+            int tierID = Cust.pointTierID;
+            Tier = aTier.getPointsTier(tierID);
             lbl_TierName.Text = Tier.name;
 		}
 
