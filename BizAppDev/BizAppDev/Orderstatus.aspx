@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="Orderstatus.aspx.cs" Inherits="BizAppDev.Orderstatus" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <header class="page-header">
+     <header class="page-header">
         <div class="container-fluid">
             <h2 class="no-margin-bottom">Order details</h2>
         </div>
@@ -25,7 +25,7 @@
                             <asp:Label ID="OrderIDLabel" runat="server" Text='<%# Eval("OrderID") %>' />
                             <br />                          
                             OrderDate:
-                            <asp:Label ID="OrderDateLabel" runat="server" Text='<%# Eval("OrderDate") %>' />
+                            <asp:Label ID="OrderDateLabel" runat="server" Text='<%# Eval("deliverydate") %>' />
                             <br />                         
                             OrderStatus:
                             <asp:Label ID="OrderStatusLabel" runat="server" Text='<%# Eval("OrderStatus") %>' />
@@ -48,3 +48,4 @@
                         </section>
     </form>
 </asp:Content>
+

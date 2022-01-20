@@ -17,7 +17,7 @@
          <asp:GridView ID="GvOrder" runat="server" AutoGenerateColumns="False" DataKeyNames="OrderID" OnRowEditing="GvOrder_RowEditing1" OnRowDeleting="GvOrder_RowDeleting">
              <Columns>
                  <asp:BoundField DataField="OrderID" HeaderText="OrderID" ReadOnly="True" SortExpression="OrderID" />          
-                 <asp:BoundField DataField="OrderDate" HeaderText="OrderDate" SortExpression="OrderDate" />
+                 <asp:BoundField DataField="deliverydate" HeaderText="OrderDate" SortExpression="OrderDate" />
                  <asp:BoundField DataField="OrderStatus" HeaderText="OrderStatus" SortExpression="OrderStatus" />
                  <asp:CommandField ShowDeleteButton="True" DeleteText="Reject" EditText="Accept" ShowEditButton="True" />
              </Columns>

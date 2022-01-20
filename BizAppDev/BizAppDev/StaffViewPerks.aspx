@@ -336,7 +336,7 @@ body{
                         <div class="widget-49-meeting-info">
                             <span class="widget-49-pro-title"><asp:TextBox ID="tb_NewName" runat="server"></asp:TextBox>
 </span>
-                            <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
+                            <span class="widget-49-meeting-time"></span>
                         </div>
                     </div>
                     <ol class="widget-49-meeting-points">
@@ -356,13 +356,7 @@ body{
     
     </div>
 </div>
-            <strong>Perk ID:</strong>
-            <br />
-            Name:
-            <br />
-            <br />
-            Description:&nbsp;
-            <br />
+
 
         </EditItemTemplate>
         <ItemTemplate>
