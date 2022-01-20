@@ -88,23 +88,52 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AcceptedOrder.aspx" />
+    <Content Include="Addemployee.aspx" />
+    <Content Include="addOffer.aspx" />
+    <Content Include="AddPersonalCoupon.aspx" />
+    <Content Include="AddProduct.aspx" />
+    <Content Include="Admininfo.aspx" />
+    <Content Include="Adminlist.aspx" />
     <Content Include="checkout.aspx" />
     <Content Include="checkoutoverview.aspx" />
+    <Content Include="CouponDetail.aspx" />
+    <Content Include="CouponInsert.aspx" />
+    <Content Include="Coupons%28lermin%29.aspx" />
+    <Content Include="Coupons2Detail.aspx" />
+    <Content Include="CouponsValidity%28lermin%29.aspx" />
+    <Content Include="Customer.aspx" />
     <Content Include="CustomerCoupon.aspx" />
     <Content Include="CustomerDetails.aspx" />
     <Content Include="CustomerEditDetails.aspx" />
     <Content Include="CustomerLanding.aspx" />
     <Content Include="CustomerMain.css" />
     <Content Include="CustomerMainPage.aspx" />
+    <Content Include="CustomerMoreInfo.aspx" />
     <Content Include="CustomerPoints.aspx" />
     <Content Include="CustomerPurchaseCoupon.aspx" />
     <Content Include="CustomerViewCoupon.aspx" />
     <Content Include="CustomerViewPerks.aspx" />
     <Content Include="EditOrder.aspx" />
+    <Content Include="EditProfile.aspx" />
+    <Content Include="Employeeinfo.aspx" />
+    <Content Include="employeelist%28nut%29.aspx" />
+    <Content Include="EmployeeList.aspx" />
+    <Content Include="EmployeeListMoreInfo.aspx" />
     <Content Include="home.aspx" />
     <Content Include="images\winston-chen-5XBn_RTp7ik-unsplash.jpg" />
     <Content Include="Loginpage.aspx" />
+    <Content Include="MembershipMoreInfo.aspx" />
+    <Content Include="MembershipTierList.aspx" />
+    <Content Include="offerDetails.aspx" />
+    <Content Include="Offers%28lermin%29.aspx" />
+    <Content Include="Orderinfo.aspx" />
+    <Content Include="orders%28lermin%29.aspx" />
+    <Content Include="Orderstatus.aspx" />
+    <Content Include="PackageAdd.aspx" />
     <Content Include="payment.aspx" />
+    <Content Include="Products%28lermin%29.aspx" />
+    <Content Include="ProductsOrdering.aspx" />
     <Content Include="product_desc.aspx" />
     <Content Include="Signuppage.aspx" />
     <Content Include="StaffAddPerks.aspx" />
@@ -120,7 +149,56 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcceptedOrder.aspx.cs">
+      <DependentUpon>AcceptedOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AcceptedOrder.aspx.designer.cs">
+      <DependentUpon>AcceptedOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Addemployee.aspx.cs">
+      <DependentUpon>Addemployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Addemployee.aspx.designer.cs">
+      <DependentUpon>Addemployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addOffer.aspx.cs">
+      <DependentUpon>addOffer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addOffer.aspx.designer.cs">
+      <DependentUpon>addOffer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddPersonalCoupon.aspx.cs">
+      <DependentUpon>AddPersonalCoupon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPersonalCoupon.aspx.designer.cs">
+      <DependentUpon>AddPersonalCoupon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddProduct.aspx.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddProduct.aspx.designer.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin.cs" />
+    <Compile Include="Admininfo.aspx.cs">
+      <DependentUpon>Admininfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admininfo.aspx.designer.cs">
+      <DependentUpon>Admininfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Adminlist.aspx.cs">
+      <DependentUpon>Adminlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Adminlist.aspx.designer.cs">
+      <DependentUpon>Adminlist.aspx</DependentUpon>
+    </Compile>
     <Compile Include="checkout.aspx.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -136,7 +214,50 @@
       <DependentUpon>checkoutoverview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Coupon.cs" />
+    <Compile Include="CouponDetail.aspx.cs">
+      <DependentUpon>CouponDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CouponDetail.aspx.designer.cs">
+      <DependentUpon>CouponDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CouponInsert.aspx.cs">
+      <DependentUpon>CouponInsert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CouponInsert.aspx.designer.cs">
+      <DependentUpon>CouponInsert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Coupons%28lermin%29.aspx.cs">
+      <DependentUpon>Coupons%28lermin%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coupons%28lermin%29.aspx.designer.cs">
+      <DependentUpon>Coupons%28lermin%29.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Coupons.cs" />
+    <Compile Include="Coupons2.cs" />
+    <Compile Include="Coupons2Detail.aspx.cs">
+      <DependentUpon>Coupons2Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coupons2Detail.aspx.designer.cs">
+      <DependentUpon>Coupons2Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CouponsValidity%28lermin%29.aspx.cs">
+      <DependentUpon>CouponsValidity%28lermin%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CouponsValidity%28lermin%29.aspx.designer.cs">
+      <DependentUpon>CouponsValidity%28lermin%29.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.aspx.cs">
+      <DependentUpon>Customer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer.aspx.designer.cs">
+      <DependentUpon>Customer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerCoupon.aspx.cs">
       <DependentUpon>CustomerCoupon.aspx</DependentUpon>
@@ -180,6 +301,13 @@
     <Compile Include="CustomerMainPage.aspx.designer.cs">
       <DependentUpon>CustomerMainPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerMoreInfo.aspx.cs">
+      <DependentUpon>CustomerMoreInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerMoreInfo.aspx.designer.cs">
+      <DependentUpon>CustomerMoreInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerPoints.aspx.cs">
       <DependentUpon>CustomerPoints.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -215,7 +343,42 @@
     <Compile Include="EditOrder.aspx.designer.cs">
       <DependentUpon>EditOrder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditProfile.aspx.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProfile.aspx.designer.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs" />
+    <Compile Include="Employeeinfo.aspx.cs">
+      <DependentUpon>Employeeinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employeeinfo.aspx.designer.cs">
+      <DependentUpon>Employeeinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="employeelist%28nut%29.aspx.cs">
+      <DependentUpon>employeelist%28nut%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="employeelist%28nut%29.aspx.designer.cs">
+      <DependentUpon>employeelist%28nut%29.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeList.aspx.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeList.aspx.designer.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeListMoreInfo.aspx.cs">
+      <DependentUpon>EmployeeListMoreInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeListMoreInfo.aspx.designer.cs">
+      <DependentUpon>EmployeeListMoreInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -230,7 +393,67 @@
     <Compile Include="Loginpage.aspx.designer.cs">
       <DependentUpon>Loginpage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MembershipMoreInfo.aspx.cs">
+      <DependentUpon>MembershipMoreInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MembershipMoreInfo.aspx.designer.cs">
+      <DependentUpon>MembershipMoreInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MembershipTier.cs" />
+    <Compile Include="MembershipTierList.aspx.cs">
+      <DependentUpon>MembershipTierList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MembershipTierList.aspx.designer.cs">
+      <DependentUpon>MembershipTierList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="offerDetails.aspx.cs">
+      <DependentUpon>offerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="offerDetails.aspx.designer.cs">
+      <DependentUpon>offerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Offers%28lermin%29.aspx.cs">
+      <DependentUpon>Offers%28lermin%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Offers%28lermin%29.aspx.designer.cs">
+      <DependentUpon>Offers%28lermin%29.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Offers.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="Orderdetails.cs" />
+    <Compile Include="Orderinfo.aspx.cs">
+      <DependentUpon>Orderinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Orderinfo.aspx.designer.cs">
+      <DependentUpon>Orderinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="orders%28lermin%29.aspx.cs">
+      <DependentUpon>orders%28lermin%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="orders%28lermin%29.aspx.designer.cs">
+      <DependentUpon>orders%28lermin%29.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Orderstatus.aspx.cs">
+      <DependentUpon>Orderstatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Orderstatus.aspx.designer.cs">
+      <DependentUpon>Orderstatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Package.cs" />
+    <Compile Include="PackageAdd.aspx.cs">
+      <DependentUpon>PackageAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PackageAdd.aspx.designer.cs">
+      <DependentUpon>PackageAdd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="payment.aspx.cs">
       <DependentUpon>payment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -240,6 +463,21 @@
     </Compile>
     <Compile Include="pointsTier.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductOrdering.cs" />
+    <Compile Include="Products%28lermin%29.aspx.cs">
+      <DependentUpon>Products%28lermin%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products%28lermin%29.aspx.designer.cs">
+      <DependentUpon>Products%28lermin%29.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsOrdering.aspx.cs">
+      <DependentUpon>ProductsOrdering.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductsOrdering.aspx.designer.cs">
+      <DependentUpon>ProductsOrdering.aspx</DependentUpon>
+    </Compile>
     <Compile Include="product_desc.aspx.cs">
       <DependentUpon>product_desc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

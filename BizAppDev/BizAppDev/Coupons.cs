@@ -5,12 +5,13 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+
+
 namespace BizAppDev
 {
     public class Coupons
     {
-
-        string _connStr = ConfigurationManager.ConnectionStrings["CouponsDBContext"].ConnectionString;
+        string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
         private string _couponID = null;
         private string _couponName = string.Empty;
         private string _couponstartDate = ""; // this is another way to specify empty string
@@ -324,7 +325,5 @@ namespace BizAppDev
 
             return coupList;
         }
-
-
     }
 }

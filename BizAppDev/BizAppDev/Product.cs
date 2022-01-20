@@ -104,6 +104,49 @@ namespace BizAppDev
                 _supplEmail = value;
             }
         }
+        public Product getProd(string supplname)
+        {
+
+            Product productdetails = null;
+
+            string prodID, prodName, prodDesc, prodImage, supplName, supplEmail;
+            decimal unitPrice;
+            int stockLevel;
+
+
+            string queryStr = "SELECT * FROM Products WHERE supplierName = @supplName";
+
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@supplName", supplname);
+
+            conn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+            {
+                prodID = dr["Product_ID"].ToString();
+                prodName = dr["Product_Name"].ToString();
+                prodImage = dr["Product_Image"].ToString();
+                prodDesc = dr["Product_Desc"].ToString();
+                supplName = dr["supplierName"].ToString();
+                supplEmail = dr["supplierEmail"].ToString();
+                unitPrice = decimal.Parse(dr["Unit_Price"].ToString());
+                stockLevel = int.Parse(dr["Stock_Level"].ToString());
+
+                productdetails = new Product(prodID, prodName, prodDesc, unitPrice, prodImage, stockLevel, supplName, supplEmail);
+            }
+            else
+            {
+                productdetails = null;
+            }
+
+            conn.Close();
+            dr.Close();
+            dr.Dispose();
+
+            return productdetails;
+        }
         public int ProductInsert()
         {
 
