@@ -32,7 +32,6 @@ namespace BizAppDev
                 Label lblCouponID = (Label)(e.Item.FindControl("CouponIDLabel"));
                 int CouponID = int.Parse(lblCouponID.Text);
                 int result = 0;
-                string CustID = "C1"; //SESSION
                 string pass = "1234567890";
                 Random r = new Random();
                 char[] mypass = new char[5];
@@ -55,7 +54,7 @@ namespace BizAppDev
                 }
                 var kan = new String(mypass);
 
-                result = coup.claimCoupon(CustID, CouponID, kan, coupName, CouponQuantity, CouponDiscount, validDays,validMonths,validYears);
+                result = coup.claimCoupon(CID, CouponID, kan, coupName, CouponQuantity, CouponDiscount, validDays, validMonths, validYears);
                 if (result > 0)
                 {
                     string queryStr = "UPDATE Customer SET" +
@@ -64,32 +63,44 @@ namespace BizAppDev
                        " WHERE Cust_ID = @Cust_ID";
                     Label lblcost = (Label)(e.Item.FindControl("costLabel"));
                     int cost = int.Parse(lblcost.Text);
-
+                    cost = cost * CouponQuantity;
                     int newpoints = acust.points - cost;
-                    int newlvlpoints = acust.lvlPoints;
-                    newlvlpoints += cost;
-                    string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-                    SqlConnection conn = new SqlConnection(_connStr);
-                    SqlCommand cmd = new SqlCommand(queryStr, conn);
-                    cmd.Parameters.AddWithValue("@Cust_ID", CustID);
-                    cmd.Parameters.AddWithValue("@CouponID", CouponID);
-                    cmd.Parameters.AddWithValue("@points", newpoints);
-                    cmd.Parameters.AddWithValue("@lvlPoints", newlvlpoints);
-                    conn.Open();
-                    int nofRow = 0;
-                    nofRow = cmd.ExecuteNonQuery();
-                    conn.Close();
-                    if (nofRow > 0) {
-                        Response.Write("<script>alert('Purchase successful!');</script>");
-                    }
-                    else { Response.Write("<script>alert('Purchase NOT successful!');</script>"); }
+                    if (newpoints < 0)
+                    {
+                        Response.Write("<script>alert('Not enough points!');</script>");
 
+                    }
+                    else
+                    {
+
+
+                        int newlvlpoints = acust.lvlPoints;
+                        newlvlpoints += cost;
+                        string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+                        SqlConnection conn = new SqlConnection(_connStr);
+                        SqlCommand cmd = new SqlCommand(queryStr, conn);
+                        cmd.Parameters.AddWithValue("@Cust_ID", CID);
+                        cmd.Parameters.AddWithValue("@CouponID", CouponID);
+                        cmd.Parameters.AddWithValue("@points", newpoints);
+                        cmd.Parameters.AddWithValue("@lvlPoints", newlvlpoints);
+                        conn.Open();
+                        int nofRow = 0;
+                        nofRow = cmd.ExecuteNonQuery();
+                        conn.Close();
+                        if (nofRow > 0)
+                        {
+                            Response.Redirect("CustomerViewCoupon.aspx");
+                            Response.Write("<script>alert('Purchase successful!');</script>");
+                        }
+                        else { Response.Write("<script>alert('Purchase NOT successful!');</script>"); }
+
+                    }
                 }
                 else
                 {
                     Response.Write("<script>alert('Purchase unsuccessful!');</script>");
                 }
-        }
+                } 
         }
     }
     }

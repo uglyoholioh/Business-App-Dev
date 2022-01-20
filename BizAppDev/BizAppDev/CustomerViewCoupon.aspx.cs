@@ -86,7 +86,10 @@ namespace BizAppDev
 
         protected void dl_SeasonalCoupon_ItemCommand(object source, DataListCommandEventArgs e)
         {
-
+            if (e.CommandName == "showcode")
+            {
+                
+            }
         }
 
         protected void dl_SeasonalCoupon_ItemDataBound(object sender, DataListItemEventArgs e)

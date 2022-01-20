@@ -36,9 +36,9 @@
               <div class="info d-flex align-items-center">
                 <div class="content">
                    <div class="logo" style = 'text-align:center; margin-left:150px;'>
-                       <img src="https://www.hyatt.com/hds/images/1.7.0/brands/master/logos/logo_hc.svg" alt="Hyatt" class="logo-full">
-                </div>
-                  <p style = 'text-align:center; margin-left:150px;'>Welcome to Hyatt hotel!</p>
+                       <h1>Login</h1>
+                   </div>
+                  <p style = 'text-align:center; margin-left:150px;'>Welcome to Kim Zua store!</p>
                 </div>
               </div>
             </div>

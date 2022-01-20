@@ -46,7 +46,7 @@ section{padding:5% 0;}
 }
     </style>
 
-    <asp:DataList ID="DataList1" runat="server" DataSourceID="CouponRetrieve" RepeatColumns="4" RepeatDirection="Horizontal" OnItemCommand="DataList1_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="CouponRetrieve" RepeatColumns="4" RepeatDirection="Horizontal" OnItemCommand="DataList1_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" CellPadding="40">
         <ItemTemplate>
         <div class="floatycontain">
 <section id="labels">
@@ -62,9 +62,9 @@ section{padding:5% 0;}
                 <div class="type">off</div>
             </div>
             <div class="descr">
-                <strong><asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("Code") %>' /></strong><br />
                 <span>Expires:</span>
                   <asp:Label ID="expiry" runat="server" Text='<%#Eval("coupexpiry") %>'/>
+
             </div>
             <div class="ends">
                 <small>                  <asp:Label ID="coupQuantityLabel" runat="server" Text='<%#Eval("coupQuantity") %>'/>
@@ -84,7 +84,6 @@ section{padding:5% 0;}
   </div>
     </div>
 
-            <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("Cust_ID") %>' />
 
         </ItemTemplate>
 
@@ -110,23 +109,21 @@ section{padding:5% 0;}
 </h2>
             </div>
             <div class="discount alizarin"><%# Eval("coupon_Name") %>
-                <div class="type">off</div>
+                <div class="type"><%#Eval("coup_discountamt") %></div>
             </div>
             <div class="descr">
-                                <strong><asp:Label ID="Label1" runat="server" Text='<%# Eval("coupon_startDate") %>' /></strong><br />
+                                <strong>Start:<asp:Label ID="Label1" runat="server" Text='<%# Eval("coupon_startDate") %>' /></strong><br />
 
-                <strong><asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("coupon_endDate") %>' /></strong><br />
-                <span>Expires:</span>
+                <strong>End:<asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("coupon_endDate") %>' /></strong><br />
+                <span>Description:</span>
                   <asp:Label ID="expiry" runat="server" Text='<%#Eval("coup_Desc") %>'/>
             </div>
             <div class="ends">
-                <small>                  <asp:Label ID="coupQuantityLabel" runat="server" Text='<%#Eval("coup_discountamt") %>'/>
-* Conditions and restrictions apply.</small>
+                <small>                  <asp:Label ID="coupQuantityLabel" runat="server" Text=''/></small>
             </div>
               <div class="coupon midnight-blue">
                   <a data-toggle="collapse" href="#code-1" class="open-code"></a>
-                  <asp:Button ID="btn_Use" runat="server" data-toggle="collapse" href="#code-1" CommandName="UseCoupon" Text="Use" CssClass ="btn-dark"/>
-                  <asp:Label ID="Label2" runat="server" Text='<%#Eval("coupon_Name") %>'/>
+                  Code: <asp:Label ID="Label2" runat="server" Text='<%#Eval("coupon_Name") %>'/>
               </div>
           </div>
 
