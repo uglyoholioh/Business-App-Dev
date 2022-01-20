@@ -13,35 +13,11 @@ namespace BizAppDev
 {
     public partial class StaffAddPointTier : System.Web.UI.Page
     {
+        string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            int tierID = 0;
-            Session["tierID"] = tierID; 
-            List<int> addedPerks = new List<int>();
-            addedPerks.Add(2);
-            HttpContext.Current.Session["list"] = addedPerks ;
-            addedPerks = (List<int>)HttpContext.Current.Session["list"];
-            addedPerks.Add(1);
-            HttpContext.Current.Session["list"] = addedPerks;
-            string perkIDqueryStr = "SELECT top 1 pointTierID from PointTiers order by pointTierID desc";
-            string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-            SqlConnection IDconn = new SqlConnection(_connStr);
-            SqlCommand IDcmd = new SqlCommand(perkIDqueryStr, IDconn);
-            IDconn.Open();
-            SqlDataReader dr = IDcmd.ExecuteReader();
-            if (dr.Read())
-            {
-                tierID = int.Parse(dr["pointTierID"].ToString());
-                tierID += 1;
-                IDconn.Close();
-                Session["tierID"] = tierID;
 
-            }
-            else
-            {
-                Response.Write("<script>alert('walao!');</script>");
-
-            }
         }
 
 
@@ -50,15 +26,13 @@ namespace BizAppDev
         {
             int pointtierresult = 0;
             bool valid = true;
-            string tierqueryStr = "INSERT INTO PointTiers" + " values (@pointTierID,@name,@descr,@price)";
+            string tierqueryStr = "INSERT INTO PointTiers" + " values (@name,@descr,@price)";
             string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
             SqlConnection tierconn = new SqlConnection(_connStr);
             SqlCommand tiercmd = new SqlCommand(tierqueryStr, tierconn);
             string name = tb_Name.Text;
             string descr = tb_descr.Text;
-            int pointTierID = int.Parse(Session["tierID"].ToString());
             int price = int.Parse(tb_price.Text);
-            tiercmd.Parameters.AddWithValue("@pointTierID", pointTierID);
             tiercmd.Parameters.AddWithValue("@name", name);
             tiercmd.Parameters.AddWithValue("@descr", descr);
             tiercmd.Parameters.AddWithValue("@price", price);
@@ -75,7 +49,31 @@ namespace BizAppDev
             }
             int result = 0;
             int no_Perks = 0;
-            foreach (DataListItem item in DataList1.Items)
+
+            //retrieving ID of tier just created
+            int tierID = 0;
+            Session["tierID"] = tierID;
+            List<int> addedPerks = new List<int>();
+            HttpContext.Current.Session["list"] = addedPerks;
+            addedPerks = (List<int>)HttpContext.Current.Session["list"];
+            HttpContext.Current.Session["list"] = addedPerks;
+            string perkIDqueryStr = "SELECT top 1 pointTierID from PointTiers order by pointTierID desc";
+            SqlConnection IDconn = new SqlConnection(_connStr);
+            SqlCommand IDcmd = new SqlCommand(perkIDqueryStr, IDconn);
+            IDconn.Open();
+            SqlDataReader dr = IDcmd.ExecuteReader();
+            if (dr.Read())
+            {
+                tierID = int.Parse(dr["pointTierID"].ToString());
+                IDconn.Close();
+                Session["tierID"] = tierID;
+
+            }
+            else
+            {
+                Response.Write("<script>alert('walao!');</script>");
+            }
+                foreach (DataListItem item in DataList1.Items)
             {
 
                 CheckBox check = (CheckBox)item.FindControl("cb_Perks");
@@ -88,7 +86,7 @@ namespace BizAppDev
                     SqlCommand cmd = new SqlCommand(queryStr, conn);
                     int PerkID = int.Parse(check.Text);
                     cmd.Parameters.AddWithValue("@PerkID", PerkID);
-                    cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
+                    cmd.Parameters.AddWithValue("@pointTierID", tierID);
                     conn.Open();
                     result += cmd.ExecuteNonQuery();
 
@@ -97,7 +95,7 @@ namespace BizAppDev
             if (no_Perks == result)
             {
                 Response.Write("<script>alert('Points tier created!');</script>");
-
+                Response.Redirect("StaffViewTiers.aspx");
             }
             else
             {

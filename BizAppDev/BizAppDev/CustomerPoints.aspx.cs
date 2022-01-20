@@ -16,9 +16,9 @@ namespace BizAppDev
 
 		protected void Page_Load(object sender, EventArgs e)
         {
-			string CID = "C1";
-			Session["CID"] = CID;
-			Cust = aCust.getCustomer(CID);
+            HttpContext context = HttpContext.Current;
+            string CID = (string)(context.Session["CustID"]);
+            Cust = aCust.getCustomer(CID);
 			lbl_Points.Text = Cust.points.ToString();
             int tierID = Cust.pointTierID;
             Tier = aTier.getPointsTier(tierID);

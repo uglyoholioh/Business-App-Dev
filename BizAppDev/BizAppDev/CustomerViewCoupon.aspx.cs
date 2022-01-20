@@ -15,10 +15,13 @@ namespace BizAppDev
         Coupon coup = new Coupon();
         Coupon acoup = new Coupon();
 
+
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CUSTOMER.MDF;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["CustID"] = 1; //change after login completed
+            HttpContext context = HttpContext.Current;
+            string CID = (string)(context.Session["CustID"]);
+
         }
 
 
@@ -61,7 +64,6 @@ namespace BizAppDev
                     " WHERE Code = @Code";
 
                     Label lblCouponID = (Label)(e.Item.FindControl("CouponIDLabel"));
-                    string CustID = (Session["CustID"].ToString());
                     int CouponID = int.Parse(lblCouponID.Text);
                     SqlConnection conn = new SqlConnection(_connStr);
                     SqlCommand cmd = new SqlCommand(queryStr, conn);
@@ -85,6 +87,10 @@ namespace BizAppDev
         protected void dl_SeasonalCoupon_ItemCommand(object source, DataListCommandEventArgs e)
         {
 
+        }
+
+        protected void dl_SeasonalCoupon_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
         }
     }
 }

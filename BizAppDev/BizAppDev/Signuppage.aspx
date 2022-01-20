@@ -57,9 +57,9 @@
                                  </asp:RadioButtonList> 
                            Email Address:<asp:TextBox ID="tb_Email" runat="server" CssClass="input-material"></asp:TextBox>
                            Contact Number:<asp:TextBox ID="tb_Contactno" runat="server" CssClass="input-material"></asp:TextBox>
-                         Address:<asp:TextBox ID="tb_Address" runat="server" CssClass="input-material"></asp:TextBox>
-                         Password:<asp:TextBox ID="tb_Password" runat="server" CssClass="input-material"></asp:TextBox>
-                         Confirm Password:<asp:TextBox ID="tb_CfmPassword" runat="server" CssClass="input-material"></asp:TextBox>
+                         Address:<asp:TextBox ID="tb_Address" runat="server" CssClass="input-material" ></asp:TextBox>
+                         Password:<asp:TextBox ID="tb_Password" runat="server" CssClass="input-material" TextMode="Password"></asp:TextBox>
+                         Confirm Password:<asp:TextBox ID="tb_CfmPassword" runat="server" CssClass="input-material" TextMode="Password"></asp:TextBox>
 &nbsp;<br />                  
                     <div class="form-group">
                        <asp:Button ID="Register_Btn" class="btn btn-primary mb-3" runat="server" Text="Register" OnClick="Register_Btn_Click"/>

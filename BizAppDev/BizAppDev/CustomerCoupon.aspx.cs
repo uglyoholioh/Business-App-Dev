@@ -15,7 +15,8 @@ namespace BizAppDev
         Coupon coup = new Coupon();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["CustID"] = 1;
+            HttpContext context = HttpContext.Current;
+            string CID = (string)(context.Session["CustID"]);
         }
 
         protected void CouponDatalist_ItemCommand(object source, DataListCommandEventArgs e)
@@ -23,7 +24,9 @@ namespace BizAppDev
             Coupon coup = new Coupon();
             Customer cust = new Customer();
             Customer acust = new Customer();
-            acust = cust.getCustomer("C1");//SESSION ID = 1
+            HttpContext context = HttpContext.Current;
+            string CID = (string)(context.Session["CustID"]);
+            acust = cust.getCustomer(CID);
             if (e.CommandName == "makePurchase")
             {
                 Label lblCouponID = (Label)(e.Item.FindControl("CouponIDLabel"));

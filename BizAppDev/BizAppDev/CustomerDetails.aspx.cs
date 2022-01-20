@@ -13,8 +13,9 @@ namespace BizAppDev
 		Customer Cust = new Customer();
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			string CID = "C1";
-			Session["CID"] = CID;
+			HttpContext context = HttpContext.Current;
+			string CID = (string)(context.Session["CustID"]);
+
 			Cust = aCust.getCustomer(CID);
 			lbl_Address.Text = Cust.address.ToString();
 			lbl_DOB.Text = Cust.DOB.ToString();
@@ -32,7 +33,6 @@ namespace BizAppDev
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-			Session["CustID"] = 1;
 			string CustID = (string)(Session["CustID"]);
 			Customer cust = new Customer();
 			Customer acust = new Customer();

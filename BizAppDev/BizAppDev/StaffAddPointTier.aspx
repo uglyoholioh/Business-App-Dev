@@ -27,7 +27,7 @@
                       <h4 class="card-title"><asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
                           <asp:Label ID="Label2" runat="server" Text='<%# Eval("PerkID") %>' />
                           </h4>
-                      <p class="card-text"><asp:Label ID="Label1" runat="server" Text='<%# Eval("desc") %>' />
+                      <p class="card-text"><asp:Label ID="Label1" runat="server" Text='<%# Eval("PDesc") %>' />
                           </p>
                           
                           <asp:CheckBox ID="cb_Perks" runat="server" Text='<%# Eval("PerkID") %>' />

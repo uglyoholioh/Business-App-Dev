@@ -91,7 +91,7 @@ section{padding:5% 0;}
     </asp:DataList>
             <asp:SqlDataSource ID="CouponRetrieve" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE ([Cust_ID] = @Cust_ID)">
                 <SelectParameters>
-                    <asp:SessionParameter Name="Cust_ID" SessionField="CustID" Type="Int32" />
+                    <asp:SessionParameter Name="Cust_ID" SessionField="CustID" Type="String" />
                 </SelectParameters>
     </asp:SqlDataSource>
 
@@ -124,10 +124,9 @@ section{padding:5% 0;}
 * Conditions and restrictions apply.</small>
             </div>
               <div class="coupon midnight-blue">
-                  <a data-toggle="collapse" href="#code-1" class="open-code">            <asp:Label ID="CouponCode" runat="server" Text='placeholder'/>
-</a>
-                  <asp:Button ID="btn_Use" runat="server" CommandName="UseCoupon" Text="Use" CssClass ="btn-dark"/>
-                  <div id="code-1" class="collapse code"><%#Eval("coupon_Name") %></div>
+                  <a data-toggle="collapse" href="#code-1" class="open-code"></a>
+                  <asp:Button ID="btn_Use" runat="server" data-toggle="collapse" href="#code-1" CommandName="UseCoupon" Text="Use" CssClass ="btn-dark"/>
+                  <asp:Label ID="Label2" runat="server" Text='<%#Eval("coupon_Name") %>'/>
               </div>
           </div>
 
@@ -137,7 +136,6 @@ section{padding:5% 0;}
   </div>
     </div>
 
-            <asp:Label ID="Cust_IDLabel" runat="server" Text='placeholder' />
 
         </ItemTemplate>
 

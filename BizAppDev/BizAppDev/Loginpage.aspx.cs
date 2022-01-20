@@ -70,8 +70,9 @@ namespace BizAppDev
 
             if (dp.Read())
             {
+                Session["CustID"] = tb_Username.Text;
                 Response.Write("<script>alert('Log in successful');</script>");
-                Response.Redirect("employeelist.aspx");
+                Response.Redirect("CustomerDetails.aspx");
             }
             else
             {

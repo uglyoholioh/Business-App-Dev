@@ -57,9 +57,18 @@ namespace BizAppDev
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int pointTierID = int.Parse(GridView1.DataKeys[e.RowIndex].Value.ToString());
+            string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+            string queryStr = "DELETE FROM pointTiersPerks WHERE pointTierID=@pointTierID";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
+            conn.Open();
+            int nofRow = 0;
+            nofRow = cmd.ExecuteNonQuery();
+            conn.Close();
             int result = 0;
             pointsTier tier = new pointsTier();
-            int pointTierID = int.Parse(GridView1.DataKeys[e.RowIndex].Value.ToString());
             result = tier.TierDelete(pointTierID);
 
             if (result > 0)

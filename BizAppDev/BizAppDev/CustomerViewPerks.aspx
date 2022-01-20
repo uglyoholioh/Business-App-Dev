@@ -16,13 +16,13 @@
                         <asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
                         <br />
                         Desc:
-                        <asp:Label ID="DescLabel" runat="server" Text='<%# Eval("Desc") %>' />
+                        <asp:Label ID="DescLabel" runat="server" Text='<%# Eval("PDesc") %>' />
                         <br />
                         <br />
 <br />
                     </ItemTemplate>
                 </asp:DataList>
-                <asp:SqlDataSource ID="PerkSQL" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Perks] WHERE ([pointTierID] = @pointTierID)">
+                <asp:SqlDataSource ID="PerkSQL" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT Perks.PerkID, Perks.Name, Perks.PDesc, PointTiersPerks.pointTierID FROM PointTiersPerks INNER JOIN Perks ON PointTiersPerks.PerkID = Perks.PerkID WHERE (PointTiersPerks.pointTierID = @pointTierID)">
                     <SelectParameters>
                         <asp:QueryStringParameter Name="pointTierID" QueryStringField="pointTierID" Type="Int32" />
                     </SelectParameters>
