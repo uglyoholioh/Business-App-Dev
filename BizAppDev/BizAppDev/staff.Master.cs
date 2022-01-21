@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace BizAppDev
 {
@@ -13,6 +15,36 @@ namespace BizAppDev
         {
             int crap = 1;
             string urlString = "~/Coupons(lermin).aspx?pointTierID=" + crap.ToString(); ;
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+            string employeename;
+            employeename = "Daniel";
+
+
+            string queryStr = "SELECT * FROM Admin WHERE AdmName = @empName";
+
+
+            SqlCommand cmd = new SqlCommand(queryStr, con);
+            cmd.Parameters.AddWithValue("@empName", employeename);
+
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+            {
+
+                lbl_position.Text = "Admin";
+
+            }
+            label_Name.Text = employeename;
+
+
+
+            con.Close();
+            dr.Close();
+            dr.Dispose();
+
+            string profile = "/EditProfile.aspx?AdmName=" + employeename;
+            hrefString.Text = profile;
         }
     }
 }

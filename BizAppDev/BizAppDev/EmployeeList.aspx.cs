@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-
 namespace BizAppDev
 {
     public partial class EmployeeList : System.Web.UI.Page
@@ -44,7 +43,7 @@ namespace BizAppDev
 
         protected void DataList1_DeleteCommand(object source, DataListCommandEventArgs e)
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CouponsDBContext"].ToString());
             Label employeeid = (Label)e.Item.FindControl("lbl_ID");
 
             string queryStr = "DELETE FROM Employee WHERE EmpID=@ID";

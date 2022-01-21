@@ -9,11 +9,11 @@ namespace BizAppDev
 {
     public partial class CouponInsert : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
         protected void btn_Insert_Click(object sender, EventArgs e)
         {
             int result = 0;

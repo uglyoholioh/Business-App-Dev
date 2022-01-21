@@ -90,7 +90,6 @@
   <ItemGroup>
     <Content Include="AcceptedOrder.aspx" />
     <Content Include="Addemployee.aspx" />
-    <Content Include="addOffer.aspx" />
     <Content Include="AddPersonalCoupon.aspx" />
     <Content Include="AddProduct.aspx" />
     <Content Include="Admininfo.aspx" />
@@ -162,13 +161,6 @@
     </Compile>
     <Compile Include="Addemployee.aspx.designer.cs">
       <DependentUpon>Addemployee.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="addOffer.aspx.cs">
-      <DependentUpon>addOffer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="addOffer.aspx.designer.cs">
-      <DependentUpon>addOffer.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddPersonalCoupon.aspx.cs">
       <DependentUpon>AddPersonalCoupon.aspx</DependentUpon>
@@ -575,7 +567,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Image\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

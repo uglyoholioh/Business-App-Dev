@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="CouponsValidity(lermin).aspx.cs" Inherits="BizAppDev.CouponsValidity_lermin_" %>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <form id="form1" runat="server">
        
                   <div class="card mb-0" style="margin-left:40px; margin-left:150px;">
@@ -41,9 +41,9 @@
                                     <td>
                                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666"  BorderWidth="1px" CellPadding="7" DataSourceID="SqlDataSource2" GridLines="Horizontal" Width="1000px" OnRowDataBound="GridView1_RowDataBound" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                                             <Columns>
-                                                <asp:BoundField DataField="couponID" HeaderText="coupon ID" />
-                                                <asp:BoundField DataField="couponName" HeaderText="coupon name " />
-                                                <asp:BoundField DataField="couponDesc" HeaderText="coupon desc" />
+                                                <asp:BoundField DataField="CouponID" HeaderText="coupon ID" />
+                                                <asp:BoundField DataField="cName" HeaderText="coupon name " />
+                                                <asp:BoundField DataField="cDesc" HeaderText="coupon desc" />
                                                 <asp:BoundField DataField="amount" HeaderText="amount of coupons left" />
                                                 <asp:BoundField DataField="discount" HeaderText="discount amount " />
                                                 <asp:CommandField ShowSelectButton="True" />
@@ -77,7 +77,4 @@
        
         
        </form>
-        
-</asp:Content>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 </asp:Content>

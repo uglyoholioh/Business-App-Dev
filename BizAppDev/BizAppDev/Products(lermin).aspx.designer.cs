@@ -11,7 +11,7 @@ namespace BizAppDev
 {
 
 
-    public partial class Products
+    public partial class Products_lermin_
     {
 
         /// <summary>

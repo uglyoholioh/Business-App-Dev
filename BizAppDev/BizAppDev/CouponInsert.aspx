@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="CouponInsert.aspx.cs" Inherits="BizAppDev.CouponInsert" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-   
-         <div class="card mb-0" style="margin-left:40px; height:800px;margin-left:150px;">
+<div class="card mb-0" style="margin-left:40px; height:800px;margin-left:150px;">
                     <div class="card-header">
                       <div class="card-close">
                         <div class="dropdown">
@@ -64,9 +62,4 @@
              </div>
        
        
-        
-    
-    </asp:Content>
-    
-
-
+</asp:Content>

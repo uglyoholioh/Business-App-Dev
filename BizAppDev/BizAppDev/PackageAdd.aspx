@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="PackageAdd.aspx.cs" Inherits="BizAppDev.PackageAdd" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form id="form1" runat="server">
+<form id="form1" runat="server">
     <header class="bg-white shadow-sm px-4 py-3 z-index-20">
             <div class="container-fluid px-0" width="1000px">
               <h2 class="mb-0 p-1" style="text-align:center;">Add Package</h2>
@@ -34,7 +34,7 @@
                             <td>
                                 <asp:CheckBoxList ID="CheckBoxList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="prodName" DataValueField="prodName">
                                 </asp:CheckBoxList>
-                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [Product_Name] FROM [Products]"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CouponsDBContext %>" SelectCommand="SELECT [Product_Name] FROM [Products]"></asp:SqlDataSource>
                             </td>
                         </tr>
                         <tr>
@@ -74,6 +74,4 @@
                 </div>
                         </section>
     </form>
-
 </asp:Content>
-

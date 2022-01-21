@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="MembershipMoreInfo.aspx.cs" Inherits="BizAppDev.MembershipMoreInfo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form id="form1" runat="server">
+<form id="form1" runat="server">
     <header class="bg-white shadow-sm px-4 py-3 z-index-20">
             <div class="container-fluid px-0">
               <h2 class="mb-0 p-1">Membership Tier List</h2>
@@ -140,6 +140,5 @@
      
         
         <br />
-
-            </form>
+</form>
 </asp:Content>

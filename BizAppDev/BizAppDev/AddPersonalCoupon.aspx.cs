@@ -13,7 +13,6 @@ namespace BizAppDev
         {
 
         }
-
         protected void btn_insert_Click(object sender, EventArgs e)
         {
             int result = 0;

@@ -14,12 +14,11 @@ namespace BizAppDev
         Coupons2 coup = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
-
         protected void DataList1_UpdateCommand(object source, DataListCommandEventArgs e)
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CouponsDBContext"].ToString());
             Label couponid = (Label)e.Item.FindControl("Label1");
 
             TextBox coupdesc = (TextBox)e.Item.FindControl("TextBox1");
@@ -88,3 +87,4 @@ namespace BizAppDev
         }
     }
 }
+   

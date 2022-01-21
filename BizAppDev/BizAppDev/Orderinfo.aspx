@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="Orderinfo.aspx.cs" Inherits="BizAppDev.Orderinfo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-     <header class="page-header">
+
+<header class="page-header">
         <div class="container-fluid">
             <h2 class="no-margin-bottom">Order details</h2>
         </div>
@@ -30,25 +31,25 @@
                                <asp:Label ID="OrderIDLabel" runat="server" Text='<%# Eval("OrderID") %>' />
                                <br />
                                ProductID:
-                               <asp:Label ID="ProductIDLabel" runat="server" Text='<%# Eval("Product_ID") %>' />
+                               <asp:Label ID="ProductIDLabel" runat="server" Text='<%# Eval("ProductID") %>' />
                                <br />
                                ProductName:
-                               <asp:Label ID="ProductNameLabel" runat="server" Text='<%# Eval("Product_Name") %>' />
+                               <asp:Label ID="ProductNameLabel" runat="server" Text='<%# Eval("ProductName") %>' />
                                <br />
                                Price:
-                               <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("price") %>' />
+                               <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
                                <br />
                                Quantity:
-                               <asp:Label ID="QuantityLabel" runat="server" Text='<%# Eval("quantity") %>' />
+                               <asp:Label ID="QuantityLabel" runat="server" Text='<%# Eval("Quantity") %>' />
                                <br />
                                TotalPrice:
-                               <asp:Label ID="TotalPriceLabel" runat="server" Text='<%# Eval("grandtotal") %>' />
+                               <asp:Label ID="TotalPriceLabel" runat="server" Text='<%# Eval("TotalPrice") %>' />
                                <br />
                                OrderDate:
-                               <asp:Label ID="OrderDateLabel" runat="server" Text='<%# Eval("deliverydate") %>' />
+                               <asp:Label ID="OrderDateLabel" runat="server" Text='<%# Eval("OrderDate") %>' />
                                <br />
                                DeliveryOptions:
-                               <asp:Label ID="DeliveryOptionsLabel" runat="server" Text='<%# Eval("deliveryoption") %>' />
+                               <asp:Label ID="DeliveryOptionsLabel" runat="server" Text='<%# Eval("DeliveryOptions") %>' />
                                <br />
                                OrderStatus:
                              <asp:Label ID="OrderStatusLabel" runat="server" Text='<%# Eval("OrderStatus") %>' />
@@ -66,25 +67,25 @@
                                <asp:Label ID="OrderIDLabel" runat="server" Text='<%# Eval("OrderID") %>' />
                                <br />
                                ProductID:
-                               <asp:Label ID="ProductIDLabel" runat="server" Text='<%# Eval("Product_ID") %>' />
+                               <asp:Label ID="ProductIDLabel" runat="server" Text='<%# Eval("ProductID") %>' />
                                <br />
                                ProductName:
-                               <asp:Label ID="ProductNameLabel" runat="server" Text='<%# Eval("Product_Name") %>' />
+                               <asp:Label ID="ProductNameLabel" runat="server" Text='<%# Eval("ProductName") %>' />
                                <br />
                                Price:
-                               <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("price") %>' />
+                               <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
                                <br />
                                Quantity:
-                               <asp:Label ID="QuantityLabel" runat="server" Text='<%# Eval("quantity") %>' />
+                               <asp:Label ID="QuantityLabel" runat="server" Text='<%# Eval("Quantity") %>' />
                                <br />
                                TotalPrice:
-                               <asp:Label ID="TotalPriceLabel" runat="server" Text='<%# Eval("grandtotal") %>' />
+                               <asp:Label ID="TotalPriceLabel" runat="server" Text='<%# Eval("TotalPrice") %>' />
                                <br />
                                OrderDate:
-                               <asp:Label ID="OrderDateLabel" runat="server" Text='<%# Eval("deliverydate") %>' />
+                               <asp:Label ID="OrderDateLabel" runat="server" Text='<%# Eval("OrderDate") %>' />
                                <br />
                                DeliveryOptions:
-                               <asp:Label ID="DeliveryOptionsLabel" runat="server" Text='<%# Eval("deliveryoption") %>' />
+                               <asp:Label ID="DeliveryOptionsLabel" runat="server" Text='<%# Eval("DeliveryOptions") %>' />
                                <br />
                                OrderStatus:
                                  <asp:DropDownList ID="DropDownList2" runat="server">
@@ -115,5 +116,5 @@
                     </asp:SqlDataSource>
 
     </form>
-     
+
 </asp:Content>

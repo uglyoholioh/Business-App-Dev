@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="Coupons2Detail.aspx.cs" Inherits="BizAppDev.Coupons2Detail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form id="form1" runat="server">
+ <form id="form1" runat="server">
         <div class="card mb-0" style="margin-left:40px; margin-left:150px;">
                     <div class="card-header">
                       <div class="card-close">
@@ -79,7 +79,7 @@
             </div>
         
         
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Coupon] WHERE ([couponID] = @couponID)">
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CouponsDBContext %>" SelectCommand="SELECT * FROM [Coupon] WHERE ([couponID] = @couponID)">
                                 <SelectParameters>
                                     <asp:QueryStringParameter Name="couponID" QueryStringField="couponID" Type="Int32" />
                                 </SelectParameters>

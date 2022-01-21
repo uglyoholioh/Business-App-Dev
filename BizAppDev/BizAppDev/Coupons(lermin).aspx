@@ -79,7 +79,7 @@
                             </table>
                 
             
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [coupon_startDate], [coupon_endDate] FROM [Coupons]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Coupons]"></asp:SqlDataSource>
             </div>
                         </div>
                       
@@ -89,5 +89,4 @@
         
         
     
-
 </asp:Content>

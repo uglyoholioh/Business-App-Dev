@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="Offers(lermin).aspx.cs" Inherits="BizAppDev.Offers_lermin_" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form id="form1" runat="server">
+<form id="form1" runat="server">
         <div class="card mb-0" style="margin-left:40px;  margin-left:150px;">
                     <div class="card-header">
                       <div class="card-close">

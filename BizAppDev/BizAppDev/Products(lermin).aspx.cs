@@ -8,9 +8,10 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
+
 namespace BizAppDev
 {
-    public partial class Products : System.Web.UI.Page
+    public partial class Products_lermin_ : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

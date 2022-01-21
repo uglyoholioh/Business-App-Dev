@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace BizAppDev
 {
+   
     public partial class CouponsValidity_lermin_ : System.Web.UI.Page
     {
         Coupons2 aCoup = new Coupons2();
@@ -27,10 +28,7 @@ namespace BizAppDev
             }
             finally
             {
-                if (!IsPostBack)
-                {
-                    bind();
-                }
+                
             }
         }
 
@@ -38,9 +36,6 @@ namespace BizAppDev
         {
             List<Coupons2> couponList = new List<Coupons2>();
             couponList = aCoup.getCoupAll();
-            GridView1.DataSource = couponList;
-            GridView1.DataSourceID = string.Empty;
-            GridView1.DataBind();
         }
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {

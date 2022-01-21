@@ -26,30 +26,33 @@
                       
                       <p class="card-text">
                           <h5 class="card-title">
-                          <asp:Label ID="lbl_id" runat="server" Text='<%# Eval("customer_id") %>'></asp:Label>
+                          <asp:Label ID="lbl_id" runat="server" Text='<%# Eval("Cust_ID") %>'></asp:Label>
                           ,
-                          <asp:Label ID="lbl_name" runat="server" Text='<%# Eval("customer_name") %>'></asp:Label>
+                          <asp:Label ID="lbl_name" runat="server" Text='<%# Eval("First_Name") %>'></asp:Label>
                         </h5>
 
                           Customer Email:
-                          <asp:Label ID="lbl_email" runat="server" Text='<%# Eval("customer_email") %>'></asp:Label>
+                          <asp:Label ID="lbl_email" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
+
+                          <p>
+                          </p>
+                          <p class="card-text">
+                              Customer Contact:
+                              <asp:Label ID="lbl_contact" runat="server" Text='<%# Eval("PhoneNo") %>'></asp:Label>
+                          </p>
+                          <p class="card-text">
+                              Member status:<asp:Label ID="lbl_member" runat="server"></asp:Label>
+                          </p>
+                          <p class="card-text">
+                              <asp:Button ID="btn_more" runat="server" class="btn btn-secondary" CommandName="View" style="color: white;" Text="More Information" />
+                          </p>
 
                       </p>
-                        <p class="card-text">
-                            Customer Contact:
-                            <asp:Label ID="lbl_contact" runat="server" Text='<%# Eval("customer_contactNo") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            Member status:<asp:Label ID="lbl_member" runat="server" Text='<%# Eval("customer_member") %>'></asp:Label>
-                            </p>
-                        <p class="card-text">
-                            <asp:Button ID="btn_more" runat="server" Text="More Information" CommandName="View" class="btn btn-secondary" style="color: white;"/>
-                        </p>
                         
                     </div>
                   </div>
                  </ItemTemplate>
         </asp:DataList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Customers]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Customer]"></asp:SqlDataSource>
     </form>
 </asp:Content>

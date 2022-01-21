@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="AddPersonalCoupon.aspx.cs" Inherits="BizAppDev.AddPersonalCoupon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="card mb-0" style="margin-left:40px;margin-left:150px;">
+ <div class="card mb-0" style="margin-left:40px;margin-left:150px;">
                     <div class="card-header">
                       <div class="card-close">
                         <div class="dropdown">
@@ -83,4 +83,3 @@
     </div>
 </div>
 </asp:Content>
-

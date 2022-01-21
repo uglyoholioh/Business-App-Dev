@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="EditProfile.aspx.cs" Inherits="BizAppDev.EditProfile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form id="form1" runat="server" style="width:1000px">
+<form id="form1" runat="server" style="width:1000px">
     <div class="content-inner w-100" style="width:1000px;">
           <!-- Page Header-->
           <header class="bg-white shadow-sm px-4 py-3 z-index-20">

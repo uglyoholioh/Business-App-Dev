@@ -169,7 +169,7 @@ namespace BizAppDev
             // string msg = null;
             int result = 0;
 
-            string queryStr = "INSERT INTO Coupons(coupon_ID,coupon_Name, coupon_startDate, coupon_endDate,coup_Desc, coup_Amt)"
+            string queryStr = "INSERT INTO Coupons(coupon_ID,coupon_Name, coupon_startDate, coupon_endDate,coup_Desc, coup_disccountamt)"
                 + " values (@coupon_ID,@coupon_Name, @coupon_startDate, @coupon_endDate, @coup_Desc, @coup_Amt)";
             //+ "values (@Product_ID, @Product_Name, @Product_Desc, @Unit_Price, @Product_Image,@Stock_Level)";
 

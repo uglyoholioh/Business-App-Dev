@@ -15,6 +15,24 @@ namespace BizAppDev
     {
 
         /// <summary>
+        /// label_Name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_Name;
+
+        /// <summary>
+        /// lbl_position control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_position;
+
+        /// <summary>
         /// hrefString control.
         /// </summary>
         /// <remarks>

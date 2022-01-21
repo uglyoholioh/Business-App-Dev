@@ -23,6 +23,33 @@
     <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/assets/icon/icofont/css/icofont.css">
     <link rel="stylesheet" href="https://colorlib.com/polygon/octopus/assets/vendor/bootstrap-datepicker/css/datepicker3.css">
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/daterangepicker/daterangepicker.css">
+     <!-- Bootstrap 4.5.2 CSS -->
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin/1-4-6/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin/1-4-6/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin/1-4-6/css/fontastic.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin/1-4-6/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin/1-4-6/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="https://d19m59y37dris4.cloudfront.net/admin/1-4-6/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/assets/icon/icofont/css/icofont.css">
+    <link rel="stylesheet" href="https://colorlib.com/polygon/octopus/assets/vendor/bootstrap-datepicker/css/datepicker3.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- Choices CSS-->
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/vendor/choices.js/public/assets/styles/choices.min.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/css/style.default.premium.2a30c8f8.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/css/custom.0a822280.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/img/favicon.3903ee9d.ico">
+
 </head>
     <body>
          <header class="header">
@@ -115,16 +142,20 @@
       <div class="sidebar-header d-flex align-items-center">
         <div class="avatar"><img src="https://d19m59y37dris4.cloudfront.net/admin/1-4-6/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
         <div class="title">
-          <h1 class="h4">Daniel</h1>
-          <p>Web Designer</p>
+          <asp:Label ID="label_Name" runat="server"></asp:Label></h1>
+          <p>
+              <asp:Label ID="lbl_position" runat="server" Text=""></asp:Label></p>
         </div>
       </div>
        <!-- Sidebar navigation-->
+      <ul class="list-unstyled">
+          
+                <li><a href="<asp:literal id="hrefString" runat="server"></asp:literal>">Edit Your Profile</a></li>
+            </ul>
+        
        <span class="heading">Customer Information</span>
           <ul class="list-unstyled">
-                              <li>
-                                  <a href="<asp:literal id="hrefString" runat="server"></asp:literal>">Edit your profile</a></li>
-                <li class="active"><a runat="server" href="~/Coupons(lermin).aspx">Coupon</a></li>
+                <li class="active"><a runat="server" href="~/Coupons(lermin).aspx">Coupons</a></li>
                 <li><a runat="server" href="~/MembershipTierList.aspx">Member Tier List</a></li>
                 <li><a runat="server" href="~/Offers(lermin).aspx">Offers</a></li>
                 <li><a runat="server" href="~/Customer.aspx">Customer Details</a></li>
@@ -135,11 +166,12 @@
 <!--            <li><a href="/createProduct"> <i class="icon-padnote"></i>Add Product</a></li>-->
              <span class="heading">Staff</span>
                 <ul class="list-unstyled">
-                    <li><a runat="server" href="#"> <i class="icon-interface-windows"></i>Staff</a></li>
+                    <li><a runat="server" href="~/EmployeeList.aspx"> <i class="icon-interface-windows"></i>Staff Position Allocation</a></li>
                 </ul>
             <span class="heading">Products</span>
                 <ul class="list-unstyled">
-                    <li><a runat="server" href="#"> <i class="icon-interface-windows"></i>Products/ Services</a></li>
+                    <li><a runat="server" href="~/Products(lermin).aspx"> <i class="icon-interface-windows"></i>Products/ Services</a></li>
+                    <li><a runat="server" href="~/orders(lermin).aspx"> <i class="icon-interface-windows"></i>Order for Products</a></li>
                 </ul>
             
     </nav>
