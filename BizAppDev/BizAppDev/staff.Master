@@ -158,7 +158,11 @@
                 <li class="active"><a runat="server" href="~/Coupons(lermin).aspx">Coupons</a></li>
                 <li><a runat="server" href="~/MembershipTierList.aspx">Member Tier List</a></li>
                 <li><a runat="server" href="~/Offers(lermin).aspx">Offers</a></li>
-                <li><a runat="server" href="~/Customer.aspx">Customer Details</a></li>
+                <li><a runat="server" href="~/Customer.aspx">Customer Details</a></li>                
+                <li><a runat="server" href="~/StaffViewTiers.aspx">View point tiers</a></li>
+                <li><a runat="server" href="~/StaffViewPerks.aspx">Add point tiers</a></li>
+                <li><a runat="server" href="~/StaffAddPerks.aspx">Customer Details</a></li>
+
               </ul>
 <!--            <li ><a href="/createSupplier"> <i class="icon-padnote"></i>Add Supplier</a></li>-->
 <!--            <li><a href="/supplier_list"> <i class="icon-list"></i>Supplier List</a></li>-->

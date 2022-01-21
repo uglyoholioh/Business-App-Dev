@@ -115,6 +115,7 @@
     <Content Include="CustomerViewPerks.aspx" />
     <Content Include="EditOrder.aspx" />
     <Content Include="EditProfile.aspx" />
+    <Content Include="EduVideoInsert.aspx" />
     <Content Include="Employeeinfo.aspx" />
     <Content Include="employeelist%28nut%29.aspx" />
     <Content Include="EmployeeList.aspx" />
@@ -131,6 +132,7 @@
     <Content Include="Orderstatus.aspx" />
     <Content Include="PackageAdd.aspx" />
     <Content Include="payment.aspx" />
+    <Content Include="ProductCustomization.aspx" />
     <Content Include="Products%28lermin%29.aspx" />
     <Content Include="ProductsOrdering.aspx" />
     <Content Include="product_desc.aspx" />
@@ -342,6 +344,13 @@
     <Compile Include="EditProfile.aspx.designer.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EduVideoInsert.aspx.cs">
+      <DependentUpon>EduVideoInsert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EduVideoInsert.aspx.designer.cs">
+      <DependentUpon>EduVideoInsert.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs" />
     <Compile Include="Employeeinfo.aspx.cs">
       <DependentUpon>Employeeinfo.aspx</DependentUpon>
@@ -455,6 +464,14 @@
     </Compile>
     <Compile Include="pointsTier.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductCust.cs" />
+    <Compile Include="ProductCustomization.aspx.cs">
+      <DependentUpon>ProductCustomization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductCustomization.aspx.designer.cs">
+      <DependentUpon>ProductCustomization.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProductOrdering.cs" />
     <Compile Include="Products%28lermin%29.aspx.cs">
       <DependentUpon>Products%28lermin%29.aspx</DependentUpon>
@@ -568,6 +585,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="EducationalVideos\" />
     <Folder Include="Image\" />
   </ItemGroup>
   <PropertyGroup>

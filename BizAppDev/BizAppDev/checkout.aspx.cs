@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Threading;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data;
+using System.Data.SqlClient;
 using System.Configuration;
 namespace BizAppDev
 {
@@ -241,7 +243,7 @@ namespace BizAppDev
                 gtotal = gtotal + decimal.Parse(dt.Rows[i]["total"].ToString());
                 i = i + 1;
             }
-            decimal gst = Convert.ToDecimal(gtotal) * Convert.ToDecimal(0.07);
+            decimal gst = Math.Round(Convert.ToDecimal(gtotal) * Convert.ToDecimal(0.07), 2);
             return gst;
         }
         public decimal grandtotall()
@@ -273,7 +275,7 @@ namespace BizAppDev
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            int discount;
+            decimal discount;
             decimal finalprice;
 
 
@@ -305,8 +307,8 @@ namespace BizAppDev
                 decimal gst = Math.Round(Convert.ToDecimal(gtotal) * Convert.ToDecimal(0.07), 2);
                 decimal Grandtotal = Math.Round(Convert.ToDecimal(gtotal) + Convert.ToDecimal(gst), 2);
 
-                discount = int.Parse(ds.Tables[0].Rows[0]["coup_disccountamt"].ToString());
-                finalprice = Grandtotal * (1 - discount);
+                discount = decimal.Parse(ds.Tables[0].Rows[0]["coup_discountamt"].ToString());
+                finalprice = Math.Round(Grandtotal * (1 - discount));
                 Labelgrandtotal.Text = Grandtotal.ToString();
                 lbl_discountedprice.Text = finalprice.ToString();
 
@@ -339,8 +341,8 @@ namespace BizAppDev
 
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {
-                string updatepass = "insert into orderdetails(orderid,Product_ID,Product_Name,price,quantity,deliveryoption,deliverydate,grandtotal,discountedtotal)"
-                    + "values(@orderid,@product_id,@product_name,@price,@quantity,@deliveryoption,@deliverydate,@grandtotal,@discountedtotal)";
+                string updatepass = "insert into orderdetails(orderid,Product_ID,Product_Name,price,quantity,deliveryoption,deliverydate,grandtotal,discountedtotal,OrderStatus,Cust_ID)"
+                    + "values(@orderid,@product_id,@product_name,@price,@quantity,@deliveryoption,@deliverydate,@grandtotal,@discountedtotal,@OrderStatus,@Cust_ID)";
                 string mycon = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
 
                 SqlConnection conn = new SqlConnection(mycon);
@@ -351,10 +353,12 @@ namespace BizAppDev
                 cmd.Parameters.AddWithValue("@product_id", product_id);
                 cmd.Parameters.AddWithValue("@product_name", Convert.ToString(dt.Rows[i]["Product_Name"]));
                 cmd.Parameters.AddWithValue("@price", Convert.ToDecimal(dt.Rows[i]["Unit_Price"]));
-                cmd.Parameters.AddWithValue("@quantity",Convert.ToInt64(dt.Rows[i]["quantity"])); 
+                cmd.Parameters.AddWithValue("@quantity", Convert.ToInt64(dt.Rows[i]["quantity"]));
                 cmd.Parameters.AddWithValue("@deliveryoption", DropDownList1.Text);
                 cmd.Parameters.AddWithValue("@deliverydate", Calendar2.SelectedDate);
                 cmd.Parameters.AddWithValue("@grandtotal", Convert.ToDecimal(Labelgrandtotal.Text));
+                cmd.Parameters.AddWithValue("@OrderStatus", "Pending");
+                cmd.Parameters.AddWithValue("@Cust_ID", "Guest");
                 if (lbl_discountedprice.Text == string.Empty)
                 {
                     cmd.Parameters.AddWithValue("@discountedtotal", Convert.ToDecimal(0.00));

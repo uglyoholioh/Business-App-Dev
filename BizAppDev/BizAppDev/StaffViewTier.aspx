@@ -37,8 +37,8 @@
                     </h4>
                     <p class="card-text">
                         <br />
-                        <asp:Button ID="btn_Update" runat="server" CommandArgument='<%# Eval("pointTierID") %>' CommandName="update" CssClass="btn btn-dark" Text="Update" />
-                        <asp:Button ID="btn_Delete" runat="server" CommandArgument='<%# Eval("pointTierID") %>' CommandName="cancel" CssClass="btn btn-danger" OnClientClick="return confirm('Cancel without making any changes?')" Text="Cancel" />
+                        <asp:Button ID="btn_Update" runat="server" CommandArgument='<%# Eval("pointTierID")%>' CommandName="update" CssClass="btn btn-dark" Text="Update" />
+                        <asp:Button ID="btn_Delete" runat="server" CommandArgument='<%# Eval("pointTierID")%>' CommandName="cancel" CssClass="btn btn-danger" OnClientClick="return confirm('Cancel without making any changes?')" Text="Cancel" />
                     </p>
                     <br />
                 </div>

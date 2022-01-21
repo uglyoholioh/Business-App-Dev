@@ -9,5 +9,5 @@
                 <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" SelectText="View perks" />
             </Columns>
         </asp:GridView>
-    </form>
+        <asp:Button CssClass="btn btn-primary" ID="btn_AddTiers" runat="server" Text="Add Tiers" OnClick="btn_AddTiers_Click" /></form>
 </asp:Content>

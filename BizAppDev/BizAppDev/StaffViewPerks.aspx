@@ -365,7 +365,7 @@ body{
     <div class="col-lg-4">
         <div class="card card-margin">
             <div class="card-header no-border">
-                <h5 class="card-title"><%# Eval("PerkID") %></h5>
+                <h5 class="card-title"><asp:Label ID="lbl_PerkID" runat="server" Text='<%# Eval("PerkID") %>'></asp:Label></h5>
             </div>
             <div class="card-body pt-0">
                 <div class="widget-49">
@@ -386,7 +386,7 @@ body{
                     </ol>
                     <div class="widget-49-meeting-action">
                         
-            <asp:Button ID="btn_Edit" runat="server" CommandArgument='<%# Eval("PerkID") %>' CommandName="edit" CssClass="btn btn-dark" Text="Edit" />
+            <asp:Button ID="btn_Edit" runat="server" CommandArgument='<%# Eval("PerkID")%>' CommandName="edit" CssClass="btn btn-dark" Text="Edit" />
             <asp:Button ID="btn_Delete" runat="server" CommandArgument='<%# Eval("PerkID") %>' CommandName="delete" CssClass="btn btn-danger" OnClientClick="return confirm('Are you sure you want to delete this Perk?')" Text="Delete" />
                     </div>
                 </div>

@@ -105,5 +105,10 @@ namespace BizAppDev
             int TierID = int.Parse(row.Cells[0].Text);
             Response.Redirect("StaffViewTierPerks.aspx?pointTierID=" + TierID);
         }
+
+        protected void btn_AddTiers_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("StaffAddPointTier.aspx");
+        }
     }
 }

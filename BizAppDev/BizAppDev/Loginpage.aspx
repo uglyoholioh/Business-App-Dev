@@ -18,7 +18,7 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin/1-4-6/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="https://d19m59y37dris4.cloudfront.net/admin/1-4-6/img/favicon.ico">
+    <link rel="shortcut icon" href="https://d19m59y37dris4.cloudfront.net/admin/1-4-6/img/favicon.ico">z
     <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/assets/icon/icofont/css/icofont.css">
     <link rel="stylesheet" href="https://colorlib.com/polygon/octopus/assets/vendor/bootstrap-datepicker/css/datepicker3.css">
