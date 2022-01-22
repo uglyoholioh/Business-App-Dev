@@ -171,9 +171,21 @@
              <span class="heading">Staff</span>
                 <ul class="list-unstyled">
                     <li><a runat="server" href="~/EmployeeList.aspx"> <i class="icon-interface-windows"></i>Staff Position Allocation</a></li>
+                    <li><a runat="server" href="~/employeelist(nut).aspx"> <i class="icon-interface-windows"></i>Employee list</a></li>
+                    <li><a runat="server" href="~/Adminlist.aspx"> <i class="icon-interface-windows"></i>Staff Position Allocation</a></li>
+                    <li><a runat="server" href="~/Addemployee.aspx"> <i class="icon-interface-windows"></i>Add Employee Form</a></li>
+                </ul>
+         <span class="heading">Order</span>
+                <ul class="list-unstyled">
+                    <li><a runat="server" href="~/AcceptedOrder.aspx"> <i class="icon-interface-windows"></i>Pending Order</a></li>
+                                        <li><a runat="server" href="~/Orderstatus.aspx"> <i class="icon-interface-windows"></i>Processing Order</a></li>
+
+                 
                 </ul>
             <span class="heading">Products</span>
                 <ul class="list-unstyled">
+                                        <li><a runat="server" href="~/EduVideoInsert.aspx"> <i class="icon-interface-windows"></i>Add educational video</a></li>
+
                     <li><a runat="server" href="~/Products(lermin).aspx"> <i class="icon-interface-windows"></i>Products/ Services</a></li>
                     <li><a runat="server" href="~/orders(lermin).aspx"> <i class="icon-interface-windows"></i>Order for Products</a></li>
                 </ul>

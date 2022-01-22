@@ -16,14 +16,27 @@ namespace BizAppDev
         {
             HttpContext context = HttpContext.Current;
             string CID = (string)(context.Session["CustID"]);
-            Cust = aCust.getCustomer(CID);
+            if (!IsPostBack)
+            {
+                Cust = aCust.getCustomer(CID);
+                tb_FirstName.Text = Cust.first_Name;
+                tb_LastName.Text = Cust.last_Name;
+                tb_DOB.Text = Cust.DOB;
+                tb_Gender.Text = Cust.gender;
+                tb_Address.Text = Cust.address;
+                tb_Email.Text = Cust.email;
+                tb_PhoneNo.Text = Cust.phoneNo;
+                tb_Username.Text = Cust.username;
+            }
+
 
 
         }
 
         protected void btn_Save_Click(object sender, EventArgs e)
         {
-            string CID = "C1";
+            HttpContext context = HttpContext.Current;
+            string CID = (string)(context.Session["CustID"]);
             int result = 0;
             string firstName = tb_FirstName.Text;
             string lastName = tb_LastName.Text;

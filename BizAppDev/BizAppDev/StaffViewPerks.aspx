@@ -334,13 +334,13 @@ body{
                             <span class="widget-49-date-month"></span>
                         </div>
                         <div class="widget-49-meeting-info">
-                            <span class="widget-49-pro-title"><asp:TextBox ID="tb_NewName" runat="server"></asp:TextBox>
+                            <span class="widget-49-pro-title"><asp:TextBox ID="tb_NewName" runat="server" Text='<%# Eval("Name") %>'></asp:TextBox>
 </span>
                             <span class="widget-49-meeting-time"></span>
                         </div>
                     </div>
                     <ol class="widget-49-meeting-points">
-                        <ul class="widget-49-meeting-item"><asp:TextBox ID="tb_NewPDesc" runat="server"></asp:TextBox>
+                        <ul class="widget-49-meeting-item"><asp:TextBox ID="tb_NewPDesc" runat="server" Text='<%# Eval("PDesc") %>'></asp:TextBox>
 </ul>
 
 

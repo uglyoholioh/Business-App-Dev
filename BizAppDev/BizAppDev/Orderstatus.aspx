@@ -25,7 +25,7 @@
                             <asp:Label ID="OrderIDLabel" runat="server" Text='<%# Eval("OrderID") %>' />
                             <br />                          
                             OrderDate:
-                            <asp:Label ID="OrderDateLabel" runat="server" Text='<%# Eval("OrderDate") %>' />
+                            <asp:Label ID="OrderDateLabel" runat="server" Text='<%# Eval("deliverydate") %>' />
                             <br />                         
                             OrderStatus:
                             <asp:Label ID="OrderStatusLabel" runat="server" Text='<%# Eval("OrderStatus") %>' />

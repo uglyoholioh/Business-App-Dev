@@ -22,9 +22,9 @@
                         <br />
                         Description: <asp:Label ID="lbl_Desc" runat="server" Text='<%# Eval("cDesc") %>' /><br />
                         Discount: <asp:Label ID="discountLabel" runat="server" Text='<%# Eval("discount") %>' /><br />
-                        Valid for : <asp:Label ID="validDaysLabel" runat="server" Text='<%# Eval("validDays") %>' /> days<br />
-                        Valid for : <asp:Label ID="validMonthsLabel" runat="server" Text='<%# Eval("validMonths") %>' />Months<br />
-                        Valid for :  <asp:Label ID="validYearsLabel" runat="server" Text='<%# Eval("validYears") %>' />Years<br />
+                        Valid for : <asp:Label ID="validDaysLabel" runat="server" Text='<%# Eval("validDays") %>' /> day(s)
+                  <asp:Label ID="validMonthsLabel" runat="server" Text='<%# Eval("validMonths") %>' /> Month(s)
+                         <asp:Label ID="validYearsLabel" runat="server" Text='<%# Eval("validYears") %>' /> Year(s)
 
                         </div>
                     </p>

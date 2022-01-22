@@ -123,7 +123,7 @@
      <ul>
         <li class="active"><a href="home.aspx"> <i class="icon-home"></i>Home</a></li>
       </ul>
-        <span class="heading">Employee management</span>
+        <span class="heading">Rewards</span>
       <ul class="list-unstyled">
          <li><a href="CustomerDetails.aspx"> <i class="fa fa-bar-chart"></i>Your profile</a></li>
           <li><a href="CustomerPoints.aspx"> <i class="fa fa-bar-chart"></i>Rewards</a></li>
@@ -131,11 +131,10 @@
      <li><a href="CustomerCoupon.aspx"> <i class="fa fa-bar-chart"></i>Coupon store</a></li>
 
       </ul>
-      <span class="heading">Order management</span>
+      <span class="heading">Services</span>
       <ul class="list-unstyled">
-         <li> <a href="AcceptedOrder.aspx"> <i class="icon-flask"></i>Pending Order</a></li>
-         <li> <a href="Orderstatus.aspx"> <i class="icon-flask"></i>Processing Order</a></li>
-          <li> <a href="AcceptedOrder.aspx"> <i class="icon-flask"></i>Product Customization</a></li>
+                    <li> <a href="ProductCustomization.aspx"> <i class="icon-flask"></i>Product Customization</a></li>
+
       </ul>
     </nav>
           <form id="form1" runat="server">
