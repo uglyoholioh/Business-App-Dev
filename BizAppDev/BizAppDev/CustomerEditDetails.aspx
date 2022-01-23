@@ -26,31 +26,33 @@
         <tr>
             <td class="auto-style2">Username:</td>
             <td>
-                <asp:TextBox ID="tb_Username" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tb_Username" runat="server"></asp:TextBox>&nbsp<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Username is required" ControlToValidate="tb_Username" CssClass="alert-danger"></asp:RequiredFieldValidator>
+
             </td>
         </tr>
         <tr>
             <td class="auto-style2">First name:</td>
             <td>
-                <asp:TextBox ID="tb_FirstName" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tb_FirstName" runat="server"></asp:TextBox>&nbsp<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Username is required" ControlToValidate="tb_Username" CssClass="alert-danger"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td class="auto-style2">Last name:</td>
             <td>
-                <asp:TextBox ID="tb_LastName" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tb_LastName" runat="server"></asp:TextBox>&nbsp<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Username is required" ControlToValidate="tb_Username" CssClass="alert-danger"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td class="auto-style2">Email:</td>
             <td>
-                <asp:TextBox ID="tb_Email" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tb_Email" runat="server"></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Enter a valid email" ControlToValidate="tb_Email" CssClass="alert-danger" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>
             <td class="auto-style3">Phone number:</td>
             <td class="auto-style4">
-                <asp:TextBox ID="tb_PhoneNo" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tb_PhoneNo" runat="server"></asp:TextBox>            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Enter valid phone number" ControlToValidate="tb_PhoneNo" CssClass="alert-danger" ValidationExpression="^[89]\d{7}$"></asp:RegularExpressionValidator>
+
             </td>
         </tr>
         <tr>

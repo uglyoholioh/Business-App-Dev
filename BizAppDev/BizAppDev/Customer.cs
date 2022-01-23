@@ -6,7 +6,7 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace BizAppDev
 {
@@ -63,16 +63,21 @@ namespace BizAppDev
             _Password = Password;
             _Cfmpassword = Cfmpassword;
         }
+        [Required(ErrorMessage = "Title is required")]
         public string Cust_ID
         {
             get { return _CustID; }
             set { _CustID = value; }
         }
+        [Required(ErrorMessage = "Title is required")]
+
         public string first_Name
         {
             get { return _firstName; }
             set { _firstName = value; }
         }
+        [Required(ErrorMessage = "Title is required")]
+
         public string last_Name
         {
             get { return _lastName; }
@@ -109,6 +114,8 @@ namespace BizAppDev
             get { return _gender; }
             set { _gender = value; }
         }
+        [Required(ErrorMessage = "Title is required")]
+
         public string username
         {
             get { return _username; }

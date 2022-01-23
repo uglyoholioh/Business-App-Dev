@@ -24,7 +24,8 @@ namespace BizAppDev
 
 			Cust = aCust.getCustomer(CID);
 			lbl_Address.Text = Cust.address.ToString();
-			lbl_DOB.Text = Cust.DOB.ToString();
+			DateTime yes = Convert.ToDateTime(Cust.DOB);
+			lbl_DOB.Text = yes.ToString("dd MMMM, yyyy");
 			lbl_Email.Text = Cust.email.ToString();
 			lbl_Gender.Text = Cust.gender.ToString();
 			lbl_Name.Text = Cust.first_Name.ToString() + " " + Cust.last_Name.ToString();
