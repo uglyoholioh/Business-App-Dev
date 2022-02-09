@@ -103,6 +103,7 @@
     <Content Include="CouponsValidity%28lermin%29.aspx" />
     <Content Include="Customer.aspx" />
     <Content Include="CustomerCoupon.aspx" />
+    <Content Include="CustomerCoupons.aspx" />
     <Content Include="CustomerDetails.aspx" />
     <Content Include="CustomerEditDetails.aspx" />
     <Content Include="CustomerLanding.aspx" />
@@ -132,6 +133,7 @@
     <Content Include="Orderstatus.aspx" />
     <Content Include="PackageAdd.aspx" />
     <Content Include="payment.aspx" />
+    <Content Include="PointsTransactions.aspx" />
     <Content Include="ProductCustomization.aspx" />
     <Content Include="ProductCustView.aspx" />
     <Content Include="Products%28lermin%29.aspx" />
@@ -261,6 +263,13 @@
     </Compile>
     <Compile Include="CustomerCoupon.aspx.designer.cs">
       <DependentUpon>CustomerCoupon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerCoupons.aspx.cs">
+      <DependentUpon>CustomerCoupons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerCoupons.aspx.designer.cs">
+      <DependentUpon>CustomerCoupons.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerDetails.aspx.cs">
       <DependentUpon>CustomerDetails.aspx</DependentUpon>
@@ -465,6 +474,14 @@
       <DependentUpon>payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="pointsTier.cs" />
+    <Compile Include="PointsTransaction.cs" />
+    <Compile Include="PointsTransactions.aspx.cs">
+      <DependentUpon>PointsTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PointsTransactions.aspx.designer.cs">
+      <DependentUpon>PointsTransactions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs" />
     <Compile Include="ProductCust.cs" />
     <Compile Include="ProductCustomization.aspx.cs">

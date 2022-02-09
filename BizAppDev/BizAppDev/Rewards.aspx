@@ -245,7 +245,7 @@
                           </svg>
                         </div>
                         <div class="mx-3">
-                          <h6 class="h4 fw-light text-gray-600 mb-3">Points Transaction<br> History</h6>
+                            <a href="PointsTransactions.aspx"><h6 class="h4 fw-light text-gray-600 mb-3">Points Transaction<br> History</h6></a>
                           <div class="progress" style="height: 4px">
                             <div class="progress-bar bg-red" role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>

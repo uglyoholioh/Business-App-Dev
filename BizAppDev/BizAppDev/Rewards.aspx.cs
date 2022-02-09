@@ -49,7 +49,7 @@ namespace BizAppDev
 
         protected void btn_Coupons_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CustomerViewCoupon.aspx");
+            Response.Redirect("CustomerCoupons.aspx");
         }
     }
 }
