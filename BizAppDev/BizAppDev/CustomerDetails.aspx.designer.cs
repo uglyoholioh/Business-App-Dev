@@ -24,15 +24,6 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.Label lbl_Username;
 
         /// <summary>
-        /// lbl_Name control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Name;
-
-        /// <summary>
         /// lbl_Email control.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,42 @@ namespace BizAppDev
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Email;
+
+        /// <summary>
+        /// lbl_FirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_FirstName;
+
+        /// <summary>
+        /// lbl_LastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_LastName;
+
+        /// <summary>
+        /// lbl_Address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Address;
+
+        /// <summary>
+        /// lbl_DOB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_DOB;
 
         /// <summary>
         /// lbl_PhoneNo control.
@@ -60,24 +87,6 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.Label lbl_Gender;
 
         /// <summary>
-        /// lbl_DOB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_DOB;
-
-        /// <summary>
-        /// lbl_Address control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Address;
-
-        /// <summary>
         /// btn_Edit control.
         /// </summary>
         /// <remarks>
@@ -85,23 +94,5 @@ namespace BizAppDev
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Edit;
-
-        /// <summary>
-        /// btn_Delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Delete;
-
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

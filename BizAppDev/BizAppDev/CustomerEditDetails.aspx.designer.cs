@@ -24,13 +24,13 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.TextBox tb_Username;
 
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// tb_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.TextBox tb_Email;
 
         /// <summary>
         /// tb_FirstName control.
@@ -42,15 +42,6 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.TextBox tb_FirstName;
 
         /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-
-        /// <summary>
         /// tb_LastName control.
         /// </summary>
         /// <remarks>
@@ -60,31 +51,22 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.TextBox tb_LastName;
 
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// tb_Address control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.TextBox tb_Address;
 
         /// <summary>
-        /// tb_Email control.
+        /// cal_DOB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_Email;
-
-        /// <summary>
-        /// RegularExpressionValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.Calendar cal_DOB;
 
         /// <summary>
         /// tb_PhoneNo control.
@@ -96,13 +78,13 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.TextBox tb_PhoneNo;
 
         /// <summary>
-        /// RegularExpressionValidator2 control.
+        /// rbl_Gender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbl_Gender;
 
         /// <summary>
         /// tb_Gender control.
@@ -112,24 +94,6 @@ namespace BizAppDev
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tb_Gender;
-
-        /// <summary>
-        /// tb_DOB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_DOB;
-
-        /// <summary>
-        /// tb_Address control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_Address;
 
         /// <summary>
         /// btn_Save control.

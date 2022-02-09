@@ -137,6 +137,7 @@
     <Content Include="Products%28lermin%29.aspx" />
     <Content Include="ProductsOrdering.aspx" />
     <Content Include="product_desc.aspx" />
+    <Content Include="Rewards.aspx" />
     <Content Include="Signuppage.aspx" />
     <Content Include="StaffAddPerks.aspx" />
     <Content Include="StaffAddPointTier.aspx" />
@@ -503,6 +504,13 @@
       <DependentUpon>product_desc.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rewards.aspx.cs">
+      <DependentUpon>Rewards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rewards.aspx.designer.cs">
+      <DependentUpon>Rewards.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Signuppage.aspx.cs">
       <DependentUpon>Signuppage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

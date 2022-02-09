@@ -28,7 +28,8 @@ namespace BizAppDev
 			lbl_DOB.Text = yes.ToString("dd MMMM, yyyy");
 			lbl_Email.Text = Cust.email.ToString();
 			lbl_Gender.Text = Cust.gender.ToString();
-			lbl_Name.Text = Cust.first_Name.ToString() + " " + Cust.last_Name.ToString();
+			lbl_FirstName.Text = Cust.first_Name.ToString();
+			lbl_LastName.Text = Cust.last_Name.ToString();
 			lbl_PhoneNo.Text = Cust.phoneNo.ToString();
 			lbl_Username.Text = Cust.username.ToString();
 		}

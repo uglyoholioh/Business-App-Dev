@@ -21,8 +21,8 @@ namespace BizAppDev
                 Cust = aCust.getCustomer(CID);
                 tb_FirstName.Text = Cust.first_Name;
                 tb_LastName.Text = Cust.last_Name;
-                tb_DOB.Text = Cust.DOB;
-                tb_Gender.Text = Cust.gender;
+                cal_DOB.SelectedDate = Convert.ToDateTime(Cust.DOB);
+                rbl_Gender.SelectedValue = Cust.gender;
                 tb_Address.Text = Cust.address;
                 tb_Email.Text = Cust.email;
                 tb_PhoneNo.Text = Cust.phoneNo;
@@ -40,8 +40,8 @@ namespace BizAppDev
             int result = 0;
             string firstName = tb_FirstName.Text;
             string lastName = tb_LastName.Text;
-            string DOB = tb_DOB.Text;
-            string gender = tb_Gender.Text;
+            string DOB = cal_DOB.SelectedDate.ToString();
+            string gender = rbl_Gender.SelectedValue;
             string address = tb_Address.Text;
             string email = tb_Email.Text;
             string phoneNo = tb_PhoneNo.Text;

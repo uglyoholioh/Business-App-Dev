@@ -200,7 +200,7 @@ namespace BizAppDev
                 " gender = @gender," +
                 " username = @username" +
                 " WHERE Cust_ID = @CustID";
-
+            DateTime convertDOB = Convert.ToDateTime(DOB);
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@CustID",CustID);
@@ -209,7 +209,7 @@ namespace BizAppDev
             cmd.Parameters.AddWithValue("@email",email);
             cmd.Parameters.AddWithValue("@address",address);
             cmd.Parameters.AddWithValue("@phone_No",phone_No);
-            cmd.Parameters.AddWithValue("@DOB",DOB);
+            cmd.Parameters.AddWithValue("@DOB",convertDOB);
             cmd.Parameters.AddWithValue("@gender",gender);
             cmd.Parameters.AddWithValue("@username",username);
 

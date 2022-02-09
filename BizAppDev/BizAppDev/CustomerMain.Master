@@ -126,7 +126,7 @@
         <span class="heading">Rewards</span>
       <ul class="list-unstyled">
          <li><a href="CustomerDetails.aspx"> <i class="fa fa-bar-chart"></i>Your profile</a></li>
-          <li><a href="CustomerPoints.aspx"> <i class="fa fa-bar-chart"></i>Rewards</a></li>
+          <li><a href="Rewards.aspx"> <i class="fa fa-bar-chart"></i>Rewards</a></li>
      <li><a href="CustomerViewCoupon.aspx"> <i class="fa fa-bar-chart"></i>Your coupons</a></li>
      <li><a href="CustomerCoupon.aspx"> <i class="fa fa-bar-chart"></i>Coupon store</a></li>
 

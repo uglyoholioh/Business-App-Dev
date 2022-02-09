@@ -18,73 +18,52 @@
                       margin-left:300px;
         }
     </style>
+    <div class="card">
+                    <div class="card-body" style="width:1920px">
+                      <h3 class="card-title">Your Profile</h3>
+                      <div class="row gy-4">
+                        <div class="col-sm-6 col-sm-6">
+                          <label class="form-label">Username</label>               
 
-    <div id="editdetails">
-    <h1><strong>Edit Details</strong><br />
-    </h1>
-    <table class="auto-style1">
-        <tr>
-            <td class="auto-style2">Username:</td>
-            <td>
-                <asp:TextBox ID="tb_Username" runat="server"></asp:TextBox>&nbsp<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Username is required" ControlToValidate="tb_Username" CssClass="alert-danger"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="tb_Username" runat="server" class="form-control" placeholder="Enter Username"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-6 col-sm-6">
+                          <label class="form-label">Email address</label>
+                <asp:TextBox ID="tb_Email" runat="server" class="form-control" placeholder="Enter Email"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-6">
+                          <label class="form-label">First Name</label>
+                <asp:TextBox ID="tb_FirstName" runat="server" class="form-control" placeholder="Enter First Name"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-6">
+                          <label class="form-label">Last name</label>
+                <asp:TextBox ID="tb_LastName" runat="server" class="form-control" placeholder="Enter Last Name"></asp:TextBox>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Address</label>
+                <asp:TextBox ID="tb_Address" runat="server" class="form-control" placeholder="Enter Address"></asp:TextBox>
+                        </div>
+                                                  <div class="col-md-6">
+                          <label class="form-label">Date of Birth</label><asp:Calendar ID="cal_DOB" runat="server"></asp:Calendar>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                          <label class="form-label">Phone number</label>
+                <asp:TextBox ID="tb_PhoneNo" runat="server" class="form-control" placeholder="Enter Phone number"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                          <label class="form-label">Gender</label><asp:RadioButtonList ID="rbl_Gender" runat="server">
+                                <asp:ListItem>Male</asp:ListItem>
+                                <asp:ListItem>Female</asp:ListItem>
+                            </asp:RadioButtonList>
+                <asp:TextBox ID="tb_Gender" runat="server" class="form-control" placeholder="Enter Gender"></asp:TextBox>
+                        </div>
 
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style2">First name:</td>
-            <td>
-                <asp:TextBox ID="tb_FirstName" runat="server"></asp:TextBox>&nbsp<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Username is required" ControlToValidate="tb_Username" CssClass="alert-danger"></asp:RequiredFieldValidator>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style2">Last name:</td>
-            <td>
-                <asp:TextBox ID="tb_LastName" runat="server"></asp:TextBox>&nbsp<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Username is required" ControlToValidate="tb_Username" CssClass="alert-danger"></asp:RequiredFieldValidator>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style2">Email:</td>
-            <td>
-                <asp:TextBox ID="tb_Email" runat="server"></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Enter a valid email" ControlToValidate="tb_Email" CssClass="alert-danger" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style3">Phone number:</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="tb_PhoneNo" runat="server"></asp:TextBox>            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Enter valid phone number" ControlToValidate="tb_PhoneNo" CssClass="alert-danger" ValidationExpression="^[89]\d{7}$"></asp:RegularExpressionValidator>
-
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style2">Gender:</td>
-            <td>
-                <asp:TextBox ID="tb_Gender" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style2">Date of birth:</td>
-            <td>
-                <asp:TextBox ID="tb_DOB" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style2">Address:</td>
-            <td>
-                <asp:TextBox ID="tb_Address" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style2">
-                <asp:Button ID="btn_Save" runat="server" Text="Save" OnClick="btn_Save_Click" />
-            </td>
-            <td>
-                <asp:Button ID="btn_Cancel" runat="server" Text="Cancel" OnClick="btn_Cancel_Click" />
-            </td>
-        </tr>
-    </table>
-        </div>
+                        
+                      </div></div>
+                    <div class="card-footer text-end">
+                        <asp:Button ID="btn_Save" OnClick="btn_Save_Click" class="btn btn-primary" runat="server" Text="Save Changes" />
+                         <asp:Button ID="btn_Cancel" OnClick="btn_Cancel_Click" class="btn btn-primary" runat="server" Text="Cancel" />
+                    </div>
+                  </div>
+    
 </asp:Content>

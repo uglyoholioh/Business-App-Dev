@@ -160,7 +160,7 @@
                 <li><a runat="server" href="~/Offers(lermin).aspx">Offers</a></li>
                 <li><a runat="server" href="~/Customer.aspx">Customer Details</a></li>                
                 <li><a runat="server" href="~/StaffViewTiers.aspx">View point tiers</a></li>
-                <li><a runat="server" href="~/StaffViewPerks.aspx">Add point tiers</a></li>
+                <li><a runat="server" href="~/StaffAddPointTier.aspx">Add point tiers</a></li>
                 <li><a runat="server" href="~/StaffAddPerks.aspx">Customer Details</a></li>
 
               </ul>
