@@ -47,6 +47,12 @@ namespace BizAppDev
                 int validMonths = int.Parse(lblvalidMonths.Text);
                 Label lblvalidYears = (Label)(e.Item.FindControl("validYearsLabel"));
                 int validYears = int.Parse(lblvalidYears.Text);
+                Label lblcoupDesc = (Label)(e.Item.FindControl("lbl_Desc"));
+                string coupDesc = lblcoupDesc.Text;
+                Label lblCategory = (Label)(e.Item.FindControl("lbl_Category"));
+                string category = lblCategory.Text;
+
+
 
                 for (int i = 0; i < 5; i++)
                 {
@@ -58,7 +64,7 @@ namespace BizAppDev
                 cost = cost * CouponQuantity;
                 if (acust.points-cost > 0)
                 {
-                    result = coup.claimCoupon(CID, CouponID, kan, coupName, CouponQuantity, CouponDiscount, validDays, validMonths, validYears);
+                    result = coup.claimCoupon(CID, CouponID, kan, coupName, CouponQuantity, CouponDiscount, validDays, validMonths, validYears,coupDesc,category);
                     string queryStr = "UPDATE Customer SET" +
                        " points = @points," +
                        " lvlPoints = @lvlPoints" +

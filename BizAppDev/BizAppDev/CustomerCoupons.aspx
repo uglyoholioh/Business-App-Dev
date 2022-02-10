@@ -75,6 +75,7 @@ body {
 .tab-panel {
   padding: 30px 0;
   border-top: 1px solid #ccc;
+  min-width:900px;
 }
 
 /*
@@ -108,25 +109,129 @@ body {
   http://simplyaccessible.com/article/danger-aria-tabs/
 -->
 
+
+            <asp:SqlDataSource ID="ddlPersonal" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [category] FROM [CustCoupon]"></asp:SqlDataSource>
+
+
+    <asp:SqlDataSource ID="coupCategory" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [category] FROM [Coupon]"></asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="SeasonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Coupons]"></asp:SqlDataSource>
+    
+    <asp:DataList ID="DataList3" runat="server" DataKeyField="AsgnID" DataSourceID="expiredDS">
+        <ItemTemplate>
+            AsgnID:
+            <asp:Label ID="AsgnIDLabel" runat="server" Text='<%# Eval("AsgnID") %>' />
+            <br />
+            Cust_ID:
+            <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("Cust_ID") %>' />
+            <br />
+            CouponID:
+            <asp:Label ID="CouponIDLabel" runat="server" Text='<%# Eval("CouponID") %>' />
+            <br />
+            Code:
+            <asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("Code") %>' />
+            <br />
+            coupName:
+            <asp:Label ID="coupNameLabel" runat="server" Text='<%# Eval("coupName") %>' />
+            <br />
+            coupQuantity:
+            <asp:Label ID="coupQuantityLabel" runat="server" Text='<%# Eval("coupQuantity") %>' />
+            <br />
+            coupDiscount:
+            <asp:Label ID="coupDiscountLabel" runat="server" Text='<%# Eval("coupDiscount") %>' />
+            <br />
+            coupExpiry:
+            <asp:Label ID="coupExpiryLabel" runat="server" Text='<%# Eval("coupExpiry") %>' />
+            <br />
+            coupDesc:
+            <asp:Label ID="coupDescLabel" runat="server" Text='<%# Eval("coupDesc") %>' />
+            <br />
+            category:
+            <asp:Label ID="categoryLabel" runat="server" Text='<%# Eval("category") %>' />
+            <br />
+<br />
+        </ItemTemplate>
+    </asp:DataList>
+    <asp:SqlDataSource ID="expiredDS" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE ([coupExpiry] &lt; @currentDate)">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="currentDate" Name="coupExpiry" Type="String" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    
+    <asp:SqlDataSource ID="ddlCoupon" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [category] FROM [Coupon]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="PersonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon]" FilterExpression="category='{0}'">
+        <FilterParameters>
+            <asp:ControlParameter Name="category" ControlID="ddl_Category" PropertyName="SelectedValue" />
+        </FilterParameters>
+    </asp:SqlDataSource>
+
 <div class="tabset">
   <!-- Tab 1 -->
   <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
   <label for="tab1">Active Coupons</label>
   <!-- Tab 2 -->
   <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
-  <label for="tab2">Expired coupons</label>
+  <label for="tab2">Seasonal coupons</label>
+      <!-- Tab 3 -->
+
+      <input type="radio" name="tabset" id="tab3" aria-controls="expired">
+  <label for="tab3">Expired coupons</label>
 
   
   <div class="tab-panels">
     <section id="marzen" class="tab-panel">
-      <h2>6A. Märzen</h2>
-      <p><strong>Overall Impression:</strong> An elegant, malty German amber lager with a clean, rich, toasty and bready malt flavor, restrained bitterness, and a dry finish that encourages another drink. The overall malt impression is soft, elegant, and complex, with a rich aftertaste that is never cloying or heavy.</p>
-      <p><strong>History:</strong> As the name suggests, brewed as a stronger “March beer” in March and lagered in cold caves over the summer. Modern versions trace back to the lager developed by Spaten in 1841, contemporaneous to the development of Vienna lager. However, the Märzen name is much older than 1841; the early ones were dark brown, and in Austria the name implied a strength band (14 °P) rather than a style. The German amber lager version (in the Viennese style of the time) was first served at Oktoberfest in 1872, a tradition that lasted until 1990 when the golden Festbier was adopted as the standard festival beer.</p>
+        <h3>Filter Coupon Category</h3>
+        <asp:DropDownList ID="ddl_Category" runat="server" DataSourceID="ddlCoupon" DataTextField="category" DataValueField="category" OnSelectedIndexChanged="ddl_Category_SelectedIndexChanged" AutoPostBack="true" style="float:left;">
+    </asp:DropDownList>
+
+            <asp:DataList ID="DataList1" runat="server" DataKeyField="AsgnID" DataSourceID="PersonalCoup" RepeatColumns="2" RepeatDirection="Horizontal" CellPadding="20" style="float:left;" >
+                <ItemTemplate>
+                    <div class="card" style="min-width:400px">
+                    <div class="card-body">
+                      <h4 class="card-title"><asp:Label ID="coupNameLabel" runat="server" Text='<%# Eval("coupName") %>' /></h4>
+                      <p class="card-text"><asp:Label ID="AsgnIDLabel" runat="server" Text='<%# Eval("coupDesc") %>' />
+</p><a class="btn btn-outline-primary" href="#">Use Coupon Code:                     <asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("Code") %>' />
+</a>
+                    </div>
+                    <div class="card-footer text-muted">Expires: <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("coupExpiry") %>' />
+</div>
+                  </div>
+
+                    coupQuantity:
+                    <asp:Label ID="coupQuantityLabel" runat="server" Text='<%# Eval("coupQuantity") %>' />
+                    <br />
+                    coupDiscount:
+                    <asp:Label ID="coupDiscountLabel" runat="server" Text='<%# Eval("coupDiscount") %>' />
+
+                </ItemTemplate>
+    </asp:DataList>
   </section>
     <section id="rauchbier" class="tab-panel">
-      <h2>6B. Rauchbier</h2>
-      <p><strong>Overall Impression:</strong>  An elegant, malty German amber lager with a balanced, complementary beechwood smoke character. Toasty-rich malt in aroma and flavor, restrained bitterness, low to high smoke flavor, clean fermentation profile, and an attenuated finish are characteristic.</p>
-      <p><strong>History:</strong> A historical specialty of the city of Bamberg, in the Franconian region of Bavaria in Germany. Beechwood-smoked malt is used to make a Märzen-style amber lager. The smoke character of the malt varies by maltster; some breweries produce their own smoked malt (rauchmalz).</p>
+<asp:DataList ID="DataList2" runat="server" DataKeyField="coupon_ID" DataSourceID="SeasonalCoup" RepeatColumns="2" RepeatDirection="Horizontal" >
+        <ItemTemplate>
+            coupon_ID:
+            <asp:Label ID="coupon_IDLabel" runat="server" Text='<%# Eval("coupon_ID") %>' />
+            <br />
+            coupon_Name:
+            <asp:Label ID="coupon_NameLabel" runat="server" Text='<%# Eval("coupon_Name") %>' />
+            <br />
+            coupon_startDate:
+            <asp:Label ID="coupon_startDateLabel" runat="server" Text='<%# Eval("coupon_startDate") %>' />
+            <br />
+            coupon_endDate:
+            <asp:Label ID="coupon_endDateLabel" runat="server" Text='<%# Eval("coupon_endDate") %>' />
+            <br />
+            coup_Desc:
+            <asp:Label ID="coup_DescLabel" runat="server" Text='<%# Eval("coup_Desc") %>' />
+            <br />
+            coup_disccountamt:
+            <asp:Label ID="coup_disccountamtLabel" runat="server" Text='<%# Eval("coup_disccountamt") %>' />
+            <br />
+<br />
+        </ItemTemplate>
+    </asp:DataList>    </section>
+    <section id="expired" class="tab-panel">
+
     </section>
 
   </div>

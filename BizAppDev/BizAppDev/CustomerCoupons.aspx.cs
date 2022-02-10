@@ -13,5 +13,16 @@ namespace BizAppDev
         {
 
         }
+
+        protected void cbl_Category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataList1.DataBind();
+        }
+
+        protected void ddl_Category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataList1.DataBind();
+
+        }
     }
 }

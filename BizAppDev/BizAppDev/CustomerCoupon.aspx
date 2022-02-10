@@ -21,6 +21,8 @@
                         Cost: <asp:Label ID="costLabel" runat="server" Text='<%# Eval("cost") %>' />
                         <br />
                         Description: <asp:Label ID="lbl_Desc" runat="server" Text='<%# Eval("cDesc") %>' /><br />
+                                                Category: <asp:Label ID="lbl_Category" runat="server" Text='<%# Eval("category") %>' /><br />
+
                         Discount: <asp:Label ID="discountLabel" runat="server" Text='<%# Eval("discount") %>' /><br />
                         Valid for : <asp:Label ID="validDaysLabel" runat="server" Text='<%# Eval("validDays") %>' /> day(s)
                   <asp:Label ID="validMonthsLabel" runat="server" Text='<%# Eval("validMonths") %>' /> Month(s)

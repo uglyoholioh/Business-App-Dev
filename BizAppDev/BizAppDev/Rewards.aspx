@@ -190,7 +190,8 @@
                     <div class="card-body">
                       <div class="d-flex align-items-center">
                         <div class="icon flex-shrink-0 bg-red"><i class="fas fa-tasks"></i></div>
-                        <div class="ms-3"><strong class="text-lg d-block lh-1 mb-1">234</strong><small class="text-uppercase text-gray-500 small d-block lh-1">Coupons</small><br /><asp:Button ID="btn_Coupons" class="btn btn-primary" runat="server" OnClick="btn_Coupons_Click" Text="View Coupons" /></div>
+                        <div class="ms-3"><strong class="text-lg d-block lh-1 mb-1">
+                            <asp:Label ID="lbl_NoVouchers" runat="server"></asp:Label></strong><small class="text-uppercase text-gray-500 small d-block lh-1">Coupons Available</small><br /><asp:Button ID="btn_Coupons" class="btn btn-primary" runat="server" OnClick="btn_Coupons_Click" Text="View Coupons" /></div>
                       </div>
                     </div>
                   </div>
