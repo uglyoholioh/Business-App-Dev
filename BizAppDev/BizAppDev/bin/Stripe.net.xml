@@ -3794,6 +3794,7 @@
         <member name="P:Stripe.Charge.Status">
             <summary>
             The status of the payment is either <c>succeeded</c>, <c>pending</c>, or <c>failed</c>.
+            One of: <c>failed</c>, <c>pending</c>, or <c>succeeded</c>.
             </summary>
         </member>
         <member name="P:Stripe.Charge.TransferId">
@@ -5197,6 +5198,20 @@
              For more information, see the <a href="https://stripe.com/docs/expand">expand documentation</a>.
              </summary>
         </member>
+        <member name="P:Stripe.Checkout.Session.PaymentLinkId">
+            <summary>
+            (ID of the PaymentLink)
+            The ID of the Payment Link that created this Session.
+            </summary>
+        </member>
+        <member name="P:Stripe.Checkout.Session.PaymentLink">
+             <summary>
+             (Expanded)
+             The ID of the Payment Link that created this Session.
+            
+             For more information, see the <a href="https://stripe.com/docs/expand">expand documentation</a>.
+             </summary>
+        </member>
         <member name="P:Stripe.Checkout.Session.PaymentMethodOptions">
             <summary>
             Payment-method-specific configuration for the PaymentIntent or SetupIntent of this
@@ -5401,16 +5416,16 @@
             <c>kr_brn</c>, <c>ca_qst</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>,
             <c>ca_pst_sk</c>, <c>my_sst</c>, <c>sg_gst</c>, <c>ae_trn</c>, <c>cl_tin</c>,
             <c>sa_vat</c>, <c>id_npwp</c>, <c>my_frp</c>, <c>il_vat</c>, <c>ge_vat</c>,
-            <c>ua_vat</c>, or <c>unknown</c>.
+            <c>ua_vat</c>, <c>is_vat</c>, or <c>unknown</c>.
             One of: <c>ae_trn</c>, <c>au_abn</c>, <c>au_arn</c>, <c>br_cnpj</c>, <c>br_cpf</c>,
             <c>ca_bn</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>, <c>ca_pst_sk</c>,
             <c>ca_qst</c>, <c>ch_vat</c>, <c>cl_tin</c>, <c>es_cif</c>, <c>eu_vat</c>,
             <c>gb_vat</c>, <c>ge_vat</c>, <c>hk_br</c>, <c>id_npwp</c>, <c>il_vat</c>,
-            <c>in_gst</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>, <c>mx_rfc</c>,
-            <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>, <c>nz_gst</c>,
-            <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>, <c>sg_uen</c>,
-            <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>unknown</c>, <c>us_ein</c>, or
-            <c>za_vat</c>.
+            <c>in_gst</c>, <c>is_vat</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>,
+            <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>,
+            <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>,
+            <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>unknown</c>,
+            <c>us_ein</c>, or <c>za_vat</c>.
             </summary>
         </member>
         <member name="P:Stripe.Checkout.SessionCustomerDetailsTaxId.Value">
@@ -9742,16 +9757,16 @@
             <c>kr_brn</c>, <c>ca_qst</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>,
             <c>ca_pst_sk</c>, <c>my_sst</c>, <c>sg_gst</c>, <c>ae_trn</c>, <c>cl_tin</c>,
             <c>sa_vat</c>, <c>id_npwp</c>, <c>my_frp</c>, <c>il_vat</c>, <c>ge_vat</c>,
-            <c>ua_vat</c>, or <c>unknown</c>.
+            <c>ua_vat</c>, <c>is_vat</c>, or <c>unknown</c>.
             One of: <c>ae_trn</c>, <c>au_abn</c>, <c>au_arn</c>, <c>br_cnpj</c>, <c>br_cpf</c>,
             <c>ca_bn</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>, <c>ca_pst_sk</c>,
             <c>ca_qst</c>, <c>ch_vat</c>, <c>cl_tin</c>, <c>es_cif</c>, <c>eu_vat</c>,
             <c>gb_vat</c>, <c>ge_vat</c>, <c>hk_br</c>, <c>id_npwp</c>, <c>il_vat</c>,
-            <c>in_gst</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>, <c>mx_rfc</c>,
-            <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>, <c>nz_gst</c>,
-            <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>, <c>sg_uen</c>,
-            <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>unknown</c>, <c>us_ein</c>, or
-            <c>za_vat</c>.
+            <c>in_gst</c>, <c>is_vat</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>,
+            <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>,
+            <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>,
+            <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>unknown</c>,
+            <c>us_ein</c>, or <c>za_vat</c>.
             </summary>
         </member>
         <member name="P:Stripe.InvoiceCustomerTaxId.Value">
@@ -13184,6 +13199,16 @@
             The base64 image data for a pre-generated QR code.
             </summary>
         </member>
+        <member name="P:Stripe.PaymentIntentNextActionWechatPayDisplayQrCode.ImageUrlPng">
+            <summary>
+            The image_url_png string used to render QR code.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentIntentNextActionWechatPayDisplayQrCode.ImageUrlSvg">
+            <summary>
+            The image_url_svg string used to render QR code.
+            </summary>
+        </member>
         <member name="P:Stripe.PaymentIntentNextActionWechatPayRedirectToAndroidApp.AppId">
             <summary>
             app_id is the APP ID registered on WeChat open platform.
@@ -13416,6 +13441,185 @@
              (Expanded)
              The account (if any) the payment will be attributed to for tax reporting, and where
              funds from the payment will be transferred to upon payment success.
+            
+             For more information, see the <a href="https://stripe.com/docs/expand">expand documentation</a>.
+             </summary>
+        </member>
+        <member name="T:Stripe.PaymentLink">
+             <summary>
+             A payment link is a shareable URL that will take your customers to a hosted payment
+             page. A payment link can be shared and used multiple times.
+            
+             When a customer opens a payment link it will open a new <a
+             href="https://stripe.com/docs/api/checkout/sessions">checkout session</a> to render the
+             payment page. You can use <a
+             href="https://stripe.com/docs/api/events/types#event_types-checkout.session.completed">checkout
+             session events</a> to track payments through payment links.
+            
+             Related guide: <a href="https://stripe.com/docs/payments/payment-links/api">Payment
+             Links API</a>.
+             </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.Id">
+            <summary>
+            Unique identifier for the object.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.Object">
+            <summary>
+            String representing the object's type. Objects of the same type share the same value.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.Active">
+            <summary>
+            Whether the payment link's <c>url</c> is active. If <c>false</c>, customers visiting the
+            URL will be shown a page saying that the link has been deactivated.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.AllowPromotionCodes">
+            <summary>
+            Whether user redeemable promotion codes are enabled.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.ApplicationFeeAmount">
+            <summary>
+            The amount of the application fee (if any) that will be requested to be applied to the
+            payment and transferred to the application owner's Stripe account.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.ApplicationFeePercent">
+            <summary>
+            This represents the percentage of the subscription invoice subtotal that will be
+            transferred to the application owner's Stripe account.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.BillingAddressCollection">
+            <summary>
+            Configuration for collecting the customer's billing address.
+            One of: <c>auto</c>, or <c>required</c>.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.LineItems">
+            <summary>
+            The line items representing what is being sold.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.Livemode">
+            <summary>
+            Has the value <c>true</c> if the object exists in live mode or the value <c>false</c> if
+            the object exists in test mode.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.Metadata">
+            <summary>
+            Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can
+            attach to an object. This can be useful for storing additional information about the
+            object in a structured format.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.OnBehalfOfId">
+            <summary>
+            (ID of the Account)
+            The account on behalf of which to charge. See the <a
+            href="https://support.stripe.com/questions/sending-invoices-on-behalf-of-connected-accounts">Connect
+            documentation</a> for details.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.OnBehalfOf">
+             <summary>
+             (Expanded)
+             The account on behalf of which to charge. See the <a
+             href="https://support.stripe.com/questions/sending-invoices-on-behalf-of-connected-accounts">Connect
+             documentation</a> for details.
+            
+             For more information, see the <a href="https://stripe.com/docs/expand">expand documentation</a>.
+             </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.PaymentMethodTypes">
+            <summary>
+            The list of payment method types that customers can use. When <c>null</c>, Stripe will
+            dynamically show relevant payment methods you've enabled in your <a
+            href="https://dashboard.stripe.com/settings/payment_methods">payment method
+            settings</a>.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.ShippingAddressCollection">
+            <summary>
+            Configuration for collecting the customer's shipping address.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.SubscriptionData">
+            <summary>
+            When creating a subscription, the specified configuration data will be used. There must
+            be at least one line item with a recurring price to use <c>subscription_data</c>.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.TransferData">
+            <summary>
+            The account (if any) the payments will be attributed to for tax reporting, and where
+            funds from each payment will be transferred to.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLink.Url">
+            <summary>
+            The public URL that can be shared with customers.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkAfterCompletion.Type">
+            <summary>
+            The specified behavior after the purchase is complete.
+            One of: <c>hosted_confirmation</c>, or <c>redirect</c>.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkAfterCompletionHostedConfirmation.CustomMessage">
+            <summary>
+            The custom message that is displayed to the customer after the purchase is complete.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkAfterCompletionRedirect.Url">
+            <summary>
+            The URL the customer will be redirected to after the purchase is complete.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkAutomaticTax.Enabled">
+            <summary>
+            If <c>true</c>, tax will be calculated automatically using the customer's location.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkPhoneNumberCollection.Enabled">
+            <summary>
+            If <c>true</c>, a phone number will be collected during checkout.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkShippingAddressCollection.AllowedCountries">
+            <summary>
+            An array of two-letter ISO country codes representing which countries Checkout should
+            provide as options for shipping locations. Unsupported country codes: <c>AS, CX, CC, CU,
+            HM, IR, KP, MH, FM, NF, MP, PW, SD, SY, UM, VI</c>.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkSubscriptionData.TrialPeriodDays">
+            <summary>
+            Integer representing the number of trial period days before the customer is charged for
+            the first time.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkTransferData.Amount">
+            <summary>
+            The amount in %s that will be transferred to the destination account. By default, the
+            entire amount is transferred to the destination.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkTransferData.DestinationId">
+            <summary>
+            (ID of the Account)
+            The connected account receiving the transfer.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkTransferData.Destination">
+             <summary>
+             (Expanded)
+             The connected account receiving the transfer.
             
              For more information, see the <a href="https://stripe.com/docs/expand">expand documentation</a>.
              </summary>
@@ -19429,20 +19633,20 @@
             <c>br_cpf</c>, <c>ca_bn</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>,
             <c>ca_pst_sk</c>, <c>ca_qst</c>, <c>ch_vat</c>, <c>cl_tin</c>, <c>es_cif</c>,
             <c>eu_vat</c>, <c>gb_vat</c>, <c>ge_vat</c>, <c>hk_br</c>, <c>id_npwp</c>,
-            <c>il_vat</c>, <c>in_gst</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>,
-            <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>,
-            <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>,
-            <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>us_ein</c>, or
-            <c>za_vat</c>. Note that some legacy tax IDs have type <c>unknown</c>.
+            <c>il_vat</c>, <c>in_gst</c>, <c>is_vat</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>,
+            <c>li_uid</c>, <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>,
+            <c>no_vat</c>, <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>,
+            <c>sg_gst</c>, <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>,
+            <c>us_ein</c>, or <c>za_vat</c>. Note that some legacy tax IDs have type <c>unknown</c>.
             One of: <c>ae_trn</c>, <c>au_abn</c>, <c>au_arn</c>, <c>br_cnpj</c>, <c>br_cpf</c>,
             <c>ca_bn</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>, <c>ca_pst_sk</c>,
             <c>ca_qst</c>, <c>ch_vat</c>, <c>cl_tin</c>, <c>es_cif</c>, <c>eu_vat</c>,
             <c>gb_vat</c>, <c>ge_vat</c>, <c>hk_br</c>, <c>id_npwp</c>, <c>il_vat</c>,
-            <c>in_gst</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>, <c>mx_rfc</c>,
-            <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>, <c>nz_gst</c>,
-            <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>, <c>sg_uen</c>,
-            <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>unknown</c>, <c>us_ein</c>, or
-            <c>za_vat</c>.
+            <c>in_gst</c>, <c>is_vat</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>,
+            <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>,
+            <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>,
+            <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>unknown</c>,
+            <c>us_ein</c>, or <c>za_vat</c>.
             </summary>
         </member>
         <member name="P:Stripe.TaxId.Value">
@@ -23496,19 +23700,20 @@
             <c>br_cpf</c>, <c>ca_bn</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>,
             <c>ca_pst_sk</c>, <c>ca_qst</c>, <c>ch_vat</c>, <c>cl_tin</c>, <c>es_cif</c>,
             <c>eu_vat</c>, <c>gb_vat</c>, <c>ge_vat</c>, <c>hk_br</c>, <c>id_npwp</c>,
-            <c>il_vat</c>, <c>in_gst</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>,
-            <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>,
-            <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>,
-            <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>us_ein</c>, or
-            <c>za_vat</c>.
+            <c>il_vat</c>, <c>in_gst</c>, <c>is_vat</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>,
+            <c>li_uid</c>, <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>,
+            <c>no_vat</c>, <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>,
+            <c>sg_gst</c>, <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>,
+            <c>us_ein</c>, or <c>za_vat</c>.
             One of: <c>ae_trn</c>, <c>au_abn</c>, <c>au_arn</c>, <c>br_cnpj</c>, <c>br_cpf</c>,
             <c>ca_bn</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>, <c>ca_pst_sk</c>,
             <c>ca_qst</c>, <c>ch_vat</c>, <c>cl_tin</c>, <c>es_cif</c>, <c>eu_vat</c>,
             <c>gb_vat</c>, <c>ge_vat</c>, <c>hk_br</c>, <c>id_npwp</c>, <c>il_vat</c>,
-            <c>in_gst</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>, <c>mx_rfc</c>,
-            <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>, <c>nz_gst</c>,
-            <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>, <c>sg_uen</c>,
-            <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>us_ein</c>, or <c>za_vat</c>.
+            <c>in_gst</c>, <c>is_vat</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>,
+            <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>,
+            <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>,
+            <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>us_ein</c>, or
+            <c>za_vat</c>.
             </summary>
         </member>
         <member name="P:Stripe.CustomerTaxIdDataOptions.Value">
@@ -24387,19 +24592,20 @@
             <c>br_cpf</c>, <c>ca_bn</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>,
             <c>ca_pst_sk</c>, <c>ca_qst</c>, <c>ch_vat</c>, <c>cl_tin</c>, <c>es_cif</c>,
             <c>eu_vat</c>, <c>gb_vat</c>, <c>ge_vat</c>, <c>hk_br</c>, <c>id_npwp</c>,
-            <c>il_vat</c>, <c>in_gst</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>,
-            <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>,
-            <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>,
-            <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>us_ein</c>, or
-            <c>za_vat</c>.
+            <c>il_vat</c>, <c>in_gst</c>, <c>is_vat</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>,
+            <c>li_uid</c>, <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>,
+            <c>no_vat</c>, <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>,
+            <c>sg_gst</c>, <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>,
+            <c>us_ein</c>, or <c>za_vat</c>.
             One of: <c>ae_trn</c>, <c>au_abn</c>, <c>au_arn</c>, <c>br_cnpj</c>, <c>br_cpf</c>,
             <c>ca_bn</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>, <c>ca_pst_sk</c>,
             <c>ca_qst</c>, <c>ch_vat</c>, <c>cl_tin</c>, <c>es_cif</c>, <c>eu_vat</c>,
             <c>gb_vat</c>, <c>ge_vat</c>, <c>hk_br</c>, <c>id_npwp</c>, <c>il_vat</c>,
-            <c>in_gst</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>, <c>mx_rfc</c>,
-            <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>, <c>nz_gst</c>,
-            <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>, <c>sg_uen</c>,
-            <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>us_ein</c>, or <c>za_vat</c>.
+            <c>in_gst</c>, <c>is_vat</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>,
+            <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>,
+            <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>,
+            <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>us_ein</c>, or
+            <c>za_vat</c>.
             </summary>
         </member>
         <member name="P:Stripe.InvoiceCustomerDetailsTaxIdOptions.Value">
@@ -24479,19 +24685,20 @@
             <c>br_cpf</c>, <c>ca_bn</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>,
             <c>ca_pst_sk</c>, <c>ca_qst</c>, <c>ch_vat</c>, <c>cl_tin</c>, <c>es_cif</c>,
             <c>eu_vat</c>, <c>gb_vat</c>, <c>ge_vat</c>, <c>hk_br</c>, <c>id_npwp</c>,
-            <c>il_vat</c>, <c>in_gst</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>,
-            <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>,
-            <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>,
-            <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>us_ein</c>, or
-            <c>za_vat</c>.
+            <c>il_vat</c>, <c>in_gst</c>, <c>is_vat</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>,
+            <c>li_uid</c>, <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>,
+            <c>no_vat</c>, <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>,
+            <c>sg_gst</c>, <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>,
+            <c>us_ein</c>, or <c>za_vat</c>.
             One of: <c>ae_trn</c>, <c>au_abn</c>, <c>au_arn</c>, <c>br_cnpj</c>, <c>br_cpf</c>,
             <c>ca_bn</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>, <c>ca_pst_sk</c>,
             <c>ca_qst</c>, <c>ch_vat</c>, <c>cl_tin</c>, <c>es_cif</c>, <c>eu_vat</c>,
             <c>gb_vat</c>, <c>ge_vat</c>, <c>hk_br</c>, <c>id_npwp</c>, <c>il_vat</c>,
-            <c>in_gst</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>, <c>mx_rfc</c>,
-            <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>, <c>nz_gst</c>,
-            <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>, <c>sg_uen</c>,
-            <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>us_ein</c>, or <c>za_vat</c>.
+            <c>in_gst</c>, <c>is_vat</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>,
+            <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>,
+            <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>,
+            <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>us_ein</c>, or
+            <c>za_vat</c>.
             </summary>
         </member>
         <member name="P:Stripe.InvoiceLineItemCustomerDetailsTaxIdOptions.Value">
@@ -26253,6 +26460,12 @@
             the AU BECS Direct Debit payment method options.
             </summary>
         </member>
+        <member name="P:Stripe.PaymentIntentPaymentMethodOptionsOptions.BacsDebit">
+            <summary>
+            If this is a <c>bacs_debit</c> PaymentMethod, this sub-hash contains details about the
+            BACS Debit payment method options.
+            </summary>
+        </member>
         <member name="P:Stripe.PaymentIntentPaymentMethodOptionsOptions.Bancontact">
             <summary>
             If this is a <c>bancontact</c> PaymentMethod, this sub-hash contains details about the
@@ -26274,6 +26487,12 @@
             <summary>
             If this is a <c>card_present</c> PaymentMethod, this sub-hash contains details about the
             Card Present payment method options.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentIntentPaymentMethodOptionsOptions.Eps">
+            <summary>
+            If this is a <c>eps</c> PaymentMethod, this sub-hash contains details about the EPS
+            payment method options.
             </summary>
         </member>
         <member name="P:Stripe.PaymentIntentPaymentMethodOptionsOptions.Fpx">
@@ -26536,6 +26755,260 @@
             may only be provided if it has not been set. See the PaymentIntents <a
             href="https://stripe.com/docs/payments/connected-accounts">use case for connected
             accounts</a> for details.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkAfterCompletionHostedConfirmationOptions.CustomMessage">
+            <summary>
+            A custom message to display to the customer after the purchase is complete.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkAfterCompletionOptions.HostedConfirmation">
+            <summary>
+            Configuration when <c>type=hosted_confirmation</c>.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkAfterCompletionOptions.Redirect">
+            <summary>
+            Configuration when <c>type=redirect</c>.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkAfterCompletionOptions.Type">
+            <summary>
+            The specified behavior after the purchase is complete. Either <c>redirect</c> or
+            <c>hosted_confirmation</c>.
+            One of: <c>hosted_confirmation</c>, or <c>redirect</c>.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkAfterCompletionRedirectOptions.Url">
+            <summary>
+            The URL the customer will be redirected to after the purchase is complete. You can embed
+            <c>{CHECKOUT_SESSION_ID}</c> into the URL to have the <c>id</c> of the completed <a
+            href="https://stripe.com/docs/api/checkout/sessions/object#checkout_session_object-id">checkout
+            session</a> included.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkAutomaticTaxOptions.Enabled">
+            <summary>
+            If <c>true</c>, tax will be calculated automatically using the customer's location.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.AfterCompletion">
+            <summary>
+            Behavior after the purchase is complete.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.AllowPromotionCodes">
+            <summary>
+            Enables user redeemable promotion codes.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.ApplicationFeeAmount">
+            <summary>
+            The amount of the application fee (if any) that will be requested to be applied to the
+            payment and transferred to the application owner's Stripe account. Can only be applied
+            when there are no line items with recurring prices.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.ApplicationFeePercent">
+            <summary>
+            A non-negative decimal between 0 and 100, with at most two decimal places. This
+            represents the percentage of the subscription invoice subtotal that will be transferred
+            to the application owner's Stripe account. There must be at least 1 line item with a
+            recurring price to use this field.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.AutomaticTax">
+            <summary>
+            Configuration for automatic tax collection.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.BillingAddressCollection">
+            <summary>
+            Configuration for collecting the customer's billing address.
+            One of: <c>auto</c>, or <c>required</c>.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.LineItems">
+            <summary>
+            The line items representing what is being sold. Each line item represents an item being
+            sold. Up to 20 line items are supported.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.Metadata">
+            <summary>
+            Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can
+            attach to an object. This can be useful for storing additional information about the
+            object in a structured format. Individual keys can be unset by posting an empty value to
+            them. All keys can be unset by posting an empty value to <c>metadata</c>. Metadata
+            associated with this Payment Link will automatically be copied to <a
+            href="https://stripe.com/docs/api/checkout/sessions">checkout sessions</a> created by
+            this payment link.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.OnBehalfOf">
+            <summary>
+            The account on behalf of which to charge.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.PaymentMethodTypes">
+            <summary>
+            The list of payment method types that customers can use. Only <c>card</c> is supported.
+            If no value is passed, Stripe will dynamically show relevant payment methods from your
+            <a href="https://dashboard.stripe.com/settings/payment_methods">payment method
+            settings</a> (20+ payment methods <a
+            href="https://stripe.com/docs/payments/payment-methods/integration-options#payment-method-product-support">supported</a>).
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.PhoneNumberCollection">
+             <summary>
+             Controls phone number collection settings during checkout.
+            
+             We recommend that you review your privacy policy and check with your legal contacts.
+             </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.ShippingAddressCollection">
+            <summary>
+            Configuration for collecting the customer's shipping address.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.SubscriptionData">
+            <summary>
+            When creating a subscription, the specified configuration data will be used. There must
+            be at least one line item with a recurring price to use <c>subscription_data</c>.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkCreateOptions.TransferData">
+            <summary>
+            The account (if any) the payments will be attributed to for tax reporting, and where
+            funds from each payment will be transferred to.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkLineItemAdjustableQuantityOptions.Enabled">
+            <summary>
+            Set to true if the quantity can be adjusted to any non-negative Integer.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkLineItemAdjustableQuantityOptions.Maximum">
+            <summary>
+            The maximum quantity the customer can purchase. By default this value is 99. You can
+            specify a value up to 99.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkLineItemAdjustableQuantityOptions.Minimum">
+            <summary>
+            The minimum quantity the customer can purchase. By default this value is 0. You can
+            specify a value up to 98. If there is only one item in the cart then that item's
+            quantity cannot go down to 0.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkLineItemOptions.AdjustableQuantity">
+            <summary>
+            When set, provides configuration for this item’s quantity to be adjusted by the customer
+            during checkout.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkLineItemOptions.Id">
+            <summary>
+            The ID of an existing line item on the payment link.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkLineItemOptions.Price">
+            <summary>
+            The ID of the <a href="https://stripe.com/docs/api/prices">Price</a> or <a
+            href="https://stripe.com/docs/api/plans">Plan</a> object.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkLineItemOptions.Quantity">
+            <summary>
+            The quantity of the line item being purchased.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkPhoneNumberCollectionOptions.Enabled">
+            <summary>
+            Set to <c>true</c> to enable phone number collection.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkShippingAddressCollectionOptions.AllowedCountries">
+            <summary>
+            An array of two-letter ISO country codes representing which countries Checkout should
+            provide as options for shipping locations. Unsupported country codes: <c>AS, CX, CC, CU,
+            HM, IR, KP, MH, FM, NF, MP, PW, SD, SY, UM, VI</c>.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkSubscriptionDataOptions.TrialPeriodDays">
+            <summary>
+            Integer representing the number of trial period days before the customer is charged for
+            the first time. Has to be at least 1.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkTransferDataOptions.Amount">
+            <summary>
+            The amount that will be transferred automatically when a charge succeeds.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkTransferDataOptions.Destination">
+            <summary>
+            If specified, successful charges will be attributed to the destination account for tax
+            reporting, and the funds from charges will be transferred to the destination account.
+            The ID of the resulting transfer will be returned on the successful charge's
+            <c>transfer</c> field.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkUpdateOptions.Active">
+            <summary>
+            Whether the payment link's <c>url</c> is active. If <c>false</c>, customers visiting the
+            URL will be shown a page saying that the link has been deactivated.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkUpdateOptions.AfterCompletion">
+            <summary>
+            Behavior after the purchase is complete.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkUpdateOptions.AllowPromotionCodes">
+            <summary>
+            Enables user redeemable promotion codes.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkUpdateOptions.AutomaticTax">
+            <summary>
+            Configuration for automatic tax collection.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkUpdateOptions.BillingAddressCollection">
+            <summary>
+            Configuration for collecting the customer's billing address.
+            One of: <c>auto</c>, or <c>required</c>.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkUpdateOptions.LineItems">
+            <summary>
+            The line items representing what is being sold. Each line item represents an item being
+            sold. Up to 20 line items are supported.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkUpdateOptions.Metadata">
+            <summary>
+            Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can
+            attach to an object. This can be useful for storing additional information about the
+            object in a structured format. Individual keys can be unset by posting an empty value to
+            them. All keys can be unset by posting an empty value to <c>metadata</c>. Metadata
+            associated with this Payment Link will automatically be copied to <a
+            href="https://stripe.com/docs/api/checkout/sessions">checkout sessions</a> created by
+            this payment link.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkUpdateOptions.PaymentMethodTypes">
+            <summary>
+            The list of payment method types that customers can use. Only <c>card</c> is supported.
+            Pass an empty string to enable automatic payment methods that use your <a
+            href="https://dashboard.stripe.com/settings/payment_methods">payment method
+            settings</a>.
+            </summary>
+        </member>
+        <member name="P:Stripe.PaymentLinkUpdateOptions.ShippingAddressCollection">
+            <summary>
+            Configuration for collecting the customer's shipping address.
             </summary>
         </member>
         <member name="P:Stripe.PaymentMethodAcssDebitOptions.AccountNumber">
@@ -30804,19 +31277,20 @@
             <c>br_cpf</c>, <c>ca_bn</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>,
             <c>ca_pst_sk</c>, <c>ca_qst</c>, <c>ch_vat</c>, <c>cl_tin</c>, <c>es_cif</c>,
             <c>eu_vat</c>, <c>gb_vat</c>, <c>ge_vat</c>, <c>hk_br</c>, <c>id_npwp</c>,
-            <c>il_vat</c>, <c>in_gst</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>,
-            <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>,
-            <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>,
-            <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>us_ein</c>, or
-            <c>za_vat</c>.
+            <c>il_vat</c>, <c>in_gst</c>, <c>is_vat</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>,
+            <c>li_uid</c>, <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>,
+            <c>no_vat</c>, <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>,
+            <c>sg_gst</c>, <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>,
+            <c>us_ein</c>, or <c>za_vat</c>.
             One of: <c>ae_trn</c>, <c>au_abn</c>, <c>au_arn</c>, <c>br_cnpj</c>, <c>br_cpf</c>,
             <c>ca_bn</c>, <c>ca_gst_hst</c>, <c>ca_pst_bc</c>, <c>ca_pst_mb</c>, <c>ca_pst_sk</c>,
             <c>ca_qst</c>, <c>ch_vat</c>, <c>cl_tin</c>, <c>es_cif</c>, <c>eu_vat</c>,
             <c>gb_vat</c>, <c>ge_vat</c>, <c>hk_br</c>, <c>id_npwp</c>, <c>il_vat</c>,
-            <c>in_gst</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>, <c>mx_rfc</c>,
-            <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>, <c>nz_gst</c>,
-            <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>, <c>sg_uen</c>,
-            <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>us_ein</c>, or <c>za_vat</c>.
+            <c>in_gst</c>, <c>is_vat</c>, <c>jp_cn</c>, <c>jp_rn</c>, <c>kr_brn</c>, <c>li_uid</c>,
+            <c>mx_rfc</c>, <c>my_frp</c>, <c>my_itn</c>, <c>my_sst</c>, <c>no_vat</c>,
+            <c>nz_gst</c>, <c>ru_inn</c>, <c>ru_kpp</c>, <c>sa_vat</c>, <c>sg_gst</c>,
+            <c>sg_uen</c>, <c>th_vat</c>, <c>tw_vat</c>, <c>ua_vat</c>, <c>us_ein</c>, or
+            <c>za_vat</c>.
             </summary>
         </member>
         <member name="P:Stripe.TaxIdCreateOptions.Value">

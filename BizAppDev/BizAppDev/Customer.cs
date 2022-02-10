@@ -227,7 +227,8 @@ namespace BizAppDev
         public int CustomerUpdatePoints(string CustID,int addedpoints)
         {
             string queryStr = "UPDATE Customer SET" +
-                " lvlPoints = lvlpoints +@addedpoints " +
+                " lvlPoints = lvlPoints +@addedpoints, " +
+                " Points = Points + @addedpoints " +
                 " WHERE Cust_ID = @CustID";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);

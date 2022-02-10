@@ -106,7 +106,19 @@
                    <br />
                   
                    <asp:Label ID="Labeldisc" runat="server"></asp:Label>
+                       <form id="form1">
+                        <button type="submit">Pay</button>
+                    </form>
+                    <script src="https://js.stripe.com/v3/"></script>
+                     <script>
+                         var stripe = Stripe('pk_test_51KHh6JKpf4tgYB9KQPNyK7sTbJbBHRpAOcPdmWJNcnrOwiTbW1YKi5dTgZpd9FxkCNPlcSw4cURmZQCuH1uLnGvN00UzUnEkXO');
+                         var form = document.getElementById("form1");
+                        
+                         form.addEventListener('submit', function (e){
+                             e.preventDefault();
 
+                             stripe.redirectToCheckout({ sessionId: "<%=sessionIds%>" });
+                         })
                      </script>
   
 

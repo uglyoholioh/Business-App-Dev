@@ -152,7 +152,7 @@ body {
 <br />
         </ItemTemplate>
     </asp:DataList>
-    <asp:SqlDataSource ID="expiredDS" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE ([coupExpiry] &lt; @currentDate)">
+    <asp:SqlDataSource ID="expiredDS" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon]">
         <SelectParameters>
             <asp:Parameter DefaultValue="currentDate" Name="coupExpiry" Type="String" />
         </SelectParameters>
@@ -197,11 +197,7 @@ body {
 </div>
                   </div>
 
-                    coupQuantity:
-                    <asp:Label ID="coupQuantityLabel" runat="server" Text='<%# Eval("coupQuantity") %>' />
-                    <br />
-                    coupDiscount:
-                    <asp:Label ID="coupDiscountLabel" runat="server" Text='<%# Eval("coupDiscount") %>' />
+
 
                 </ItemTemplate>
     </asp:DataList>
@@ -209,25 +205,18 @@ body {
     <section id="rauchbier" class="tab-panel">
 <asp:DataList ID="DataList2" runat="server" DataKeyField="coupon_ID" DataSourceID="SeasonalCoup" RepeatColumns="2" RepeatDirection="Horizontal" >
         <ItemTemplate>
-            coupon_ID:
-            <asp:Label ID="coupon_IDLabel" runat="server" Text='<%# Eval("coupon_ID") %>' />
-            <br />
-            coupon_Name:
-            <asp:Label ID="coupon_NameLabel" runat="server" Text='<%# Eval("coupon_Name") %>' />
-            <br />
-            coupon_startDate:
-            <asp:Label ID="coupon_startDateLabel" runat="server" Text='<%# Eval("coupon_startDate") %>' />
-            <br />
-            coupon_endDate:
-            <asp:Label ID="coupon_endDateLabel" runat="server" Text='<%# Eval("coupon_endDate") %>' />
-            <br />
-            coup_Desc:
-            <asp:Label ID="coup_DescLabel" runat="server" Text='<%# Eval("coup_Desc") %>' />
-            <br />
-            coup_disccountamt:
-            <asp:Label ID="coup_disccountamtLabel" runat="server" Text='<%# Eval("coup_disccountamt") %>' />
-            <br />
-<br />
+                                <div class="card" style="min-width:400px">
+                    <div class="card-body">
+                      <h4 class="card-title"><asp:Label ID="coupNameLabel" runat="server" Text='<%# Eval("coupon_Name") %>' /></h4>
+                      <p class="card-text"><asp:Label ID="AsgnIDLabel" runat="server" Text='<%# Eval("coup_Desc") %>' />            <asp:Label ID="coup_disccountamtLabel" runat="server" Text='<%# Eval("coup_disccountamt") %>' />
+
+</p><a class="btn btn-outline-primary" href="#">Use Coupon Code:                     <asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("coupon_Name") %>' />
+</a>
+                    </div>
+                    <div class="card-footer text-muted">Expires: <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("coupon_endDate") %>' />
+</div>
+                  </div>
+
         </ItemTemplate>
     </asp:DataList>    </section>
     <section id="expired" class="tab-panel">

@@ -14,11 +14,13 @@ namespace BizAppDev
 {
     public partial class checkoutoverview : System.Web.UI.Page
     {
-        public string sessionId = "";
+        public string sessionIds = "";
 
-        SqlConnection knn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CUSTOMER.MDF;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
+            string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+
+            SqlConnection knn = new SqlConnection(_connStr);
 
 
             decimal discountedtotal;
@@ -58,7 +60,7 @@ namespace BizAppDev
 
             var options = new SessionCreateOptions
             {
-                SuccessUrl = "https://localhost:44397/success.html",
+                SuccessUrl = "https://localhost:44397/success.aspx",
                 CancelUrl = "https://localhost:8080/cancel",
                 PaymentMethodTypes = new List<string>
                 {
@@ -79,7 +81,7 @@ namespace BizAppDev
             };
             var service = new SessionService();
             Session session = service.Create(options);
-            sessionId = session.Id;
+            sessionIds = session.Id;
             knn.Close();
 
 

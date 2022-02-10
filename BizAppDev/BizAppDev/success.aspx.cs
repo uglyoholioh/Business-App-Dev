@@ -13,5 +13,10 @@ namespace BizAppDev
         {
 
         }
+        protected void Button_hm_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("home.aspx");
+        }
     }
 }

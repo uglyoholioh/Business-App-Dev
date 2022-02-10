@@ -344,7 +344,12 @@ namespace BizAppDev
                 string updatepass = "insert into orderdetails(orderid,Product_ID,Product_Name,price,quantity,deliveryoption,deliverydate,grandtotal,discountedtotal,OrderStatus,Cust_ID)"
                     + "values(@orderid,@product_id,@product_name,@price,@quantity,@deliveryoption,@deliverydate,@grandtotal,@discountedtotal,@OrderStatus,@Cust_ID)";
                 string mycon = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-
+                Customer acust = new Customer();
+                HttpContext context = HttpContext.Current;
+                string CID = (string)(context.Session["CustID"]);
+                acust = acust.getCustomer(CID);
+                int intEarnPoints = (int)Math.Round(Convert.ToDecimal(Labelgrandtotal.Text));
+                acust.CustomerUpdatePoints(CID,intEarnPoints);
                 SqlConnection conn = new SqlConnection(mycon);
 
                 SqlCommand cmd = new SqlCommand();

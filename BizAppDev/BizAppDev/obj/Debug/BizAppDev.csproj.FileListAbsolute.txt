@@ -137,3 +137,5 @@ C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Stripe.n
 C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\Stripe.net.xml
 C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\PayPal.dll
+C:\Users\User\Documents\GitHub\Business-App-Dev\BizAppDev\BizAppDev\bin\PayPal.xml
