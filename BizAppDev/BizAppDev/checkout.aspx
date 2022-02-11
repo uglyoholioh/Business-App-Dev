@@ -13,6 +13,93 @@
        .Calendar2{
            margin-left:100px;
        }
+
+
+.box {
+  width: 40%;
+  margin-right:200px;
+  background: rgba(255,255,255,0.2);
+  padding: 8px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  float:left;
+
+}
+.button:hover {
+  background: #9c9c9c;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: scroll;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- Choices CSS-->
@@ -25,7 +112,8 @@
     <link rel="shortcut icon" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/img/favicon.3903ee9d.ico">
     <link rel="stylesheet" href="css/home.css" />
     <div class="header">
-    <h1>Select Delivery Option Before Paying</h1>
+    <h1>Select Delivery Option Before Paying
+        </h1>
         <a href="checkout.aspx">CheckOut</a>
         </div>
     <table class="autoComplete_wrapper" HorizontalAlign="Center">
@@ -73,6 +161,40 @@
             <td class="auto-style2">
                 <asp:TextBox ID="tb_discountcode0" runat="server" placeholder="Enter Code(Optional)"></asp:TextBox>
                 <asp:Button ID="Button1" runat="server" BackColor="#333333" ForeColor="White" Height="28px" OnClick="Button1_Click" Text="Apply" Width="61px" />
+                 <h2>Select owned coupon</h2>
+<div class="box">
+	<a class="button" href="#popup1">See list of Coupons</a>
+</div>
+
+<div id="popup1" class="overlay" >
+	<div class="popup" >
+		<h2>Your owned coupons</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+            <asp:DataList ID="DataList1" runat="server" DataKeyField="AsgnID" DataSourceID="PersonalCoup" RepeatColumns="1" RepeatDirection="Vertical" CellPadding="20" style="float:left;" OnItemCommand="DataList1_ItemCommand" >
+                <ItemTemplate>
+                    <div class="card" style="min-width:400px">
+                    <div class="card-body">
+                      <h4 class="card-title"><asp:Label ID="coupNameLabel" runat="server" Text='<%# Eval("coupName") %>' /></h4>
+                      <p class="card-text"><asp:Label ID="AsgnIDLabel" runat="server" Text='<%# Eval("coupDesc") %>' />
+</p>                                                        <asp:Button class="btn btn-outline-primary" runat="server" Text="Apply Coupon" ID="btn_Personal" CommandName="UseCoupon" />
+
+                    <br /> <asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("Code") %>' />
+
+                    </div>
+
+                    <div class="card-footer text-muted">Expires: <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("coupExpiry") %>' />
+                        <asp:Label ID="coupQuantityLabel" runat="server" Text='<%# Eval("coupQuantity") %>' />
+
+</div>
+                  </div>
+
+
+
+                </ItemTemplate>
+    </asp:DataList>		</div>
+	</div>
+</div>
                 <br />
                 <asp:Label ID="lbl_couponcode" runat="server" Width="248px"></asp:Label>
             </td>
@@ -94,5 +216,10 @@
             </td>
         </tr>
     </table>
-   
+       <asp:SqlDataSource ID="PersonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE ([Cust_ID] = @Cust_ID)">
+           <SelectParameters>
+               <asp:SessionParameter Name="Cust_ID" SessionField="CustID" Type="String" />
+           </SelectParameters>
+
+    </asp:SqlDataSource>
 </asp:Content>

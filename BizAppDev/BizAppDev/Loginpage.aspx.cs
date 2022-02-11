@@ -72,7 +72,7 @@ namespace BizAppDev
             {
                 Session["CustID"] = tb_Username.Text;
                 Response.Write("<script>alert('Log in successful');</script>");
-                Response.Redirect("CustomerDetails.aspx");
+                Response.Redirect("home.aspx");
             }
             else
             {

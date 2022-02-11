@@ -64,6 +64,11 @@ namespace BizAppDev
                 cost = cost * CouponQuantity;
                 if (acust.points-cost > 0)
                 {
+                    string reason = "Purchase Coupon: " + coupName;
+                    DateTime now = DateTime.Now;
+                    PointsTransaction pt = new PointsTransaction(cost,reason,CID,now);
+                    int ptresult = 0;
+                    ptresult = pt.PointsTransactionInsert();
                     result = coup.claimCoupon(CID, CouponID, kan, coupName, CouponQuantity, CouponDiscount, validDays, validMonths, validYears,coupDesc,category);
                     string queryStr = "UPDATE Customer SET" +
                        " points = @points," +

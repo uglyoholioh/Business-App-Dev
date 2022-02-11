@@ -18,6 +18,9 @@ namespace BizAppDev
         static Decimal gtotal;
         protected void Page_Load(object sender, EventArgs e)
         {
+            HttpContext context = HttpContext.Current;
+            string CID = (string)(context.Session["CustID"]);
+            Session["CustID"] = CID;
             try
             {
                 if (Session["addproduct"].ToString() == "true")
@@ -307,7 +310,7 @@ namespace BizAppDev
                 decimal gst = Math.Round(Convert.ToDecimal(gtotal) * Convert.ToDecimal(0.07), 2);
                 decimal Grandtotal = Math.Round(Convert.ToDecimal(gtotal) + Convert.ToDecimal(gst), 2);
 
-                discount = decimal.Parse(ds.Tables[0].Rows[0]["coup_discountamt"].ToString());
+                discount = decimal.Parse(ds.Tables[0].Rows[0]["coup_disccountamt"].ToString());
                 finalprice = Math.Round(Grandtotal * (1 - discount));
                 Labelgrandtotal.Text = Grandtotal.ToString();
                 lbl_discountedprice.Text = finalprice.ToString();
@@ -384,5 +387,62 @@ namespace BizAppDev
             Response.Redirect("checkoutoverview.aspx?orderid=" + lbl_orderid.Text);
         }
 
+
+
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+
+            if (e.CommandName == "UseCoupon")
+            {
+                decimal discount;
+                decimal finalprice;
+
+
+
+                Label lbldelCode = (Label)(e.Item.FindControl("CodeLabel"));
+                string Code = lbldelCode.Text;
+                Label lblCoupName = (Label)(e.Item.FindControl("coupNameLabel"));
+                string coupName = lblCoupName.Text;
+                string mycon = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+                String myquery = "Select * from CustCoupon where Code='" + Code + "'";
+                SqlConnection con = new SqlConnection(mycon);
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = myquery;
+                cmd.Connection = con;
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    lbl_couponcode.Text = "Coupon Code " + coupName + " Applied Successfully";
+                    DataTable dt = new DataTable();
+                    dt = (DataTable)Session["buyitems"];
+                    int nrow = dt.Rows.Count;
+                    int i = 0;
+                    decimal gtotal = 0;
+                    while (i < nrow)
+                    {
+                        gtotal = gtotal + decimal.Parse(dt.Rows[i]["total"].ToString());
+                        i = i + 1;
+                    }
+                    decimal gst = Math.Round(Convert.ToDecimal(gtotal) * Convert.ToDecimal(0.07), 2);
+                    decimal Grandtotal = Math.Round(Convert.ToDecimal(gtotal) + Convert.ToDecimal(gst), 2);
+
+                    discount = decimal.Parse(ds.Tables[0].Rows[0]["coupDiscount"].ToString());
+                    finalprice = Math.Round((Grandtotal * (100 - discount)/100),2);
+                    Labelgrandtotal.Text = Grandtotal.ToString();
+                    lbl_discountedprice.Text = finalprice.ToString();
+
+
+                }
+                else
+                {
+                    lbl_couponcode.Text = "Counpon Code is Invalid";
+                }
+
+
+            }
+        }
     }
 }
