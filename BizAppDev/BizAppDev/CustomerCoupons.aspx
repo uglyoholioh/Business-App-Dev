@@ -117,52 +117,22 @@ body {
 
     <asp:SqlDataSource ID="SeasonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Coupons]"></asp:SqlDataSource>
     
-    <asp:DataList ID="DataList3" runat="server" DataKeyField="AsgnID" DataSourceID="expiredDS">
-        <ItemTemplate>
-            AsgnID:
-            <asp:Label ID="AsgnIDLabel" runat="server" Text='<%# Eval("AsgnID") %>' />
-            <br />
-            Cust_ID:
-            <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("Cust_ID") %>' />
-            <br />
-            CouponID:
-            <asp:Label ID="CouponIDLabel" runat="server" Text='<%# Eval("CouponID") %>' />
-            <br />
-            Code:
-            <asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("Code") %>' />
-            <br />
-            coupName:
-            <asp:Label ID="coupNameLabel" runat="server" Text='<%# Eval("coupName") %>' />
-            <br />
-            coupQuantity:
-            <asp:Label ID="coupQuantityLabel" runat="server" Text='<%# Eval("coupQuantity") %>' />
-            <br />
-            coupDiscount:
-            <asp:Label ID="coupDiscountLabel" runat="server" Text='<%# Eval("coupDiscount") %>' />
-            <br />
-            coupExpiry:
-            <asp:Label ID="coupExpiryLabel" runat="server" Text='<%# Eval("coupExpiry") %>' />
-            <br />
-            coupDesc:
-            <asp:Label ID="coupDescLabel" runat="server" Text='<%# Eval("coupDesc") %>' />
-            <br />
-            category:
-            <asp:Label ID="categoryLabel" runat="server" Text='<%# Eval("category") %>' />
-            <br />
-<br />
-        </ItemTemplate>
-    </asp:DataList>
+
     <asp:SqlDataSource ID="expiredDS" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon]">
         <SelectParameters>
-            <asp:Parameter DefaultValue="currentDate" Name="coupExpiry" Type="String" />
+            <asp:SessionParameter Name="coupExpiry" SessionField="now" Type="DateTime" />
         </SelectParameters>
+
     </asp:SqlDataSource>
     
     <asp:SqlDataSource ID="ddlCoupon" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [category] FROM [Coupon]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="PersonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon]" FilterExpression="category='{0}'">
+    <asp:SqlDataSource ID="PersonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE ([Cust_ID] = @Cust_ID)" FilterExpression="category='{0}'">
         <FilterParameters>
             <asp:ControlParameter Name="category" ControlID="ddl_Category" PropertyName="SelectedValue" />
         </FilterParameters>
+        <SelectParameters>
+            <asp:SessionParameter Name="Cust_ID" SessionField="CustID" Type="String" />
+        </SelectParameters>
     </asp:SqlDataSource>
 
 <div class="tabset">

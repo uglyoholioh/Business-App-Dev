@@ -15,13 +15,22 @@ namespace BizAppDev
     {
 
         /// <summary>
-        /// lbl_CID control.
+        /// tb_Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_CID;
+        protected global::System.Web.UI.WebControls.TextBox tb_Search;
+
+        /// <summary>
+        /// btn_Search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Search;
 
         /// <summary>
         /// CouponDatalist control.

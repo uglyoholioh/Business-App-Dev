@@ -196,12 +196,7 @@
                     </div>
                   </div>
                   <div class="card mb-3">
-                    <div class="card-body">
-                      <div class="d-flex align-items-center">
-                        <div class="icon flex-shrink-0 bg-green"><i class="far fa-calendar"></i></div>
-                        <div class="ms-3"><strong class="text-lg d-block lh-1 mb-1">152</strong><small class="text-uppercase text-gray-500 small d-block lh-1">Interviews</small></div>
-                      </div>
-                    </div>
+
                   </div>
                   <div class="card mb-0">
                     <div class="card-body">

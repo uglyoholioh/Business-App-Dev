@@ -13,11 +13,17 @@ namespace BizAppDev
     public partial class CustomerCoupon : System.Web.UI.Page
     {
         Coupon coup = new Coupon();
+        SqlDataSource SearchDS = new SqlDataSource();
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            SearchDS.ID = "SearchDS_ID";
+            this.Page.Controls.Add(SearchDS);
+            SearchDS.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
             HttpContext context = HttpContext.Current;
             string CID = (string)(context.Session["CustID"]);
-            lbl_CID.Text = CID  +"Adawdadwa";
+
         }
 
         protected void CouponDatalist_ItemCommand(object source, DataListCommandEventArgs e)
@@ -38,8 +44,6 @@ namespace BizAppDev
                 char[] mypass = new char[5];
                 Label lblcoupName = (Label)(e.Item.FindControl("cNameLabel"));
                 string coupName = lblcoupName.Text;
-                TextBox lblCouponQuantity = (TextBox)(e.Item.FindControl("tb_quantity"));
-                int CouponQuantity = int.Parse(lblCouponQuantity.Text);
                 Label lblCouponDiscount = (Label)(e.Item.FindControl("discountLabel"));
                 int CouponDiscount = int.Parse(lblCouponDiscount.Text);
                 Label lblvalidDays = (Label)(e.Item.FindControl("validDaysLabel"));
@@ -52,7 +56,9 @@ namespace BizAppDev
                 string coupDesc = lblcoupDesc.Text;
                 Label lblCategory = (Label)(e.Item.FindControl("lbl_Category"));
                 string category = lblCategory.Text;
-
+                Label leftQuantity = (Label)(e.Item.FindControl("lbl_leftQuantity"));
+                TextBox tbCoupQuantity = (TextBox)(e.Item.FindControl("tb_quantity"));
+                int CouponQuantity = Convert.ToInt32(tbCoupQuantity.Text);
 
 
                 for (int i = 0; i < 5; i++)
@@ -64,9 +70,9 @@ namespace BizAppDev
                 int cost = int.Parse(lblcost.Text);
                 cost = cost * CouponQuantity;
                 cost = -cost;
-                lbl_CID.Text = (acust.points+cost).ToString();
-                if ((acust.points + cost) > 0)
+                if ((acust.points + cost)>0)
                 {
+
                     string reason = "Purchase Coupon: " + coupName;
                     DateTime now = DateTime.Now;
                     PointsTransaction pt = new PointsTransaction(cost,reason,CID,now);
@@ -75,22 +81,33 @@ namespace BizAppDev
                     result = coup.claimCoupon(CID, CouponID, kan, coupName, CouponQuantity, CouponDiscount, validDays, validMonths, validYears,coupDesc,category);
                     if (ptresult > 0)
                     {
-                        lbl_CID.Text = (acust.points + cost).ToString();
-
+                        Response.Redirect("CustomerCoupons.aspx");
                     }
                     else
                     {
-                        lbl_CID.Text = (acust.points + cost).ToString();
-                        
+                        Response.Write("<script>alert('Coupon purchase unsuccessful');</script>");
+
                     }
 
-                    
+
                 }
                 else
                 {
-                    lbl_CID.Text = (acust.points + cost).ToString();
+                    Response.Write("<script>alert('Not enough points!');</script>");
                 }
             } 
+        }
+
+        protected void btn_Search_Click(object sender, EventArgs e)
+        {
+
+            string searchValue = tb_Search.Text;
+            SearchDS.SelectCommand = "SELECT * FROM Coupon WHERE cName like '"+searchValue+"%'";
+            CouponDatalist.DataSourceID = "";
+            CouponDatalist.DataSourceID = "SearchDS_ID";
+            CouponDatalist.DataBind();
+     
+
         }
     }
     }
