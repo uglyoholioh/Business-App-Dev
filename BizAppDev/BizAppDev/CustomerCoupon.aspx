@@ -7,6 +7,7 @@
         </style>
     <h1>
         <br />
+        <asp:Label ID="lbl_CID" runat="server" Text="Label"></asp:Label>
         <span class="auto-style2">Coupon store</span></h1>
                 <asp:DataList ID="CouponDatalist" runat="server" DataKeyField="CouponID" DataSourceID="couponDatlist" OnItemCommand="CouponDatalist_ItemCommand" CellPadding="20" RepeatDirection="Horizontal">
                     <ItemTemplate>

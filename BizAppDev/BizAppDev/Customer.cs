@@ -28,13 +28,15 @@ namespace BizAppDev
         private int _lvlPoints = 0;
         private string _Password = string.Empty;
         private string _Cfmpassword = string.Empty;
+        private DateTime _pointExpiry = new DateTime();
+
 
 
         public Customer()
         {
 
         }
-        public Customer(string CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username, int pointTierID, int lvlPoints)
+        public Customer(string CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username, int pointTierID, int lvlPoints, DateTime pointExpiry)
 
         {
             _CustID = CustID;
@@ -49,6 +51,7 @@ namespace BizAppDev
             _username = username;
             _pointTierID = pointTierID;
             _lvlPoints = lvlPoints;
+            _pointExpiry = pointExpiry;
         }
         public Customer(string CustID, string firstName, string lastName, string gender, string email, string address, string phoneNo, string DOB, string Password, string Cfmpassword)
         {
@@ -144,14 +147,20 @@ namespace BizAppDev
             get { return _Cfmpassword; }
             set { _Cfmpassword = value; }
         }
+
+        public DateTime pointExpiry
+        {
+            get { return _pointExpiry; }
+            set { _pointExpiry = value; }
+        }
         public Customer getCustomer(string CustID)
         {
             Customer custDetail = null;
             string first_Name, last_Name, phone_No, email, address, DOB, gender, username;
             int points, pointTierID, lvlPoints;
+            DateTime pointExpiry;
 
             string queryStr = "SELECT * FROM Customer WHERE Cust_ID = @CustID";
-
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@CustID", CustID);
@@ -171,8 +180,9 @@ namespace BizAppDev
                 email = dr["Email"].ToString();
                 username = dr["Username"].ToString();
                 lvlPoints = int.Parse(dr["lvlPoints"].ToString());
+                pointExpiry = Convert.ToDateTime(dr["pointExpiry"].ToString());
 
-                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender, username,pointTierID,lvlPoints);
+                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender, username,pointTierID,lvlPoints,pointExpiry);
                 return custDetail;
 
             }
@@ -226,14 +236,49 @@ namespace BizAppDev
         }
         public int CustomerUpdatePoints(string CustID,int addedpoints)
         {
+            DateTime now = DateTime.Now;
+            DateTime newExpiry = now.AddDays(50);
+            int pointTierID = 0;
+            Customer ptCust = new Customer();
+            Customer aCust = new Customer();
+            ptCust=aCust.getCustomer(CustID);
+            pointsTier aPT = new pointsTier();
+            int custPoints = ptCust.lvlPoints;
+            List<pointsTier> tierList = new List<pointsTier>();
+            tierList = aPT.getTiersAll();
+            string ptqueryStr = "SELECT TOP 1 * FROM PointTiers WHERE price<=@custPoints order by price desc";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand ptcmd = new SqlCommand(ptqueryStr, conn);
+            ptcmd.Parameters.AddWithValue("@custPoints", custPoints+addedpoints);
+            conn.Open();
+            SqlDataReader dr = ptcmd.ExecuteReader();
+            if (dr.Read())
+            {
+                pointTierID = Convert.ToInt32(dr["pointTierID"].ToString());
+            }
+            else
+            {
+                pointTierID = 0;
+            }
+
+
+            conn.Close();
+            dr.Close();
+            dr.Dispose();
+
+
             string queryStr = "UPDATE Customer SET" +
                 " lvlPoints = lvlPoints +@addedpoints, " +
+                " pointTierID = @pointTierID, " +
+                " pointExpiry = @pointExpiry, " +
+
                 " Points = Points + @addedpoints " +
                 " WHERE Cust_ID = @CustID";
-            SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
             cmd.Parameters.AddWithValue("@CustID", CustID);
             cmd.Parameters.AddWithValue("@addedpoints", addedpoints);
+            cmd.Parameters.AddWithValue("@pointExpiry", newExpiry);
             conn.Open();
             int nofRow = 0;
             nofRow = cmd.ExecuteNonQuery();

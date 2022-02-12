@@ -32,13 +32,29 @@ namespace BizAppDev
             lbl_TierName.Text = Tier.name;
             lbl_Name.Text = Cust.first_Name + " " + Cust.last_Name;
             lbl_Email.Text = Cust.email;
+            decimal custLvlPoints = Cust.lvlPoints;
             string queryStr = "SELECT COUNT(*) FROM CustCoupon WHERE Cust_ID = @CustID";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@CustID", CID);
+            string ptqueryStr = "SELECT TOP 1 * FROM PointTiers WHERE price>@custPoints order by price asc";
+            SqlCommand ptcmd = new SqlCommand(ptqueryStr, conn);
+            ptcmd.Parameters.AddWithValue("@custPoints", custLvlPoints);
             conn.Open();
+            SqlDataReader dr = ptcmd.ExecuteReader();
+            decimal nextPTprice = 0;
+            if (dr.Read())
+            {
+                nextPTprice = Convert.ToInt32(dr["price"].ToString());
+            }
+            decimal percentProgress = (custLvlPoints/nextPTprice)*100;
+            string percentToNext = percentProgress.ToString() + "%";
+            dr.Close();
+            dr.Dispose();
             int noVouchers = Convert.ToInt32(cmd.ExecuteScalar());
             lbl_NoVouchers.Text = noVouchers.ToString();
+            pointBar.Style.Add("width", percentToNext);
+            lbl_exp.Text = custLvlPoints.ToString() +" / " +nextPTprice.ToString();
 
         }
 

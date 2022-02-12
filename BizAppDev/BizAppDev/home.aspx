@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/home.css" />
    <div class="header">
   <h1>Welcome To Kim Simi Zua</h1>
+                               <asp:Label ID="lbl_Expiry" runat="server" Text="Label"></asp:Label>
+
   <a href="home.aspx">Products</a>
 </div>
     <asp:DataList ID="DataList1" runat="server" DataKeyField="Product_ID" DataSourceID="SqlDataSource1">
@@ -26,7 +28,6 @@
                         <p class="card-text">
                           <asp:Label ID="Label3" runat="server" Text='<%# Eval("Unit_Price", "{0:C}") %>'></asp:Label></p>
                         <a class="btn btn-primary" href="product_desc.aspx?id=<%#Eval("Product_ID")%>">View</a>
-                      
                     </div>
                   </div>
                 </div>

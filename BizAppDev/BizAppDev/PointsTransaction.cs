@@ -47,8 +47,8 @@ namespace BizAppDev
 
         public string PT_CustID
         {
-            get { return PT_CustID; }
-            set { PT_CustID = value; }
+            get { return _PT_CustID; }
+            set { _PT_CustID = value; }
         }
 
         public PointsTransaction GetPointsTransaction(int PTID)
@@ -111,12 +111,26 @@ namespace BizAppDev
         }
         public int PointsTransactionInsert()
         {
-            int result = 0;
-            string queryStr = "INSERT INTO PointsTransaction(PT_Points, PT_Reason, PT_CustID, PT_Date)" + " values(@PT_Points,@PT_Reason,@PT_CustID, @PT_Date)";
-
             SqlConnection conn = new SqlConnection(_connStr);
-            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            int result = 0;
+            int custresult = 0;
+            string queryStr = "INSERT INTO PointsTransaction(PT_Points, PT_Reason, PT_CustID, PT_Date)" + " values(@PT_Points,@PT_Reason,@PT_CustID, @PT_Date)";
+            string custqueryStr = "UPDATE Customer set points = points + @PT_Points WHERE Cust_ID = @PT_CustID";
+            if (this.PT_Points > 0)
+            {
+                string addptsqueryStr = "UPDATE Customer set lvlpoints = lvlpoints + @PT_Points WHERE Cust_ID = @PT_CustID";
+                SqlCommand addptscmd = new SqlCommand(custqueryStr, conn);
+                addptscmd.Parameters.AddWithValue("@PT_CustID", this.PT_CustID);
+                addptscmd.Parameters.AddWithValue("@PT_Points", this.PT_Points);
+                conn.Open();
+                int addptsresult = addptscmd.ExecuteNonQuery();
+                conn.Close();
 
+            }
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            SqlCommand custcmd = new SqlCommand(custqueryStr, conn);
+            custcmd.Parameters.AddWithValue("@PT_CustID", this.PT_CustID);
+            custcmd.Parameters.AddWithValue("@PT_Points", this.PT_Points);
             cmd.Parameters.AddWithValue("@PT_Points", this.PT_Points);
             cmd.Parameters.AddWithValue("@PT_Reason", this.PT_Reason);
             cmd.Parameters.AddWithValue("@PT_CustID", this.PT_CustID);
@@ -124,6 +138,7 @@ namespace BizAppDev
 
             conn.Open();
             result += cmd.ExecuteNonQuery();
+            custresult += custcmd.ExecuteNonQuery();
             conn.Close();
 
             return result;

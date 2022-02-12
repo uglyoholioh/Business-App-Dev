@@ -68,6 +68,7 @@ namespace BizAppDev
             con.Open();
             SqlDataReader dp = cmdp.ExecuteReader();
 
+
             if (dp.Read())
             {
                 Session["CustID"] = tb_Username.Text;

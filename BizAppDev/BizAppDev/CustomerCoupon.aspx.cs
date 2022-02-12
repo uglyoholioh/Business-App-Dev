@@ -17,6 +17,7 @@ namespace BizAppDev
         {
             HttpContext context = HttpContext.Current;
             string CID = (string)(context.Session["CustID"]);
+            lbl_CID.Text = CID  +"Adawdadwa";
         }
 
         protected void CouponDatalist_ItemCommand(object source, DataListCommandEventArgs e)
@@ -62,7 +63,9 @@ namespace BizAppDev
                 Label lblcost = (Label)(e.Item.FindControl("costLabel"));
                 int cost = int.Parse(lblcost.Text);
                 cost = cost * CouponQuantity;
-                if (acust.points-cost > 0)
+                cost = -cost;
+                lbl_CID.Text = (acust.points+cost).ToString();
+                if ((acust.points + cost) > 0)
                 {
                     string reason = "Purchase Coupon: " + coupName;
                     DateTime now = DateTime.Now;
@@ -70,42 +73,24 @@ namespace BizAppDev
                     int ptresult = 0;
                     ptresult = pt.PointsTransactionInsert();
                     result = coup.claimCoupon(CID, CouponID, kan, coupName, CouponQuantity, CouponDiscount, validDays, validMonths, validYears,coupDesc,category);
-                    string queryStr = "UPDATE Customer SET" +
-                       " points = @points," +
-                       " lvlPoints = @lvlPoints" +
-                       " WHERE Cust_ID = @Cust_ID";
-
-                    int newpoints = acust.points - cost;
-
-
-
-                    int newlvlpoints = acust.lvlPoints;
-                    newlvlpoints += cost;
-                    string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-                    SqlConnection conn = new SqlConnection(_connStr);
-                    SqlCommand cmd = new SqlCommand(queryStr, conn);
-                    cmd.Parameters.AddWithValue("@Cust_ID", CID);
-                    cmd.Parameters.AddWithValue("@CouponID", CouponID);
-                    cmd.Parameters.AddWithValue("@points", newpoints);
-                    cmd.Parameters.AddWithValue("@lvlPoints", newlvlpoints);
-                    conn.Open();
-                    int nofRow = 0;
-                    nofRow = cmd.ExecuteNonQuery();
-                    conn.Close();
-                    if (nofRow > 0)
+                    if (ptresult > 0)
                     {
-                        Response.Redirect("CustomerViewCoupon.aspx");
-                        Response.Write("<script>alert('Purchase successful!');</script>");
+                        lbl_CID.Text = (acust.points + cost).ToString();
+
                     }
-                    else { Response.Write("<script>alert('Purchase NOT successful!');</script>"); }
+                    else
+                    {
+                        lbl_CID.Text = (acust.points + cost).ToString();
+                        
+                    }
 
                     
                 }
                 else
                 {
-                    Response.Write("<script>alert('Not enough points!');</script>");
+                    lbl_CID.Text = (acust.points + cost).ToString();
                 }
-                } 
+            } 
         }
     }
     }

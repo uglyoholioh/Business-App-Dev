@@ -179,10 +179,10 @@
 </span> </div>
         </div>
         <br />
-        <span class="current-balance">To get to next point tier:
+        <span class="current-balance">Progress to next point tier:
                 <asp:Label ID="lbl_exp" runat="server" Text=""></asp:Label> </span>
                 <div class="progress">
-                                    <div class="progress-bar bg-violet" role="progressbar" style="width: 75%; height: 15px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div runat="server" class="progress-bar bg-violet" id="pointBar" role="progressbar" style="height: 15px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
     </div>
                 <div class="col-lg-3 col-12">
