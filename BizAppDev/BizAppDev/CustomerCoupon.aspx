@@ -16,18 +16,18 @@
     <asp:TextBox ID="tb_Search" runat="server" placeholder="Search coupons"></asp:TextBox>
     <span>Category filter: </span>
     <asp:DropDownList ID="ddl_Sort" runat="server" DataSourceID="coupCategory" DataTextField="category" DataValueField="category" AppendDataBoundItems="true">
-      <asp:ListItem>Select category</asp:ListItem>
+      <asp:ListItem Value="">Select category</asp:ListItem>
     </asp:DropDownList>
     <asp:SqlDataSource ID="coupCategory" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [category] FROM [Coupon]"></asp:SqlDataSource>
     <span>Sort by:</span>
     <asp:DropDownList ID="ddl_Column" runat="server">
-        <asp:ListItem>Select sort filter</asp:ListItem>
+        <asp:ListItem Value="">Select sort filter</asp:ListItem>
         <asp:ListItem Value="cName">Name</asp:ListItem>
         <asp:ListItem Value="Amount">Quantity Available</asp:ListItem>
         <asp:ListItem Value="cost">Point Cost</asp:ListItem>
     </asp:DropDownList>
     <asp:DropDownList ID="ddl_Order" runat="server">
-        <asp:ListItem>Select ascending or descending</asp:ListItem>
+        <asp:ListItem Value="">Select ascending or descending</asp:ListItem>
         <asp:ListItem Value="asc">Ascending</asp:ListItem>
         <asp:ListItem Value="desc">Descending</asp:ListItem>
     </asp:DropDownList>
@@ -39,7 +39,7 @@
     <div class="d-flex justify-content-center row">
         <div class="col-md-10">
             <div class="row p-2 bg-white border rounded">
-                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://cdn-icons-png.flaticon.com/512/362/362326.png"></div>
                 <div class="col-md-6 mt-1">
                     <h5> <asp:Label ID="cNameLabel" runat="server" Text='<%# Eval("cName") %>' /></h5>
                     <div class="d-flex flex-row">

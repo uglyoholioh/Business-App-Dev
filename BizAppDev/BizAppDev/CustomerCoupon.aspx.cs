@@ -120,7 +120,7 @@ namespace BizAppDev
                 }
             }
 
-            SearchDS.SelectCommand = "SELECT * FROM Coupon WHERE cName like '" + searchValue + "%' " +sortBy+ sortcolumn + order;
+            SearchDS.SelectCommand = "SELECT * FROM Coupon WHERE cName like '%" + searchValue + "%' " +sortBy+ sortcolumn + order;
             CouponDatalist.DataSourceID = "";
             CouponDatalist.DataSourceID = "SearchDS_ID";
 

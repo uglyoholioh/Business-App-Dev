@@ -42,6 +42,15 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.TextBox tb_desc;
 
         /// <summary>
+        /// tb_Category control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_Category;
+
+        /// <summary>
         /// tb_amount control.
         /// </summary>
         /// <remarks>

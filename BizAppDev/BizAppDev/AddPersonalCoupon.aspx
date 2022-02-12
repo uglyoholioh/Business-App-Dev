@@ -32,6 +32,12 @@
                         <asp:TextBox ID="tb_desc" runat="server" Height="105px" TextMode="MultiLine" Width="372px"></asp:TextBox>
                     </td>
                 </tr>
+                 <tr>
+                    <td style="width: 273px">Coupon Category:</td>
+                    <td>
+                        <asp:TextBox ID="tb_Category" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
                 <tr>
                     <td style="width: 273px">Amount of Coupons Available:</td>
                     <td>
