@@ -4,11 +4,35 @@
         .auto-style2 {
 
         }
-        </style>
+
+        </style>            <div style="margin-left:5%; padding:15px;">
     <h1>
         <br />
+
         <span class="auto-style2">Coupon store</span></h1>
-    <asp:TextBox ID="tb_Search" runat="server"></asp:TextBox><asp:Button ID="btn_Search" runat="server" Text="Search" class="btn btn-outline-primary" OnClick="btn_Search_Click"/>
+    <br />
+    <br />
+
+    <asp:TextBox ID="tb_Search" runat="server" placeholder="Search coupons"></asp:TextBox>
+    <span>Category filter: </span>
+    <asp:DropDownList ID="ddl_Sort" runat="server" DataSourceID="coupCategory" DataTextField="category" DataValueField="category" AppendDataBoundItems="true">
+      <asp:ListItem>Select category</asp:ListItem>
+    </asp:DropDownList>
+    <asp:SqlDataSource ID="coupCategory" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [category] FROM [Coupon]"></asp:SqlDataSource>
+    <span>Sort by:</span>
+    <asp:DropDownList ID="ddl_Column" runat="server">
+        <asp:ListItem>Select sort filter</asp:ListItem>
+        <asp:ListItem Value="cName">Name</asp:ListItem>
+        <asp:ListItem Value="Amount">Quantity Available</asp:ListItem>
+        <asp:ListItem Value="cost">Point Cost</asp:ListItem>
+    </asp:DropDownList>
+    <asp:DropDownList ID="ddl_Order" runat="server">
+        <asp:ListItem>Select ascending or descending</asp:ListItem>
+        <asp:ListItem Value="asc">Ascending</asp:ListItem>
+        <asp:ListItem Value="desc">Descending</asp:ListItem>
+    </asp:DropDownList>
+    <asp:Button ID="btn_Search" runat="server" Text="Search" class="btn btn-outline-primary" OnClick="btn_Search_Click"/>
+        </div>
                 <asp:DataList ID="CouponDatalist" runat="server" DataKeyField="CouponID" DataSourceID="couponDatlist" OnItemCommand="CouponDatalist_ItemCommand" CellPadding="20" RepeatDirection="Horizontal" RepeatColumns="2">
                     <ItemTemplate>
                         <div class="container mt-5 mb-5">

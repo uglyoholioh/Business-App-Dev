@@ -100,13 +100,29 @@ namespace BizAppDev
 
         protected void btn_Search_Click(object sender, EventArgs e)
         {
-
+            string order = "";
+            string sortBy = "";
             string searchValue = tb_Search.Text;
-            SearchDS.SelectCommand = "SELECT * FROM Coupon WHERE cName like '"+searchValue+"%'";
+            string queryStr = "SELECT * FROM Coupon WHERE cName like '" + searchValue + "%'";
+            string sortcolumn = "";
+            if (ddl_Sort.SelectedValue != "")
+            {
+                string value = ddl_Sort.SelectedValue;
+                sortBy = "and category = '"+value+"' ";
+
+            }
+            if (ddl_Column.SelectedValue != "")
+            {
+                sortcolumn = "ORDER BY "+ ddl_Column.SelectedValue+" ";
+                if (ddl_Order.SelectedValue != "")
+                {
+                    order = ddl_Order.SelectedValue;
+                }
+            }
+
+            SearchDS.SelectCommand = "SELECT * FROM Coupon WHERE cName like '" + searchValue + "%' " +sortBy+ sortcolumn + order;
             CouponDatalist.DataSourceID = "";
             CouponDatalist.DataSourceID = "SearchDS_ID";
-            CouponDatalist.DataBind();
-     
 
         }
     }
