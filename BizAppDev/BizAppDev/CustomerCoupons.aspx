@@ -118,13 +118,6 @@ body {
     <asp:SqlDataSource ID="SeasonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Coupons]"></asp:SqlDataSource>
     
 
-    <asp:SqlDataSource ID="expiredDS" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon]">
-        <SelectParameters>
-            <asp:SessionParameter Name="coupExpiry" SessionField="now" Type="DateTime" />
-        </SelectParameters>
-
-    </asp:SqlDataSource>
-    
     <asp:SqlDataSource ID="ddlCoupon" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [category] FROM [Coupon]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="PersonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE ([Cust_ID] = @Cust_ID)" FilterExpression="category='{0}'">
         <FilterParameters>
@@ -134,6 +127,9 @@ body {
             <asp:SessionParameter Name="Cust_ID" SessionField="CustID" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
+
+    <asp:DataList ID="DataList3" runat="server">
+    </asp:DataList>
 
 <div class="tabset">
   <!-- Tab 1 -->

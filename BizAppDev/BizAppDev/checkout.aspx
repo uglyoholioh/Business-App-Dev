@@ -167,13 +167,13 @@
 </div>
 
 <div id="popup1" class="overlay" >
-	<div class="popup" >
+	<div class="popup" style="min-width:1000px;" >
 		<h2>Your owned coupons</h2>
 		<a class="close" href="#">&times;</a>
-		<div class="content">
-            <asp:DataList ID="DataList1" runat="server" DataKeyField="AsgnID" DataSourceID="PersonalCoup" RepeatColumns="1" RepeatDirection="Vertical" CellPadding="20" style="float:left;" OnItemCommand="DataList1_ItemCommand" >
+		<div class="content" style="overflow:scroll; max-height:550px; min-width:900px;">
+            <asp:DataList ID="DataList1" runat="server" DataKeyField="AsgnID" DataSourceID="PersonalCoup" RepeatColumns="2" RepeatDirection="Horizontal" CellPadding="20" style="float:left;" OnItemCommand="DataList1_ItemCommand" >
                 <ItemTemplate>
-                    <div class="card" style="min-width:400px">
+                    <div class="card" style="min-width:400px;">
                     <div class="card-body">
                       <h4 class="card-title"><asp:Label ID="coupNameLabel" runat="server" Text='<%# Eval("coupName") %>' /></h4>
                       <p class="card-text"><asp:Label ID="AsgnIDLabel" runat="server" Text='<%# Eval("coupDesc") %>' />

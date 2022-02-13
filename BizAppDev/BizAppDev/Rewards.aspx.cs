@@ -32,6 +32,7 @@ namespace BizAppDev
             lbl_TierName.Text = Tier.name;
             lbl_Name.Text = Cust.first_Name + " " + Cust.last_Name;
             lbl_Email.Text = Cust.email;
+            lbl_Expiry.Text = Cust.pointExpiry.ToString("dddd, dd MMMM yyyy");
             decimal custLvlPoints = Cust.lvlPoints;
             string queryStr = "SELECT COUNT(*) FROM CustCoupon WHERE Cust_ID = @CustID";
             SqlConnection conn = new SqlConnection(_connStr);
@@ -48,6 +49,7 @@ namespace BizAppDev
             {
                 nextPTprice = Convert.ToInt32(dr["price"].ToString());
             }
+          
             if (nextPTprice == -1)
             {
                 percentProgress = 100;
@@ -84,10 +86,7 @@ namespace BizAppDev
         {
 
         }
-        protected void btn_pointsHistory_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("PointsTransactions.aspx");
-        }
+
 
 
         protected void btn_Perks_Click(object sender, EventArgs e)
@@ -98,6 +97,12 @@ namespace BizAppDev
         protected void btn_Coupons_Click(object sender, EventArgs e)
         {
             Response.Redirect("CustomerCoupons.aspx");
+        }
+
+        protected void btn_PointsHistory_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PointsTransactions.aspx");
+
         }
     }
 }

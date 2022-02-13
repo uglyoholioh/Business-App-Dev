@@ -78,6 +78,15 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.TextBox tb_PhoneNo;
 
         /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
+        /// <summary>
         /// rbl_Gender control.
         /// </summary>
         /// <remarks>
@@ -85,15 +94,6 @@ namespace BizAppDev
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rbl_Gender;
-
-        /// <summary>
-        /// tb_Gender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_Gender;
 
         /// <summary>
         /// btn_Save control.

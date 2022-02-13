@@ -1,7 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerMain.Master" AutoEventWireup="true" CodeBehind="PointsTransactions.aspx.cs" Inherits="BizAppDev.PointsTransactions" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:SqlDataSource ID="PTDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [PointsTransaction]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="PTDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [PointsTransaction] WHERE ([PT_CustID] = @PT_CustID)">
+        <SelectParameters>
+            <asp:SessionParameter Name="PT_CustID" SessionField="CustID" Type="String" />
+        </SelectParameters>
+    </asp:SqlDataSource>
     <div style="margin-left:20%;margin-top:20%;">
         <h1>Your points transactions</h1>
     <asp:GridView ID="GridView1" runat="server" style="width:1000px;border:solid 2px black;" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="PTDataSource" ForeColor="#333333" GridLines="None">

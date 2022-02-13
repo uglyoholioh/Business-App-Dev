@@ -291,10 +291,19 @@ namespace BizAppDev
         {
             int result = 0;
 
-            string queryStr = "INSERT INTO Customer(Cust_ID, first_Name, last_Name, gender, email, address, phoneNo, DOB, Password, Cfmpassword)"
-                + " values (@CustID, @firstName, @lastName, @gender, @email, @address, @phoneNo, @DOB, @Password, @Cfmpassword)";
-
+            string queryStr = "INSERT INTO Customer(Cust_ID, first_Name, last_Name, gender, email, address, phoneNo, DOB, Password, Cfmpassword, pointTierID)"
+                + " values (@CustID, @firstName, @lastName, @gender, @email, @address, @phoneNo, @DOB, @Password, @Cfmpassword, @pointTierID)";
+            string tierqueryStr = "SELECT * From PointTiers WHERE price=0";
             SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand tiercmd = new SqlCommand(tierqueryStr, conn);
+
+            conn.Open();
+            SqlDataReader dr = tiercmd.ExecuteReader();
+            int pointTierID = 0;
+            if (dr.Read())
+            {
+                pointTierID = int.Parse(dr["pointTierID"].ToString());
+            }
             SqlCommand cmd = new SqlCommand(queryStr, conn);
 
             cmd.Parameters.AddWithValue("@CustID", Cust_ID);
@@ -307,6 +316,8 @@ namespace BizAppDev
             cmd.Parameters.AddWithValue("@gender", gender);
             cmd.Parameters.AddWithValue("@Password", Password);
             cmd.Parameters.AddWithValue("@Cfmpassword", Cfmpassword);
+            cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
+
 
             conn.Open();
             result += cmd.ExecuteNonQuery();

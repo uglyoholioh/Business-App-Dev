@@ -5,19 +5,21 @@
                       <p class="text-sm">Create points tier</p>
                         <div class="mb-3">
                           <label class="form-label">Tier Name</label>
-                            <asp:TextBox ID="tb_Name" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="tb_Name" runat="server" CssClass="form-control" required="true"></asp:TextBox>
                         </div>
                         <div class="mb-3">
                           <label class="form-label">Tier descrription</label>
-                            <asp:TextBox ID="tb_descr" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="tb_descr" runat="server" CssClass="form-control" required="true"></asp:TextBox>
                         </div>
                         <div class="mb-3">
                           <label class="form-label">Point expenditure requirement to reach tier</label>
-                            <asp:TextBox ID="tb_price" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="tb_price" runat="server" CssClass="form-control" type="number" required="true" ></asp:TextBox>
                             </div>
                                 <div class="mb-3">
                           <label class="form-label">Point multiplier</label>
                             <asp:TextBox ID="tb_pointMultiplier" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="tb_pointMultiplier" ValidationExpression="^[1-9]\d*(\.\d+)?$" runat="server" ErrorMessage="Enter valid number"></asp:RegularExpressionValidator>
+
                             </div>
 
                                                     <div class="mb-3">

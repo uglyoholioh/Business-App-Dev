@@ -103,7 +103,7 @@ namespace BizAppDev
             string order = "";
             string sortBy = "";
             string searchValue = tb_Search.Text;
-            string queryStr = "SELECT * FROM Coupon WHERE cName like '" + searchValue + "%'";
+            string queryStr = "SELECT * FROM Coupon WHERE amount>0 AND cName like '" + searchValue + "%'";
             string sortcolumn = "";
             if (ddl_Sort.SelectedValue != "")
             {

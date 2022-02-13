@@ -17,6 +17,9 @@
         #editdetails {
                       margin-left:300px;
         }
+        .form-control{
+            max-width:70%;
+        }
     </style>
     <div class="card">
                     <div class="card-body" style="width:1920px">
@@ -25,37 +28,38 @@
                         <div class="col-sm-6 col-sm-6">
                           <label class="form-label">Username</label>               
 
-                <asp:TextBox ID="tb_Username" runat="server" class="form-control" placeholder="Enter Username"></asp:TextBox>
+                <asp:TextBox ID="tb_Username" runat="server" class="form-control" placeholder="Enter Username" required="true"></asp:TextBox>
                         </div>
                         <div class="col-sm-6 col-sm-6">
                           <label class="form-label">Email address</label>
-                <asp:TextBox ID="tb_Email" runat="server" class="form-control" placeholder="Enter Email"></asp:TextBox>
+                <asp:TextBox ID="tb_Email" runat="server" class="form-control" placeholder="Enter Email" required="true" type="email"></asp:TextBox>
                         </div>
                         <div class="col-sm-6">
                           <label class="form-label">First Name</label>
-                <asp:TextBox ID="tb_FirstName" runat="server" class="form-control" placeholder="Enter First Name"></asp:TextBox>
+                <asp:TextBox ID="tb_FirstName" runat="server" class="form-control" placeholder="Enter First Name" required="true" type="text"></asp:TextBox>
                         </div>
                         <div class="col-sm-6">
                           <label class="form-label">Last name</label>
-                <asp:TextBox ID="tb_LastName" runat="server" class="form-control" placeholder="Enter Last Name"></asp:TextBox>
+                <asp:TextBox ID="tb_LastName" runat="server" class="form-control" placeholder="Enter Last Name" required="true" type="text"></asp:TextBox>
                         </div>
                         <div class="col-md-6">
                           <label class="form-label">Address</label>
-                <asp:TextBox ID="tb_Address" runat="server" class="form-control" placeholder="Enter Address"></asp:TextBox>
+                <asp:TextBox ID="tb_Address" runat="server" class="form-control" placeholder="Enter Address" required="true"></asp:TextBox>
                         </div>
                                                   <div class="col-md-6">
-                          <label class="form-label">Date of Birth</label><asp:Calendar ID="cal_DOB" runat="server"></asp:Calendar>
+                          <label class="form-label">Date of Birth</label><asp:Calendar ID="cal_DOB" runat="server" required="true"></asp:Calendar>
                         </div>
-                        <div class="col-sm-6 col-md-4">
+                        <div class="col-md-6">
                           <label class="form-label">Phone number</label>
                 <asp:TextBox ID="tb_PhoneNo" runat="server" class="form-control" placeholder="Enter Phone number"></asp:TextBox>
+                                                      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter a valid phone number" ControlToValidate="tb_PhoneNo" ValidationExpression="^[689]\d{7}$"></asp:RegularExpressionValidator>
+
                         </div>
                         <div class="col-sm-6 col-md-3">
                           <label class="form-label">Gender</label><asp:RadioButtonList ID="rbl_Gender" runat="server">
                                 <asp:ListItem>Male</asp:ListItem>
                                 <asp:ListItem>Female</asp:ListItem>
                             </asp:RadioButtonList>
-                <asp:TextBox ID="tb_Gender" runat="server" class="form-control" placeholder="Enter Gender"></asp:TextBox>
                         </div>
 
                         

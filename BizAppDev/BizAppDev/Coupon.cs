@@ -108,9 +108,10 @@ namespace BizAppDev
             SqlConnection conn = new SqlConnection(_connStr);
 
             string queryStr = "INSERT into CustCoupon " + "values(@Cust_ID,@CouponID,@code,@coupName,@coupQuantity,@coupDiscount,@coupExpiry,@coupDesc,@category)";
-            string minusqueryStr = "UPDATE Coupon set amount = amount - @coupQuantity";
+            string minusqueryStr = "UPDATE Coupon set amount = amount - @coupQuantity where CouponID = @CouponID";
             SqlCommand minuscmd = new SqlCommand(minusqueryStr, conn);
             minuscmd.Parameters.AddWithValue("@coupQuantity", coupQuantity);
+            minuscmd.Parameters.AddWithValue("@CouponID",CouponID);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             DateTime purchaseDateTime = DateTime.Now;
             purchaseDateTime = purchaseDateTime.AddDays(validDays);

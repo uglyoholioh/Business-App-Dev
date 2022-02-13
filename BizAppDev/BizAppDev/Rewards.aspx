@@ -25,7 +25,8 @@
       <style>
           body {
     background-color: #eee
-}
+
+          }
 
 .profilecard {
     background-color: #fff;
@@ -179,6 +180,8 @@
 </span> </div>
         </div>
         <br />
+      <div style="font-size:10px; color:gray">
+      <span>Your points expire on: &nbsp</span><asp:label id="lbl_Expiry" runat="server" />     </div>   <br />
         <span class="current-balance">Progress to next point tier:
                 <asp:Label ID="lbl_exp" runat="server" Text=""></asp:Label> </span>
                 <div class="progress">
@@ -205,7 +208,8 @@
                           </svg>
                         </div>
                     
-                        <div class="ms-3"><strong class="text-lg d-block lh-1 mb-1"><h6 class="h4 fw-light text-gray-600 mb-3">Points Transaction<br> History</h6></></strong></div><asp:Button ID="btn_PointsHistory" class="btn btn-primary" runat="server" OnClick="btn_PointsHistory_Click" Text="View Transactions" />
+                        <div class="ms-3"><strong class="text-lg d-block lh-1 mb-1"><h6 class="h4 fw-light text-gray-600 mb-3">Points Transaction<br> History</h6></></strong>
+     <asp:Button ID="btn_PointsHistory" class="btn btn-primary" runat="server" OnClick="btn_PointsHistory_Click" Text="View Transactions" /></div>
 </div>
                       </div>
                     </div>

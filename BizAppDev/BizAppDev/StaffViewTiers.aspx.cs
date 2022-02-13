@@ -33,18 +33,21 @@ namespace BizAppDev
             GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
             string name = ((TextBox)row.Cells[1].Controls[0]).Text;
             string descr = ((TextBox)row.Cells[2].Controls[0]).Text;
+            int pointsRequired = int.Parse(((TextBox)row.Cells[3].Controls[0]).Text);
             int pointTierID = int.Parse(GridView1.DataKeys[e.RowIndex].Value.ToString());
-            decimal pointMultiplier = decimal.Parse(((TextBox)row.Cells[2].Controls[0]).Text);
+            decimal pointMultiplier = decimal.Parse(((TextBox)row.Cells[4].Controls[0]).Text);
             string queryStr = "UPDATE PointTiers SET" +
             " name = @name," +
             " descr = @descr," +
+            " price = @price," +
             " pointMultiplier = @pointMultiplier" +
-
             " WHERE pointTierID = @pointTierID";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@name", name);
             cmd.Parameters.AddWithValue("@descr", descr);
+            cmd.Parameters.AddWithValue("@price", pointsRequired);
+            cmd.Parameters.AddWithValue("@pointMultiplier", pointMultiplier);
             cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
             conn.Open();
             int result = cmd.ExecuteNonQuery();

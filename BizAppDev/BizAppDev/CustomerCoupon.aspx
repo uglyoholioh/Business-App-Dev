@@ -59,7 +59,7 @@
                         <h4 class="mr-1"><asp:Label ID="costLabel" runat="server" Text='<%# Eval("cost") %>' /> Points</h4>
                     </div>
                     <h6 class="text-success"><asp:Label ID="discountLabel" runat="server" Text='<%# Eval("discount") %>' />% off</h6>
-                    <asp:TextBox ID="tb_quantity" type="number" min="0" max='<%# Eval("amount") %>' runat="server" style="max-width:90%"></asp:TextBox>
+                    <asp:TextBox ID="tb_quantity" type="number" min="1" max='<%# Eval("amount") %>' runat="server" style="max-width:90%"></asp:TextBox>
                         <asp:Button ID="btn_Purchase" class="btn btn-outline-primary btn-sm mt-2" runat="server" CommandName="makePurchase" Text="Purchase" />
 </div>
                 </div>
@@ -70,5 +70,5 @@
 
                     </ItemTemplate>
                 </asp:DataList>
-                <asp:SqlDataSource ID="couponDatlist" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Coupon]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="couponDatlist" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Coupon] WHERE amount>0"></asp:SqlDataSource>
 </asp:Content>
