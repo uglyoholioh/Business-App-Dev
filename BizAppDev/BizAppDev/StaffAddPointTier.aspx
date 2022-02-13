@@ -15,6 +15,10 @@
                           <label class="form-label">Point expenditure requirement to reach tier</label>
                             <asp:TextBox ID="tb_price" runat="server" CssClass="form-control"></asp:TextBox>
                             </div>
+                                <div class="mb-3">
+                          <label class="form-label">Point multiplier</label>
+                            <asp:TextBox ID="tb_pointMultiplier" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
 
                                                     <div class="mb-3">
                                   <label class="form-label">Perks to be included</label>

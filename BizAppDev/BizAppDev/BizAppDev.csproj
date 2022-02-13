@@ -129,6 +129,7 @@
     <Content Include="Loginpage.aspx" />
     <Content Include="MembershipMoreInfo.aspx" />
     <Content Include="MembershipTierList.aspx" />
+    <Content Include="nonmemberproductpage.aspx" />
     <Content Include="offerDetails.aspx" />
     <Content Include="Offers%28lermin%29.aspx" />
     <Content Include="Orderinfo.aspx" />
@@ -422,6 +423,13 @@
     </Compile>
     <Compile Include="MembershipTierList.aspx.designer.cs">
       <DependentUpon>MembershipTierList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nonmemberproductpage.aspx.cs">
+      <DependentUpon>nonmemberproductpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonmemberproductpage.aspx.designer.cs">
+      <DependentUpon>nonmemberproductpage.aspx</DependentUpon>
     </Compile>
     <Compile Include="offerDetails.aspx.cs">
       <DependentUpon>offerDetails.aspx</DependentUpon>

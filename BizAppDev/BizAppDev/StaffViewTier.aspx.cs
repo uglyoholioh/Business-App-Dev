@@ -68,6 +68,8 @@ namespace BizAppDev
             TextBox newName = (TextBox)(e.Item.FindControl("tb_Name"));
             TextBox newdescr = (TextBox)(e.Item.FindControl("tb_descr"));
             TextBox newPrice = (TextBox)(e.Item.FindControl("tb_Price"));
+            TextBox newPointMultiplier = (TextBox)(e.Item.FindControl("tb_pointMultiplier"));
+
             Label newpointTierID = (Label)(e.Item.FindControl("pointTierIDLabel"));
             CheckBoxList cbl_EditPerkList = (CheckBoxList)(e.Item.FindControl("cbl_EditPerks"));
             int result = 0;
@@ -92,7 +94,8 @@ namespace BizAppDev
             string newNameStr = newName.Text;
             string newdescrStr = newdescr.Text;
             int newPriceInt= int.Parse(newPrice.Text);
-            aTier.TierUpdate(newpointTierIDInt,newNameStr, newdescrStr, newPriceInt);
+            decimal newPointMultiplierDec = decimal.Parse(newPointMultiplier.Text);
+            aTier.TierUpdate(newpointTierIDInt,newNameStr, newdescrStr, newPriceInt,newPointMultiplierDec);
             DataList1.EditItemIndex = -1;
             DataList1.DataBind();
 

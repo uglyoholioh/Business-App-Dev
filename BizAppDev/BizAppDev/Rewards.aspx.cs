@@ -42,21 +42,33 @@ namespace BizAppDev
             ptcmd.Parameters.AddWithValue("@custPoints", custLvlPoints);
             conn.Open();
             SqlDataReader dr = ptcmd.ExecuteReader();
-            decimal nextPTprice = 0;
+            decimal nextPTprice = -1;
+            decimal percentProgress = 0;
             if (dr.Read())
             {
                 nextPTprice = Convert.ToInt32(dr["price"].ToString());
             }
-            decimal percentProgress = (custLvlPoints/nextPTprice)*100;
-            string percentToNext = percentProgress.ToString() + "%";
+            if (nextPTprice == -1)
+            {
+                percentProgress = 100;
+                string percentToNext = percentProgress.ToString() + "%";
+                pointBar.Style.Add("width", percentToNext);
+                lbl_exp.Text = "You're at the top tier!";
+            }
+            else
+            {
+                percentProgress = (custLvlPoints / nextPTprice) * 100;
+                string percentToNext = percentProgress.ToString() + "%";
+                pointBar.Style.Add("width", percentToNext);
+                lbl_exp.Text = custLvlPoints.ToString() + " / " + nextPTprice.ToString();
+            }
             dr.Close();
             dr.Dispose();
             int noVouchers = Convert.ToInt32(cmd.ExecuteScalar());
             lbl_NoVouchers.Text = noVouchers.ToString();
-            pointBar.Style.Add("width", percentToNext);
-            lbl_exp.Text = custLvlPoints.ToString() +" / " +nextPTprice.ToString();
 
-        }
+
+            }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -72,6 +84,11 @@ namespace BizAppDev
         {
 
         }
+        protected void btn_pointsHistory_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PointsTransactions.aspx");
+        }
+
 
         protected void btn_Perks_Click(object sender, EventArgs e)
         {

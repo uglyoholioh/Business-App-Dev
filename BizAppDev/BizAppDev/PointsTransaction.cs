@@ -116,12 +116,18 @@ namespace BizAppDev
             int custresult = 0;
             string queryStr = "INSERT INTO PointsTransaction(PT_Points, PT_Reason, PT_CustID, PT_Date)" + " values(@PT_Points,@PT_Reason,@PT_CustID, @PT_Date)";
             string custqueryStr = "UPDATE Customer set points = points + @PT_Points WHERE Cust_ID = @PT_CustID";
+            Customer aCust = new Customer();
+            Customer Cust = new Customer();
+            Cust = aCust.getCustomer(this.PT_CustID);
+            pointsTier pt = new pointsTier();
+            pointsTier apt = new pointsTier();
+            pt = apt.getPointsTier(Cust.pointTierID);
             if (this.PT_Points > 0)
             {
                 string addptsqueryStr = "UPDATE Customer set lvlpoints = lvlpoints + @PT_Points WHERE Cust_ID = @PT_CustID";
                 SqlCommand addptscmd = new SqlCommand(custqueryStr, conn);
                 addptscmd.Parameters.AddWithValue("@PT_CustID", this.PT_CustID);
-                addptscmd.Parameters.AddWithValue("@PT_Points", this.PT_Points);
+                addptscmd.Parameters.AddWithValue("@PT_Points", (this.PT_Points) * pt.pointMultiplier);
                 conn.Open();
                 int addptsresult = addptscmd.ExecuteNonQuery();
                 conn.Close();

@@ -26,16 +26,19 @@ namespace BizAppDev
         {
             int pointtierresult = 0;
             bool valid = true;
-            string tierqueryStr = "INSERT INTO PointTiers" + " values (@name,@descr,@price)";
+            string tierqueryStr = "INSERT INTO PointTiers" + " values (@name,@descr,@price,@pointMultiplier)";
             string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
             SqlConnection tierconn = new SqlConnection(_connStr);
             SqlCommand tiercmd = new SqlCommand(tierqueryStr, tierconn);
             string name = tb_Name.Text;
             string descr = tb_descr.Text;
             int price = int.Parse(tb_price.Text);
+            decimal pointMultiplier = decimal.Parse(tb_pointMultiplier.Text);
             tiercmd.Parameters.AddWithValue("@name", name);
             tiercmd.Parameters.AddWithValue("@descr", descr);
             tiercmd.Parameters.AddWithValue("@price", price);
+            tiercmd.Parameters.AddWithValue("@pointMultiplier", pointMultiplier);
+
 
             tierconn.Open();
             pointtierresult += tiercmd.ExecuteNonQuery();
