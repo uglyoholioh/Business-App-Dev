@@ -34,8 +34,6 @@ namespace BizAppDev
                     dt.Columns.Add("quantity");
                     dt.Columns.Add("Unit_Price");
                     dt.Columns.Add("total");
-                    dt.Columns.Add("Category");
-
 
                     if (Request.QueryString["id"] != null)
                     {
@@ -56,7 +54,6 @@ namespace BizAppDev
                             dr["Product_ID"] = ds.Tables[0].Rows[0]["Product_ID"].ToString();
                             dr["Product_Name"] = ds.Tables[0].Rows[0]["Product_Name"].ToString();
                             dr["quantity"] = Request.QueryString["quantity"];
-                            dr["Category"] = ds.Tables[0].Rows[0]["Category"].ToString();
                             dr["Unit_Price"] = ds.Tables[0].Rows[0]["Unit_Price"].ToString();
 
                             decimal Unit_Price = decimal.Parse(ds.Tables[0].Rows[0]["Unit_Price"].ToString());
@@ -104,7 +101,6 @@ namespace BizAppDev
                                 dr["Product_ID"] = ds.Tables[0].Rows[0]["Product_ID"].ToString();
                                 dr["Product_Name"] = ds.Tables[0].Rows[0]["Product_Name"].ToString();
                                 dr["quantity"] = Request.QueryString["quantity"];
-                                dr["Category"] = ds.Tables[0].Rows[0]["Category"].ToString();
                                 dr["Unit_Price"] = ds.Tables[0].Rows[0]["Unit_Price"].ToString();
 
                                 decimal Unit_Price = decimal.Parse(ds.Tables[0].Rows[0]["Unit_Price"].ToString());
@@ -356,7 +352,7 @@ namespace BizAppDev
                 string CID = (string)(context.Session["CustID"]);
                 acust = acust.getCustomer(CID);
                 int intEarnPoints = (int)Math.Round(Convert.ToDecimal(Labelgrandtotal.Text));
-                acust.CustomerUpdatePoints(CID,intEarnPoints);
+                acust.CustomerUpdatePoints(CID, intEarnPoints);
                 SqlConnection conn = new SqlConnection(mycon);
 
                 SqlCommand cmd = new SqlCommand();
@@ -370,7 +366,7 @@ namespace BizAppDev
                 cmd.Parameters.AddWithValue("@deliverydate", Calendar2.SelectedDate);
                 cmd.Parameters.AddWithValue("@grandtotal", Convert.ToDecimal(Labelgrandtotal.Text));
                 cmd.Parameters.AddWithValue("@OrderStatus", "Pending");
-                cmd.Parameters.AddWithValue("@Cust_ID", CID);
+                cmd.Parameters.AddWithValue("@Cust_ID", "Guest");
                 if (lbl_discountedprice.Text == string.Empty)
                 {
                     cmd.Parameters.AddWithValue("@discountedtotal", Convert.ToDecimal(0.00));
@@ -407,10 +403,8 @@ namespace BizAppDev
                 string Code = lbldelCode.Text;
                 Label lblCoupName = (Label)(e.Item.FindControl("coupNameLabel"));
                 string coupName = lblCoupName.Text;
-                Label lblCategory = (Label)(e.Item.FindControl("categoryLabel"));
-                string category = lblCategory.Text;
                 string mycon = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-                string myquery = "Select * from CustCoupon where Code='" + Code + "'";
+                String myquery = "Select * from CustCoupon where Code='" + Code + "'";
                 SqlConnection con = new SqlConnection(mycon);
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = myquery;
@@ -427,20 +421,16 @@ namespace BizAppDev
                     int nrow = dt.Rows.Count;
                     int i = 0;
                     decimal gtotal = 0;
-                    
                     while (i < nrow)
                     {
-                        if (dt.Rows[i]["Category"].ToString() == category)
-                        {
-                            gtotal = gtotal + decimal.Parse(dt.Rows[i]["total"].ToString());
-                        }
+                        gtotal = gtotal + decimal.Parse(dt.Rows[i]["total"].ToString());
                         i = i + 1;
                     }
                     decimal gst = Math.Round(Convert.ToDecimal(gtotal) * Convert.ToDecimal(0.07), 2);
                     decimal Grandtotal = Math.Round(Convert.ToDecimal(gtotal) + Convert.ToDecimal(gst), 2);
 
                     discount = decimal.Parse(ds.Tables[0].Rows[0]["coupDiscount"].ToString());
-                    finalprice = Math.Round((Grandtotal * (100 - discount)/100),2);
+                    finalprice = Math.Round((Grandtotal * (100 - discount) / 100), 2);
                     Labelgrandtotal.Text = Grandtotal.ToString();
                     lbl_discountedprice.Text = finalprice.ToString();
 
