@@ -11,31 +11,42 @@ namespace BizAppDev
 {
     public class ProductCust
     {
-        string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+        string _connStr = ConfigurationManager.ConnectionStrings["ServicesContext"].ConnectionString;
 
+        private string _custID = "";
         private string _prodcustID = null;
         private string _prodcustCat = "";
         private string _prodcustCol = "";
         private string _prodcustScent = "";
+        private string _name = "";
+        private string _email = "";
+        private string _contact = "";
+        private string _date = "";
 
         public ProductCust()
         {
         }
-
-        public ProductCust(string prodcustID, string prodcustCat, string prodcustCol, string prodcustScent)
+        public ProductCust(string custID, string prodcustID, string prodcustCat, string prodcustCol, string prodcustScent, string name, string email, string contact, string date)
         {
+            _custID = custID;
             _prodcustID = prodcustID;
             _prodcustCat = prodcustCat;
             _prodcustCol = prodcustCol;
             _prodcustScent = prodcustScent;
+            _name = name;
+            _email = email;
+            _contact = contact;
+            _date = date;
         }
-        public ProductCust(string prodcustCat, string prodcustCol, string prodcustScent)
-        : this(null, prodcustCat, prodcustCol, prodcustScent)
+        public ProductCust(string custID, string prodcustCat, string prodcustCol, string prodcustScent, string name, string email, string contact, string date)
+        : this(custID, null, prodcustCat, prodcustCol, prodcustScent, name, email, contact, date)
         {
         }
-        public ProductCust(string prodcustID)
-        : this(prodcustID, "", "", "")
+
+        public string CustID
         {
+            get { return _custID; }
+            set { _custID = value; }
         }
         public string CustomizationID
         {
@@ -57,84 +68,86 @@ namespace BizAppDev
             get { return _prodcustScent; }
             set { _prodcustScent = value; }
         }
+        public string Fullname
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
+        public string Contactno
+        {
+            get { return _contact; }
+            set { _contact = value; }
+        }
+        public string Date
+        {
+            get { return _date; }
+            set { _date = value; }
+        }
         public int ProdCustInsert()
         {
 
             int result = 0;
 
-            string queryStr = "INSERT INTO ProductCust(Category,Colour,Scent)"
-                + " values (@prodcustCat, @prodcustCol,@prodcustScent)";
-
-            SqlConnection conn = new SqlConnection(_connStr);
-            SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@prodcustCat", this.Category);
-            cmd.Parameters.AddWithValue("@prodcustCol", this.Colour);
-            cmd.Parameters.AddWithValue("@prodcustScent", this.Scent);
-
-            conn.Open();
-            result += cmd.ExecuteNonQuery();
-            conn.Close();
-
-            return result;
-        }
-        public ProductCust getProdCust(string prodcustID)
-        {
-
-            ProductCust ProdCustDetail = null;
-
-            string prodcustCat, prodcustCol, prodcustScent;
-
-
-            string queryStr = "SELECT * FROM ProductCust WHERE CustomozationID = @prodcustID";
-
-            SqlConnection conn = new SqlConnection(_connStr);
-            SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@prodcustID", prodcustID);
-
-            conn.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.Read())
+            string queryStr = "INSERT INTO ProductCust(CustID,Category,Colour,Scent,Fullname,Email,Contactno,Date)" +
+                " values (@custID,@prodcustCat,@prodcustCol,@prodcustScent,@name,@email,@contact,@date)";
+            try
             {
-                prodcustCat = dr["Category"].ToString();
-                prodcustCol = dr["Colour"].ToString();
-                prodcustScent = dr["Scent"].ToString();
+                SqlConnection conn = new SqlConnection(_connStr);
+                SqlCommand cmd = new SqlCommand(queryStr, conn);
+                cmd.Parameters.AddWithValue("@custID", this.CustID);
+                cmd.Parameters.AddWithValue("@prodcustCat", this.Category);
+                cmd.Parameters.AddWithValue("@prodcustCol", this.Colour);
+                cmd.Parameters.AddWithValue("@prodcustScent", this.Scent);
+                cmd.Parameters.AddWithValue("@name", this.Fullname);
+                cmd.Parameters.AddWithValue("@email", this.Email);
+                cmd.Parameters.AddWithValue("@contact", this.Contactno);
+                cmd.Parameters.AddWithValue("@date", this.Date);
 
+                conn.Open();
+                result += cmd.ExecuteNonQuery();
+                conn.Close();
 
-                ProdCustDetail = new ProductCust(prodcustID, prodcustCat, prodcustCol, prodcustScent);
+                return result;
             }
-            else
+            catch (SqlException ex)
             {
-                ProdCustDetail = null;
+                return 0;
             }
 
-            conn.Close();
-            dr.Close();
-            dr.Dispose();
-
-            return ProdCustDetail;
         }
-        public List<ProductCust> getProdCustAll()
+
+        public List<ProductCust> getProdCust(string CustID)
         {
             List<ProductCust> ProductCustList = new List<ProductCust>();
 
-            string prodcustID, prodcustCat, prodcustCol, prodcustScent;
+            string custID, prodcustID, prodcustCat, prodcustCol, prodcustScent, name, email, contact, date;
 
-            string queryStr = "SELECT * FROM ProductCust Order By CustomizationID";
+            string queryStr = "SELECT * FROM ProductCust WHERE CustID = @custID";
 
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@custID", CustID);
 
             conn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
             {
+                custID = dr["CustID"].ToString();
                 prodcustID = dr["CustomizationID"].ToString();
                 prodcustCat = dr["Category"].ToString();
                 prodcustCol = dr["Colour"].ToString();
                 prodcustScent = dr["Scent"].ToString();
-                ProductCust a = new ProductCust(prodcustID, prodcustCat, prodcustCol, prodcustScent);
+                name = dr["Fullname"].ToString();
+                email = dr["Email"].ToString();
+                contact = dr["Contactno"].ToString();
+                date = dr["Date"].ToString();
+                ProductCust a = new ProductCust(custID, prodcustID, prodcustCat, prodcustCol, prodcustScent, name, email, contact, date);
                 ProductCustList.Add(a);
             }
 
@@ -144,42 +157,64 @@ namespace BizAppDev
 
             return ProductCustList;
         }
-        public int ProdCustDelete(string prodcustID)
-        {
-            string queryStr = "DELETE FROM ProductCust WHERE CustomizationID = @prodcustID";
-            SqlConnection conn = new SqlConnection(_connStr);
-            SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@prodcustID", prodcustID);
-            conn.Open();
-            int nofRow = 0;
-            nofRow = cmd.ExecuteNonQuery();
-            conn.Close();
-            return nofRow;
-        }
 
-        public int ProdCustUpdate(string PCid, string PCcat, string PCcol, string PCscent)
+        public int ProdCustUpdate(string PCid, string PCcat, string PCcol, string PCscent, string name, string email, string contact, string date)
         {
             string queryStr = "UPDATE ProductCust SET" +
                 " Category = @prodcustCat, " +
                 " Colour = @prodcustCol, " +
-                " Scent = @prodcustScent " +
+                " Scent = @prodcustScent, " +
+                " Fullname = @name," +
+                " Email = @email," +
+                " Contactno = @contact," +
+                " Date = @date" +
                 " WHERE CustomizationID = @prodcustID";
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connStr);
+                SqlCommand cmd = new SqlCommand(queryStr, conn);
+                cmd.Parameters.AddWithValue("@prodcustID", PCid);
+                cmd.Parameters.AddWithValue("@prodcustCat", PCcat);
+                cmd.Parameters.AddWithValue("@prodcustCol", PCcol);
+                cmd.Parameters.AddWithValue("@prodcustScent", PCscent);
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@contact", contact);
+                cmd.Parameters.AddWithValue("@date", date);
 
-            SqlConnection conn = new SqlConnection(_connStr);
-            SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@prodcustID", PCid);
-            cmd.Parameters.AddWithValue("@prodcustCat", PCcat);
-            cmd.Parameters.AddWithValue("@prodcustCol", PCcol);
-            cmd.Parameters.AddWithValue("@prodcustScent", PCscent);
+                conn.Open();
+                int nofRow = 0;
+                nofRow = cmd.ExecuteNonQuery();
 
-            conn.Open();
-            int nofRow = 0;
-            nofRow = cmd.ExecuteNonQuery();
+                conn.Close();
 
-            conn.Close();
-
-            return nofRow;
+                return nofRow;
+            }
+            catch (SqlException ex)
+            {
+                return 0;
+            }
         }
+        public int ProdCustDelete(string prodcustID)
+        {
+            string queryStr = "DELETE FROM ProductCust WHERE CustomizationID = @prodcustID";
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connStr);
+                SqlCommand cmd = new SqlCommand(queryStr, conn);
+                cmd.Parameters.AddWithValue("@prodcustID", prodcustID);
+                conn.Open();
+                int nofRow = 0;
+                nofRow = cmd.ExecuteNonQuery();
+                conn.Close();
+                return nofRow;
+            }
+            catch (SqlException ex)
+            {
+                return 0;
+            }
+
+        }
+
     }
 }
-

@@ -97,6 +97,7 @@
     <Content Include="AddProduct.aspx" />
     <Content Include="Admininfo.aspx" />
     <Content Include="Adminlist.aspx" />
+    <Content Include="AdvisorsView.aspx" />
     <Content Include="checkout.aspx" />
     <Content Include="checkoutoverview.aspx" />
     <Content Include="CouponDetail.aspx" />
@@ -124,6 +125,8 @@
     <Content Include="employeelist%28nut%29.aspx" />
     <Content Include="EmployeeList.aspx" />
     <Content Include="EmployeeListMoreInfo.aspx" />
+    <Content Include="HiringAdvisor.aspx" />
+    <Content Include="HiringPriest.aspx" />
     <Content Include="home.aspx" />
     <Content Include="images\winston-chen-5XBn_RTp7ik-unsplash.jpg" />
     <Content Include="Loginpage.aspx" />
@@ -138,6 +141,7 @@
     <Content Include="PackageAdd.aspx" />
     <Content Include="payment.aspx" />
     <Content Include="PointsTransactions.aspx" />
+    <Content Include="PriestsView.aspx" />
     <Content Include="ProductCustomization.aspx" />
     <Content Include="ProductCustView.aspx" />
     <Content Include="Products%28lermin%29.aspx" />
@@ -154,6 +158,7 @@
     <Content Include="StaffViewTiers.aspx" />
     <Content Include="success.aspx" />
     <Content Include="success.html" />
+    <Content Include="VideosView.aspx" />
     <Content Include="ViewCart.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -200,6 +205,14 @@
     </Compile>
     <Compile Include="Adminlist.aspx.designer.cs">
       <DependentUpon>Adminlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Advisor.cs" />
+    <Compile Include="AdvisorsView.aspx.cs">
+      <DependentUpon>AdvisorsView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdvisorsView.aspx.designer.cs">
+      <DependentUpon>AdvisorsView.aspx</DependentUpon>
     </Compile>
     <Compile Include="checkout.aspx.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
@@ -395,6 +408,20 @@
     <Compile Include="EmployeeListMoreInfo.aspx.designer.cs">
       <DependentUpon>EmployeeListMoreInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HiringAdvisor.aspx.cs">
+      <DependentUpon>HiringAdvisor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HiringAdvisor.aspx.designer.cs">
+      <DependentUpon>HiringAdvisor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HiringPriest.aspx.cs">
+      <DependentUpon>HiringPriest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HiringPriest.aspx.designer.cs">
+      <DependentUpon>HiringPriest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -408,6 +435,13 @@
     </Compile>
     <Compile Include="Loginpage.aspx.designer.cs">
       <DependentUpon>Loginpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="MembershipMoreInfo.aspx.cs">
       <DependentUpon>MembershipMoreInfo.aspx</DependentUpon>
@@ -492,6 +526,14 @@
     </Compile>
     <Compile Include="PointsTransactions.aspx.designer.cs">
       <DependentUpon>PointsTransactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Priests.cs" />
+    <Compile Include="PriestsView.aspx.cs">
+      <DependentUpon>PriestsView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PriestsView.aspx.designer.cs">
+      <DependentUpon>PriestsView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Product.cs" />
     <Compile Include="ProductCust.cs" />
@@ -609,6 +651,13 @@
     <Compile Include="success.aspx.designer.cs">
       <DependentUpon>success.aspx</DependentUpon>
     </Compile>
+    <Compile Include="VideosView.aspx.cs">
+      <DependentUpon>VideosView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VideosView.aspx.designer.cs">
+      <DependentUpon>VideosView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewCart.aspx.cs">
       <DependentUpon>ViewCart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -619,6 +668,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CustomerMain.Master" />
+    <Content Include="Assignment.csproj" />
+    <Content Include="Main.Master" />
     <None Include="packages.config" />
     <Content Include="staff.Master" />
     <None Include="Web.Debug.config">
@@ -629,6 +680,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CalendarImg\" />
     <Folder Include="EducationalVideos\" />
     <Folder Include="Image\" />
   </ItemGroup>

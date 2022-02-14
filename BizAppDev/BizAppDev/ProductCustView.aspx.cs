@@ -12,23 +12,25 @@ namespace BizAppDev
         ProductCust aProdCust = new ProductCust();
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 bind();
             }
-
         }
         protected void bind()
         {
+            HttpContext context = HttpContext.Current;
+            //Session["CID"] = "ss1";
+            string CID = Session["CID"].ToString();
             List<ProductCust> ProductCustList = new List<ProductCust>();
-            ProductCustList = aProdCust.getProdCustAll();
+            ProductCustList = aProdCust.getProdCust(CID);
             gvProdCust.DataSource = ProductCustList;
             gvProdCust.DataBind();
         }
 
         protected void gvProdCust_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+
             int result = 0;
             ProductCust productCust = new ProductCust();
             string categoryID = gvProdCust.DataKeys[e.RowIndex].Value.ToString();
@@ -62,41 +64,58 @@ namespace BizAppDev
         {
             int result = 0;
             ProductCust productCust = new ProductCust();
-            //GridViewRow row = (GridViewRow)gvProdCust.Rows[e.RowIndex];
+            GridViewRow row = (GridViewRow)gvProdCust.Rows[e.RowIndex];
             string pcID = gvProdCust.DataKeys[e.RowIndex].Value.ToString();
-            //string pcID = ((TextBox)row.Cells[0].Controls[0]).Text;
             DropDownList ddl_catview = (DropDownList)gvProdCust.Rows[e.RowIndex].FindControl("ddl_catview") as DropDownList;
             string pcCat = ddl_catview.SelectedItem.Text;
             DropDownList ddl_colview = (DropDownList)gvProdCust.Rows[e.RowIndex].FindControl("ddl_colview") as DropDownList;
             string pcCol = ddl_colview.SelectedItem.Text;
             DropDownList ddl_stview = (DropDownList)gvProdCust.Rows[e.RowIndex].FindControl("ddl_stview") as DropDownList;
             string pcScent = ddl_stview.SelectedItem.Text;
+            TextBox tbname = (TextBox)gvProdCust.Rows[e.RowIndex].FindControl("TextBox1");
+            string name = tbname.Text;
+            TextBox tbemail = (TextBox)gvProdCust.Rows[e.RowIndex].FindControl("TextBox2");
+            string email = tbemail.Text;
+            string contact = ((TextBox)row.Cells[7].Controls[0]).Text;
+            Calendar cal = (Calendar)gvProdCust.Rows[e.RowIndex].FindControl("Calendar1");
+            TextBox tbdate = (TextBox)gvProdCust.Rows[e.RowIndex].FindControl("TextBox3");
+            string date = tbdate.Text;
 
-            if (ddl_catview.SelectedValue != "0")
+
+            if (ddl_colview.SelectedItem.Text != "Default" && ddl_stview.SelectedItem.Text != "Default")
             {
-                if ((ddl_colview.SelectedValue == "0") && (ddl_stview.SelectedValue == "0"))
+               if(cal.SelectedDate.ToString("dd/MM/yyyy") != "01/01/0001")
                 {
-                    Response.Write("<script>alert('Select at least 1 customization');</script>");
+                    string datee = cal.SelectedDate.ToString("dd/MM/yyyy");
+                    result = productCust.ProdCustUpdate(pcID, pcCat, pcCol, pcScent, name, email, contact, datee);
                 }
                 else
                 {
-                    result = productCust.ProdCustUpdate(pcID, pcCat, pcCol, pcScent);
-
-                    if (result > 0)
-                    {
-                        Response.Write("<script>alert('Update Successful');</script>");
-                    }
+                    result = productCust.ProdCustUpdate(pcID, pcCat, pcCol, pcScent, name, email, contact, date);
                 }
             }
-
             else
             {
-                Response.Write("<script>alert('Select a Category');</script>");
+                Response.Write("<script>alert('Select at least 1 customization');</script>");
             }
+            if (result > 0)
+            {
+                Response.Write("<script>alert('Update Successful');</script>");
+            }
+
+
             gvProdCust.EditIndex = -1;
             bind();
         }
+
+        protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.Date < DateTime.Now.Date)
+            {
+                e.Day.IsSelectable = false;
+                e.Cell.ForeColor = System.Drawing.Color.Red;
+                e.Cell.Font.Strikeout = true;
+            }
+        }
     }
 }
-
-
