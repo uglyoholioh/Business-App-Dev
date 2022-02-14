@@ -110,26 +110,27 @@ body {
 -->
 
 
-            <asp:SqlDataSource ID="ddlPersonal" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [category] FROM [CustCoupon]"></asp:SqlDataSource>
-
-
-    <asp:SqlDataSource ID="coupCategory" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [category] FROM [Coupon]"></asp:SqlDataSource>
-
     <asp:SqlDataSource ID="SeasonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Coupons]"></asp:SqlDataSource>
     
 
     <asp:SqlDataSource ID="ddlCoupon" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [category] FROM [Coupon]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="PersonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE ([Cust_ID] = @Cust_ID)" FilterExpression="category='{0}'">
+    <asp:SqlDataSource ID="PersonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE (([Cust_ID] = @Cust_ID) AND ([coupExpiry] &gt; @coupExpiry))" FilterExpression="category='{0}'">
         <FilterParameters>
             <asp:ControlParameter Name="category" ControlID="ddl_Category" PropertyName="SelectedValue" />
         </FilterParameters>
         <SelectParameters>
             <asp:SessionParameter Name="Cust_ID" SessionField="CustID" Type="String" />
+            <asp:SessionParameter Name="coupExpiry" SessionField="now" Type="DateTime" />
         </SelectParameters>
     </asp:SqlDataSource>
 
-    <asp:DataList ID="DataList3" runat="server">
-    </asp:DataList>
+
+    <asp:SqlDataSource ID="expiredDS" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE (([Cust_ID] = @Cust_ID) AND ([coupExpiry] &lt; @coupExpiry))">
+        <SelectParameters>
+            <asp:SessionParameter Name="Cust_ID" SessionField="CustID" Type="String" />
+            <asp:SessionParameter Name="coupExpiry" SessionField="now" Type="DateTime" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 
 <div class="tabset">
   <!-- Tab 1 -->
@@ -147,7 +148,9 @@ body {
   <div class="tab-panels">
     <section id="marzen" class="tab-panel">
         <h3>Filter Coupon Category</h3>
-        <asp:DropDownList ID="ddl_Category" runat="server" DataSourceID="ddlCoupon" DataTextField="category" DataValueField="category" OnSelectedIndexChanged="ddl_Category_SelectedIndexChanged" AutoPostBack="true" style="float:left;">
+        <asp:DropDownList ID="ddl_Category" runat="server" DataSourceID="ddlCoupon" DataTextField="category" DataValueField="category" OnSelectedIndexChanged="ddl_Category_SelectedIndexChanged" AutoPostBack="true" style="float:left;" AppendDataBoundItems="true">
+                  <asp:ListItem Value="">Select category</asp:ListItem>
+
     </asp:DropDownList>
 
             <asp:DataList ID="DataList1" runat="server" DataKeyField="AsgnID" DataSourceID="PersonalCoup" RepeatColumns="2" RepeatDirection="Horizontal" CellPadding="20" style="float:left;" >
@@ -186,7 +189,24 @@ body {
         </ItemTemplate>
     </asp:DataList>    </section>
     <section id="expired" class="tab-panel">
+        
+    <asp:DataList ID="DataList3" runat="server" DataKeyField="AsgnID" DataSourceID="expiredDS">
+<ItemTemplate>
+                    <div class="card" style="min-width:400px">
+                    <div class="card-body">
+                      <h4 class="card-title"><asp:Label ID="coupNameLabel" runat="server" Text='<%# Eval("coupName") %>' /></h4>
+                      <p class="card-text"><asp:Label ID="AsgnIDLabel" runat="server" Text='<%# Eval("coupDesc") %>' />
+</p><a class="btn btn-outline-primary" href="#">Use Coupon Code:                     <asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("Code") %>' />
+</a>
+                    </div>
+                    <div class="card-footer text-muted">Expires: <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("coupExpiry") %>' />
+</div>
+                  </div>
 
+
+
+                </ItemTemplate>
+    </asp:DataList>
     </section>
 
   </div>

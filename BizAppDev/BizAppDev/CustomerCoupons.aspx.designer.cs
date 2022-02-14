@@ -15,24 +15,6 @@ namespace BizAppDev
     {
 
         /// <summary>
-        /// ddlPersonal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlPersonal;
-
-        /// <summary>
-        /// coupCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource coupCategory;
-
-        /// <summary>
         /// SeasonalCoup control.
         /// </summary>
         /// <remarks>
@@ -60,13 +42,13 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.SqlDataSource PersonalCoup;
 
         /// <summary>
-        /// DataList3 control.
+        /// expiredDS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList3;
+        protected global::System.Web.UI.WebControls.SqlDataSource expiredDS;
 
         /// <summary>
         /// ddl_Category control.
@@ -94,5 +76,14 @@ namespace BizAppDev
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList DataList2;
+
+        /// <summary>
+        /// DataList3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataList3;
     }
 }

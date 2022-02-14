@@ -329,14 +329,10 @@ body{
             <div class="card-body pt-0">
                 <div class="widget-49">
                     <div class="widget-49-title-wrapper">
-                        <div class="widget-49-date-primary">
-                            <span class="widget-49-date-day"></span>
-                            <span class="widget-49-date-month"></span>
-                        </div>
+
                         <div class="widget-49-meeting-info">
                             <span class="widget-49-pro-title"><asp:TextBox ID="tb_NewName" runat="server" Text='<%# Eval("Name") %>'></asp:TextBox>
 </span>
-                            <span class="widget-49-meeting-time"></span>
                         </div>
                     </div>
                     <ol class="widget-49-meeting-points">
@@ -370,13 +366,9 @@ body{
             <div class="card-body pt-0">
                 <div class="widget-49">
                     <div class="widget-49-title-wrapper">
-                        <div class="widget-49-date-primary">
-                            <span class="widget-49-date-day"></span>
-                            <span class="widget-49-date-month"></span>
-                        </div>
-                        <div class="widget-49-meeting-info">
+
+                        <div class="widget-49-meeting-info" style="padding:15px; ">
                             <span class="widget-49-pro-title"><%# Eval("Name") %></span>
-                            <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
                         </div>
                     </div>
                     <ol class="widget-49-meeting-points">

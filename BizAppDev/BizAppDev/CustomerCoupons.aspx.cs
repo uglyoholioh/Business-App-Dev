@@ -11,7 +11,7 @@ namespace BizAppDev
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Session["now"]=DateTime.Now;
         }
 
         protected void cbl_Category_SelectedIndexChanged(object sender, EventArgs e)
