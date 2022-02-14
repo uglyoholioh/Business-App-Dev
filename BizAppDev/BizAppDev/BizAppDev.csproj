@@ -201,6 +201,13 @@
       <DependentUpon>AddProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin.cs" />
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
     <Compile Include="Admininfo.aspx.cs">
       <DependentUpon>Admininfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -750,6 +757,7 @@
     <Content Include="Assignment.csproj" />
     <Content Include="Main.Master" />
     <Content Include="nonmembermaster.Master" />
+    <Content Include="Admin.Master" />
     <None Include="packages.config" />
     <Content Include="staff.Master" />
     <None Include="Web.Debug.config">
