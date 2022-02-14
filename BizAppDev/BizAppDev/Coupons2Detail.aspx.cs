@@ -18,7 +18,7 @@ namespace BizAppDev
         }
         protected void DataList1_UpdateCommand(object source, DataListCommandEventArgs e)
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CouponsDBContext"].ToString());
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
             Label couponid = (Label)e.Item.FindControl("Label1");
 
             TextBox coupdesc = (TextBox)e.Item.FindControl("TextBox1");

@@ -15,10 +15,11 @@
             <li class="breadcrumb-item active"><a href="AcceptedOrder.aspx">Pending Order</a></li>
         </ul>
     </div>
+    <br />
      <form id="form1" runat="server">
-                       <div class="container-fluid">
+                       <div class="container-fluid" style="min-width:1200px; margin-left:18%; ">
               <div class="row">                 
-         <asp:GridView ID="GvOrder" runat="server" AutoGenerateColumns="False" class="table mb-0" style="margin-left: 15px; border:1.5px solid;" DataKeyNames="OrderID" OnRowEditing="GvOrder_RowEditing1" OnRowDeleting="GvOrder_RowDeleting">           
+         <asp:GridView ID="GvOrder" runat="server" AutoGenerateColumns="False" class="table mb-0" style=" border:1.5px solid; " DataKeyNames="OrderID" OnRowEditing="GvOrder_RowEditing1" OnRowDeleting="GvOrder_RowDeleting">           
             <Columns>
       
                  <asp:BoundField DataField="OrderID" HeaderText="OrderID" ReadOnly="True" SortExpression="OrderID" />          

@@ -13,21 +13,21 @@
         </ul>
     </div>
             
-    <div class="row">
+    <div style="align-items:flex-start;">
      <a href="Addemployee.aspx" class="btn btn-primary" style="color: white; margin-left:75px;"><i class="fa fa-plus"></i>Add</a><form id="form1" runat="server">         
-         <asp:TextBox ID="tb_SearchAdm" style="margin-left: 550px;" runat="server"></asp:TextBox>
+         <asp:TextBox ID="tb_SearchAdm" style="margin-left: 1200px;" runat="server"></asp:TextBox>
           <asp:Button ID="BtnSearch"  class="btn btn-primary btn-sm" runat="server" Text="Search" OnClick="Button1_Click"/>
-               </div>
+       </div>
 &nbsp;<br />
 &nbsp;<div class="container-fluid" id="div_Membership">
               <div class="row" style="margin-left:20px; ">
                 <div class="col-md-6 col-lg-3" >
 
-                    <asp:DataList ID="DataList5" runat="server" DataSourceID="SqlDataSource5"  DataKeyField="AdmID" style="width:1000px; margin-left:20px; margin-bottom:50px;" OnDeleteCommand="DataList5_DeleteCommand" OnEditCommand="DataList5_EditCommand" OnSelectedIndexChanged="DataList5_SelectedIndexChanged">
+                    <asp:DataList ID="DataList5" runat="server" DataSourceID="SqlDataSource5"  DataKeyField="AdmID" style="width:1500px; margin-left:20px; margin-bottom:50px;" OnDeleteCommand="DataList5_DeleteCommand" OnEditCommand="DataList5_EditCommand" OnSelectedIndexChanged="DataList5_SelectedIndexChanged">
                         <ItemTemplate>
                             <div class="card">
                             <div class="card-body">
-                                <div class="d-flex align-items-center"><img class="avatar avatar-lg" src="https://medias.spotern.com/spots/w640/95/95891-1532336916.jpg" title="..." style="width: 100px; margin-right:10px; height: 70px">
+                                <div class="d-flex align-items-center"><img class="avatar avatar-lg" src="https://medias.spotern.com/spots/w640/95/95891-1532336916.jpg" title="..." style="width: 130px; margin-right:10px; height: 100px">
                              <div class="ms-3">
                             Emp ID:
                             <asp:Label ID="lbl_AdmID" runat="server" Text='<%# Eval("AdmID") %>' />

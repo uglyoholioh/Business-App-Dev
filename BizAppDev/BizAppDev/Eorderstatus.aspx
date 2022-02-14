@@ -18,8 +18,8 @@
               <div class="row" style="margin-left:20px; ">
                 <div class="col-md-6 col-lg-3" >
                     <h2>&nbsp;</h2>
-                    <h2>Processing Order</h2><br />
-                    <div class="row"> &nbsp;&nbsp;&nbsp;Order Status: <asp:DropDownList ID="ddl_Orderstatus" AutoPostBack="true" runat="server">
+                   
+                    <div style="margin-left:20px; align-items:flex-start;"> &nbsp;&nbsp;&nbsp;Order Status: <asp:DropDownList ID="ddl_Orderstatus" AutoPostBack="true" runat="server">
                     <asp:ListItem Text="All" Value="" />
                     <asp:ListItem Text="Accepted" Value="Accepted" />
                     <asp:ListItem Text="In preperation" Value="In preperation" />

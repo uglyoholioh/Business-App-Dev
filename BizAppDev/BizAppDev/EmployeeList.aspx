@@ -14,9 +14,9 @@
     </div>
               
     <br /> 
-        <div class="row">
+        <div style="align-items:flex-start;">
                <a href="Addemployee.aspx" class="btn btn-primary" style="color: white; margin-left:75px;"><i class="fa fa-plus"></i>Add</a><form runat="server">
-         <asp:TextBox ID="tb_SearchEmp" style="margin-left: 550px;" runat="server"></asp:TextBox>
+         <asp:TextBox ID="tb_SearchEmp" style="margin-left: 1180px;" runat="server"></asp:TextBox>
           <asp:Button ID="Search_Employee"  class="btn btn-primary btn-sm" runat="server" Text="Search" OnClick="Search_Employee_Click"/>
                </div>
 &nbsp;
@@ -26,12 +26,12 @@
               <div class="row" style="margin-left:20px; ">
                 <div class="col-md-6 col-lg-3" >
 
-                    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1"  DataKeyField="EmpID" style="width:950px;" OnDeleteCommand="DataList1_DeleteCommand" OnEditCommand="DataList1_EditCommand">
+                    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1"  DataKeyField="EmpID" style="width:1500px;" OnDeleteCommand="DataList1_DeleteCommand" OnEditCommand="DataList1_EditCommand">
                       
                         <ItemTemplate>
                             <div class="card">
                             <div class="card-body">
-                                <div class="d-flex align-items-center"><img class="avatar avatar-lg" src="https://medias.spotern.com/spots/w640/95/95891-1532336916.jpg" title="..." style="width: 100px; margin-right:10px; height: 70px">
+                                <div class="d-flex align-items-center"><img class="avatar avatar-lg" src="https://medias.spotern.com/spots/w640/95/95891-1532336916.jpg" title="..." style="width: 130px; margin-right:10px; height: 100px">
                              <div class="ms-3">
                                  
                                     Emp ID:

@@ -18,8 +18,8 @@
               <div class="row" style="margin-left:20px; ">
                 <div class="col-md-6 col-lg-3" >
                     <h2>&nbsp;</h2>
-                    <h2>Processing Order</h2><br />
-                    <div class="row"> &nbsp;&nbsp;&nbsp;Order Status: <asp:DropDownList ID="ddl_Orderstatus" AutoPostBack="true" runat="server">
+                    
+                    <div style="margin-left:20px; align-items:flex-start;"> &nbsp;&nbsp;&nbsp;Order Status: <asp:DropDownList ID="ddl_Orderstatus" AutoPostBack="true" runat="server">
                     <asp:ListItem Text="All" Value="" />
                     <asp:ListItem Text="Accepted" Value="Accepted" />
                     <asp:ListItem Text="In preparation" Value="In preparation" />
@@ -28,7 +28,7 @@
                      </asp:DropDownList></div><br />
                     
         
-                    <asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource2"  DataKeyField="OrderID" style="width:1000px; margin-left:20px; margin-bottom:50px;" OnDeleteCommand="DataList2_DeleteCommand" OnEditCommand="DataList2_EditCommand">
+                    <asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource2"  DataKeyField="OrderID" style="width:1500px; margin-left:20px; margin-bottom:50px;" OnDeleteCommand="DataList2_DeleteCommand" OnEditCommand="DataList2_EditCommand">
                         <ItemTemplate>
                             <div class="card">
                             <div class="card-body">

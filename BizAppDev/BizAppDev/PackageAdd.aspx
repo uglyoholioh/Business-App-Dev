@@ -34,7 +34,7 @@
                             <td>
                                 <asp:CheckBoxList ID="CheckBoxList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="prodName" DataValueField="prodName">
                                 </asp:CheckBoxList>
-                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CouponsDBContext %>" SelectCommand="SELECT [Product_Name] FROM [Products]"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [Product_Name] FROM [Products]"></asp:SqlDataSource>
                             </td>
                         </tr>
                         <tr>

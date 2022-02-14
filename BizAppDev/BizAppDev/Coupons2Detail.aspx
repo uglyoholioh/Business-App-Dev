@@ -79,7 +79,7 @@
             </div>
         
         
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CouponsDBContext %>" SelectCommand="SELECT * FROM [Coupon] WHERE ([couponID] = @couponID)">
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Coupon] WHERE ([couponID] = @couponID)">
                                 <SelectParameters>
                                     <asp:QueryStringParameter Name="couponID" QueryStringField="couponID" Type="Int32" />
                                 </SelectParameters>

@@ -32,6 +32,11 @@
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/css/custom.0a822280.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/img/favicon.3903ee9d.ico">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/font-awesome/css/font-awesome.min.css%22%3E" />
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/assets/icon/icofont/css/icofont.css%22%3E" />
+    <link rel="stylesheet" href="https://colorlib.com/polygon/octopus/assets/vendor/bootstrap-datepicker/css/datepicker3.css%22%3E" />
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/daterangepicker/daterangepicker.css%22%3E" />
+
 </head>
     <body>
          <header class="header">

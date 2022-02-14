@@ -17,7 +17,7 @@
               <div class="row" style="margin-left:20px; ">
                   <br />
                   <br />
-                  <h2>Product Customization</h2>
+                
                   <br />
                   <br />
                    

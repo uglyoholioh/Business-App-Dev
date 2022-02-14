@@ -54,8 +54,8 @@ namespace BizAppDev
                 Response.Redirect("Adminlist.aspx");
             }
             else
-            {               
-
+            {
+                Response.Write("<script>alert('Invalid Username or password! Please try again.');</script>");
             }
             con.Close();
 
@@ -74,7 +74,7 @@ namespace BizAppDev
             }
             else
             {
-
+                Response.Write("<script>alert('Invalid Username or password! Please try again.');</script>");
             }
             con.Close();
 
