@@ -132,7 +132,14 @@
     <Content Include="Loginpage.aspx" />
     <Content Include="MembershipMoreInfo.aspx" />
     <Content Include="MembershipTierList.aspx" />
+    <Content Include="nonmembercheckout.aspx" />
+    <Content Include="nonmembercheckoutoverview.aspx" />
+    <Content Include="nonmembereditorder.aspx" />
+    <Content Include="nonmemberhome.aspx" />
     <Content Include="nonmemberproductpage.aspx" />
+    <Content Include="nonmemberproduct_desc.aspx" />
+    <Content Include="nonmembersuccess.aspx" />
+    <Content Include="nonmemberViewCart.aspx" />
     <Content Include="offerDetails.aspx" />
     <Content Include="Offers%28lermin%29.aspx" />
     <Content Include="Orderinfo.aspx" />
@@ -458,12 +465,68 @@
     <Compile Include="MembershipTierList.aspx.designer.cs">
       <DependentUpon>MembershipTierList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="nonmembercheckout.aspx.cs">
+      <DependentUpon>nonmembercheckout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonmembercheckout.aspx.designer.cs">
+      <DependentUpon>nonmembercheckout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nonmembercheckoutoverview.aspx.cs">
+      <DependentUpon>nonmembercheckoutoverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonmembercheckoutoverview.aspx.designer.cs">
+      <DependentUpon>nonmembercheckoutoverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nonmembereditorder.aspx.cs">
+      <DependentUpon>nonmembereditorder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonmembereditorder.aspx.designer.cs">
+      <DependentUpon>nonmembereditorder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nonmemberhome.aspx.cs">
+      <DependentUpon>nonmemberhome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonmemberhome.aspx.designer.cs">
+      <DependentUpon>nonmemberhome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nonmembermaster.Master.cs">
+      <DependentUpon>nonmembermaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonmembermaster.Master.designer.cs">
+      <DependentUpon>nonmembermaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="nonmemberproductpage.aspx.cs">
       <DependentUpon>nonmemberproductpage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="nonmemberproductpage.aspx.designer.cs">
       <DependentUpon>nonmemberproductpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nonmemberproduct_desc.aspx.cs">
+      <DependentUpon>nonmemberproduct_desc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonmemberproduct_desc.aspx.designer.cs">
+      <DependentUpon>nonmemberproduct_desc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nonmembersuccess.aspx.cs">
+      <DependentUpon>nonmembersuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonmembersuccess.aspx.designer.cs">
+      <DependentUpon>nonmembersuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nonmemberViewCart.aspx.cs">
+      <DependentUpon>nonmemberViewCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonmemberViewCart.aspx.designer.cs">
+      <DependentUpon>nonmemberViewCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="offerDetails.aspx.cs">
       <DependentUpon>offerDetails.aspx</DependentUpon>
@@ -670,6 +733,7 @@
     <Content Include="CustomerMain.Master" />
     <Content Include="Assignment.csproj" />
     <Content Include="Main.Master" />
+    <Content Include="nonmembermaster.Master" />
     <None Include="packages.config" />
     <Content Include="staff.Master" />
     <None Include="Web.Debug.config">
@@ -681,6 +745,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CalendarImg\" />
+    <Folder Include="css\" />
     <Folder Include="EducationalVideos\" />
     <Folder Include="Image\" />
   </ItemGroup>

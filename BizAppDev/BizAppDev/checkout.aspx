@@ -130,6 +130,7 @@
                         <asp:BoundField DataField="quantity" HeaderText="quantity" />
                         <asp:BoundField DataField="Unit_Price" HeaderText="Unit Price" />
                         <asp:BoundField DataField="total" HeaderText="Total Price" />
+                        <asp:BoundField DataField="Category" HeaderText="Category" />
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                     <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
@@ -176,6 +177,8 @@
                     <div class="card" style="min-width:400px;">
                     <div class="card-body">
                       <h4 class="card-title"><asp:Label ID="coupNameLabel" runat="server" Text='<%# Eval("coupName") %>' /></h4>
+                      <p class="card-text"><asp:Label ID="categoryLabel" runat="server" Text='<%# Eval("category") %>' />
+
                       <p class="card-text"><asp:Label ID="AsgnIDLabel" runat="server" Text='<%# Eval("coupDesc") %>' />
 </p>                                                        <asp:Button class="btn btn-outline-primary" runat="server" Text="Apply Coupon" ID="btn_Personal" CommandName="UseCoupon" />
 

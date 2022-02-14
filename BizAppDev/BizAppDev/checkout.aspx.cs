@@ -34,6 +34,8 @@ namespace BizAppDev
                     dt.Columns.Add("quantity");
                     dt.Columns.Add("Unit_Price");
                     dt.Columns.Add("total");
+                    dt.Columns.Add("Category");
+
 
                     if (Request.QueryString["id"] != null)
                     {
@@ -54,6 +56,7 @@ namespace BizAppDev
                             dr["Product_ID"] = ds.Tables[0].Rows[0]["Product_ID"].ToString();
                             dr["Product_Name"] = ds.Tables[0].Rows[0]["Product_Name"].ToString();
                             dr["quantity"] = Request.QueryString["quantity"];
+                            dr["Category"] = ds.Tables[0].Rows[0]["Category"].ToString();
                             dr["Unit_Price"] = ds.Tables[0].Rows[0]["Unit_Price"].ToString();
 
                             decimal Unit_Price = decimal.Parse(ds.Tables[0].Rows[0]["Unit_Price"].ToString());
@@ -101,6 +104,7 @@ namespace BizAppDev
                                 dr["Product_ID"] = ds.Tables[0].Rows[0]["Product_ID"].ToString();
                                 dr["Product_Name"] = ds.Tables[0].Rows[0]["Product_Name"].ToString();
                                 dr["quantity"] = Request.QueryString["quantity"];
+                                dr["Category"] = ds.Tables[0].Rows[0]["Category"].ToString();
                                 dr["Unit_Price"] = ds.Tables[0].Rows[0]["Unit_Price"].ToString();
 
                                 decimal Unit_Price = decimal.Parse(ds.Tables[0].Rows[0]["Unit_Price"].ToString());
@@ -403,8 +407,10 @@ namespace BizAppDev
                 string Code = lbldelCode.Text;
                 Label lblCoupName = (Label)(e.Item.FindControl("coupNameLabel"));
                 string coupName = lblCoupName.Text;
+                Label lblCategory = (Label)(e.Item.FindControl("categoryLabel"));
+                string category = lblCategory.Text;
                 string mycon = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-                String myquery = "Select * from CustCoupon where Code='" + Code + "'";
+                string myquery = "Select * from CustCoupon where Code='" + Code + "'";
                 SqlConnection con = new SqlConnection(mycon);
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = myquery;
@@ -421,9 +427,13 @@ namespace BizAppDev
                     int nrow = dt.Rows.Count;
                     int i = 0;
                     decimal gtotal = 0;
+                    
                     while (i < nrow)
                     {
-                        gtotal = gtotal + decimal.Parse(dt.Rows[i]["total"].ToString());
+                        if (dt.Rows[i]["Category"].ToString() == category)
+                        {
+                            gtotal = gtotal + decimal.Parse(dt.Rows[i]["total"].ToString());
+                        }
                         i = i + 1;
                     }
                     decimal gst = Math.Round(Convert.ToDecimal(gtotal) * Convert.ToDecimal(0.07), 2);
