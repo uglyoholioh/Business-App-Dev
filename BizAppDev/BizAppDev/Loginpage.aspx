@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Loginpage.aspx.cs" Inherits="BizAppDev.Loginpage" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,6 @@
     <!-- Fontastic Custom icon font-->
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin/1-4-6/css/fontastic.css">
     <!-- Google fonts - Poppins -->
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin/1-4-6/css/style.default.css" id="theme-stylesheet">
@@ -26,10 +24,7 @@
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/daterangepicker/daterangepicker.css">
 </head>
     <body>
-
-
        <div class="page login-page">
-
       <div class="container d-flex align-items-center">
         <div class="form-holder has-shadow">
           <div class="row">
@@ -37,10 +32,10 @@
             <div class="col-lg-6">
               <div class="info d-flex align-items-center">
                 <div class="content">
-                   <div class="logo" style = 'text-align:center; margin-left:150px;'>
-                       <h1>Login</h1>
-                   </div>
-                  <p style = 'text-align:center; margin-left:150px;'>Welcome to Kim Zua store!</p>
+                   <div style = 'text-align:center; margin-left:150px;'>
+                      <p1 style =" font-size:50px;">LOG IN</p1>
+                </div>
+                  <p style = 'text-align:center; margin-left:150px;'>Welcome to Kim Zua!</p>
                 </div>
               </div>
             </div>
@@ -64,7 +59,7 @@
 
                        <asp:Button ID="Login_Btn" class="btn btn-primary mb-3" runat="server" Text="Login" OnClick="Login_Btn_Click"/>
                       <br><a class="text-sm text-paleBlue" href="#">Forgot Password?</a><br>
-                      <small class="text-gray-500">Do not have an account? </small><a class="text-sm text-paleBlue" href="/">Signup</a>
+                      <small class="text-gray-500">Do not have an account? </small><a class="text-sm text-paleBlue" href="Signuppage.aspx">Signup</a>
                   </form>
                 </div>
               </div>
@@ -74,4 +69,3 @@
       </div>
 </body>
 </html>
-

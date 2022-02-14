@@ -27,7 +27,7 @@ namespace BizAppDev
             }
             var kan = "C" + new String(mypass);
 
-            Customer cust = new Customer(kan, tb_Firstname.Text, tb_Lastname.Text, rbl_Gender.Text, tb_Email.Text, tb_Address.Text, tb_Contactno.Text, tb_Birthdate.Text, tb_Password.Text, tb_CfmPassword.Text);
+            Customer cust = new Customer(kan, tb_Firstname.Text, tb_Lastname.Text, rbl_Gender.Text, tb_Email.Text, tb_Address.Text, tb_Contactno.Text, tb_Birthdate.Text, tb_Password.Text, tb_CfmPassword.Text, tb_username.Text);
             result = cust.CustomerInsert();
 
             if (result > 0)

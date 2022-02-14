@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="CouponsValidity(lermin).aspx.cs" Inherits="BizAppDev.CouponsValidity_lermin_" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="CouponsValidity(lermin).aspx.cs" Inherits="BizAppDev.CouponsValidity_lermin_" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <form id="form1" runat="server">
        

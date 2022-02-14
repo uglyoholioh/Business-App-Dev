@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="AddProduct.aspx.cs" Inherits="BizAppDev.AddProduct" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="AddProduct.aspx.cs" Inherits="BizAppDev.AddProduct" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <form id="form1" runat="server">
     <header class="bg-white shadow-sm px-4 py-3 z-index-20">

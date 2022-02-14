@@ -11,35 +11,26 @@ namespace BizAppDev
 {
 
 
-    public partial class EmployeeList
+    public partial class employeelist
     {
 
         /// <summary>
-        /// form1 control.
+        /// tb_SearchEmp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox tb_SearchEmp;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// Search_Employee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-
-        /// <summary>
-        /// lbl_noofstaff control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_noofstaff;
+        protected global::System.Web.UI.WebControls.Button Search_Employee;
 
         /// <summary>
         /// DataList1 control.

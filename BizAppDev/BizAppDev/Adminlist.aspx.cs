@@ -9,6 +9,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
+
 namespace BizAppDev
 {
     public partial class Adminlist : System.Web.UI.Page
@@ -19,9 +20,6 @@ namespace BizAppDev
             DataList5.RepeatColumns = 3;
             DataList5.RepeatDirection = RepeatDirection.Horizontal;
         }
-
-
-
 
         protected void DataList5_ItemCommand(object source, DataListCommandEventArgs e)
         {
@@ -55,6 +53,23 @@ namespace BizAppDev
             Response.Redirect("Admininfo.aspx?AdmID=" + lbl.Text);
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+            SqlConnection conn = new SqlConnection(_connStr);
+            conn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from Admin where AdmID like '%" + tb_SearchAdm.Text + "%'", conn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            DataList5.DataSourceID = null;
+            DataList5.DataSource = dt;
+            DataList5.DataBind();
+            conn.Close();
+        }
+
+        protected void DataList5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
-

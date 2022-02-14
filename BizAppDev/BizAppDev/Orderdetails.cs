@@ -23,7 +23,7 @@ namespace BizAppDev
         private string _deliveryoption = "";
         private string _OrderStatus = "";
         private string _discountedtotal = "";
-
+      
 
         public Orderdetails()
         {
@@ -166,7 +166,7 @@ namespace BizAppDev
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@orderid", orderid);
             cmd.Parameters.AddWithValue("@OrderStatus", "Accepted");
-
+ 
             conn.Open();
             int nofRow = 0;
             nofRow = cmd.ExecuteNonQuery();
@@ -253,5 +253,7 @@ namespace BizAppDev
 
             return OrderList;
         }
+
+       
     }
 }

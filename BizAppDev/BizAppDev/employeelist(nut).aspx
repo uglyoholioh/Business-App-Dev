@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="employeelist(nut).aspx.cs" Inherits="BizAppDev.employeelist_nut_" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="employeelist(nut).aspx.cs" Inherits="BizAppDev.employeelist_nut_" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <header class="bg-white shadow-sm px-4 py-3 z-index-20">
             <div class="container-fluid px-0">

@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="Employeeinfo.aspx.cs" Inherits="BizAppDev.Employeeinfo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Employeeinfo.aspx.cs" Inherits="BizAppDev.Employeeinfo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form id="form1" runat="server">
+     <form id="form1" runat="server">
            <header class="bg-white shadow-sm px-4 py-3 z-index-20">
             <div class="container-fluid px-0">
               <h2 class="mb-0 p-1" style="margin-left:30px">Employee List</h2>
@@ -53,7 +53,7 @@
                             <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
                             <br />
                             <br />
-                <asp:Button ID="Linkbutton3" runat="server" commandname="Edit" text=' <%# "Edit" %>' />
+                <asp:Button ID="Linkbutton3" runat="server" class="btn btn-primary btn-sm" commandname="Edit" text=' <%# "Edit" %>' />
           
             </ItemTemplate>
            
@@ -93,8 +93,8 @@
                          
 
            
-               <asp:Button ID="Linkbutton1" CommandName="update" runat="server" text="Update" />
-               <asp:Button ID="Linkbutton2" CommandName="cancel" runat="server" text="Cancel" />       
+               <asp:Button ID="Linkbutton1" class="btn btn-primary btn-sm" CommandName="update" runat="server" text="Update" />
+               <asp:Button ID="Linkbutton2" class="btn btn-primary btn-sm" CommandName="cancel" runat="server" text="Cancel" />       
             
             </EditItemTemplate>
             
@@ -113,4 +113,5 @@
         </asp:SqlDataSource>
               
      </form>
+              
 </asp:Content>

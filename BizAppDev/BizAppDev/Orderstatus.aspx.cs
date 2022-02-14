@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+
 namespace BizAppDev
 {
     public partial class Orderstatus : System.Web.UI.Page
@@ -31,11 +35,11 @@ namespace BizAppDev
 
             if (result > 0)
             {
-                Response.Write("<script>alert('his order has been removed successfully');</script>");
+                Response.Write("<script>alert('This order has been removed successfully');</script>");
             }
             else
             {
-                Response.Write("<script>alert(his order has not been successfully');</script>");
+                Response.Write("<script>alert(This order has not been successfully');</script>");
             }
 
             DataList2.EditItemIndex = -1;
@@ -50,6 +54,7 @@ namespace BizAppDev
             Response.Redirect("Orderinfo.aspx?OrderID=" + lbl.Text);
         }
 
-
+       
     }
 }
+   

@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+
 namespace BizAppDev
 {
     public partial class AcceptedOrder : System.Web.UI.Page
@@ -25,7 +29,7 @@ namespace BizAppDev
             GvOrder.DataBind();
         }
 
-
+       
         protected void GvOrder_RowEditing1(object sender, GridViewEditEventArgs e)
         {
             int result = 0;
@@ -40,11 +44,12 @@ namespace BizAppDev
             result = details.OrderAcceptance(OrderID, OrderStatus);
             if (result > 0)
             {
-                Response.Write("<script>alert('Product updated successfully');</script>");
+                
+                Response.Write("<script>alert('Order accepted');</script>");
             }
             else
             {
-                Response.Write("<script>alert('Product NOT updated');</script>");
+                Response.Write("<script>alert('Order NOT accepted');</script>");
             }
             GvOrder.EditIndex = e.NewEditIndex;
             bind();

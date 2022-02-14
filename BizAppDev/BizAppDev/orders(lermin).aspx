@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="orders(lermin).aspx.cs" Inherits="BizAppDev.orders_lermin_" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="orders(lermin).aspx.cs" Inherits="BizAppDev.orders_lermin_" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <form id="form1" runat="server">
         <div class="card mb-0" style="margin-left:40px; width:1000px; margin-left:150px;">

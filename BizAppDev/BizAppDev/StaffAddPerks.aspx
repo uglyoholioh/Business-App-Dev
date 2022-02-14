@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="StaffAddPerks.aspx.cs" Inherits="BizAppDev.StaffAddPerks" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="StaffAddPerks.aspx.cs" Inherits="BizAppDev.StaffAddPerks" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div class="card-body">
                       <p class="text-sm">Create new perk</p>

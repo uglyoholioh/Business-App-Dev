@@ -1,29 +1,27 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="Orderinfo.aspx.cs" Inherits="BizAppDev.Orderinfo" %>
+﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Orderinfo.aspx.cs" Inherits="BizAppDev.Orderinfo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-<header class="page-header">
+     <header class="page-header">
         <div class="container-fluid">
-            <h2 class="no-margin-bottom">Order details</h2>
+            <h2 class="no-margin-bottom">Processing Order</h2>
         </div>
     </header>
     <!-- Breadcrumb-->
     <div class="breadcrumb-holder container-fluid">
         <ul class="breadcrumb">
-            <li class="breadcrumb-item">Customer management</li>
-            <li class="breadcrumb-item active"><a href="#">Order status</a></li>
+            <li class="breadcrumb-item">Order management</li>
+            <li class="breadcrumb-item active"><a href="Orderstatus.aspx">Processing Order</a></li>
         </ul>
     </div>
-     <form id="form1" runat="server">
-                    <section>
+     <form id="form1" runat="server" >
             <div class="container-fluid" id="div_Membership">
               <div class="row" style="margin-left:20px; ">
                 <div class="col-md-6 col-lg-3" >
 
                     <asp:DataList ID="DataList2" runat="server" onEditCommand="myListEditHandler"  
-         onUpdateCommand="myListUpdateHandler" RepeatColumns="3" DataKeyField="OrderID"  onCancelCommand="myListCancelHandler" DataSourceID="SqlDataSource2" OnDeleteCommand="DataList2_DeleteCommand" >
+         onUpdateCommand="myListUpdateHandler" RepeatColumns="2" DataKeyField="OrderID" onCancelCommand="myListCancelHandler" DataSourceID="SqlDataSource3" OnDeleteCommand="DataList2_DeleteCommand" RepeatDirection="Horizontal" >
 
                         <ItemTemplate>
-                             <div class="card" style="margin-right: 30px; width:600px; left: 200px; height:300px;">
+                             <div class="card" style="margin-right: 30px; width:450px; left:20px; height:300px;">
                     <div class="card-body">
                      
                         <div class="ms-3">
@@ -55,7 +53,7 @@
                              <asp:Label ID="OrderStatusLabel" runat="server" Text='<%# Eval("OrderStatus") %>' />
                              <br />
                             <br />
-                                    <asp:Button ID="Linkbutton3" runat="server" commandname="Edit" text=' <%# "Edit" %>' />                    
+                                    <asp:Button ID="Linkbutton3" runat="server" class="btn btn-primary btn-sm" commandname="Edit" text=' <%# "Edit" %>' />                    
                         </ItemTemplate>
 
                           <EditItemTemplate>
@@ -97,8 +95,8 @@
                                <br />
                                <br />                                        
 
-               <asp:Button ID="Linkbutton1" CommandName="update" runat="server" text="Update" />
-               <asp:Button ID="Linkbutton2" CommandName="cancel" runat="server" text="Cancel" />       
+               <asp:Button ID="Linkbutton1" CommandName="update" runat="server" class="btn btn-primary btn-sm" text="Update" />
+               <asp:Button ID="Linkbutton2" CommandName="cancel" runat="server" class="btn btn-primary btn-sm" text="Cancel" />       
             
             </EditItemTemplate>
             
@@ -106,15 +104,12 @@
                     </div>
                   </div>
                 </div>
-                        </section>
-
-
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Orderdetails] WHERE ([OrderID] = @OrderID)">
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Orderdetails] WHERE ([OrderID] = @OrderID)">
                         <SelectParameters>
                   <asp:QueryStringParameter Name="OrderID" QueryStringField="OrderID" Type="String" />
               </SelectParameters>
                     </asp:SqlDataSource>
 
     </form>
-
+     
 </asp:Content>

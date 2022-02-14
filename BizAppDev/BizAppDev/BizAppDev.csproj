@@ -126,6 +126,11 @@
     <Content Include="employeelist%28nut%29.aspx" />
     <Content Include="EmployeeList.aspx" />
     <Content Include="EmployeeListMoreInfo.aspx" />
+    <Content Include="Eorderinfo.aspx" />
+    <Content Include="Eorderstatus.aspx" />
+    <Content Include="Ependingorder.aspx" />
+    <Content Include="Eprodcustdetails.aspx" />
+    <Content Include="Eproductcust.aspx" />
     <Content Include="HiringAdvisor.aspx" />
     <Content Include="HiringPriest.aspx" />
     <Content Include="home.aspx" />
@@ -151,6 +156,8 @@
     <Content Include="PointsTransactions.aspx" />
     <Content Include="PointTierList.aspx" />
     <Content Include="PriestsView.aspx" />
+    <Content Include="Prodcustdetails.aspx" />
+    <Content Include="ProductCust.aspx" />
     <Content Include="ProductCustomization.aspx" />
     <Content Include="ProductCustView.aspx" />
     <Content Include="Products%28lermin%29.aspx" />
@@ -403,6 +410,13 @@
       <DependentUpon>EduVideoInsert.aspx</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs" />
+    <Compile Include="Employee.Master.cs">
+      <DependentUpon>Employee.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee.Master.designer.cs">
+      <DependentUpon>Employee.Master</DependentUpon>
+    </Compile>
     <Compile Include="Employeeinfo.aspx.cs">
       <DependentUpon>Employeeinfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -430,6 +444,41 @@
     </Compile>
     <Compile Include="EmployeeListMoreInfo.aspx.designer.cs">
       <DependentUpon>EmployeeListMoreInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Eorderinfo.aspx.cs">
+      <DependentUpon>Eorderinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Eorderinfo.aspx.designer.cs">
+      <DependentUpon>Eorderinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Eorderstatus.aspx.cs">
+      <DependentUpon>Eorderstatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Eorderstatus.aspx.designer.cs">
+      <DependentUpon>Eorderstatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ependingorder.aspx.cs">
+      <DependentUpon>Ependingorder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ependingorder.aspx.designer.cs">
+      <DependentUpon>Ependingorder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Eprodcustdetails.aspx.cs">
+      <DependentUpon>Eprodcustdetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Eprodcustdetails.aspx.designer.cs">
+      <DependentUpon>Eprodcustdetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Eproductcust.aspx.cs">
+      <DependentUpon>Eproductcust.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Eproductcust.aspx.designer.cs">
+      <DependentUpon>Eproductcust.aspx</DependentUpon>
     </Compile>
     <Compile Include="HiringAdvisor.aspx.cs">
       <DependentUpon>HiringAdvisor.aspx</DependentUpon>
@@ -621,7 +670,21 @@
     <Compile Include="PriestsView.aspx.designer.cs">
       <DependentUpon>PriestsView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Prodcustdetails.aspx.cs">
+      <DependentUpon>Prodcustdetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prodcustdetails.aspx.designer.cs">
+      <DependentUpon>Prodcustdetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs" />
+    <Compile Include="ProductCust.aspx.cs">
+      <DependentUpon>ProductCust.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductCust.aspx.designer.cs">
+      <DependentUpon>ProductCust.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProductCust.cs" />
     <Compile Include="ProductCustomization.aspx.cs">
       <DependentUpon>ProductCustomization.aspx</DependentUpon>
@@ -673,13 +736,6 @@
     </Compile>
     <Compile Include="Signuppage.aspx.designer.cs">
       <DependentUpon>Signuppage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="staff.Master.cs">
-      <DependentUpon>staff.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="staff.Master.designer.cs">
-      <DependentUpon>staff.Master</DependentUpon>
     </Compile>
     <Compile Include="StaffAddPerks.aspx.cs">
       <DependentUpon>StaffAddPerks.aspx</DependentUpon>
@@ -758,8 +814,9 @@
     <Content Include="Main.Master" />
     <Content Include="nonmembermaster.Master" />
     <Content Include="Admin.Master" />
+    <Content Include="Employee.Master" />
+    <Content Include="Jossproject.csproj" />
     <None Include="packages.config" />
-    <Content Include="staff.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

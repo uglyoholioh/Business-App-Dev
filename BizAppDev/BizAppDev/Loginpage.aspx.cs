@@ -21,9 +21,8 @@ namespace BizAppDev
         protected void Login_Btn_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
-
             Employee emp = new Employee();
-            string queryStr = "SELECT * FROM Employee WHERE EmpID = @EmpID AND Password = @Password";
+            string queryStr = "SELECT * FROM Employee WHERE EmpID = @EmpID AND Password = @Password";        
             SqlCommand cmd = new SqlCommand(queryStr, con);
             cmd.Parameters.AddWithValue("@EmpID", tb_Username.Text);
             cmd.Parameters.AddWithValue("@Password", tb_Password.Text);
@@ -32,8 +31,8 @@ namespace BizAppDev
 
             if (dr.Read())
             {
-                Response.Write("<script>alert('Log in successful');</script>");
-                Response.Redirect("employeelist.aspx");
+               Response.Write("<script>alert('Log in successful');</script>");
+               Response.Redirect("Personalinfo.aspx");
             }
             else
             {
@@ -55,7 +54,7 @@ namespace BizAppDev
                 Response.Redirect("Adminlist.aspx");
             }
             else
-            {
+            {               
 
             }
             con.Close();
@@ -68,12 +67,10 @@ namespace BizAppDev
             con.Open();
             SqlDataReader dp = cmdp.ExecuteReader();
 
-
             if (dp.Read())
             {
-                Session["CustID"] = tb_Username.Text;
                 Response.Write("<script>alert('Log in successful');</script>");
-                Response.Redirect("home.aspx");
+                Response.Redirect("employeelist.aspx");
             }
             else
             {
@@ -84,5 +81,5 @@ namespace BizAppDev
         }
 
     }
-}
+    }
 

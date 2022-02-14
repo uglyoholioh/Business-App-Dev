@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="Products(lermin).aspx.cs" Inherits="BizAppDev.Products_lermin_" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Products(lermin).aspx.cs" Inherits="BizAppDev.Products_lermin_" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
  <form id="form1" runat="server">
     <header class="bg-white shadow-sm px-4 py-3 z-index-20">

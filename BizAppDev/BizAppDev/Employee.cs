@@ -12,7 +12,6 @@ namespace BizAppDev
     public class Employee
     {
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-
         private string _EmpID = null;
         private string _EmpName = "";
         private string _NRIC = "";
@@ -105,7 +104,7 @@ namespace BizAppDev
 
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-
+            
 
             conn.Open();
             SqlDataReader dr = cmd.ExecuteReader();

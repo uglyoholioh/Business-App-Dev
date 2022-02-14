@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="StaffViewPerks.aspx.cs" Inherits="BizAppDev.StaffViewPerks" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="StaffViewPerks.aspx.cs" Inherits="BizAppDev.StaffViewPerks" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
         <style type="text/css">
 body{

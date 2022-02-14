@@ -4,23 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.SqlClient;
 
 namespace BizAppDev
 {
-    public partial class staff : System.Web.UI.MasterPage
+    public partial class Employee1 : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int crap = 1;
-            string urlString = "~/Coupons(lermin).aspx?pointTierID=" + crap.ToString(); ;
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
             string employeename;
-            employeename = "Daniel";
+            employeename = "Louis";
 
 
-            string queryStr = "SELECT * FROM Admin WHERE AdmName = @empName";
+            string queryStr = "SELECT * FROM Employee WHERE EmpName = @empName";
 
 
             SqlCommand cmd = new SqlCommand(queryStr, con);
@@ -32,7 +30,7 @@ namespace BizAppDev
             if (dr.Read())
             {
 
-                lbl_position.Text = "Admin";
+                lbl_position.Text = "Employee";
 
             }
             label_Name.Text = employeename;
@@ -43,8 +41,9 @@ namespace BizAppDev
             dr.Close();
             dr.Dispose();
 
-            string profile = "/EditProfile.aspx?AdmName=" + employeename;
+            string profile = "/EditProfile(employee).aspx?AdmName=" + employeename;
             hrefString.Text = profile;
         }
+
     }
 }

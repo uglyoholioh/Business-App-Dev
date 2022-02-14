@@ -8,10 +8,11 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 namespace BizAppDev
+
 {
     public class ProductCust
     {
-        string _connStr = ConfigurationManager.ConnectionStrings["ServicesContext"].ConnectionString;
+        string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
 
         private string _custID = "";
         private string _prodcustID = null;
@@ -22,6 +23,7 @@ namespace BizAppDev
         private string _email = "";
         private string _contact = "";
         private string _date = "";
+        private string _status = "";
 
         public ProductCust()
         {
@@ -38,10 +40,24 @@ namespace BizAppDev
             _contact = contact;
             _date = date;
         }
+        public ProductCust(string custID, string prodcustID, string prodcustCat, string prodcustCol, string prodcustScent, string name, string email, string contact, string date, string status)
+        {
+            _custID = custID;
+            _prodcustID = prodcustID;
+            _prodcustCat = prodcustCat;
+            _prodcustCol = prodcustCol;
+            _prodcustScent = prodcustScent;
+            _name = name;
+            _email = email;
+            _contact = contact;
+            _date = date;
+            _status = status;
+        }
         public ProductCust(string custID, string prodcustCat, string prodcustCol, string prodcustScent, string name, string email, string contact, string date)
         : this(custID, null, prodcustCat, prodcustCol, prodcustScent, name, email, contact, date)
         {
         }
+
 
         public string CustID
         {
@@ -87,6 +103,12 @@ namespace BizAppDev
         {
             get { return _date; }
             set { _date = value; }
+        }
+
+        public string status
+        {
+            get { return _status; }
+            set { _status = value; }
         }
         public int ProdCustInsert()
         {
@@ -195,14 +217,14 @@ namespace BizAppDev
                 return 0;
             }
         }
-        public int ProdCustDelete(string prodcustID)
+        public int ProdCustDelete(string CustID)
         {
-            string queryStr = "DELETE FROM ProductCust WHERE CustomizationID = @prodcustID";
+            string queryStr = "DELETE FROM ProductCust WHERE CustID = @CustID";
             try
             {
                 SqlConnection conn = new SqlConnection(_connStr);
                 SqlCommand cmd = new SqlCommand(queryStr, conn);
-                cmd.Parameters.AddWithValue("@prodcustID", prodcustID);
+                cmd.Parameters.AddWithValue("@CustID", CustID);
                 conn.Open();
                 int nofRow = 0;
                 nofRow = cmd.ExecuteNonQuery();

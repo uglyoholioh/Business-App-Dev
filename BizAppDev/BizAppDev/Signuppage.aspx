@@ -33,9 +33,10 @@
             <div class="col-lg-6">
               <div class="info d-flex align-items-center">
                 <div class="content">
-                  <div class="logo">
-                    <h1>Sign-up</h1>
-                  </div>
+                   <div style = 'text-align:center; margin-left:150px;'>
+                      <p1 style =" font-size:50px;">SIGN UP</p1>
+                </div>
+                     <p style = 'text-align:center; margin-left:150px;'>Welcome to Kim Zua!</p>
                 </div>
               </div>
             </div>
@@ -44,22 +45,23 @@
               <div class="form d-flex align-items-center">
                 <div class="content">
                   <form class="form-horizontal "  runat="server">
-                    <div class="form-group row">
+                
                       First name:
                       <asp:TextBox ID="tb_Firstname" runat="server" CssClass="input-material"></asp:TextBox>   
                         Last name:
-                      <asp:TextBox ID="tb_Lastname" runat="server" CssClass="input-material"></asp:TextBox>   
+                      <asp:TextBox ID="tb_Lastname" runat="server" CssClass="input-material"></asp:TextBox> 
+                        Username:    <asp:TextBox ID="tb_username" runat="server" CssClass="input-material"></asp:TextBox> 
                          Date of Birth:<asp:TextBox ID="tb_Birthdate" runat="server" CssClass="input-material"></asp:TextBox>
-                         
-                        Gender<asp:RadioButtonList ID="rbl_Gender" runat="server" Cssclass="i-checks">
+                        Gender: <br /><asp:RadioButtonList ID="rbl_Gender" runat="server" Cssclass="i-checks">
                             <asp:ListItem>Male</asp:ListItem>
                                 <asp:ListItem>Female</asp:ListItem>
                                  </asp:RadioButtonList> 
-                           Email Address:<asp:TextBox ID="tb_Email" runat="server" CssClass="input-material"></asp:TextBox>
-                           Contact Number:<asp:TextBox ID="tb_Contactno" runat="server" CssClass="input-material"></asp:TextBox>
-                         Address:<asp:TextBox ID="tb_Address" runat="server" CssClass="input-material" ></asp:TextBox>
-                         Password:<asp:TextBox ID="tb_Password" runat="server" CssClass="input-material" TextMode="Password"></asp:TextBox>
-                         Confirm Password:<asp:TextBox ID="tb_CfmPassword" runat="server" CssClass="input-material" TextMode="Password"></asp:TextBox>
+                         <br />
+                         Email Address:<asp:TextBox ID="tb_Email" runat="server" CssClass="input-material"></asp:TextBox>
+                         Contact Number:<asp:TextBox ID="tb_Contactno" runat="server" CssClass="input-material"></asp:TextBox>
+                         Address:<asp:TextBox ID="tb_Address" runat="server" CssClass="input-material"></asp:TextBox>
+                         Password:<asp:TextBox ID="tb_Password" runat="server" CssClass="input-material"></asp:TextBox>
+                         Confirm Password:<asp:TextBox ID="tb_CfmPassword" runat="server" CssClass="input-material"></asp:TextBox>
 &nbsp;<br />                  
                     <div class="form-group">
                        <asp:Button ID="Register_Btn" class="btn btn-primary mb-3" runat="server" Text="Register" OnClick="Register_Btn_Click"/>

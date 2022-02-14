@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
@@ -17,10 +16,10 @@ namespace BizAppDev
         {
 
         }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (DropDownPosition.SelectedItem.Text == "Staff")
-            {
+            if (DropDownPosition.SelectedItem.Text == "Staff") {
 
                 int result = 0;
                 string pass = "1234567890";
@@ -39,7 +38,7 @@ namespace BizAppDev
                 if (result > 0)
                 {
                     Response.Write("<script>alert('Insert successful');</script>");
-                    Response.Redirect("employeelist(nut).aspx");
+                    Response.Redirect("Employeelist.aspx");
                 }
                 else
                 {
@@ -72,6 +71,7 @@ namespace BizAppDev
                     Response.Write("<script>alert('Insert NOT successful');</script>");
                 }
             }
+
         }
     }
 }

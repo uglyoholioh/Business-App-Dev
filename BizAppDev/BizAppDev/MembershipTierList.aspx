@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/staff.Master" AutoEventWireup="true" CodeBehind="MembershipTierList.aspx.cs" Inherits="BizAppDev.MembershipTierList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="MembershipTierList.aspx.cs" Inherits="BizAppDev.MembershipTierList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <form id="form1" runat="server">
     <header class="bg-white shadow-sm px-4 py-3 z-index-20">

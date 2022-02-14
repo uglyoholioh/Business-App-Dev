@@ -36,6 +36,20 @@ namespace BizAppDev
         {
 
         }
+        public Customer(string CustID, string firstName, string lastName, string gender, string email, string address, string phoneNo, string DOB, string Password, string Cfmpassword, string username)
+        {
+            _CustID = CustID;
+            _firstName = firstName;
+            _lastName = lastName;
+            _gender = gender;
+            _email = email;
+            _address = address;
+            _phoneNo = phoneNo;
+            _DOB = DOB;
+            _Password = Password;
+            _Cfmpassword = Cfmpassword;
+            _username = username;
+        }
         public Customer(string CustID, string firstName, string lastName, string email, int points, string address, string phoneNo, string DOB, string gender, string username, int pointTierID, int lvlPoints, DateTime pointExpiry)
 
         {
@@ -53,19 +67,7 @@ namespace BizAppDev
             _lvlPoints = lvlPoints;
             _pointExpiry = pointExpiry;
         }
-        public Customer(string CustID, string firstName, string lastName, string gender, string email, string address, string phoneNo, string DOB, string Password, string Cfmpassword)
-        {
-            _CustID = CustID;
-            _firstName = firstName;
-            _lastName = lastName;
-            _gender = gender;
-            _email = email;
-            _address = address;
-            _phoneNo = phoneNo;
-            _DOB = DOB;
-            _Password = Password;
-            _Cfmpassword = Cfmpassword;
-        }
+
         [Required(ErrorMessage = "Title is required")]
         public string Cust_ID
         {
@@ -182,7 +184,7 @@ namespace BizAppDev
                 lvlPoints = int.Parse(dr["lvlPoints"].ToString());
                 pointExpiry = Convert.ToDateTime(dr["pointExpiry"].ToString());
 
-                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender, username,pointTierID,lvlPoints,pointExpiry);
+                custDetail = new Customer(CustID, first_Name, last_Name, email, points, address, phone_No, DOB, gender, username, pointTierID, lvlPoints, pointExpiry);
                 return custDetail;
 
             }
@@ -213,15 +215,15 @@ namespace BizAppDev
             DateTime convertDOB = Convert.ToDateTime(DOB);
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@CustID",CustID);
+            cmd.Parameters.AddWithValue("@CustID", CustID);
             cmd.Parameters.AddWithValue("@first_Name", first_Name);
-            cmd.Parameters.AddWithValue("@last_Name",last_Name);
-            cmd.Parameters.AddWithValue("@email",email);
-            cmd.Parameters.AddWithValue("@address",address);
-            cmd.Parameters.AddWithValue("@phone_No",phone_No);
-            cmd.Parameters.AddWithValue("@DOB",convertDOB);
-            cmd.Parameters.AddWithValue("@gender",gender);
-            cmd.Parameters.AddWithValue("@username",username);
+            cmd.Parameters.AddWithValue("@last_Name", last_Name);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@address", address);
+            cmd.Parameters.AddWithValue("@phone_No", phone_No);
+            cmd.Parameters.AddWithValue("@DOB", convertDOB);
+            cmd.Parameters.AddWithValue("@gender", gender);
+            cmd.Parameters.AddWithValue("@username", username);
 
 
             conn.Open();
@@ -234,14 +236,14 @@ namespace BizAppDev
 
 
         }
-        public int CustomerUpdatePoints(string CustID,int addedpoints)
+        public int CustomerUpdatePoints(string CustID, int addedpoints)
         {
             DateTime now = DateTime.Now;
             DateTime newExpiry = now.AddDays(50);
             int pointTierID = 0;
             Customer ptCust = new Customer();
             Customer aCust = new Customer();
-            ptCust=aCust.getCustomer(CustID);
+            ptCust = aCust.getCustomer(CustID);
             pointsTier aPT = new pointsTier();
             int custPoints = ptCust.lvlPoints;
             List<pointsTier> tierList = new List<pointsTier>();
@@ -249,7 +251,7 @@ namespace BizAppDev
             string ptqueryStr = "SELECT TOP 1 * FROM PointTiers WHERE price<=@custPoints order by price desc";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand ptcmd = new SqlCommand(ptqueryStr, conn);
-            ptcmd.Parameters.AddWithValue("@custPoints", custPoints+addedpoints);
+            ptcmd.Parameters.AddWithValue("@custPoints", custPoints + addedpoints);
             conn.Open();
             SqlDataReader dr = ptcmd.ExecuteReader();
             if (dr.Read())
