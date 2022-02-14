@@ -32,7 +32,7 @@ namespace BizAppDev
             if (dr.Read())
             {
                Response.Write("<script>alert('Log in successful');</script>");
-               Response.Redirect("Personalinfo.aspx");
+               Response.Redirect("Ependingorder.aspx");
             }
             else
             {

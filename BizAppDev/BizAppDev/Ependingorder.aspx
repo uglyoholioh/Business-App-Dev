@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Employee.Master" AutoEventWireup="true" CodeBehind="Ependingorder.aspx.cs" Inherits="BizAppDev.Ependingorder" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent3" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <header class="page-header">
         <div class="container-fluid">
             <h2 class="no-margin-bottom">Pending Order</h2>

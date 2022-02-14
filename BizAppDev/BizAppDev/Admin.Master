@@ -159,7 +159,7 @@
                 </ul>
           <span class="heading">Employee management</span>
       <ul class="list-unstyled">
-         <li><a href="employeelist(nut).aspx"> <i class="fa fa-bar-chart"></i>Employee List</a></li>
+         <li><a href="Employeelist.aspx"> <i class="fa fa-bar-chart"></i>Employee List</a></li>
             <li><a href="Adminlist.aspx"> <i class="fa fa-bar-chart"></i>Admin List</a></li>
             <li><a href="Addemployee.aspx"> <i class="fa fa-bar-chart"></i>Add Employee Form</a></li>
       </ul>
