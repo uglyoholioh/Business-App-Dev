@@ -370,7 +370,7 @@ namespace BizAppDev
                 cmd.Parameters.AddWithValue("@deliverydate", Calendar2.SelectedDate);
                 cmd.Parameters.AddWithValue("@grandtotal", Convert.ToDecimal(Labelgrandtotal.Text));
                 cmd.Parameters.AddWithValue("@OrderStatus", "Pending");
-                cmd.Parameters.AddWithValue("@Cust_ID", "Guest");
+                cmd.Parameters.AddWithValue("@Cust_ID", CID);
                 if (lbl_discountedprice.Text == string.Empty)
                 {
                     cmd.Parameters.AddWithValue("@discountedtotal", Convert.ToDecimal(0.00));

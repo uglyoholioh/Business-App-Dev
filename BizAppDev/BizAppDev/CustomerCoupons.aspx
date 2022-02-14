@@ -165,7 +165,9 @@ body {
                     <div class="card-body">
                       <h4 class="card-title"><asp:Label ID="coupNameLabel" runat="server" Text='<%# Eval("coupName") %>' /></h4>
                       <p class="card-text"><asp:Label ID="AsgnIDLabel" runat="server" Text='<%# Eval("coupDesc") %>' />
-</p><a class="btn btn-outline-primary" href="#">Use Coupon Code:                     <asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("Code") %>' />
+                                                <p class="card-text">Category:&nbsp<asp:Label ID="categoryLabel" runat="server" Text='<%# Eval("category") %>' />
+                                                <p class="card-text">Discount:&nbsp<asp:Label ID="coupDiscountLabel" runat="server" Text='<%# Eval("coupDiscount") %>' />%
+
 </a>
                     </div>
                     <div class="card-footer text-muted">Expires: <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("coupExpiry") %>' />
@@ -185,7 +187,6 @@ body {
                       <h4 class="card-title"><asp:Label ID="coupNameLabel" runat="server" Text='<%# Eval("coupon_Name") %>' /></h4>
                       <p class="card-text"><asp:Label ID="AsgnIDLabel" runat="server" Text='<%# Eval("coup_Desc") %>' />            <asp:Label ID="coup_disccountamtLabel" runat="server" Text='<%# Eval("coup_disccountamt") %>' />
 
-</p><a class="btn btn-outline-primary" href="#">Use Coupon Code:                     <asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("coupon_Name") %>' />
 </a>
                     </div>
                     <div class="card-footer text-muted">Expires: <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("coupon_endDate") %>' />
@@ -202,7 +203,6 @@ body {
                     <div class="card-body">
                       <h4 class="card-title"><asp:Label ID="coupNameLabel" runat="server" Text='<%# Eval("coupName") %>' /></h4>
                       <p class="card-text"><asp:Label ID="AsgnIDLabel" runat="server" Text='<%# Eval("coupDesc") %>' />
-</p><a class="btn btn-outline-primary" href="#">Use Coupon Code:                     <asp:Label ID="CodeLabel" runat="server" Text='<%# Eval("Code") %>' />
 </a>
                     </div>
                     <div class="card-footer text-muted">Expires: <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("coupExpiry") %>' />

@@ -45,9 +45,11 @@ namespace BizAppDev
             SqlDataReader dr = ptcmd.ExecuteReader();
             decimal nextPTprice = -1;
             decimal percentProgress = 0;
+            string nextPTname = "";
             if (dr.Read())
             {
                 nextPTprice = Convert.ToInt32(dr["price"].ToString());
+                nextPTname = dr["name"].ToString();
             }
           
             if (nextPTprice == -1)
@@ -62,7 +64,7 @@ namespace BizAppDev
                 percentProgress = (custLvlPoints / nextPTprice) * 100;
                 string percentToNext = percentProgress.ToString() + "%";
                 pointBar.Style.Add("width", percentToNext);
-                lbl_exp.Text = custLvlPoints.ToString() + " / " + nextPTprice.ToString();
+                lbl_exp.Text = nextPTname+": "+custLvlPoints.ToString() + " / " + nextPTprice.ToString();
             }
             dr.Close();
             dr.Dispose();
@@ -103,6 +105,11 @@ namespace BizAppDev
         {
             Response.Redirect("PointsTransactions.aspx");
 
+        }
+
+        protected void btn_ViewTiers_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PointTierList.aspx");
         }
     }
 }

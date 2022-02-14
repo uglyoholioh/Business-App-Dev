@@ -5,8 +5,8 @@
             width: 100%;
         }
     </style>
-    <div style="margin-left:10%;">
-    <h1><strong>Your Perks</strong></h1>
+    <div style="margin-left:10%; margin-top:10%;">
+    <h1><strong>Tier Perks:</strong></h1>
     <br />
 
                 <asp:DataList ID="DataList1" runat="server" DataKeyField="PerkID" DataSourceID="PerkSQL">

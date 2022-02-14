@@ -153,6 +153,9 @@
 .fashion-studio-border:hover {
     border-bottom: 1px solid #dee2e6 !important
 }
+.card{
+    min-width:400px;
+}
       </style>
   </head>
   <body>
@@ -182,7 +185,7 @@
         <br />
       <div style="font-size:10px; color:gray">
       <span>Your points expire on: &nbsp</span><asp:label id="lbl_Expiry" runat="server" />     </div>   <br />
-        <span class="current-balance">Progress to next point tier:
+        <span class="current-balance">Progress to
                 <asp:Label ID="lbl_exp" runat="server" Text=""></asp:Label> </span>
                 <div class="progress">
                                     <div runat="server" class="progress-bar bg-violet" id="pointBar" role="progressbar" style="height: 15px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -214,15 +217,19 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="card mb-0">
                     <div class="card-body">
                       <div class="d-flex align-items-center">
                         <div class="icon flex-shrink-0 bg-orange"><i class="far fa-paper-plane"></i></div>
-                        <div class="ms-3"><strong class="text-lg d-block lh-1 mb-1"><asp:Label ID="lbl_TierName" runat="server"></asp:Label></strong><asp:Button ID="btn_Perks" class="btn btn-primary" runat="server" OnClick="btn_Perks_Click" Text="View Perks" />
+                        <div class="ms-3"><strong class="text-lg d-block lh-1 mb-1"><asp:Label ID="lbl_TierName" runat="server"></asp:Label></strong><asp:Button ID="btn_Perks" class="btn btn-primary" runat="server" OnClick="btn_Perks_Click" Text="View Perks" /></div>
+                             <div class="ms-3"><strong class="text-lg d-block lh-1 mb-1"><asp:Label ID="Label1" runat="server"></asp:Label></strong><asp:Button ID="btn_ViewTiers" class="btn btn-primary" runat="server" Text="View Point Tiers" OnClick="btn_ViewTiers_Click" />
+
 </div>
                       </div>
                     </div>
                   </div>
+
                 </div>
 </div>
           <!-- Dashboard Counts Section-->
