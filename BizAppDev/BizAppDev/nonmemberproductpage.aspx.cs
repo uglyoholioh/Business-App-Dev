@@ -39,22 +39,22 @@ namespace BizAppDev
 
         protected void lb_jsticks_Click(object sender, EventArgs e)
         {
-            Response.Redirect("nonmemberproductpage.aspx?categories=joss sticks");
+            Response.Redirect("nonmemberproductpage.aspx?categories=Joss Sticks");
         }
 
         protected void lb_Jpaper_Click(object sender, EventArgs e)
         {
-            Response.Redirect("nonmemberproductpage.aspx?categories=joss paper");
+            Response.Redirect("nonmemberproductpage.aspx?categories=Joss Paper");
         }
 
         protected void lb_jmoney_Click(object sender, EventArgs e)
         {
-            Response.Redirect("nonmemberproductpage.aspx?categories=joss money");
+            Response.Redirect("nonmemberproductpage.aspx?categories=Joss Money");
         }
 
         protected void lb_candles_Click(object sender, EventArgs e)
         {
-            Response.Redirect("nonmemberproductpage.aspx?categories=candle");
+            Response.Redirect("nonmemberproductpage.aspx?categories=Candles");
         }
 
         protected void lb_cProduct_Click(object sender, EventArgs e)

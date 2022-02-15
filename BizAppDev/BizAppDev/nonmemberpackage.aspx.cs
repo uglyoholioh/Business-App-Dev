@@ -29,6 +29,24 @@ namespace BizAppDev
                 DataList1.DataSource = SqlDataSource2;
                 DataList1.DataBind();
             }
+            if (DropDownList1.SelectedItem.Text == "Hungry Ghost Festival")
+            {
+                DataList1.DataSourceID = null;
+                DataList1.DataSource = SqlDataSource3;
+                DataList1.DataBind();
+            }
+            if (DropDownList1.SelectedItem.Text == "Qing Ming Festival")
+            {
+                DataList1.DataSourceID = null;
+                DataList1.DataSource = SqlDataSource2;
+                DataList1.DataBind();
+            }
+             if (DropDownList1.SelectedItem.Text == "Death Anniversary Prayers")
+            {
+                DataList1.DataSourceID = null;
+                DataList1.DataSource = SqlDataSource2;
+                DataList1.DataBind();
+            }
         }
     }
 }

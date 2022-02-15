@@ -40,11 +40,11 @@ namespace BizAppDev
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
             Label productid = (Label)e.Item.FindControl("Label1");
-            Label productitem = (Label)e.Item.FindControl("Label2");
+            Label productitem = (Label)e.Item.FindControl("Label4");
 
-            TextBox packagedesc = (TextBox)e.Item.FindControl("tb_desc");
-            TextBox packageprice = (TextBox)e.Item.FindControl("tb_price");
-            TextBox packagefestive = (TextBox)e.Item.FindControl("tb_festival");
+            TextBox packagedesc = (TextBox)e.Item.FindControl("TextBox1");
+            TextBox packageprice = (TextBox)e.Item.FindControl("TextBox2");
+            DropDownList packagefestive = (DropDownList)e.Item.FindControl("DropDownList2");
 
 
 
@@ -61,9 +61,9 @@ namespace BizAppDev
 
             cmd.Parameters.AddWithValue("@desc", packagedesc.Text);
             cmd.Parameters.AddWithValue("@price", decimal.Parse(packageprice.Text));
-            cmd.Parameters.AddWithValue("@festive", packagefestive.Text);
+            cmd.Parameters.AddWithValue("@festive", packagefestive.SelectedItem.Text);
 
-            cmd.Parameters.AddWithValue("@id", productid.Text);
+            cmd.Parameters.AddWithValue("@id", productitem.Text);
 
             con.Open();
             cmd.ExecuteNonQuery();

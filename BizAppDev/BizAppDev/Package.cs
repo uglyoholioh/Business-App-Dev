@@ -16,13 +16,14 @@ namespace BizAppDev
         private decimal _packagePrice = 0;
         private string _packageImage = "";
         private string _packageKeyword = "";
+        private string _packageFestival = "";
         // Default constructor
         public Package()
         {
         }
 
         // Constructor that take in all data required to build a Product object
-        public Package(string packageName, string packageItems, string packageDesc, decimal packagePrice, string packageImage, string packageKeyword)
+        public Package(string packageName, string packageItems, string packageDesc, decimal packagePrice, string packageImage, string packageKeyword, string packageFestival)
         {
             _packageName = packageName;
             _packageItems = packageItems;
@@ -30,6 +31,7 @@ namespace BizAppDev
             _packagePrice = packagePrice;
             _packageImage = packageImage;
             _packageKeyword = packageKeyword;
+            _packageFestival = packageFestival;
         }
 
         // Constructor that take in all except product ID
@@ -72,12 +74,17 @@ namespace BizAppDev
             get { return _packageKeyword; }
             set { _packageKeyword = value; }
         }
+        public string package_Festival
+        {
+            get { return _packageFestival; }
+            set { _packageFestival = value; }
+        }
         public Package get_Package(string package_Name)
         {
 
             Package package_details = null;
 
-            string package_Items, package_Desc, package_Image, package_Keyword;
+            string package_Items, package_Desc, package_Image, package_Keyword, package_Festival;
             decimal package_Price;
 
 
@@ -98,8 +105,9 @@ namespace BizAppDev
                 package_Desc = dr["package_Desc"].ToString();
                 package_Price = decimal.Parse(dr["prodDesc"].ToString());
                 package_Keyword = dr["package_keyword"].ToString();
+                package_Festival = dr["package_festival"].ToString();
 
-                package_details = new Package(package_Name.ToString(), package_Items, package_Desc, package_Price, package_Image, package_Keyword);
+                package_details = new Package(package_Name.ToString(), package_Items, package_Desc, package_Price, package_Image, package_Keyword, package_Festival);
             }
             else
             {
@@ -116,7 +124,7 @@ namespace BizAppDev
         {
             List<Package> packageList = new List<Package>();
 
-            string package_Name, package_Items, package_Desc, package_Image, package_Keyword;
+            string package_Name, package_Items, package_Desc, package_Image, package_Keyword, packageFestival;
             decimal package_Price;
 
 
@@ -136,8 +144,9 @@ namespace BizAppDev
                 package_Price = decimal.Parse(dr["package_Price"].ToString());
                 package_Name = dr["package_Name"].ToString();
                 package_Keyword = dr["package_keyword"].ToString();
+                packageFestival = dr["package_festival"].ToString();
 
-                Package a = new Package(package_Name, package_Items, package_Desc, package_Price, package_Image, package_Keyword);
+                Package a = new Package(package_Name, package_Items, package_Desc, package_Price, package_Image, package_Keyword, packageFestival);
                 packageList.Add(a);
             }
 
@@ -153,8 +162,8 @@ namespace BizAppDev
             // string msg = null;
             int result = 0;
 
-            string queryStr = "INSERT INTO Package(package_Name,package_Items, package_Desc, package_Price,package_Image, package_keyword) "
-                + "values (@package_Name,@package_Items, @package_Desc, @package_Price, @package_Image, @package_keyword)";
+            string queryStr = "INSERT INTO Package(package_Name,package_Items, package_Desc, package_Price,package_Image, package_keyword, package_festival) "
+                + "values (@package_Name,@package_Items, @package_Desc, @package_Price, @package_Image, @package_keyword, @festival)";
 
 
             SqlConnection conn = new SqlConnection(_connStr);
@@ -165,6 +174,7 @@ namespace BizAppDev
             cmd.Parameters.AddWithValue("@package_Price", this.package_Price);
             cmd.Parameters.AddWithValue("@package_Image", this.package_Image);
             cmd.Parameters.AddWithValue("@package_keyword", this.package_Keyword);
+            cmd.Parameters.AddWithValue("@festival", this.package_Festival);
 
             conn.Open();
             result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0

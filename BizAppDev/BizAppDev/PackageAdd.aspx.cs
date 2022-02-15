@@ -37,7 +37,7 @@ namespace BizAppDev
                 }
 
                 Package package = new Package(tb_name.Text, str, tb_desc.Text,
-                    decimal.Parse(tb_price.Text), FileUpload1.FileName, td_keyword.Text);
+                    decimal.Parse(tb_price.Text), FileUpload1.FileName, td_keyword.Text, DropDownList1.SelectedItem.Text);
                 result = package.packageInsert();
 
                 if (result > 0)
@@ -60,7 +60,9 @@ namespace BizAppDev
 
         }
 
-
-
+        protected void btn_view_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Products(lermin).aspx") ;
+        }
     }
 }

@@ -80,6 +80,14 @@
             </SelectParameters>
         </asp:SqlDataSource>
       
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [package_Name], [package_Price], [package_Image] FROM [Package] WHERE ([package_festival] = @package_festival)">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="DropDownList1" Name="package_festival" PropertyName="SelectedValue" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource4" runat="server"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource5" runat="server"></asp:SqlDataSource>
+      
    </div>
         </div>
 </asp:Content>
