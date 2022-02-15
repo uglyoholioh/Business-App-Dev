@@ -416,6 +416,7 @@ namespace BizAppDev
                 string category = lblCategory.Text;
                 Label coupDiscount = (Label)(e.Item.FindControl("discountLabel"));
                 int perdiscount = int.Parse(coupDiscount.Text);
+                lbl_testdisc.Text = perdiscount.ToString();
                 string mycon = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
                 String myquery = "Select * from CustCoupon where Code='" + Code + "'";
                 SqlConnection con = new SqlConnection(mycon);
@@ -437,10 +438,12 @@ namespace BizAppDev
                     finalprice = 0;
                     bool usedCoupon = false;
                     int claimresult = 0;
+                    decimal percentc = 0;
                     while (i < nrow)
                     {
                         if (dt.Rows[i]["Category"].ToString() == category){
-                            finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString())*((100-perdiscount)/100 ));
+
+                            finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString())*((Convert.ToDecimal(100)-Convert.ToDecimal(perdiscount)))/100);
                             usedCoupon = true;
                         }
                         else
@@ -454,9 +457,11 @@ namespace BizAppDev
                     }
                     decimal gst = Math.Round(Convert.ToDecimal(gtotal) * Convert.ToDecimal(0.07), 2);
                     decimal Grandtotal = Math.Round(Convert.ToDecimal(gtotal) + Convert.ToDecimal(gst), 2);
+                    decimal newgst = Convert.ToDecimal(finalprice) / Convert.ToDecimal(gtotal) * gst;
+
 
                     Labelgrandtotal.Text = Grandtotal.ToString();
-                    lbl_discountedprice.Text = finalprice.ToString();
+                    lbl_discountedprice.Text = Math.Round((finalprice + newgst),2).ToString();
                     if (usedCoupon == true) {
                         claimresult = aCoup.useCoupon(CID, Code);
                     

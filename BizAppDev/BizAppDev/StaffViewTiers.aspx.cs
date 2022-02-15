@@ -71,24 +71,31 @@ namespace BizAppDev
             cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
             conn.Open();
             int nofRow = 0;
-            nofRow = cmd.ExecuteNonQuery();
-            conn.Close();
-            int result = 0;
-            pointsTier tier = new pointsTier();
-            result = tier.TierDelete(pointTierID);
-
-            if (result > 0)
+            try
             {
-                Response.Write("<script>alert('Tier Removed successfully');</script>");
+                nofRow = cmd.ExecuteNonQuery();
+                conn.Close();
+                int result = 0;
+                pointsTier tier = new pointsTier();
+                result = tier.TierDelete(pointTierID);
+
+                if (result > 0)
+                {
+                    Response.Write("<script>alert('Tier Removed successfully');</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Tier NOT removed successfully');</script>");
+                }
+
+                Response.Redirect("StaffViewTiers.aspx");
             }
-            else
+            catch
             {
-                Response.Write("<script>alert('Tier NOT removed successfully');</script>");
+                Response.Write("<script>alert('Customers currently on tier! Please remove tier from Customer first.');</script>");
             }
-
-            Response.Redirect("StaffViewTiers.aspx");
-
         }
+    
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {

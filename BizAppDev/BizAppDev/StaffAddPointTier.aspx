@@ -8,17 +8,17 @@
                             <asp:TextBox ID="tb_Name" runat="server" CssClass="form-control" required="true"></asp:TextBox>
                         </div>
                         <div class="mb-3">
-                          <label class="form-label">Tier descrription</label>
+                          <label class="form-label">Tier description</label>
                             <asp:TextBox ID="tb_descr" runat="server" CssClass="form-control" required="true"></asp:TextBox>
                         </div>
                         <div class="mb-3">
                           <label class="form-label">Point expenditure requirement to reach tier</label>
-                            <asp:TextBox ID="tb_price" runat="server" CssClass="form-control" type="number" required="true" ></asp:TextBox>
+                            <asp:TextBox ID="tb_price" runat="server" CssClass="form-control" type="number" min="0" required="true" ></asp:TextBox>
                             </div>
                                 <div class="mb-3">
                           <label class="form-label">Point multiplier</label>
-                            <asp:TextBox ID="tb_pointMultiplier" runat="server" CssClass="form-control"></asp:TextBox>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="tb_pointMultiplier" ValidationExpression="^[1-9]\d*(\.\d+)?$" runat="server" ErrorMessage="Enter valid number"></asp:RegularExpressionValidator>
+                            <asp:TextBox ID="tb_pointMultiplier" required="true" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="tb_pointMultiplier" ValidationExpression="^[1-9]\d*(\.\d+)?$" runat="server" ErrorMessage="Enter a valid number!"></asp:RegularExpressionValidator>
 
                             </div>
 

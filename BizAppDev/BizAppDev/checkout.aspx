@@ -163,11 +163,19 @@
                 <asp:TextBox ID="tb_discountcode0" runat="server" placeholder="Enter Code(Optional)"></asp:TextBox>
                 <asp:Button ID="Button1" runat="server" BackColor="#333333" ForeColor="White" Height="28px" OnClick="Button1_Click" Text="Apply" Width="61px" />
                  <h2>Select owned coupon</h2>
+                <asp:Label ID="lbl_testdisc" runat="server" Text="Label"></asp:Label>
 <div class="box">
 	<a class="button" href="#popup1">See list of Coupons</a>
 </div>
 
 <div id="popup1" class="overlay" >
+          <asp:SqlDataSource ID="PersonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE (([Cust_ID] = @Cust_ID) AND ([coupQuantity] &gt; @coupQuantity))">
+           <SelectParameters>
+               <asp:SessionParameter Name="Cust_ID" SessionField="CustID" Type="String" />
+               <asp:Parameter DefaultValue="0" Name="coupQuantity" Type="Int32" />
+           </SelectParameters>
+
+    </asp:SqlDataSource>
 	<div class="popup" style="min-width:1000px;" >
 		<h2>Your owned coupons</h2>
 		<a class="close" href="#">&times;</a>
@@ -221,11 +229,5 @@
             </td>
         </tr>
     </table>
-       <asp:SqlDataSource ID="PersonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE (([Cust_ID] = @Cust_ID) AND ([coupQuantity] &gt; @coupQuantity))">
-           <SelectParameters>
-               <asp:SessionParameter Name="Cust_ID" SessionField="CustID" Type="String" />
-               <asp:Parameter DefaultValue="0" Name="coupQuantity" Type="Int32" />
-           </SelectParameters>
-
-    </asp:SqlDataSource>
+ 
 </asp:Content>
