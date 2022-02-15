@@ -127,7 +127,7 @@ body {
     <asp:SqlDataSource ID="SeasonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Coupons]"></asp:SqlDataSource>
     
 
-    <asp:SqlDataSource ID="ddlCoupon" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [category] FROM [Coupon]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="ddlCoupon" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT DISTINCT [category] FROM [Coupon]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="PersonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE (([Cust_ID] = @Cust_ID) AND ([coupExpiry] &gt; @coupExpiry))" FilterExpression="category='{0}'">
         <FilterParameters>
             <asp:ControlParameter Name="category" ControlID="ddl_Category" PropertyName="SelectedValue" />
@@ -219,7 +219,7 @@ body {
                       <p class="card-text"><asp:Label ID="AsgnIDLabel" runat="server" Text='<%# Eval("coupDesc") %>' />
 </a>
                     </div>
-                    <div class="card-footer text-muted">Expires: <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("coupExpiry") %>' />
+                    <div class="card-footer text-muted">Expired: <asp:Label ID="Cust_IDLabel" runat="server" Text='<%# Eval("coupExpiry") %>' />
 </div>
                   </div>
 

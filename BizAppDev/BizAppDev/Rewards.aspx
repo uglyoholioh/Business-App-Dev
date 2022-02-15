@@ -191,7 +191,7 @@
         </div>
         <div class="middle-container d-flex justify-content-between align-items-center mt-3 p-2">
             <div class="dollar-div px-3">
-                <div class="round-div"><i class="fa fa-dollar dollar"></i></div>
+                <div class="round-div"><i class="fa fa-dollar dollar">$</i></div>
             </div>
             <div class="d-flex flex-column text-right mr-2"> <span class="current-balance">Current Points Balance</span> <span class="amount"><span class="dollar-sign"></span><asp:Label ID="lbl_Points" runat="server"> Points</asp:Label>
 </span> </div>
