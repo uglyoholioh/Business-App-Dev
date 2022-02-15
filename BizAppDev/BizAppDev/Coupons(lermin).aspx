@@ -47,10 +47,10 @@
                     <asp:BoundField DataField="couponName" HeaderText="coupon Name" HeaderStyle-Width="200px">
 <HeaderStyle Width="200px"></HeaderStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="couponstartDate" HeaderText="coupon start date" HeaderStyle-Width="200px" DataFormatString="{0:dd/MM/yyyy}">
+                    <asp:BoundField DataField="couponstartDate" HeaderText="coupon start date" HeaderStyle-Width="200px" >
 <HeaderStyle Width="200px"></HeaderStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="couponendDate" HeaderText="coupon end date" HeaderStyle-Width="200px" DataFormatString="{0:dd/MM/yyyy}">
+                    <asp:BoundField DataField="couponendDate" HeaderText="coupon end date" HeaderStyle-Width="200px" >
 <HeaderStyle Width="200px"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="couponAmt" HeaderText="coupon amount" />

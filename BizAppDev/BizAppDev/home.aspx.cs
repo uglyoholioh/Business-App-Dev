@@ -41,7 +41,7 @@ namespace BizAppDev
 
                 ptresult = pt.PointsTransactionInsert();
             }
-            lbl_Expiry.Text = aCust.pointExpiry.ToString();
+            
           
         }
         protected void Button_shopnow_Click(object sender, EventArgs e)

@@ -99,6 +99,7 @@
     <Content Include="Admininfo.aspx" />
     <Content Include="Adminlist.aspx" />
     <Content Include="AdvisorsView.aspx" />
+    <Content Include="BizAppDev.sln" />
     <Content Include="checkout.aspx" />
     <Content Include="checkoutoverview.aspx" />
     <Content Include="contact.aspx" />
