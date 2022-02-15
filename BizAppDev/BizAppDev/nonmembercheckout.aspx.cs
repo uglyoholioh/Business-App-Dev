@@ -293,7 +293,7 @@ namespace BizAppDev
 
 
             string mycon = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-            String myquery = "Select * from SeasonalCoupon where coupon_Name='" + tb_discountcode0.Text + "'";
+            String myquery = "Select * from Coupons where coupon_Name='" + tb_discountcode0.Text + "'";
             SqlConnection con = new SqlConnection(mycon);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = myquery;

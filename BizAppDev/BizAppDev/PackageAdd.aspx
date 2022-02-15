@@ -122,10 +122,28 @@
                             </td>
                         </tr>
                         <tr>
+                            <td style="width: 238px">Package Festival:</td>
+                            <td>
+                                <asp:DropDownList ID="DropDownList1" runat="server" Width="147px">
+                         
+          <asp:ListItem>Chinese New Year</asp:ListItem>
+          <asp:ListItem>Hungry Ghost Festival</asp:ListItem>
+          <asp:ListItem>Qing Ming Festival</asp:ListItem>
+          <asp:ListItem>Death Anniversary Prayers</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 238px; height: 24px;"></td>
+                            <td style="height: 24px">
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="DropDownList1" ErrorMessage="please select from the dropdown list." ForeColor="Red"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
                             <td style="width: 238px">&nbsp;</td>
                             <td>
                                 <asp:Button ID="btn_insert" runat="server" OnClick="btn_insert_Click" OnClientClick="" Text="Insert" class="btn btn-primary"/>
-&nbsp;<asp:Button ID="btn_view" runat="server" Text="View Package" CausesValidation="False" class="btn btn-primary"/>
+&nbsp;<asp:Button ID="btn_view" runat="server" Text="View Package" CausesValidation="False" class="btn btn-primary" OnClick="btn_view_Click"/>
                             </td>
                         </tr>
                     </table>

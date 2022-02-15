@@ -173,8 +173,15 @@
                             <b>Package Price:</b>
                             <asp:TextBox ID="TextBox2" runat="server" Text='<%# Eval("package_Price") %>'></asp:TextBox>
                             <br />
-                            <b>Package Festival:</b>&nbsp;<asp:TextBox ID="tb_festival" runat="server" Text='<%# Eval("package_festival") %>'></asp:TextBox>
-                            <br />
+                            <b>Package Festival:</b>&nbsp;<asp:DropDownList ID="DropDownList2" runat="server">
+                              
+                            
+          <asp:ListItem>Chinese New Year</asp:ListItem>
+          <asp:ListItem>Hungry Ghost Festival</asp:ListItem>
+          <asp:ListItem>Qing Ming Festival</asp:ListItem>
+          <asp:ListItem>Death Anniversary Prayers</asp:ListItem>
+                            </asp:DropDownList>
+                                            <br />
                             <asp:Button ID="Button1" runat="server" CommandName="update" Text="Update" class="btn btn-primary" style="color: white;" />
                             &nbsp;<asp:Button ID="Button2" runat="server" CommandName="cancel" Text="Cancel" class="btn btn-primary" style="color: white;"/>
                             </div>

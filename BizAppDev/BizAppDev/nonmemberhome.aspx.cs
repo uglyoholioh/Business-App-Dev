@@ -148,7 +148,7 @@ namespace BizAppDev
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("VideosView.aspx.aspx");
+            Response.Redirect("VideosView.aspx");
         }
     }
 

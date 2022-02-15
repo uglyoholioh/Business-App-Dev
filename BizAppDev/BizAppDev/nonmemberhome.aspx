@@ -99,7 +99,7 @@
    
    <div class="row flow-offset-1">
      <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="images/josspaperg.jfif" width="350px" height="280px"     alt=""></a>
+       <div class="product tumbnail thumbnail-3"><a href="nonmemberproductpage.aspx"><img src="images/josspaperg.jfif" width="350px" height="280px"     alt=""></a>
          <div class="caption">
            <h6><a href="nonmemberproductpage.aspx">Joss Paper</a></h6><span class="price">
            
@@ -107,7 +107,7 @@
        </div>
      </div>
      <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="images/joss sticks.jfif" width="350px" height="280px" alt=""></a>
+       <div class="product tumbnail thumbnail-3"><a href="nonmemberproductpage.aspx"><img src="images/joss sticks.jfif" width="350px" height="280px" alt=""></a>
          <div class="caption">
            <h6><a href="nonmemberproductpage.aspx">Joss Sticks</a></h6><span class="price">
            
@@ -115,14 +115,14 @@
        </div>
      </div>
      <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="images/hellmoney.jfif" width="350px" height="280px"     alt=""></a>
+       <div class="product tumbnail thumbnail-3"><a href="nonmemberproductpage.aspx"><img src="images/hellmoney.jfif" width="350px" height="280px"     alt=""></a>
          <div class="caption">
            <h6><a href="nonmemberproductpage.aspx">Joss Money</a></h6><span class="price"></span>
          </div>
        </div>
      </div>
      <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="images/candles.jfif" width="350px" height="280px"     alt=""></a>
+       <div class="product tumbnail thumbnail-3"><a href="nonmemberproductpage.aspx"><img src="images/candles.jfif" width="350px" height="280px"     alt=""></a>
          <div class="caption">
            <h6><a href="nonmemberproductpage.aspx">Candles</a></h6><span class="price">
              </span>
@@ -130,14 +130,14 @@
        </div>
      </div>
      <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="images/custom product.jpg" width="350px" height="280px"     alt=""></a>
+       <div class="product tumbnail thumbnail-3"><a href="Loginpage.aspx"><img src="images/custom product.jpg" width="350px" height="280px"     alt=""></a>
          <div class="caption">
            <h6><a href="Loginpage.aspx">Custom Product</a></h6><span class="price"></span>
          </div>
        </div>
      </div>
      <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="images/packages.jfif" width="350px" height="280px"     alt=""></a>
+       <div class="product tumbnail thumbnail-3"><a href="nonmemberpackage.aspx"><img src="images/packages.jfif" width="350px" height="280px"     alt=""></a>
          <div class="caption">
            <h6><a href="nonmemberpackage.aspx">Packages</a></h6><span class="price"></span>
          </div>

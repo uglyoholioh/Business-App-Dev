@@ -89,7 +89,7 @@ namespace BizAppDev
             try
             {
                 smtp.Send(mail);
-                Response.Redirect("home.aspx");
+                Response.Redirect("nonmemberhome.aspx");
             }
             catch
             {
