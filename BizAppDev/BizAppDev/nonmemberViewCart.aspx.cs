@@ -22,11 +22,14 @@ namespace BizAppDev
                     DataTable dt = new DataTable();
                     DataRow dr;
                     dt.Columns.Add("images");
+
                     dt.Columns.Add("Product_ID");
+
                     dt.Columns.Add("Product_Name");
                     dt.Columns.Add("quantity");
                     dt.Columns.Add("Unit_Price");
                     dt.Columns.Add("total");
+
 
                     if (Request.QueryString["id"] != null)
                     {
@@ -44,7 +47,9 @@ namespace BizAppDev
                             DataSet ds = new DataSet();
                             da.Fill(ds);
                             dr["images"] = ds.Tables[0].Rows[0]["Product_Image"].ToString();
+
                             dr["Product_ID"] = ds.Tables[0].Rows[0]["Product_ID"].ToString();
+
                             dr["Product_Name"] = ds.Tables[0].Rows[0]["Product_Name"].ToString();
                             dr["quantity"] = Request.QueryString["quantity"];
                             dr["Unit_Price"] = ds.Tables[0].Rows[0]["Unit_Price"].ToString();
@@ -92,7 +97,9 @@ namespace BizAppDev
                                 DataSet ds = new DataSet();
                                 da.Fill(ds);
                                 dr["images"] = ds.Tables[0].Rows[0]["Product_Image"].ToString();
+
                                 dr["Product_ID"] = ds.Tables[0].Rows[0]["Product_ID"].ToString();
+
                                 dr["Product_Name"] = ds.Tables[0].Rows[0]["Product_Name"].ToString();
                                 dr["quantity"] = Request.QueryString["quantity"];
                                 dr["Unit_Price"] = ds.Tables[0].Rows[0]["Unit_Price"].ToString();

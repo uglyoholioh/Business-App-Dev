@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/nonmembermaster.Master" AutoEventWireup="true" CodeBehind="nonmembercheckout.aspx.cs" Inherits="BizAppDev.nonmembercheckout" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- Choices CSS-->
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/vendor/choices.js/public/assets/styles/choices.min.css">
     <!-- theme stylesheet-->
@@ -24,6 +24,9 @@
        .Calendar2{
            margin-left:250px;
        }
+        .auto-style4 {
+            margin-top: 0px;
+        }
     </style>
     
     <table class="autoComplete_wrapper" HorizontalAlign="Center" style="margin-top:120px;">
@@ -54,18 +57,35 @@
         </tr>
         <tr>
             <td rowspan="3" class="auto-style3">
-                <asp:Calendar ID="Calendar2" runat="server" Height="280px"  OnDayRender="Calendar1_DayRender" Width="741px" CaptionAlign="NotSet">
+                Select The Delivery Date
+                <br />
+       
+                <asp:Calendar ID="Calendar2" runat="server" Height="345px"  OnDayRender="Calendar1_DayRender" Width="741px" CaptionAlign="NotSet" CssClass="auto-style4">
                     <DayHeaderStyle HorizontalAlign="Center" />
                     <TitleStyle HorizontalAlign="Center" />
                 </asp:Calendar>
             </td>
             <td class="auto-style2">
                 <h3>&nbsp;</h3>
-                <h3>Total</h3>
+                <h3>Enter Following Information Required.</h3>
                 <asp:DropDownList ID="DropDownList1" runat="server" Height="30px" Width="183px">
                     <asp:ListItem>Door-Step</asp:ListItem>
                     <asp:ListItem>In-Store</asp:ListItem>
                 </asp:DropDownList>
+              
+                <asp:Button ID="Btn_confirm" runat="server" Height="27px" OnClick="Btn_confirm_Click" Text="Confirm" Width="68px" BackColor="#333333" ForeColor="White" />
+              
+                <br />
+              
+                <br />
+                <asp:TextBox ID="tb_address" runat="server" placeholder="Enter Address"></asp:TextBox>
+                <br />
+                <br />
+                <asp:TextBox ID="tb_emaillll" runat="server" placeholder="Enter Email"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tb_emaillll"
+    ForeColor="Red" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+    Display = "Dynamic" ErrorMessage = "Invalid email address"/>
+                <br />
             </td>
         </tr>
         <tr>
@@ -81,7 +101,6 @@
                 <h3>OrderID:<asp:Label ID="lbl_orderid" runat="server" Text="Label"></asp:Label></h3>
                 <h3>Order Date:<asp:Label ID="lbl_orderDate" runat="server" Text="Label"></asp:Label></h3>
                 <h3>Delivery Date:<asp:Label ID="DeliveryDate" runat="server" Text="Label"></asp:Label></h3>
-                <br />
                  <h3>GST(7%):   $<asp:Label ID="Labelgst" runat="server"></asp:Label>
                 </h3>
                 <h3>Grand Total:$<asp:Label ID="Labelgrandtotal" runat="server" Height="33px" Text="total" Width="185px"></asp:Label>   
@@ -89,7 +108,7 @@
                 </h3>
                 <h3>Discounted Total:$<asp:Label ID="lbl_discountedprice" runat="server"></asp:Label>      </h3>
                 
-               <asp:Button ID="btn_pay" runat="server" Text="Pay" BackColor="#333333" ForeColor="White" Width="100px" OnClick="btn_pay_Click" />
+               <asp:Button ID="btn_pay" runat="server" Text="Pay" BackColor="#333333" ForeColor="White" Width="100px" OnClick="btn_pay_Click" OnClientClick="return confirm('Are you sure you want to Proceed You Cannot Undo After You Proceed?');"/>
             </td>
         </tr>
     </table>

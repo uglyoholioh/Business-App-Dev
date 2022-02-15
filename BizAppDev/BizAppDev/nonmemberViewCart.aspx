@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/nonmembermaster.Master" AutoEventWireup="true" CodeBehind="nonmemberViewCart.aspx.cs" Inherits="BizAppDev.nonmemberViewCart" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <style type="text/css">
+  <style type="text/css">
         .auto-style1 {
             margin-top: 0px;
         }
@@ -46,7 +46,7 @@
             </asp:ImageField>
         
             <asp:BoundField DataField="Product_ID" HeaderText="ID" />
-        
+      
             <asp:BoundField DataField="Product_Name" HeaderText="Product">
             </asp:BoundField>
             <asp:BoundField DataField="quantity" HeaderText="Quantity" />
@@ -57,6 +57,7 @@
             <HeaderStyle HorizontalAlign="Center" />
    
             </asp:BoundField>
+            
             <asp:CommandField ButtonType="Button" SelectText="Modify" ShowSelectButton="True" >
             <ControlStyle BackColor="#333333" ForeColor="White" />
             <ItemStyle ForeColor="Purple" />

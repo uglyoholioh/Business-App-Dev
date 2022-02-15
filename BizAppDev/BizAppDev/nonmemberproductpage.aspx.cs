@@ -13,7 +13,7 @@ namespace BizAppDev
         {
             DataList1.RepeatColumns = 5;
             DataList1.RepeatDirection = RepeatDirection.Horizontal;
-            if(Request.QueryString["categories"] != null)
+            if (Request.QueryString["categories"] != null)
             {
                 DataList1.DataSourceID = null;
                 DataList1.DataSource = SqlDataSource3;
@@ -23,15 +23,15 @@ namespace BizAppDev
 
         protected void btn_searchproduct_Click(object sender, EventArgs e)
         {
-           
-            if(tb_search.Text != "")
+
+            if (tb_search.Text != "")
             {
                 DataList1.DataSourceID = null;
                 DataList1.DataSource = SqlDataSource2;
                 DataList1.DataBind();
             }
-            
-            if(tb_search.Text == "")
+
+            if (tb_search.Text == "")
             {
                 Response.Write("<script type=\"text/javascript\">alert('Please Enter A Product!!!');</script>");
             }
@@ -83,21 +83,21 @@ namespace BizAppDev
                 DataList1.DataBind();
             }
 
-            if(DropDownList1.SelectedItem.Text=="Low to High Price")
+            if (DropDownList1.SelectedItem.Text == "Low to High Price")
             {
                 DataList1.DataSourceID = null;
                 DataList1.DataSource = SqlDataSource4;
                 DataList1.DataBind();
             }
-           
-            if(DropDownList1.SelectedItem.Text== "High to Low Price")
+
+            if (DropDownList1.SelectedItem.Text == "High to Low Price")
             {
                 DataList1.DataSourceID = null;
                 DataList1.DataSource = SqlDataSource5;
                 DataList1.DataBind();
             }
-             
-        
+
+
 
         }
     }    

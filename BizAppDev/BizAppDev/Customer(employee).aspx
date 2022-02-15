@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Employee.Master" AutoEventWireup="true" CodeBehind="Customer(employee).aspx.cs" Inherits="BizAppDev.Customer_employee_" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form id="form1" runat="server">
+ <form id="form1" runat="server">
     <header class="bg-white shadow-sm px-4 py-3 z-index-20">
             <div class="container-fluid px-0">
               <h2 class="mb-0 p-1">Customers</h2>
@@ -59,9 +59,8 @@
                   </div>
                  </ItemTemplate>
         </asp:DataList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project%>" SelectCommand="SELECT * FROM [Customer]"></asp:SqlDataSource>
     </form>
-
+       <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project%>" SelectCommand="SELECT * FROM [Customer]"></asp:SqlDataSource>
 
 
 </asp:Content>

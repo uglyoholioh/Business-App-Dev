@@ -32,6 +32,7 @@ namespace BizAppDev
                     dt.Columns.Add("Unit_Price");
                     dt.Columns.Add("total");
 
+
                     if (Request.QueryString["id"] != null)
                     {
                         if (Session["Buyitems"] == null)
@@ -140,6 +141,17 @@ namespace BizAppDev
             catch
             {
 
+            }
+        }
+        protected void Btn_confirm_Click(object sender, EventArgs e)
+        {
+            if (DropDownList1.SelectedItem.Text == "In-Store")
+            {
+                tb_address.Enabled = false;
+            }
+            else
+            {
+                tb_address.Enabled = true;
             }
         }
         private void checkdesignid()
@@ -340,8 +352,8 @@ namespace BizAppDev
 
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {
-                string updatepass = "insert into orderdetails(orderid,Product_ID,Product_Name,price,quantity,deliveryoption,deliverydate,grandtotal,discountedtotal,OrderStatus,Cust_ID)"
-                    + "values(@orderid,@product_id,@product_name,@price,@quantity,@deliveryoption,@deliverydate,@grandtotal,@discountedtotal,@OrderStatus,@Cust_ID)";
+                string updatepass = "insert into orderdetails(orderid,Product_ID,Product_Name,price,quantity,deliveryoption,deliverydate,grandtotal,discountedtotal,OrderStatus,Cust_ID,address,email)"
+                    + "values(@orderid,@product_id,@product_name,@price,@quantity,@deliveryoption,@deliverydate,@grandtotal,@discountedtotal,@OrderStatus,@Cust_ID,@add,@ema)";
                 string mycon = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
 
                 SqlConnection conn = new SqlConnection(mycon);
@@ -358,6 +370,18 @@ namespace BizAppDev
                 cmd.Parameters.AddWithValue("@grandtotal", Convert.ToDecimal(Labelgrandtotal.Text));
                 cmd.Parameters.AddWithValue("@OrderStatus", "Pending");
                 cmd.Parameters.AddWithValue("@Cust_ID", "Guest");
+
+                cmd.Parameters.AddWithValue("@ema", tb_emaillll.Text);
+                if (tb_address.Text == "")
+                {
+                    cmd.Parameters.AddWithValue("@add", "The Trilinq");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@add", tb_address.Text);
+                }
+
+
                 if (lbl_discountedprice.Text == string.Empty)
                 {
                     cmd.Parameters.AddWithValue("@discountedtotal", Convert.ToDecimal(0.00));

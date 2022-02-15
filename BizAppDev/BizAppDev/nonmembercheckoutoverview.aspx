@@ -98,6 +98,10 @@
                 <br />
                 <asp:Label ID="lbldelop" runat="server"></asp:Label>
                 <br />
+           <asp:Label ID="Labeladd" runat="server" Text="Lbl_address"></asp:Label>
+            <br />
+           <asp:Label ID="Lbl_em" runat="server" Text="Label"></asp:Label>
+                <br />
                 <asp:Label ID="lbldeldate" runat="server" Text="Label"></asp:Label>
     <br>
                  <td>
@@ -105,8 +109,10 @@
                   Grand Total:$ <asp:Label  ID="Labelgg" runat="server" Text="Label"></asp:Label>
                          
                    <br />
+&nbsp;&nbsp;
+                         
+                   <br />
                   
-                   <asp:Label ID="Labeldisc" runat="server"></asp:Label>
                        <form id="form1">
                         <button type="submit">Pay</button>
                     </form>

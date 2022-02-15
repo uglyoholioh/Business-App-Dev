@@ -152,6 +152,8 @@
     <Content Include="nonmembercheckoutoverview.aspx" />
     <Content Include="nonmembereditorder.aspx" />
     <Content Include="nonmemberhome.aspx" />
+    <Content Include="nonmembermembershiptierlistmoreinfo.aspx" />
+    <Content Include="nonmemberorderstatus.aspx" />
     <Content Include="nonmemberproductpage.aspx" />
     <Content Include="nonmemberproduct_desc.aspx" />
     <Content Include="nonmembersuccess.aspx" />
@@ -648,6 +650,20 @@
     </Compile>
     <Compile Include="nonmembermaster.Master.designer.cs">
       <DependentUpon>nonmembermaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="nonmembermembershiptierlistmoreinfo.aspx.cs">
+      <DependentUpon>nonmembermembershiptierlistmoreinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonmembermembershiptierlistmoreinfo.aspx.designer.cs">
+      <DependentUpon>nonmembermembershiptierlistmoreinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nonmemberorderstatus.aspx.cs">
+      <DependentUpon>nonmemberorderstatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonmemberorderstatus.aspx.designer.cs">
+      <DependentUpon>nonmemberorderstatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="nonmemberproductpage.aspx.cs">
       <DependentUpon>nonmemberproductpage.aspx</DependentUpon>

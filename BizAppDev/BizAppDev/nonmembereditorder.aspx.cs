@@ -51,20 +51,20 @@ namespace BizAppDev
         protected void tb_quantity_TextChanged(object sender, EventArgs e)
         {
             int q;
-           
+
             q = Convert.ToInt32(tb_quantity.Text);
             decimal cost;
             cost = decimal.Parse(Label6.Text);
             decimal totalcost;
             totalcost = cost * q;
             Label7.Text = totalcost.ToString();
-            
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             dt = (DataTable)Session["buyitems"];
-         
+
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {
                 int sr;
