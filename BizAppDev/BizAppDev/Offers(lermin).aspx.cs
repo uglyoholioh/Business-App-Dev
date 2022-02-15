@@ -75,20 +75,27 @@ namespace BizAppDev
             string ostartDate = ((TextBox)row.Cells[2].Controls[0]).Text;
             
             string oendDate = ((TextBox)row.Cells[3].Controls[0]).Text;
+            try
+            {
+                result = offer.OfferUpdate(oid, oname, ostartDate, oendDate);
+                if (result > 0)
+                {
+                    Response.Write("<script>alert('Offer updated successfully');</script>");
+                    lbl_alert.Text = "Offer update successfully";
+                    lbl_alert.ForeColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    Response.Write("<script>alert('Offer NOT updated');</script>");
+                    lbl_alert.Text = "Offer update NOT successfully";
+                    lbl_alert.ForeColor = System.Drawing.Color.Red;
+                }
+            }
+            catch
+            {
 
-            result = offer.OfferUpdate(oid, oname, ostartDate, oendDate);
-            if (result > 0)
-            {
-                Response.Write("<script>alert('Offer updated successfully');</script>");
-                lbl_alert.Text = "Offer update successfully";
-                lbl_alert.ForeColor = System.Drawing.Color.Green;
             }
-            else
-            {
-                Response.Write("<script>alert('Offer NOT updated');</script>");
-                lbl_alert.Text = "Offer update NOT successfully";
-                lbl_alert.ForeColor = System.Drawing.Color.Red;
-            }
+            
             gvOffer.EditIndex = -1;
             bind();
 
@@ -191,7 +198,9 @@ namespace BizAppDev
             gvOffer.DataBind();
         }
 
+        protected void SqlDataSource1_Updating(object sender, SqlDataSourceCommandEventArgs e)
+        {
 
-
+        }
     }
 }

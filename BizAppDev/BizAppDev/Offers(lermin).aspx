@@ -61,7 +61,7 @@
                 <SortedDescendingCellStyle BackColor="#E5E5E5" />
                 <SortedDescendingHeaderStyle BackColor="#275353" />
             </asp:GridView>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Offers]"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Offers]" OnUpdating="SqlDataSource1_Updating"></asp:SqlDataSource>
         </p>
         <p>
             <asp:Button ID="btn_add" runat="server" Text="Add Offers/ Events"  OnClick="btn_add_Click" class="btn btn-primary" style="color: white;"/>

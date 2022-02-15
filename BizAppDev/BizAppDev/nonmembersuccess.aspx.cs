@@ -68,10 +68,9 @@ namespace BizAppDev
 
             StringBuilder sbEmailBody = new StringBuilder();
             mail.Subject = "Confirmation For Purchase Order";
-            sbEmailBody.Append("Your Order( order Number" + Label1.Text + ") Have been recieved by the team.");
-            sbEmailBody.Append("<br/><br/>");
+            sbEmailBody.Append("Your Order( order Number    " + Label1.Text + ") Have been recieved by the team.");
+            sbEmailBody.Append("<br/>");
             sbEmailBody.Append("The total Amount for the order is  $" + Label3.Text);
-            sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("We Will Try to Deliver by the delivery date you have chosen,If you have Picked In-store Pickup, kindly wear a mask and practice 1m social distancing and only come on your selected delivery date.");
             sbEmailBody.Append("<br/><br/>");
 

@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Threading;
-using System.Data;
-using System.Data.SqlClient;
-using System.Data;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 namespace BizAppDev
 {
     public partial class nonmembercheckout : System.Web.UI.Page
@@ -318,7 +311,7 @@ namespace BizAppDev
                 decimal gst = Math.Round(Convert.ToDecimal(gtotal) * Convert.ToDecimal(0.07), 2);
                 decimal Grandtotal = Math.Round(Convert.ToDecimal(gtotal) + Convert.ToDecimal(gst), 2);
 
-                discount = decimal.Parse(ds.Tables[0].Rows[0]["coup_discountamt"].ToString());
+                discount = decimal.Parse(ds.Tables[0].Rows[0]["coup_disccountamt"].ToString());
                 finalprice = Math.Round(Grandtotal * (1 - discount));
                 Labelgrandtotal.Text = Grandtotal.ToString();
                 lbl_discountedprice.Text = finalprice.ToString();
