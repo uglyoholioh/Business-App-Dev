@@ -30,7 +30,7 @@ namespace BizAppDev
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
-            tb_date.Text = Calendar1.SelectedDate.ToString("dd / MMM / yyyy hh: mm:ss");
+            tb_date.Text = Calendar1.SelectedDate.ToString("dd/MM/yyyy");
             Calendar1.Visible = false;
         }
 

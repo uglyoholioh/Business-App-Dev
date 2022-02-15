@@ -81,11 +81,11 @@ namespace BizAppDev
             string date = tbdate.Text;
 
 
-            if ((ddl_colview.SelectedItem.Text != "Default") && (ddl_stview.SelectedItem.Text != "Default"))
+            if (ddl_colview.SelectedItem.Text != "Default" && ddl_stview.SelectedItem.Text != "Default")
             {
-               if(cal.SelectedDate.ToString("dd / MMM / yyyy hh: mm:ss") != "01/01/0001")
+               if(cal.SelectedDate.ToString("dd/MM/yyyy") != "01/01/0001")
                 {
-                    string datee = cal.SelectedDate.ToString("dd / MMM / yyyy hh: mm:ss");
+                    string datee = cal.SelectedDate.ToString("dd/MM/yyyy");
                     result = productCust.ProdCustUpdate(pcID, pcCat, pcCol, pcScent, name, email, contact, datee);
                 }
                 else
