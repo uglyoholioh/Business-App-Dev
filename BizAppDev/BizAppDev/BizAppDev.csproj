@@ -935,6 +935,13 @@
     <Compile Include="ViewCart.aspx.designer.cs">
       <DependentUpon>ViewCart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="viewmemberprofile.Master.cs">
+      <DependentUpon>viewmemberprofile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewmemberprofile.Master.designer.cs">
+      <DependentUpon>viewmemberprofile.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CustomerMain.Master" />
@@ -945,6 +952,7 @@
     <Content Include="Employee.Master" />
     <Content Include="Jossproject.csproj" />
     <None Include="packages.config" />
+    <Content Include="viewmemberprofile.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

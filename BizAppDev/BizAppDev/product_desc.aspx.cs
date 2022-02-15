@@ -15,23 +15,38 @@ namespace BizAppDev
         {
             Session["addproduct"] = "false";
         }
-
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
             //     Label Stock_LevelLabel = (Label)(e.Item.FindControl("Stock_LevelLabel"));
+            Label Stock_LevelLabel = (Label)(e.Item.FindControl("Stock_LevelLabel"));
             TextBox tb_quantity = (TextBox)(e.Item.FindControl("tb_quantity"));
-            //     if(int.Parse(tb_quantity.ToString()) > int.Parse(Stock_LevelLabel.ToString()))
-            //      {
-            //          Response.Write("<alert>('Quantity Entered is more than available quantity');</alert>");
-            //      }
-            //     else
+            if (tb_quantity.Text == "0" || int.Parse(tb_quantity.Text) > int.Parse(Stock_LevelLabel.Text))
+            {
+                try
+                {
+                    if (int.Parse(tb_quantity.Text) > int.Parse(Stock_LevelLabel.Text))
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('Quantity is more than available Quantity!!!');</script>");
 
-            Session["addproduct"] = "true";
+                    }
 
-            Response.Redirect("ViewCart.aspx?id=" + e.CommandArgument.ToString() + "&Quantity=" + tb_quantity.Text);
+                    if (tb_quantity.Text == "0")
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('Quantity must be at least one!!!');</script>");
+                    }
+                }
+                catch
+                {
 
+                }
+            }
+            else
+            {
+                //    
+                Session["addproduct"] = "true";
 
-
+                Response.Redirect("nonmemberViewCart.aspx?id=" + e.CommandArgument.ToString() + "&Quantity=" + tb_quantity.Text);
+            }
 
         }
 

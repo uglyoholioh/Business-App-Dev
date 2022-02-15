@@ -372,6 +372,10 @@ namespace BizAppDev
                 cmd.Parameters.AddWithValue("@Cust_ID", "Guest");
 
                 cmd.Parameters.AddWithValue("@ema", tb_emaillll.Text);
+                Product bProd = new Product();
+                int prodresult = 0;
+
+                prodresult = bProd.ProductBought(dt.Rows[i]["Product_ID"].ToString(), int.Parse((dt.Rows[i]["quantity"].ToString())));
                 if (tb_address.Text == "")
                 {
                     cmd.Parameters.AddWithValue("@add", "The Trilinq");

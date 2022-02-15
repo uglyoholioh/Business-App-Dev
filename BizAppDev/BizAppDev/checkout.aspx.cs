@@ -370,7 +370,8 @@ namespace BizAppDev
                 cmd.Parameters.AddWithValue("@Cust_ID", "Guest");
                 Product bProd = new Product();
                 int prodresult = 0;
-                prodresult = bProd.ProductBought(dt.Rows[i]["Product_ID"].ToString(), int.Parse(dt.Rows[i]["quantity"].ToString()));
+
+                prodresult = bProd.ProductBought(dt.Rows[i]["Product_ID"].ToString(), int.Parse((dt.Rows[i]["quantity"].ToString())));
                 if (lbl_discountedprice.Text == string.Empty)
                 {
                     cmd.Parameters.AddWithValue("@discountedtotal", Convert.ToDecimal(0.00));
@@ -438,15 +439,16 @@ namespace BizAppDev
                     int claimresult = 0;
                     while (i < nrow)
                     {
-                        if (dt.Rows[i]["Category"].ToString() == category){
-                            finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString())*((100-perdiscount)/100 ));
+                        if (dt.Rows[i]["Category"].ToString() == category)
+                        {
+                            finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString()) * ((100 - perdiscount) / 100));
                             usedCoupon = true;
                         }
                         else
                         {
                             finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString()));
                         }
-                    
+
                         gtotal = gtotal + (decimal.Parse(dt.Rows[i]["total"].ToString()));
                         i = i + 1;
 
@@ -456,9 +458,10 @@ namespace BizAppDev
 
                     Labelgrandtotal.Text = Grandtotal.ToString();
                     lbl_discountedprice.Text = finalprice.ToString();
-                    if (usedCoupon == true) {
+                    if (usedCoupon == true)
+                    {
                         claimresult = aCoup.useCoupon(CID, Code);
-                    
+
                     }
                     else
                     {
