@@ -20,7 +20,7 @@
 
     <div class="card">
                     <div class="card-body" style="width:1920px">
-                      <h3 class="card-title">Your Profile:</h3>
+                      <h3 class="card-title">Your Profile</h3>
                       <div class="row gy-4">
                         <div class="col-sm-6 col-sm-6">
                           <label class="form-label">Username</label>               
