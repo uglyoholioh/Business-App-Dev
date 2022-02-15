@@ -75,11 +75,15 @@ namespace BizAppDev
             string cid = ((TextBox)row.Cells[0].Controls[0]).Text;
             string cname = ((TextBox)row.Cells[1].Controls[0]).Text;
             string cstartdate = ((TextBox)row.Cells[2].Controls[0]).Text;
+            DateTime DTcstartdate = Convert.ToDateTime(cstartdate);
+            string newformatcstartdate = DTcstartdate.ToString("yyyy-mm-dd");
             string cenddate = ((TextBox)row.Cells[3].Controls[0]).Text;
+            DateTime DTcenddate = Convert.ToDateTime(cenddate);
+            string newformatcenddate = DTcenddate.ToString("yyyy-mm-dd");
 
             Decimal cAmt = decimal.Parse(((TextBox)row.Cells[4].Controls[0]).Text);
 
-            result = coup.CoupUpdate(cid, cname, cstartdate, cenddate, cAmt);
+            result = coup.CoupUpdate(cid, cname, newformatcstartdate, newformatcenddate, cAmt);
             if (result > 0)
             {
                 Response.Write("<script>alert('Coupon updated successfully');</script>");
