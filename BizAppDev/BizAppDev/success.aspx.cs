@@ -43,7 +43,7 @@ namespace BizAppDev
                     Label3.Text = row.Field<decimal>("discountedtotal").ToString();
                 }
                 Label1.Text = row.Field<string>("orderid").ToString();
-
+               
                 Label2.Text = row.Field<string>("email").ToString();
 
                 break;
