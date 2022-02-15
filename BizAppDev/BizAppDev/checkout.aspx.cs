@@ -7,8 +7,6 @@ using System.Web.UI.WebControls;
 using System.Threading;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data;
-using System.Data.SqlClient;
 using System.Configuration;
 namespace BizAppDev
 {
@@ -34,6 +32,7 @@ namespace BizAppDev
                     dt.Columns.Add("quantity");
                     dt.Columns.Add("Unit_Price");
                     dt.Columns.Add("total");
+                    dt.Columns.Add("Category");
 
                     if (Request.QueryString["id"] != null)
                     {
@@ -55,6 +54,8 @@ namespace BizAppDev
                             dr["Product_Name"] = ds.Tables[0].Rows[0]["Product_Name"].ToString();
                             dr["quantity"] = Request.QueryString["quantity"];
                             dr["Unit_Price"] = ds.Tables[0].Rows[0]["Unit_Price"].ToString();
+                            dr["Category"] = ds.Tables[0].Rows[0]["Category"].ToString();
+
 
                             decimal Unit_Price = decimal.Parse(ds.Tables[0].Rows[0]["Unit_Price"].ToString());
                             Int64 quantity = int.Parse(Request.QueryString["quantity"].ToString());

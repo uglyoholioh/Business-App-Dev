@@ -93,6 +93,7 @@
   <ItemGroup>
     <Content Include="AcceptedOrder.aspx" />
     <Content Include="Addemployee.aspx" />
+    <Content Include="addOffer.aspx" />
     <Content Include="AddPersonalCoupon.aspx" />
     <Content Include="AddProduct.aspx" />
     <Content Include="Admininfo.aspx" />
@@ -100,11 +101,16 @@
     <Content Include="AdvisorsView.aspx" />
     <Content Include="checkout.aspx" />
     <Content Include="checkoutoverview.aspx" />
+    <Content Include="CouponDetail%28employee%29.aspx" />
     <Content Include="CouponDetail.aspx" />
     <Content Include="CouponInsert.aspx" />
+    <Content Include="Coupons%28lermin%29%28employee%29.aspx" />
     <Content Include="Coupons%28lermin%29.aspx" />
+    <Content Include="Coupons2Detail%28employee%29.aspx" />
     <Content Include="Coupons2Detail.aspx" />
+    <Content Include="CouponsValidity%28lermin%29%28employee%29.aspx" />
     <Content Include="CouponsValidity%28lermin%29.aspx" />
+    <Content Include="Customer%28employee%29.aspx" />
     <Content Include="Customer.aspx" />
     <Content Include="CustomerCoupon.aspx" />
     <Content Include="CustomerCoupons.aspx" />
@@ -113,6 +119,7 @@
     <Content Include="CustomerLanding.aspx" />
     <Content Include="CustomerMain.css" />
     <Content Include="CustomerMainPage.aspx" />
+    <Content Include="CustomerMoreInfo%28employee%29.aspx" />
     <Content Include="CustomerMoreInfo.aspx" />
     <Content Include="CustomerPoints.aspx" />
     <Content Include="CustomerPurchaseCoupon.aspx" />
@@ -120,6 +127,7 @@
     <Content Include="CustomerViewPerks.aspx" />
     <Content Include="CustViewOrders.aspx" />
     <Content Include="EditOrder.aspx" />
+    <Content Include="EditProfile%28employee%29.aspx" />
     <Content Include="EditProfile.aspx" />
     <Content Include="EduVideoInsert.aspx" />
     <Content Include="Employeeinfo.aspx" />
@@ -136,7 +144,9 @@
     <Content Include="home.aspx" />
     <Content Include="images\winston-chen-5XBn_RTp7ik-unsplash.jpg" />
     <Content Include="Loginpage.aspx" />
+    <Content Include="MembershipMoreInfo%28employee%29.aspx" />
     <Content Include="MembershipMoreInfo.aspx" />
+    <Content Include="MembershipTierList%28employee%29.aspx" />
     <Content Include="MembershipTierList.aspx" />
     <Content Include="nonmembercheckout.aspx" />
     <Content Include="nonmembercheckoutoverview.aspx" />
@@ -146,9 +156,12 @@
     <Content Include="nonmemberproduct_desc.aspx" />
     <Content Include="nonmembersuccess.aspx" />
     <Content Include="nonmemberViewCart.aspx" />
+    <Content Include="offerDetails%28employee%29.aspx" />
     <Content Include="offerDetails.aspx" />
+    <Content Include="Offers%28lermin%29%28employee%29.aspx" />
     <Content Include="Offers%28lermin%29.aspx" />
     <Content Include="Orderinfo.aspx" />
+    <Content Include="orders%28lermin%29%28employee%29.aspx" />
     <Content Include="orders%28lermin%29.aspx" />
     <Content Include="Orderstatus.aspx" />
     <Content Include="PackageAdd.aspx" />
@@ -160,6 +173,7 @@
     <Content Include="ProductCust.aspx" />
     <Content Include="ProductCustomization.aspx" />
     <Content Include="ProductCustView.aspx" />
+    <Content Include="Products%28lermin%29%28employee%29.aspx" />
     <Content Include="Products%28lermin%29.aspx" />
     <Content Include="ProductsOrdering.aspx" />
     <Content Include="product_desc.aspx" />
@@ -192,6 +206,13 @@
     </Compile>
     <Compile Include="Addemployee.aspx.designer.cs">
       <DependentUpon>Addemployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addOffer.aspx.cs">
+      <DependentUpon>addOffer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addOffer.aspx.designer.cs">
+      <DependentUpon>addOffer.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddPersonalCoupon.aspx.cs">
       <DependentUpon>AddPersonalCoupon.aspx</DependentUpon>
@@ -252,6 +273,13 @@
       <DependentUpon>checkoutoverview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Coupon.cs" />
+    <Compile Include="CouponDetail%28employee%29.aspx.cs">
+      <DependentUpon>CouponDetail%28employee%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CouponDetail%28employee%29.aspx.designer.cs">
+      <DependentUpon>CouponDetail%28employee%29.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CouponDetail.aspx.cs">
       <DependentUpon>CouponDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -266,6 +294,13 @@
     <Compile Include="CouponInsert.aspx.designer.cs">
       <DependentUpon>CouponInsert.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Coupons%28lermin%29%28employee%29.aspx.cs">
+      <DependentUpon>Coupons%28lermin%29%28employee%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coupons%28lermin%29%28employee%29.aspx.designer.cs">
+      <DependentUpon>Coupons%28lermin%29%28employee%29.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Coupons%28lermin%29.aspx.cs">
       <DependentUpon>Coupons%28lermin%29.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -275,6 +310,13 @@
     </Compile>
     <Compile Include="Coupons.cs" />
     <Compile Include="Coupons2.cs" />
+    <Compile Include="Coupons2Detail%28employee%29.aspx.cs">
+      <DependentUpon>Coupons2Detail%28employee%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coupons2Detail%28employee%29.aspx.designer.cs">
+      <DependentUpon>Coupons2Detail%28employee%29.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Coupons2Detail.aspx.cs">
       <DependentUpon>Coupons2Detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -282,12 +324,26 @@
     <Compile Include="Coupons2Detail.aspx.designer.cs">
       <DependentUpon>Coupons2Detail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CouponsValidity%28lermin%29%28employee%29.aspx.cs">
+      <DependentUpon>CouponsValidity%28lermin%29%28employee%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CouponsValidity%28lermin%29%28employee%29.aspx.designer.cs">
+      <DependentUpon>CouponsValidity%28lermin%29%28employee%29.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CouponsValidity%28lermin%29.aspx.cs">
       <DependentUpon>CouponsValidity%28lermin%29.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CouponsValidity%28lermin%29.aspx.designer.cs">
       <DependentUpon>CouponsValidity%28lermin%29.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer%28employee%29.aspx.cs">
+      <DependentUpon>Customer%28employee%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer%28employee%29.aspx.designer.cs">
+      <DependentUpon>Customer%28employee%29.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer.aspx.cs">
       <DependentUpon>Customer.aspx</DependentUpon>
@@ -346,6 +402,13 @@
     <Compile Include="CustomerMainPage.aspx.designer.cs">
       <DependentUpon>CustomerMainPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerMoreInfo%28employee%29.aspx.cs">
+      <DependentUpon>CustomerMoreInfo%28employee%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerMoreInfo%28employee%29.aspx.designer.cs">
+      <DependentUpon>CustomerMoreInfo%28employee%29.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerMoreInfo.aspx.cs">
       <DependentUpon>CustomerMoreInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -394,6 +457,13 @@
     </Compile>
     <Compile Include="EditOrder.aspx.designer.cs">
       <DependentUpon>EditOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditProfile%28employee%29.aspx.cs">
+      <DependentUpon>EditProfile%28employee%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProfile%28employee%29.aspx.designer.cs">
+      <DependentUpon>EditProfile%28employee%29.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditProfile.aspx.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>
@@ -515,6 +585,13 @@
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
+    <Compile Include="MembershipMoreInfo%28employee%29.aspx.cs">
+      <DependentUpon>MembershipMoreInfo%28employee%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MembershipMoreInfo%28employee%29.aspx.designer.cs">
+      <DependentUpon>MembershipMoreInfo%28employee%29.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MembershipMoreInfo.aspx.cs">
       <DependentUpon>MembershipMoreInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -523,6 +600,13 @@
       <DependentUpon>MembershipMoreInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="MembershipTier.cs" />
+    <Compile Include="MembershipTierList%28employee%29.aspx.cs">
+      <DependentUpon>MembershipTierList%28employee%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MembershipTierList%28employee%29.aspx.designer.cs">
+      <DependentUpon>MembershipTierList%28employee%29.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MembershipTierList.aspx.cs">
       <DependentUpon>MembershipTierList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -593,12 +677,26 @@
     <Compile Include="nonmemberViewCart.aspx.designer.cs">
       <DependentUpon>nonmemberViewCart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="offerDetails%28employee%29.aspx.cs">
+      <DependentUpon>offerDetails%28employee%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="offerDetails%28employee%29.aspx.designer.cs">
+      <DependentUpon>offerDetails%28employee%29.aspx</DependentUpon>
+    </Compile>
     <Compile Include="offerDetails.aspx.cs">
       <DependentUpon>offerDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="offerDetails.aspx.designer.cs">
       <DependentUpon>offerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Offers%28lermin%29%28employee%29.aspx.cs">
+      <DependentUpon>Offers%28lermin%29%28employee%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Offers%28lermin%29%28employee%29.aspx.designer.cs">
+      <DependentUpon>Offers%28lermin%29%28employee%29.aspx</DependentUpon>
     </Compile>
     <Compile Include="Offers%28lermin%29.aspx.cs">
       <DependentUpon>Offers%28lermin%29.aspx</DependentUpon>
@@ -616,6 +714,13 @@
     </Compile>
     <Compile Include="Orderinfo.aspx.designer.cs">
       <DependentUpon>Orderinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="orders%28lermin%29%28employee%29.aspx.cs">
+      <DependentUpon>orders%28lermin%29%28employee%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="orders%28lermin%29%28employee%29.aspx.designer.cs">
+      <DependentUpon>orders%28lermin%29%28employee%29.aspx</DependentUpon>
     </Compile>
     <Compile Include="orders%28lermin%29.aspx.cs">
       <DependentUpon>orders%28lermin%29.aspx</DependentUpon>
@@ -701,6 +806,13 @@
       <DependentUpon>ProductCustView.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductOrdering.cs" />
+    <Compile Include="Products%28lermin%29%28employee%29.aspx.cs">
+      <DependentUpon>Products%28lermin%29%28employee%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products%28lermin%29%28employee%29.aspx.designer.cs">
+      <DependentUpon>Products%28lermin%29%28employee%29.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Products%28lermin%29.aspx.cs">
       <DependentUpon>Products%28lermin%29.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
