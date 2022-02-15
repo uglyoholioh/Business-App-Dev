@@ -370,7 +370,8 @@ namespace BizAppDev
                 cmd.Parameters.AddWithValue("@Cust_ID", "Guest");
                 Product bProd = new Product();
                 int prodresult = 0;
-                prodresult = bProd.ProductBought(dt.Rows[i]["Product_ID"].ToString(), int.Parse(dt.Rows[i]["quantity"].ToString()));
+
+                prodresult = bProd.ProductBought(dt.Rows[i]["Product_ID"].ToString(), int.Parse((dt.Rows[i]["quantity"].ToString())));
                 if (lbl_discountedprice.Text == string.Empty)
                 {
                     cmd.Parameters.AddWithValue("@discountedtotal", Convert.ToDecimal(0.00));
