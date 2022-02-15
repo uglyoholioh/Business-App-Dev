@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Offers(lermin).aspx.cs" Inherits="BizAppDev.Offers_lermin_" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form id="form1" runat="server">
+<form id="form1" runat="server">
         <div class="card mb-0" style="margin-left:40px;  margin-left:150px;">
                     <div class="card-header">
                       <div class="card-close">
@@ -61,14 +61,23 @@
                 <SortedDescendingCellStyle BackColor="#E5E5E5" />
                 <SortedDescendingHeaderStyle BackColor="#275353" />
             </asp:GridView>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Offers]" OnUpdating="SqlDataSource1_Updating"></asp:SqlDataSource>
-        </p>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Offers]" UpdateCommand="UPDATE Offers SET offer_Name = @offer_Name, offer_startDate = @offer_startDate,
+                offer_endDate = @offer_endDate 
+                WHERE offer_ID = @offer_ID"></asp:SqlDataSource>
+                            <UpdateParameters>
+        <asp:Parameter Name="offer_Name" Type="String" />
+        <asp:Parameter Name="offer_startDate" Type="String" />
+        <asp:Parameter Name="offer_endDate" Type="String" />
+        <asp:Parameter Name="offer_ID" Type="String" />
+    </UpdateParameters>    
+        
         <p>
             <asp:Button ID="btn_add" runat="server" Text="Add Offers/ Events"  OnClick="btn_add_Click" class="btn btn-primary" style="color: white;"/>
         </p>
                             </div>
             </div>
     </form>
+
 
 
 

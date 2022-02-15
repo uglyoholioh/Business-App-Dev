@@ -171,7 +171,7 @@
                     
                     <asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource2" DataKeyField="package_Name" OnCancelCommand="DataList2_CancelCommand" OnEditCommand="DataList2_EditCommand" OnUpdateCommand="DataList2_UpdateCommand" RepeatColumns="3" OnDeleteCommand="DataList2_DeleteCommand" >
                         <EditItemTemplate>
-                            <div class="card" style="margin-left:30px;width:360px;">
+                            <div class="card" style="margin-left:30px;width:360px;height:700px;">
                       <asp:Image class="card-img-top img-fluid" runat="server" width="170px" height="140px" style="margin-left:80px; " ID="Image2" ImageUrl='<%#"/images/" + Eval("package_Image") %>' />
                         <div class="card-body">
                             <h4 class="card-title">
@@ -202,7 +202,7 @@
                             </div>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <div class="card" style="margin-left:30px;width:349px;">
+                            <div class="card" style="margin-left:30px;width:349px;height:700px;">
                       <asp:Image class="card-img-top img-fluid" runat="server" width="170px" height="140px" style="margin-left:80px; " ID="Image3" ImageUrl='<%# "/images/" + Eval("package_Image") %>' />
                         <div class="card-body">
                             <h4 class="card-title">
