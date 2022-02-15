@@ -217,14 +217,14 @@ namespace BizAppDev
                 return 0;
             }
         }
-        public int ProdCustDelete(string CustID)
+        public int ProdCustDelete(string prodcustID)
         {
-            string queryStr = "DELETE FROM ProductCust WHERE CustID = @CustID";
+            string queryStr = "DELETE FROM ProductCust WHERE CustomizationID = @prodcustID";
             try
             {
                 SqlConnection conn = new SqlConnection(_connStr);
                 SqlCommand cmd = new SqlCommand(queryStr, conn);
-                cmd.Parameters.AddWithValue("@CustID", CustID);
+                cmd.Parameters.AddWithValue("@prodcustID", prodcustID);
                 conn.Open();
                 int nofRow = 0;
                 nofRow = cmd.ExecuteNonQuery();

@@ -1,11 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerMain.Master" AutoEventWireup="true" CodeBehind="EduVideoInsert.aspx.cs" Inherits="BizAppDev.EduVideoInsert" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="EduVideoInsert.aspx.cs" Inherits="BizAppDev.EduVideoInsert" %>
  
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Insert Educational Videos</h1>
     <table class="auto-style1">
         <tr>
             <td class="auto-style2">Category:</td>
             <td class="auto-style3">
+                <form runat="server">
                 <asp:DropDownList ID="DropDownList1" runat="server" Width="400px">
                     <asp:ListItem>Select a Category</asp:ListItem>
                     <asp:ListItem>Chinese New Year</asp:ListItem>
@@ -113,4 +114,5 @@
             </UpdateParameters>
         </asp:SqlDataSource>
     </p>
+    </form>
 </asp:Content>

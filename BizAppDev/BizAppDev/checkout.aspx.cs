@@ -352,18 +352,32 @@ namespace BizAppDev
         {
             DataTable dt;
             dt = (DataTable)Session["buyitems"];
+            HttpContext context = HttpContext.Current;
+            string CID = (string)(context.Session["CustID"]);
 
+            PointsTransaction apt = new PointsTransaction();
+            Customer acust = new Customer();
+            acust = acust.getCustomer(CID);
+            int intEarnPoints = 0;
+            if (lbl_discountedprice.Text == "")
+            {
+                intEarnPoints = (int)Math.Round(Convert.ToDecimal(Labelgrandtotal.Text));
+            }
+            else
+            {
+                intEarnPoints = (int)Math.Round(Convert.ToDecimal(lbl_discountedprice.Text));
+
+            }
+            PointsTransaction pt = new PointsTransaction(intEarnPoints, "Earned points from purchase", CID, DateTime.Now);
+            pt.PointsTransactionInsert();
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {
                 string updatepass = "insert into orderdetails(orderid,Product_ID,Product_Name,price,quantity,deliveryoption,deliverydate,grandtotal,discountedtotal,OrderStatus,Cust_ID,address,email)"
                     + "values(@orderid,@product_id,@product_name,@price,@quantity,@deliveryoption,@deliverydate,@grandtotal,@discountedtotal,@OrderStatus,@Cust_ID,@add,@ema)";
                 string mycon = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-                Customer acust = new Customer();
-                HttpContext context = HttpContext.Current;
-                string CID = (string)(context.Session["CustID"]);
-                acust = acust.getCustomer(CID);
-                int intEarnPoints = (int)Math.Round(Convert.ToDecimal(Labelgrandtotal.Text));
-                acust.CustomerUpdatePoints(CID, intEarnPoints);
+
+
+
                 SqlConnection conn = new SqlConnection(mycon);
 
                 SqlCommand cmd = new SqlCommand();
@@ -410,6 +424,7 @@ namespace BizAppDev
                 conn.Close();
 
             }
+
             Response.Redirect("checkoutoverview.aspx?orderid=" + lbl_orderid.Text);
         }
 

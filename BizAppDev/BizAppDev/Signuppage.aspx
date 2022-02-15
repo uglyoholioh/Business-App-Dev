@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Signuppage.aspx.cs" Inherits="BizAppDev.Signuppage" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +23,7 @@
     <link rel="stylesheet" href="https://colorlib.com/polygon/octopus/assets/vendor/bootstrap-datepicker/css/datepicker3.css">
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/daterangepicker/daterangepicker.css">
 </head>
-   <body>
+  <body>
     <div class="page login-page">
       <div class="container d-flex align-items-center">
         <div class="form-holder has-shadow">
@@ -47,21 +46,21 @@
                   <form class="form-horizontal "  runat="server">
                 
                       First name:
-                      <asp:TextBox ID="tb_Firstname" runat="server" CssClass="input-material"></asp:TextBox>   
+                      <asp:TextBox ID="tb_Firstname" runat="server" required="required" CssClass="input-material"></asp:TextBox>   
                         Last name:
-                      <asp:TextBox ID="tb_Lastname" runat="server" CssClass="input-material"></asp:TextBox> 
-                        Username:    <asp:TextBox ID="tb_username" runat="server" CssClass="input-material"></asp:TextBox> 
-                         Date of Birth:<asp:TextBox ID="tb_Birthdate" runat="server" CssClass="input-material"></asp:TextBox>
-                        Gender: <br /><asp:RadioButtonList ID="rbl_Gender" runat="server" Cssclass="i-checks">
+                      <asp:TextBox ID="tb_Lastname" runat="server" required="required" CssClass="input-material"></asp:TextBox> 
+                        Username:    <asp:TextBox ID="tb_username" runat="server" required="required" CssClass="input-material"></asp:TextBox> 
+                         Date of Birth:<asp:TextBox ID="tb_Birthdate" runat="server" type="date" required="required" CssClass="input-material"></asp:TextBox>
+                        Gender: <br /><asp:RadioButtonList ID="rbl_Gender" runat="server" required="required" Cssclass="i-checks">
                             <asp:ListItem>Male</asp:ListItem>
                                 <asp:ListItem>Female</asp:ListItem>
                                  </asp:RadioButtonList> 
                          <br />
-                         Email Address:<asp:TextBox ID="tb_Email" runat="server" CssClass="input-material"></asp:TextBox>
-                         Contact Number:<asp:TextBox ID="tb_Contactno" runat="server" CssClass="input-material"></asp:TextBox>
-                         Address:<asp:TextBox ID="tb_Address" runat="server" CssClass="input-material"></asp:TextBox>
-                         Password:<asp:TextBox ID="tb_Password" runat="server" CssClass="input-material"></asp:TextBox>
-                         Confirm Password:<asp:TextBox ID="tb_CfmPassword" runat="server" CssClass="input-material"></asp:TextBox>
+                         Email Address:<asp:TextBox ID="tb_Email" runat="server" required="required" type="email" CssClass="input-material"></asp:TextBox>
+                         Contact Number:<asp:TextBox ID="tb_Contactno" runat="server" required="required" CssClass="input-material"></asp:TextBox>
+                         Address:<asp:TextBox ID="tb_Address" runat="server" required="required" CssClass="input-material"></asp:TextBox>
+                         Password:<asp:TextBox ID="tb_Password" runat="server" required="required" type="password" CssClass="input-material"></asp:TextBox>
+                         Confirm Password:<asp:TextBox ID="tb_CfmPassword" runat="server" required="required" type="password" CssClass="input-material"></asp:TextBox>
 &nbsp;<br />                  
                     <div class="form-group">
                        <asp:Button ID="Register_Btn" class="btn btn-primary mb-3" runat="server" Text="Register" OnClick="Register_Btn_Click"/>

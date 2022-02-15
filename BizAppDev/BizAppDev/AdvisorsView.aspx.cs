@@ -50,7 +50,7 @@ namespace BizAppDev
 
             if (result > 0)
             {
-                Response.Write("<script>alert('Appointment deleted');</script>");
+                Response.Redirect("AdvisorsView.aspx");
             }
             else
             {

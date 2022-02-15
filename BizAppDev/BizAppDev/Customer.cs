@@ -293,24 +293,26 @@ namespace BizAppDev
         {
             int result = 0;
 
-            string queryStr = "INSERT INTO Customer(Cust_ID, first_Name, last_Name, gender, email, address, phoneNo, DOB, Password, Cfmpassword, pointTierID)"
-                + " values (@CustID, @firstName, @lastName, @gender, @email, @address, @phoneNo, @DOB, @Password, @Cfmpassword, @pointTierID)";
+            string queryStr = "INSERT INTO Customer(Cust_ID, first_Name, last_Name, email, address, phoneNo, DOB, gender, username,pointTierID, Password, Cfmpassword, pointExpiry)"
+                + " values (@CustID, @firstName, @lastName, @email, @address, @phoneNo, @DOB, @gender, @username,@pointTierID, @Password, @Cfmpassword,@pointExpiry)";
             string tierqueryStr = "SELECT * From PointTiers WHERE price=0";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand tiercmd = new SqlCommand(tierqueryStr, conn);
-
             conn.Open();
+
             SqlDataReader dr = tiercmd.ExecuteReader();
             int pointTierID = 0;
             if (dr.Read())
             {
                 pointTierID = int.Parse(dr["pointTierID"].ToString());
             }
+            conn.Close();
             SqlCommand cmd = new SqlCommand(queryStr, conn);
 
             cmd.Parameters.AddWithValue("@CustID", Cust_ID);
             cmd.Parameters.AddWithValue("@firstName", first_Name);
             cmd.Parameters.AddWithValue("@lastName", last_Name);
+            cmd.Parameters.AddWithValue("@username", username);
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@address", address);
             cmd.Parameters.AddWithValue("@phoneNo", phoneNo);
@@ -319,12 +321,12 @@ namespace BizAppDev
             cmd.Parameters.AddWithValue("@Password", Password);
             cmd.Parameters.AddWithValue("@Cfmpassword", Cfmpassword);
             cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
-
+            cmd.Parameters.AddWithValue("@pointExpiry", DateTime.Now);
 
             conn.Open();
             result += cmd.ExecuteNonQuery();
-            conn.Close();
 
+            conn.Close();
             return result;
         }
     }

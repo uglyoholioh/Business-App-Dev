@@ -43,8 +43,8 @@ namespace BizAppDev
             {
                 Response.Write("<script>alert('Delete unsuccessful');</script>");
             }
-
             Response.Redirect("ProductCustView.aspx");
+
         }
 
         protected void gvProdCust_RowEditing(object sender, GridViewEditEventArgs e)
@@ -83,7 +83,7 @@ namespace BizAppDev
 
             if ((ddl_colview.SelectedItem.Text != "Default") && (ddl_stview.SelectedItem.Text != "Default"))
             {
-               if(cal.SelectedDate.ToString("dd / MMM / yyyy hh: mm:ss") != "01/01/0001")
+                if (cal.SelectedDate.ToString("dd / MMM / yyyy hh: mm:ss") != "01/01/0001")
                 {
                     string datee = cal.SelectedDate.ToString("dd / MMM / yyyy hh: mm:ss");
                     result = productCust.ProdCustUpdate(pcID, pcCat, pcCol, pcScent, name, email, contact, datee);

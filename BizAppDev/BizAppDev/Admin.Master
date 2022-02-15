@@ -179,7 +179,7 @@
       <ul class="list-unstyled">
          <li> <a href="StaffViewTiers.aspx"> <i class="icon-flask"></i>Manage Point Tiers</a></li>
          <li> <a href="StaffViewPerks.aspx"> <i class="icon-flask"></i>Advisor</a></li>
-          <li> <a href="ProductCust.aspx"> <i class="icon-flask"></i>Insert Video</a></li>
+          <li> <a href="EduVideoInsert.aspx"> <i class="icon-flask"></i>Insert Video</a></li>
 
       </ul>
 
