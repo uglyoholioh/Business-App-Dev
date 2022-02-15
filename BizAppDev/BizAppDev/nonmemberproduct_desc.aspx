@@ -42,6 +42,9 @@
              <asp:Image ID="Image1" runat="server" Height="175px" ImageAlign="Left" ImageUrl='<%# "/images/" + Eval("Product_Image") %>' />
              <div class="card">
               <h1><asp:Label ID="Product_NameLabel" runat="server" Text='<%# Eval("Product_Name") %>' /></h1>
+                 <p>
+                     Category:<asp:Label ID="Label1" runat="server" Text='<%# Eval("Category") %>'></asp:Label>
+                 </p>
               <h6>Product ID: <asp:Label ID="Product_IDLabel" runat="server" Text='<%# Eval("Product_ID") %>' /></h6>
               <h7> <asp:Label ID="Product_DescLabel" runat="server" Text='<%# Eval("Product_Desc") %>' /></h7>
               <h5><asp:Label ID="Unit_PriceLabel" runat="server" Text='<%# Eval("Unit_Price", "{0:C}") %>' />     <span class="fa fa-star checked"></span>

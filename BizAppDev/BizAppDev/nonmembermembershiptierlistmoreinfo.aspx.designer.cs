@@ -11,7 +11,7 @@ namespace BizAppDev
 {
 
 
-    public partial class nonmembersuccess
+    public partial class nonmembermembershiptierlistmoreinfo
     {
 
         /// <summary>
@@ -24,39 +24,48 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Label2 control.
+        /// membership_nameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label membership_nameLabel;
 
         /// <summary>
-        /// btn_yes control.
+        /// membership_descLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_yes;
+        protected global::System.Web.UI.WebControls.Label membership_descLabel;
 
         /// <summary>
-        /// btn_no control.
+        /// membership_benefitsLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_no;
+        protected global::System.Web.UI.WebControls.Label membership_benefitsLabel;
 
         /// <summary>
-        /// Label3 control.
+        /// membership_priceLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label membership_priceLabel;
+
+        /// <summary>
+        /// membership_lengthLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label membership_lengthLabel;
     }
 }

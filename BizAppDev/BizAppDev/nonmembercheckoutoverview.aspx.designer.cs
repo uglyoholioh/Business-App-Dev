@@ -51,6 +51,24 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.Label lbldelop;
 
         /// <summary>
+        /// Labeladd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Labeladd;
+
+        /// <summary>
+        /// Lbl_em control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lbl_em;
+
+        /// <summary>
         /// lbldeldate control.
         /// </summary>
         /// <remarks>
@@ -67,14 +85,5 @@ namespace BizAppDev
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Labelgg;
-
-        /// <summary>
-        /// Labeldisc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Labeldisc;
     }
 }
