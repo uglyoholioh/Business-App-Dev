@@ -45,8 +45,8 @@ namespace BizAppDev
                 Label1.Text = row.Field<string>("orderid").ToString();
                
                 Label2.Text = row.Field<string>("email").ToString();
-
                 break;
+         
 
 
             }
