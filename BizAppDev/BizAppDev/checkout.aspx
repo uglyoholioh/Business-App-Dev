@@ -178,6 +178,8 @@
                     <div class="card-body">
                       <h4 class="card-title"><asp:Label ID="coupNameLabel" runat="server" Text='<%# Eval("coupName") %>' /></h4>
                       <p class="card-text"><asp:Label ID="categoryLabel" runat="server" Text='<%# Eval("category") %>' />
+                                                <p class="card-text">Discount: <asp:Label ID="discountLabel" runat="server" Text='<%# Eval("coupDiscount") %>' />%</p>
+
 
                       <p class="card-text"><asp:Label ID="AsgnIDLabel" runat="server" Text='<%# Eval("coupDesc") %>' />
 </p>                                                        <asp:Button class="btn btn-outline-primary" runat="server" Text="Apply Coupon" ID="btn_Personal" CommandName="UseCoupon" />
@@ -219,9 +221,10 @@
             </td>
         </tr>
     </table>
-       <asp:SqlDataSource ID="PersonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE ([Cust_ID] = @Cust_ID)">
+       <asp:SqlDataSource ID="PersonalCoup" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [CustCoupon] WHERE (([Cust_ID] = @Cust_ID) AND ([coupQuantity] &gt; @coupQuantity))">
            <SelectParameters>
                <asp:SessionParameter Name="Cust_ID" SessionField="CustID" Type="String" />
+               <asp:Parameter DefaultValue="0" Name="coupQuantity" Type="Int32" />
            </SelectParameters>
 
     </asp:SqlDataSource>

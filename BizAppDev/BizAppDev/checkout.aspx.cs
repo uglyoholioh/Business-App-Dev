@@ -18,7 +18,6 @@ namespace BizAppDev
         {
             HttpContext context = HttpContext.Current;
             string CID = (string)(context.Session["CustID"]);
-            Session["CustID"] = CID;
             try
             {
                 if (Session["addproduct"].ToString() == "true")
@@ -103,6 +102,7 @@ namespace BizAppDev
                                 dr["Product_Name"] = ds.Tables[0].Rows[0]["Product_Name"].ToString();
                                 dr["quantity"] = Request.QueryString["quantity"];
                                 dr["Unit_Price"] = ds.Tables[0].Rows[0]["Unit_Price"].ToString();
+                                dr["Category"] = ds.Tables[0].Rows[0]["Category"].ToString();
 
                                 decimal Unit_Price = decimal.Parse(ds.Tables[0].Rows[0]["Unit_Price"].ToString());
                                 Int64 quantity = int.Parse(Request.QueryString["quantity"].ToString());
@@ -392,6 +392,9 @@ namespace BizAppDev
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
+            HttpContext context = HttpContext.Current;
+            string CID = (string)(context.Session["CustID"]);
+
 
             if (e.CommandName == "UseCoupon")
             {
@@ -399,11 +402,16 @@ namespace BizAppDev
                 decimal finalprice;
 
 
-
+                Coupon aCoup = new Coupon();
+                Coupon coup = new Coupon();
                 Label lbldelCode = (Label)(e.Item.FindControl("CodeLabel"));
                 string Code = lbldelCode.Text;
                 Label lblCoupName = (Label)(e.Item.FindControl("coupNameLabel"));
                 string coupName = lblCoupName.Text;
+                Label lblCategory = (Label)(e.Item.FindControl("categoryLabel"));
+                string category = lblCategory.Text;
+                Label coupDiscount = (Label)(e.Item.FindControl("discountLabel"));
+                int perdiscount = int.Parse(coupDiscount.Text);
                 string mycon = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
                 String myquery = "Select * from CustCoupon where Code='" + Code + "'";
                 SqlConnection con = new SqlConnection(mycon);
@@ -422,18 +430,38 @@ namespace BizAppDev
                     int nrow = dt.Rows.Count;
                     int i = 0;
                     decimal gtotal = 0;
+                    finalprice = 0;
+                    bool usedCoupon = false;
+                    int claimresult = 0;
                     while (i < nrow)
                     {
-                        gtotal = gtotal + decimal.Parse(dt.Rows[i]["total"].ToString());
-                        i = i + 1;
+                        if (dt.Rows[i]["Category"].ToString() == category){
+                            gtotal = gtotal + (decimal.Parse(dt.Rows[i]["total"].ToString()));
+                            finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString()) );
+                            i = i + 1;
+                            usedCoupon = true;
+                        }
+                        else
+                        {
+                            gtotal = gtotal + (decimal.Parse(dt.Rows[i]["total"].ToString()));
+                            finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString()));
+                            i = i + 1;
+                        }
                     }
                     decimal gst = Math.Round(Convert.ToDecimal(gtotal) * Convert.ToDecimal(0.07), 2);
                     decimal Grandtotal = Math.Round(Convert.ToDecimal(gtotal) + Convert.ToDecimal(gst), 2);
 
-                    discount = decimal.Parse(ds.Tables[0].Rows[0]["coupDiscount"].ToString());
-                    finalprice = Math.Round((Grandtotal * (100 - discount) / 100), 2);
                     Labelgrandtotal.Text = Grandtotal.ToString();
                     lbl_discountedprice.Text = finalprice.ToString();
+                    if (usedCoupon == true) {
+                        claimresult = aCoup.useCoupon(CID, Code);
+                    
+                    }
+                    else
+                    {
+                        lbl_couponcode.Text = "This coupon cannot be used with these product categories";
+
+                    }
 
 
                 }

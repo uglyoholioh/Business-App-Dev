@@ -188,7 +188,7 @@ namespace BizAppDev
         }
         public int useCoupon(string CustID,string code)
         {
-            string queryStr = "DELETE FROM Coupon WHERE Cust_ID = @CustID and code = @code";
+            string queryStr = "UPDATE CustCoupon set coupQuantity = coupQuantity - 1 WHERE code = @code";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@CustID", CustID);
