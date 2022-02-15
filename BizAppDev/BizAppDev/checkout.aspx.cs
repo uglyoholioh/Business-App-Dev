@@ -437,7 +437,7 @@ namespace BizAppDev
                     {
                         if (dt.Rows[i]["Category"].ToString() == category){
                             gtotal = gtotal + (decimal.Parse(dt.Rows[i]["total"].ToString()));
-                            finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString()) );
+                            finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString())*((100-perdiscount)/100 ));
                             i = i + 1;
                             usedCoupon = true;
                         }
