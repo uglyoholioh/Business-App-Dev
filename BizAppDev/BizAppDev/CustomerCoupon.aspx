@@ -32,7 +32,7 @@
     <asp:DropDownList ID="ddl_Sort" runat="server" DataSourceID="coupCategory" DataTextField="category" DataValueField="category" AppendDataBoundItems="true">
       <asp:ListItem Value="">Select category</asp:ListItem>
     </asp:DropDownList>
-    <asp:SqlDataSource ID="coupCategory" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT DISTINCT [category] FROM [Coupon]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="coupCategory" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [category] FROM [Coupon]"></asp:SqlDataSource>
     <span>Sort by:</span>
     <asp:DropDownList ID="ddl_Column" runat="server">
         <asp:ListItem Value="">Select sort filter</asp:ListItem>
