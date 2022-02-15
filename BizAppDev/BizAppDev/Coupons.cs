@@ -189,15 +189,15 @@ namespace BizAppDev
             return result;
         }//end Insert
 
-        public int CoupUpdate(string cId, string cName, string cstartDate, string cEndDate, string cDesc, decimal cAmt)
+        public int CoupUpdate(string cId, string cName, string cstartDate, string cEndDate, decimal cAmt)
         {
             string queryStr = "UPDATE Coupons SET" +
                 //" Product_ID = @productID, " +
                 " coupon_Name = @cName, " +
                 " coupon_startDate = @cstartdate, " +
                 "coupon_endDate = @cenddate, " +
-                "coup_disccountamt = @cAmt, " +
-                "coup_Desc = @cdesc" +
+                "coup_disccountamt = @cAmt " +
+
                 " WHERE coupon_ID = @cId";
 
             SqlConnection conn = new SqlConnection(_connStr);
@@ -206,7 +206,7 @@ namespace BizAppDev
             cmd.Parameters.AddWithValue("@cName", cName);
             cmd.Parameters.AddWithValue("@cstartdate", cstartDate);
             cmd.Parameters.AddWithValue("@cenddate", cEndDate);
-            cmd.Parameters.AddWithValue("@cdesc", cDesc);
+
             cmd.Parameters.AddWithValue("@cAmt", cAmt);
 
             conn.Open();
@@ -325,5 +325,8 @@ namespace BizAppDev
 
             return coupList;
         }
+
+
+
     }
 }

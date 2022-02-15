@@ -174,7 +174,7 @@ namespace BizAppDev
 
         public int offerDelete(string ID)
         {
-            string queryStr = "DELETE FROM Coupons WHERE offer_ID=@ID";
+            string queryStr = "DELETE FROM Offers WHERE offer_ID=@ID";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@ID", ID);

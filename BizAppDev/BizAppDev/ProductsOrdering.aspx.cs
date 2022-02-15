@@ -38,7 +38,7 @@ namespace BizAppDev
             var kan = new String(mypass);
 
             int result = 0;
-            ProductOrdering coup = new ProductOrdering(kan, cal_delivery.SelectedDate.ToString(), tb_quantity.Text, lbl_id.Text, "Not Completed");
+            ProductOrdering coup = new ProductOrdering(kan, cal_delivery.SelectedDate.ToString("dd/MMM/yyyy hh:mm:ss"), tb_quantity.Text, lbl_id.Text, "Not Completed");
             result = coup.orderInsert();
 
 
@@ -59,5 +59,11 @@ namespace BizAppDev
                 e.Cell.Font.Strikeout = true;
             }
         }
+
+
+
+
+
+
     }
 }

@@ -47,17 +47,22 @@
                     <asp:BoundField DataField="couponName" HeaderText="coupon Name" HeaderStyle-Width="200px">
 <HeaderStyle Width="200px"></HeaderStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="couponstartDate" HeaderText="coupon start date" HeaderStyle-Width="200px">
+                    <asp:BoundField DataField="couponstartDate" HeaderText="coupon start date" HeaderStyle-Width="200px" DataFormatString="{0:dd/MM/yyyy}">
 <HeaderStyle Width="200px"></HeaderStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="couponendDate" HeaderText="coupon end date" HeaderStyle-Width="200px">
+                    <asp:BoundField DataField="couponendDate" HeaderText="coupon end date" HeaderStyle-Width="200px" DataFormatString="{0:dd/MM/yyyy}">
 <HeaderStyle Width="200px"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="couponAmt" HeaderText="coupon amount" />
-                    <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" ShowEditButton="True">
+                    <asp:CommandField ShowSelectButton="True" ShowEditButton="True">
                     <HeaderStyle Width="250px" />
                     <ItemStyle Width="55px" />
                     </asp:CommandField>
+                    <asp:TemplateField ShowHeader="False">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this coupon?');"></asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
                                         <FooterStyle BackColor="White" ForeColor="#333333" />
                                         <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
@@ -79,14 +84,14 @@
                             </table>
                 
             
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Coupons]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [coupon_startDate], [coupon_endDate] FROM [Coupons]"></asp:SqlDataSource>
             </div>
                         </div>
                       
        
         
        </form>
-        
-        
-    
+
+
+
 </asp:Content>

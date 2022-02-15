@@ -4,70 +4,177 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
-using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace BizAppDev
 {
-    public partial class employeelist : System.Web.UI.Page
+    public partial class EmployeeList : System.Web.UI.Page
     {
-        Employee aEmp = null;
+        Employee aemployee = new Employee();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                bind();
+            }
+        }
+        protected void bind()
+        {
+            List<Employee> employeeList = new List<Employee>();
+
             DataList1.RepeatColumns = 3;
             DataList1.RepeatDirection = RepeatDirection.Horizontal;
-        }       
+            //DataList1.DataSource = tierList;
+            //DataList1.DataBind();
+        }
+
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            Label lbl = (Label)e.Item.FindControl("lbl_EmpID");
-            Response.Redirect("Employeeinfo.aspx?EmpID=" + lbl.Text);
+            if (e.CommandName == "More")
+            {
+                Label lbl = (Label)e.Item.FindControl("lbl_ID");
+                Response.Redirect("EmployeeListMoreInfo.aspx?employeeID=" + lbl.Text);
+            }
         }
 
         protected void DataList1_DeleteCommand(object source, DataListCommandEventArgs e)
         {
-            int result = 0;
-            Employee emp = new Employee();
-            string EmpID = DataList1.DataKeys[e.Item.ItemIndex].ToString();
-            result = emp.EmployeeDelete(EmpID);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+            Label employeeid = (Label)e.Item.FindControl("lbl_ID");
 
-            if (result > 0)
+            string queryStr = "DELETE FROM Employee WHERE EmpID=@ID";
+            SqlCommand cmd = new SqlCommand(queryStr, con);
+            int nofRow = 0;
+
+
+            cmd.Parameters.AddWithValue("@ID", employeeid.Text);
+            con.Open();
+            nofRow += cmd.ExecuteNonQuery();
+            con.Close();
+            cmd.Dispose();
+            if (nofRow > 0)
             {
-                Response.Write("<script>alert('Employee Deleted successfully');</script>");
+                Response.Write("<script type=\"text/javascript\">alert('Delete Successfully!!!');</script>");
+                DataList1.EditItemIndex = -1;
+                DataList1.DataBind();
             }
             else
             {
-                Response.Write("<script>alert('Employee NOT successfully Deleted');</script>");
+                Response.Write("<script type=\"text/javascript\">alert('not deleted Successfully!!!');</script>");
             }
 
-            DataList1.EditItemIndex = -1;
-            DataList1.DataBind();
         }
 
-        protected void DataList1_EditCommand(object source, DataListCommandEventArgs e)
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Label lbl = (Label)e.Item.FindControl("lbl_EmpID");
-            Response.Redirect("Employeeinfo.aspx?EmpID=" + lbl.Text);
+            if (DropDownList1.SelectedValue == "1")
+            {
+                int result = 0;
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+                string querystring = "SELECT * FROM Employee;";
+                SqlCommand cmd = new SqlCommand(querystring, con);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                da.Fill(ds, "EmpName");
+                DataList1.DataSource = ds;
+                DataList1.DataSourceID = string.Empty;
+
+                DataList1.DataBind();
+                result = ds.Tables[0].Rows.Count;
+                lbl_noofstaff.Text = result.ToString();
+                con.Close();
+            }
+            else if (DropDownList1.SelectedValue == "2")
+            {
+                int result = 0;
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+                string querystring = "SELECT * FROM Employee WHERE(Position = 'Advisor');";
+                SqlCommand cmd = new SqlCommand(querystring, con);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                da.Fill(ds, "EmpName");
+                DataList1.DataSource = ds;
+                DataList1.DataSourceID = string.Empty;
+
+                DataList1.DataBind();
+                result = ds.Tables[0].Rows.Count;
+                lbl_noofstaff.Text = result.ToString();
+                con.Close();
+            }
+            else if (DropDownList1.SelectedValue == "3")
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+                string querystring = "SELECT * FROM Employee WHERE(Position = 'Priest');";
+                SqlCommand cmd = new SqlCommand(querystring, con);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                da.Fill(ds, "EmpName");
+                DataList1.DataSource = ds;
+                DataList1.DataSourceID = string.Empty;
+
+                DataList1.DataBind();
+                int result = 0;
+                result = ds.Tables[0].Rows.Count;
+                lbl_noofstaff.Text = result.ToString();
+                con.Close();
+            }
+            else if (DropDownList1.SelectedValue == "4")
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+                string querystring = "SELECT * FROM Employee WHERE(Position = 'Packer');";
+                SqlCommand cmd = new SqlCommand(querystring, con);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                da.Fill(ds, "EmpName");
+                DataList1.DataSource = ds;
+                DataList1.DataSourceID = string.Empty;
+
+                int result = 0;
+                result = ds.Tables[0].Rows.Count;
+                lbl_noofstaff.Text = result.ToString();
+                DataList1.DataBind();
+                con.Close();
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+                string querystring = "SELECT * FROM Employee WHERE(Position = 'Customer Support');";
+                SqlCommand cmd = new SqlCommand(querystring, con);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                da.Fill(ds, "EmpName");
+                DataList1.DataSource = ds;
+                DataList1.DataSourceID = string.Empty;
+
+                int result = 0;
+                result = ds.Tables[0].Rows.Count;
+                lbl_noofstaff.Text = result.ToString();
+                DataList1.DataBind();
+                con.Close();
+            }
         }
 
-        protected void Search_Employee_Click(object sender, EventArgs e)
-        {
-            string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-            SqlConnection conn = new SqlConnection(_connStr);
-            conn.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from Employee where EmpID like '%" + tb_SearchEmp.Text + "%'", conn);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            DataList1.DataSourceID = null;
-            DataList1.DataSource = dt;
-            DataList1.DataBind();
-            conn.Close();
-        }
-
-        protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

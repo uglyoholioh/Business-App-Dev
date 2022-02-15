@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="ProductsOrdering.aspx.cs" Inherits="BizAppDev.ProductsOrdering" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<div class="card mb-0" style="margin-left:40px; height:500px; margin-left:150px;">
+   <div class="card mb-0" style="margin-left:40px; height:500px; margin-left:150px;">
                 
                     <div class="card-header">
                       <div class="card-close">
@@ -31,18 +31,22 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Supplier Email:<asp:Label ID="lbl_supplemail" runat="server" ></asp:Label>
+                    <td style="height: 43px">Supplier Email:<asp:Label ID="lbl_supplemail" runat="server" ></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td>Amount of Stocks to order:<asp:TextBox ID="tb_quantity" runat="server"></asp:TextBox>
+                    <td style="height: 40px">Amount of Stocks to order:<asp:TextBox ID="tb_quantity" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
+                    <td style="height: 74px">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tb_quantity" ErrorMessage="Please input an amount of stock you want to order." ForeColor="Red" style="margin-top: 20px"></asp:RequiredFieldValidator>
+                        <br />
+                        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="tb_quantity" ErrorMessage="Please input at least 10 stocks to order. " ForeColor="Red" MaximumValue="999999" MinimumValue="10"></asp:RangeValidator>
+                    </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td style="height: 44px">
                     <asp:Button ID="btn_place" runat="server" Text="Place Order" OnClick="btn_place_Click" class="btn btn-primary" style="color: white;"/>
                     </td>
                 </tr>
@@ -60,4 +64,8 @@
 
 </div>
     </div>
+
+
+
+
 </asp:Content>

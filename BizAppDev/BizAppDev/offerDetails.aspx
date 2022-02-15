@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="offerDetails.aspx.cs" Inherits="BizAppDev.offerDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<form id="form1" runat="server">
+    <form id="form1" runat="server">
         <div class="card mb-0" style="margin-left:40px; height:550px; margin-left:150px;">
                     <div class="card-header">
                       <div class="card-close">
@@ -63,4 +63,7 @@
             </div>
         
     </form>
+
+
+
 </asp:Content>

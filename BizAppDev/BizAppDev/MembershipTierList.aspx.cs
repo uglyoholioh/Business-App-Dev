@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
-
 namespace BizAppDev
 {
     public partial class MembershipTierList : System.Web.UI.Page
@@ -122,6 +121,11 @@ namespace BizAppDev
         }
 
         protected void tb_Price_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btn_more_Click(object sender, EventArgs e)
         {
 
         }

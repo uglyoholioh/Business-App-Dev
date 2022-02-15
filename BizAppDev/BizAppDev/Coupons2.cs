@@ -19,13 +19,13 @@ namespace BizAppDev
         private int _validdays = 0;
         private int _validmonths = 0;
         private int _validyears = 0;
-
+        private string _category = "";
         public Coupons2()
         {
 
         }
 
-        public Coupons2(string couponID, string couponName, string couponDesc, int amount, int cost, decimal discount, int validdays, int validmonths, int validyears)
+        public Coupons2(string couponID, string couponName, string couponDesc, int amount, int cost, decimal discount, int validdays, int validmonths, int validyears, string category)
         {
             _coupID = couponID;
             _couponName = couponName;
@@ -36,6 +36,7 @@ namespace BizAppDev
             _validdays = validdays;
             _validmonths = validmonths;
             _validyears = validyears;
+            _category = category;
         }
 
         /*public Coupons(string couponID, string couponName, 
@@ -96,12 +97,17 @@ namespace BizAppDev
             get { return _validyears; }
             set { _validyears = value; }
         }
+        public string category
+        {
+            get { return _category; }
+            set { _category = value; }
+        }
         public Coupons2 getCoupon(string couponID)
         {
 
             Coupons2 coupDetail = null;
 
-            string couponName, couponDesc;
+            string couponName, couponDesc, category;
             decimal couponDiscount;
             int amount, cost, validDays, validMonths, validYears;
 
@@ -125,8 +131,9 @@ namespace BizAppDev
                 validDays = int.Parse(dr["validDays"].ToString());
                 validMonths = int.Parse(dr["validMonths"].ToString());
                 validYears = int.Parse(dr["validYears"].ToString());
+                category = dr["Category"].ToString();
 
-                coupDetail = new Coupons2(couponID, couponName, couponDesc, amount, cost, couponDiscount, validDays, validMonths, validYears);
+                coupDetail = new Coupons2(couponID, couponName, couponDesc, amount, cost, couponDiscount, validDays, validMonths, validYears, category);
             }
             else
             {
@@ -144,7 +151,7 @@ namespace BizAppDev
         {
             List<Coupons2> coupList = new List<Coupons2>();
 
-            string couponID, couponName, couponDesc;
+            string couponID, couponName, couponDesc, category;
             decimal couponDiscount;
             int amount, cost, validDays, validMonths, validYears;
 
@@ -167,7 +174,8 @@ namespace BizAppDev
                 validDays = int.Parse(dr["validDays"].ToString());
                 validMonths = int.Parse(dr["validMonths"].ToString());
                 validYears = int.Parse(dr["validYears"].ToString());
-                Coupons2 a = new Coupons2(couponID, couponName, couponDesc, amount, cost, couponDiscount, validDays, validMonths, validYears);
+                category = dr["Category"].ToString();
+                Coupons2 a = new Coupons2(couponID, couponName, couponDesc, amount, cost, couponDiscount, validDays, validMonths, validYears, category);
                 coupList.Add(a);
             }
 
@@ -199,8 +207,8 @@ namespace BizAppDev
             // string msg = null;
             int result = 0;
 
-            string queryStr = "INSERT INTO Coupon(couponID, cName, cDesc, amount, cost, discount, validDays, validMonths, validYears)"
-                + " values (@id,@name, @desc, @amount, @cost, @discount, @days, @months, @years)";
+            string queryStr = "INSERT INTO Coupon(couponID, cName, cDesc, amount, cost, discount, validDays, validMonths, validYears, Category)"
+                + " values (@id,@name, @desc, @amount, @cost, @discount, @days, @months, @years, @category)";
             //+ "values (@Product_ID, @Product_Name, @Product_Desc, @Unit_Price, @Product_Image,@Stock_Level)";
 
             SqlConnection conn = new SqlConnection(_connStr);
@@ -214,6 +222,7 @@ namespace BizAppDev
             cmd.Parameters.AddWithValue("@days", this.validDays);
             cmd.Parameters.AddWithValue("@months", this.validMonths);
             cmd.Parameters.AddWithValue("@years", this.validYears);
+            cmd.Parameters.AddWithValue("@category", this.category);
 
             conn.Open();
             result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
@@ -222,7 +231,7 @@ namespace BizAppDev
             return result;
         }//end Insert
 
-        public int CoupUpdate(string cId, string cName, string desc, int amount, decimal discount, int validDays, int validMonths, int validYears)
+        public int CoupUpdate(string cId, string cName, string desc, int amount, decimal discount, int validDays, int validMonths, int validYears, string category)
         {
             string queryStr = "UPDATE Coupon SET" +
                 //" Product_ID = @productID, " +
@@ -232,6 +241,7 @@ namespace BizAppDev
                 "validDays = @days, " +
                 "validMonths = @month, " +
                 "validYears = @years, " +
+                "Category = @category, " +
 
                 "discount = @discount" +
                 " WHERE couponID = @cId";
@@ -245,6 +255,7 @@ namespace BizAppDev
             cmd.Parameters.AddWithValue("@days", validDays);
             cmd.Parameters.AddWithValue("@month", validMonths);
             cmd.Parameters.AddWithValue("@year", validYears);
+            cmd.Parameters.AddWithValue("@category", category);
 
             cmd.Parameters.AddWithValue("@discount", discount);
 
@@ -261,7 +272,7 @@ namespace BizAppDev
         {
             List<Coupons2> coupList = new List<Coupons2>();
 
-            string couponID, couponName, couponDesc;
+            string couponID, couponName, couponDesc, category;
             decimal couponDiscount;
             int amount, cost, validDays, validMonths, validYears;
 
@@ -280,13 +291,14 @@ namespace BizAppDev
                 couponID = dr["couponID"].ToString();
                 couponName = dr["cName"].ToString();
                 couponDesc = dr["cDesc"].ToString();
+                category = dr["Category"].ToString();
                 couponDiscount = decimal.Parse(dr["discount"].ToString());
                 amount = int.Parse(dr["amount"].ToString());
                 cost = int.Parse(dr["cost"].ToString());
                 validDays = int.Parse(dr["validDays"].ToString());
                 validMonths = int.Parse(dr["validMonths"].ToString());
                 validYears = int.Parse(dr["validYears"].ToString());
-                Coupons2 a = new Coupons2(couponID, couponName, couponDesc, amount, cost, couponDiscount, validDays, validMonths, validYears);
+                Coupons2 a = new Coupons2(couponID, couponName, couponDesc, amount, cost, couponDiscount, validDays, validMonths, validYears, category);
                 coupList.Add(a);
             }
 
@@ -300,7 +312,7 @@ namespace BizAppDev
         {
             List<Coupons2> coupList = new List<Coupons2>();
 
-            string couponID, couponName, couponDesc;
+            string couponID, couponName, couponDesc, category;
             decimal couponDiscount;
             int amount, cost, validDays, validMonths, validYears;
 
@@ -318,13 +330,14 @@ namespace BizAppDev
                 couponID = dr["couponID"].ToString();
                 couponName = dr["cName"].ToString();
                 couponDesc = dr["cDesc"].ToString();
+                category = dr["Category"].ToString();
                 couponDiscount = decimal.Parse(dr["discount"].ToString());
                 amount = int.Parse(dr["amount"].ToString());
                 cost = int.Parse(dr["cost"].ToString());
                 validDays = int.Parse(dr["validDays"].ToString());
                 validMonths = int.Parse(dr["validMonths"].ToString());
                 validYears = int.Parse(dr["validYears"].ToString());
-                Coupons2 a = new Coupons2(couponID, couponName, couponDesc, amount, cost, couponDiscount, validDays, validMonths, validYears);
+                Coupons2 a = new Coupons2(couponID, couponName, couponDesc, amount, cost, couponDiscount, validDays, validMonths, validYears, category);
                 coupList.Add(a);
             }
 
@@ -339,7 +352,7 @@ namespace BizAppDev
         {
             List<Coupons2> coupList = new List<Coupons2>();
 
-            string couponID, couponName, couponDesc;
+            string couponID, couponName, couponDesc, category;
             decimal couponDiscount;
             int amount, cost, validDays, validMonths, validYears;
 
@@ -357,13 +370,14 @@ namespace BizAppDev
                 couponID = dr["couponID"].ToString();
                 couponName = dr["cName"].ToString();
                 couponDesc = dr["cDesc"].ToString();
+                category = dr["Category"].ToString();
                 couponDiscount = decimal.Parse(dr["discount"].ToString());
                 amount = int.Parse(dr["amount"].ToString());
                 cost = int.Parse(dr["cost"].ToString());
                 validDays = int.Parse(dr["validDays"].ToString());
                 validMonths = int.Parse(dr["validMonths"].ToString());
                 validYears = int.Parse(dr["validYears"].ToString());
-                Coupons2 a = new Coupons2(couponID, couponName, couponDesc, amount, cost, couponDiscount, validDays, validMonths, validYears);
+                Coupons2 a = new Coupons2(couponID, couponName, couponDesc, amount, cost, couponDiscount, validDays, validMonths, validYears, category);
                 coupList.Add(a);
             }
 
@@ -377,7 +391,7 @@ namespace BizAppDev
         {
             List<Coupons2> coupList = new List<Coupons2>();
 
-            string couponID, couponName, couponDesc;
+            string couponID, couponName, couponDesc, category;
             decimal couponDiscount;
             int amount, cost, validDays, validMonths, validYears;
 
@@ -394,13 +408,14 @@ namespace BizAppDev
                 couponID = dr["couponID"].ToString();
                 couponName = dr["cName"].ToString();
                 couponDesc = dr["cDesc"].ToString();
+                category = dr["Category"].ToString();
                 couponDiscount = decimal.Parse(dr["discount"].ToString());
                 amount = int.Parse(dr["amount"].ToString());
                 cost = int.Parse(dr["cost"].ToString());
                 validDays = int.Parse(dr["validDays"].ToString());
                 validMonths = int.Parse(dr["validMonths"].ToString());
                 validYears = int.Parse(dr["validYears"].ToString());
-                Coupons2 a = new Coupons2(couponID, couponName, couponDesc, amount, cost, couponDiscount, validDays, validMonths, validYears);
+                Coupons2 a = new Coupons2(couponID, couponName, couponDesc, amount, cost, couponDiscount, validDays, validMonths, validYears, category);
                 coupList.Add(a);
             }
 
@@ -410,6 +425,9 @@ namespace BizAppDev
 
             return coupList;
         }
+
+
+
 
     }
 }

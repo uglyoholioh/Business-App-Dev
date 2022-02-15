@@ -12,11 +12,11 @@ namespace BizAppDev
 {
     public partial class EmployeeListMoreInfo : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
         protected void DataList1_EditCommand(object source, DataListCommandEventArgs e)
         {
             DataList1.EditItemIndex = e.Item.ItemIndex;
@@ -73,5 +73,6 @@ namespace BizAppDev
                 throw ex;
             }
         }
+
     }
 }

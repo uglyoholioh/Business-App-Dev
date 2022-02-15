@@ -8,7 +8,6 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
-
 namespace BizAppDev
 {
     public partial class Products_lermin_ : System.Web.UI.Page
@@ -115,12 +114,14 @@ namespace BizAppDev
                 TextBox price = (TextBox)e.Item.FindControl("tb_price");
                 TextBox supplname = (TextBox)e.Item.FindControl("tb_supplname");
                 TextBox supplemail = (TextBox)e.Item.FindControl("tb_supplemail");
+                DropDownList category = (DropDownList)e.Item.FindControl("ddl_category");
 
                 string queryStr = "UPDATE Products SET" +
                //" Product_ID = @productID, " +
                " Product_Desc = @desc, " +
                " Unit_Price = @price, " +
                "supplierName = @name, " +
+               "Category = @category, " +
                "supplierEmail = @email" +
                " WHERE Product_ID = @memberid";
                 SqlCommand cmd = new SqlCommand(queryStr, con);
@@ -131,6 +132,7 @@ namespace BizAppDev
                 cmd.Parameters.AddWithValue("@price", decimal.Parse(price.Text));
                 cmd.Parameters.AddWithValue("@name", supplname.Text);
                 cmd.Parameters.AddWithValue("@email", supplemail.Text);
+                cmd.Parameters.AddWithValue("@category", category.SelectedItem.Text);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -241,7 +243,7 @@ namespace BizAppDev
         protected void Button5_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
-            string querystring = "SELECT * FROM Package WHERE(package_Name like '%' + @name +'%');";
+            string querystring = "SELECT * FROM Package WHERE(package_keyword like '%' + @name +'%');";
             SqlCommand cmd = new SqlCommand(querystring, con);
             cmd.Parameters.AddWithValue("@name", tb_name2.Text);
             con.Open();
@@ -249,7 +251,7 @@ namespace BizAppDev
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
             DataSet ds = new DataSet();
-            da.Fill(ds, "package_Name");
+            da.Fill(ds, "package_keyword");
             DataList2.DataSource = ds;
             DataList2.DataSourceID = string.Empty;
             DataList2.Height = 500;
@@ -260,7 +262,7 @@ namespace BizAppDev
         protected void tb_name2_TextChanged(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
-            string querystring = "SELECT * FROM Package WHERE(package_Name like '%' + @name +'%');";
+            string querystring = "SELECT * FROM Package WHERE(package_keyword like '%' + @name +'%');";
             SqlCommand cmd = new SqlCommand(querystring, con);
             cmd.Parameters.AddWithValue("@name", tb_name2.Text);
             con.Open();
@@ -268,7 +270,7 @@ namespace BizAppDev
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
             DataSet ds = new DataSet();
-            da.Fill(ds, "package_Name");
+            da.Fill(ds, "package_keyword");
             DataList2.DataSource = ds;
             DataList2.DataSourceID = string.Empty;
             DataList2.Height = 500;
@@ -292,5 +294,125 @@ namespace BizAppDev
 
 
         }
+
+        protected void ddl_sortproduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddl_sortproduct.SelectedIndex.ToString() == "0")
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+                string querystring = "SELECT * FROM Products ORDER BY Unit_Price desc;";
+                SqlCommand cmd = new SqlCommand(querystring, con);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                da.Fill(ds, "Unit_Price");
+                DataList1.DataSource = ds;
+                DataList1.DataSourceID = string.Empty;
+                DataList1.Height = 500;
+                DataList1.DataBind();
+                con.Close();
+            }
+            if (ddl_sortproduct.SelectedIndex.ToString() == "1")
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+                string querystring = "SELECT * FROM Products order by Unit_Price;";
+                SqlCommand cmd = new SqlCommand(querystring, con);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                da.Fill(ds, "Unit_Price");
+                DataList1.DataSource = ds;
+                DataList1.DataSourceID = string.Empty;
+                DataList1.Height = 500;
+                DataList1.DataBind();
+                con.Close();
+            }
+            if (ddl_sortproduct.SelectedIndex.ToString() == "2")
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+                string querystring = "SELECT * FROM Products order by Stock_Level desc;";
+                SqlCommand cmd = new SqlCommand(querystring, con);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                da.Fill(ds, "Stock_Level");
+                DataList1.DataSource = ds;
+                DataList1.DataSourceID = string.Empty;
+                DataList1.Height = 500;
+                DataList1.DataBind();
+                con.Close();
+            }
+            if (ddl_sortproduct.SelectedIndex.ToString() == "3")
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+                string querystring = "SELECT * FROM Products order by Stock_Level;";
+                SqlCommand cmd = new SqlCommand(querystring, con);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                da.Fill(ds, "Stock_Level");
+                DataList1.DataSource = ds;
+                DataList1.DataSourceID = string.Empty;
+                DataList1.Height = 500;
+                DataList1.DataBind();
+                con.Close();
+            }
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DropDownList1.SelectedIndex.ToString() == "0")
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+                string querystring = "SELECT * FROM Package ORDER BY package_Price desc;";
+                SqlCommand cmd = new SqlCommand(querystring, con);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                da.Fill(ds, "package_Price");
+                DataList2.DataSource = ds;
+                DataList2.DataSourceID = string.Empty;
+                DataList2.Height = 500;
+                DataList2.DataBind();
+                con.Close();
+            }
+            if (DropDownList1.SelectedIndex.ToString() == "1")
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
+                string querystring = "SELECT * FROM Package ORDER BY package_Price;";
+                SqlCommand cmd = new SqlCommand(querystring, con);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                da.Fill(ds, "package_Price");
+                DataList2.DataSource = ds;
+                DataList2.DataSourceID = string.Empty;
+                DataList2.Height = 500;
+                DataList2.DataBind();
+                con.Close();
+            }
+        }
+
+
+
+
     }
 }

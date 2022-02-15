@@ -13,7 +13,6 @@ namespace BizAppDev
         {
 
         }
-
         protected void DataList1_ItemCommand1(object source, DataListCommandEventArgs e)
         {
             if (e.CommandName == "back")
@@ -21,6 +20,11 @@ namespace BizAppDev
                 Response.Redirect("Customer.aspx");
             }
 
+        }
+
+        protected void btn_back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Customer.aspx");
         }
     }
 }

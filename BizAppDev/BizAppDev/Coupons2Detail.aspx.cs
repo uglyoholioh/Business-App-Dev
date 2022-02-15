@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 using System.Data.SqlClient;
 using System.Configuration;
 
@@ -14,8 +15,9 @@ namespace BizAppDev
         Coupons2 coup = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
+
         protected void DataList1_UpdateCommand(object source, DataListCommandEventArgs e)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
@@ -28,6 +30,7 @@ namespace BizAppDev
             TextBox days = (TextBox)e.Item.FindControl("TextBox5");
             TextBox months = (TextBox)e.Item.FindControl("TextBox6");
             TextBox years = (TextBox)e.Item.FindControl("TextBox7");
+            DropDownList category = (DropDownList)e.Item.FindControl("ddl_category");
 
             string queryStr = "UPDATE Coupon SET" +
            //" Product_ID = @productID, " +
@@ -37,6 +40,7 @@ namespace BizAppDev
            " cost = @cost," +
            " discount = @discount," +
            " validDays = @days," +
+           " Category = @category," +
            " validMonths = @months," +
            " validYears = @years " +
 
@@ -51,6 +55,7 @@ namespace BizAppDev
             cmd.Parameters.AddWithValue("@days", int.Parse(days.Text));
             cmd.Parameters.AddWithValue("@months", int.Parse(months.Text));
             cmd.Parameters.AddWithValue("@years", int.Parse(years.Text));
+            cmd.Parameters.AddWithValue("@category", category.SelectedItem.Text);
 
             cmd.Parameters.AddWithValue("@id", couponid.Text);
 
@@ -85,6 +90,16 @@ namespace BizAppDev
 
             DataList1.DataBind();
         }
+
+        protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CouponsValidity(lermin).aspx");
+        }
+
     }
 }
-   

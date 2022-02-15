@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 
 namespace BizAppDev
 {
-   
     public partial class CouponsValidity_lermin_ : System.Web.UI.Page
     {
         Coupons2 aCoup = new Coupons2();
@@ -28,7 +27,10 @@ namespace BizAppDev
             }
             finally
             {
-                
+                if (!IsPostBack)
+                {
+                    bind();
+                }
             }
         }
 
@@ -36,6 +38,9 @@ namespace BizAppDev
         {
             List<Coupons2> couponList = new List<Coupons2>();
             couponList = aCoup.getCoupAll();
+            GridView1.DataSource = couponList;
+            GridView1.DataSourceID = string.Empty;
+            GridView1.DataBind();
         }
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -126,6 +131,36 @@ namespace BizAppDev
             GridView1.DataSource = couponList;
             GridView1.DataSourceID = string.Empty;
             GridView1.DataBind();
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int result = 0;
+            Coupons2 coup = new Coupons2();
+            GridViewRow row = GridView1.Rows[e.RowIndex];
+            Label itemIdLabel = (Label)row.FindControl("coupon ID");
+            string itemId = row.Cells[0].Text;
+            //string categoryID = gvCoupons.DataKeys[e.RowIndex].Value.ToString();
+            Console.WriteLine(itemId);
+            result = coup.CouponDelete(itemId);
+
+            if (result > 0)
+            {
+                Response.Write("<script>alert('Product Remove successfully');</script>");
+                lbl_alert.Text = "Coupon remove successfully";
+                lbl_alert.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                Response.Write("<script>alert('Product Removal NOT successfully');</script>");
+                lbl_alert.Text = "Coupon removal NOT successful";
+                lbl_alert.ForeColor = System.Drawing.Color.Red;
+            }
+
+            Response.Redirect("Coupons(lermin).aspx");
+
+
+
         }
     }
 }

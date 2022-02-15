@@ -20,6 +20,9 @@ namespace BizAppDev
         private int _stockLevel = 0;
         private string _supplName = "";
         private string _supplEmail = "";
+        private string _keywords = "";
+        private string _category = "";
+
         // Default constructor
         public Product()
         {
@@ -27,7 +30,7 @@ namespace BizAppDev
 
         // Constructor that take in all data required to build a Product object
         public Product(string prodID, string prodName, string prodDesc,
-                       decimal unitPrice, string prodImage, int stockLevel, string supplName, string supplEmail)
+                       decimal unitPrice, string prodImage, int stockLevel, string supplName, string supplEmail, string keywords, string category)
         {
             _prodID = prodID;
             _prodName = prodName;
@@ -35,21 +38,14 @@ namespace BizAppDev
             _unitPrice = unitPrice;
             _prodImage = prodImage;
             _stockLevel = stockLevel;
-            _supplName = supplEmail;
+            _supplName = supplName;
+            _supplEmail = supplEmail;
+            _keywords = keywords;
+            _category = category;
         }
 
         // Constructor that take in all except product ID
-        public Product(string prodName, string prodDesc,
-               decimal unitPrice, string prodImage, int stockLevel, string supplName, string supplEmail)
-            : this(null, prodName, prodDesc, unitPrice, prodImage, stockLevel, supplName, supplEmail)
-        {
-        }
 
-        // Constructor that take in only Product ID. The other attributes will be set to 0 or empty.
-        public Product(string prodID)
-            : this(prodID, "", "", 0, "", 0, "", "")
-        {
-        }
 
         // Get/Set the attributes of the Product object.
         // Note the attribute name (e.g. Product_ID) is same as the actual database field name.
@@ -84,32 +80,34 @@ namespace BizAppDev
             get { return _stockLevel; }
             set { _stockLevel = value; }
         }
+
         public string Supplier_Name
         {
-            get
-            {
-                return _supplName;
-            }
-            set
-            {
-                _supplName = value;
-            }
-
+            get { return _supplName; }
+            set { _supplName = value; }
         }
+
         public string Supplier_Email
         {
             get { return _supplEmail; }
-            set
-            {
-                _supplEmail = value;
-            }
+            set { _supplEmail = value; }
+        }
+        public string keyword
+        {
+            get { return _keywords; }
+            set { _keywords = value; }
+        }
+        public string category
+        {
+            get { return _category; }
+            set { _category = value; }
         }
         public Product getProd(string supplname)
         {
 
             Product productdetails = null;
 
-            string prodID, prodName, prodDesc, prodImage, supplName, supplEmail;
+            string prodID, prodName, prodDesc, prodImage, supplName, supplEmail, category, keyword;
             decimal unitPrice;
             int stockLevel;
 
@@ -133,8 +131,10 @@ namespace BizAppDev
                 supplEmail = dr["supplierEmail"].ToString();
                 unitPrice = decimal.Parse(dr["Unit_Price"].ToString());
                 stockLevel = int.Parse(dr["Stock_Level"].ToString());
+                category = dr["Category"].ToString();
+                keyword = dr["keywordsearch"].ToString();
 
-                productdetails = new Product(prodID, prodName, prodDesc, unitPrice, prodImage, stockLevel, supplName, supplEmail);
+                productdetails = new Product(prodID, prodName, prodDesc, unitPrice, prodImage, stockLevel, supplName, supplEmail, keyword, category);
             }
             else
             {
@@ -153,30 +153,30 @@ namespace BizAppDev
             // string msg = null;
             int result = 0;
 
-            string queryStr = "INSERT INTO Products(Product_ID,Product_Name, Product_Desc, Unit_Price,Product_Image,Stock_Level)"
-                + " values (@Product_ID,@Product_Name, @Product_Desc, @Unit_Price, @Product_Image,@Stock_Level)";
+            string queryStr = "INSERT INTO Products(Product_ID,Product_Name, Product_Desc, Unit_Price,Product_Image,Stock_Level, supplierName, supplierEmail, keywordsearch, Category)"
+                + " values (@id,@name, @desc, @price, @image,@stock, @supplname, @supplemail, @keywordsearch, @category)";
             //+ "values (@Product_ID, @Product_Name, @Product_Desc, @Unit_Price, @Product_Image,@Stock_Level)";
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connStr);
-                SqlCommand cmd = new SqlCommand(queryStr, conn);
-                cmd.Parameters.AddWithValue("@Product_ID", this.Product_ID);
-                cmd.Parameters.AddWithValue("@Product_Name", this.Product_Name);
-                cmd.Parameters.AddWithValue("@Product_Desc", this.Product_Desc);
-                cmd.Parameters.AddWithValue("@Unit_Price", this.Unit_Price);
-                cmd.Parameters.AddWithValue("@Product_Image", this.Product_Image);
-                cmd.Parameters.AddWithValue("@Stock_Level", this.Stock_Level);
 
-                conn.Open();
-                result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
-                conn.Close();
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@id", this.Product_ID);
+            cmd.Parameters.AddWithValue("@name", this.Product_Name);
+            cmd.Parameters.AddWithValue("@desc", this.Product_Desc);
+            cmd.Parameters.AddWithValue("@price", this.Unit_Price);
+            cmd.Parameters.AddWithValue("@image", this.Product_Image);
+            cmd.Parameters.AddWithValue("@stock", this.Stock_Level);
+            cmd.Parameters.AddWithValue("@supplname", this.Supplier_Name);
+            cmd.Parameters.AddWithValue("@supplemail", this.Supplier_Email);
+            cmd.Parameters.AddWithValue("@keywordsearch", this.keyword);
+            cmd.Parameters.AddWithValue("@category", this.category);
 
-                return result;
-            }
-            catch (Exception ex)
-            {
-                return 0;
-            }
+            conn.Open();
+            result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
+            conn.Close();
+
+            return result;
         }//end Insert
+
+
     }
 }

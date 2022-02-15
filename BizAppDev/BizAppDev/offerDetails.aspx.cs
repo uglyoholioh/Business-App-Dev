@@ -21,7 +21,7 @@ namespace BizAppDev
             lbl_offerDesc.Text = offer.offer_Desc;
             lbl_offerstartDate.Text = offer.offer_startDate;
             lbl_endDate.Text = offer.offer_endDate;
-            img_offer.ImageUrl = "~\\Images\\" + offer.offer_Image;
+            img_offer.ImageUrl = "~\\images\\" + offer.offer_Image;
 
         }
 
@@ -29,5 +29,7 @@ namespace BizAppDev
         {
             Response.Redirect("Offers(lermin).aspx");
         }
+
+
     }
 }

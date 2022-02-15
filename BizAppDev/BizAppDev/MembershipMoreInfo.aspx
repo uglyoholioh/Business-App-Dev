@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="MembershipMoreInfo.aspx.cs" Inherits="BizAppDev.MembershipMoreInfo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<form id="form1" runat="server">
+     <form id="form1" runat="server">
     <header class="bg-white shadow-sm px-4 py-3 z-index-20">
             <div class="container-fluid px-0">
               <h2 class="mb-0 p-1">Membership Tier List</h2>
@@ -12,7 +12,7 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 py-3">
                   <li class="breadcrumb-item">Membership Tier List</li>
-                  <li class="breadcrumb-item"><a class="fw-light" href="~/MembershipTierList.aspx">Membership Tier List Information</a></li>
+                  <li class="breadcrumb-item"><a class="fw-light" href="~/MembershipTierList(employee).aspx">Membership Tier List Information</a></li>
                 </ol>
               </nav>
             </div>
@@ -46,7 +46,7 @@
                                 <tr>
                                     <td>Membership Tier ID: </td>
                                     <td>
-                                        <asp:Label ID="lbl_tierID" runat="server" Text='<%# Eval("membership_id") %>'></asp:Label>
+                                        <asp:Label ID="lbl_tierID" runat="server" Text='<%# Eval("membership_id")%>'></asp:Label>
                                     </td>
                                 </tr>
                                 <tr>
@@ -70,7 +70,7 @@
                                 <tr>
                                     <td>Membership Price:</td>
                                     <td>
-                                        <asp:TextBox ID="tb_Price" runat="server" Text='<%# Eval("membership_price") %>' OnTextChanged="tb_Price_TextChanged"></asp:TextBox>
+                                        <asp:TextBox ID="tb_Price" runat="server" Text='<%# Eval("membership_price") %>' ></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -140,5 +140,6 @@
      
         
         <br />
-</form>
+
+            </form>
 </asp:Content>

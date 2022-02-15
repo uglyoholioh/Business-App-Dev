@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Coupons2Detail.aspx.cs" Inherits="BizAppDev.Coupons2Detail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
- <form id="form1" runat="server">
+    <form id="form1" runat="server">
         <div class="card mb-0" style="margin-left:40px; margin-left:150px;">
                     <div class="card-header">
                       <div class="card-close">
@@ -17,7 +17,7 @@
         </ul>
     </div>
                         <div class="card-body" >
-                            <asp:DataList ID="DataList1" runat="server" DataKeyField="couponID" DataSourceID="SqlDataSource1" OnCancelCommand="DataList1_CancelCommand" OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand">
+                            <asp:DataList ID="DataList1" runat="server" DataKeyField="couponID" DataSourceID="SqlDataSource1" OnCancelCommand="DataList1_CancelCommand" OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
                                 <EditItemTemplate>
                                     Coupon ID:
                                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("couponID") %>'></asp:Label>
@@ -40,8 +40,16 @@
                                     <br />
                                     Valid Years:<asp:TextBox ID="TextBox7" runat="server" Text='<%# Eval("validYears") %>'></asp:TextBox>
                                     <br />
-                                    <asp:Button ID="btn_update" runat="server" CommandName="update" Text="Update" />
-                                    <asp:Button ID="btn_cancel" runat="server" CommandName="cancel" Text="Cancel" />
+                                    Category:
+                                    <asp:DropDownList ID="ddl_category" runat="server" Width="137px">
+                                        <asp:ListItem>Joss Money</asp:ListItem>
+                                        <asp:ListItem>Joss Paper</asp:ListItem>
+                                        <asp:ListItem>Joss Sticks</asp:ListItem>
+                                        <asp:ListItem>Candles</asp:ListItem>
+                                    </asp:DropDownList>
+                                    <br />
+                                    <asp:Button ID="btn_update" runat="server" CommandName="update" Text="Update" class="btn btn-secondary"/>
+                                    <asp:Button ID="btn_cancel" runat="server" CommandName="cancel" Text="Cancel" class="btn btn-secondary"/>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     couponID:
@@ -71,10 +79,14 @@
                                     valid Years:
                                     <asp:Label ID="validYearsLabel" runat="server" Text='<%# Eval("validYears") %>' />
                                     <br />
-                                    <asp:Button ID="btn_edit" runat="server" CommandName="edit" Text="Edit" />
+                                    Category:&nbsp;<asp:Label ID="lbl_category" runat="server" Text='<%# Eval("Category") %>'></asp:Label>
+                                    <br />
+                                    <asp:Button ID="btn_edit" runat="server" CommandName="edit" Text="Edit" class="btn btn-secondary"/>
                                     &nbsp;<br />
                                 </ItemTemplate>
                             </asp:DataList>
+                            <br />
+                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Back" class="btn btn-primary"/>
         </div>
             </div>
         
@@ -87,4 +99,7 @@
         
         
     </form>
+
+
+
 </asp:Content>

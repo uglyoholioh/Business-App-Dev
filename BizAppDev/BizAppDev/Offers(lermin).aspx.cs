@@ -36,10 +36,8 @@ namespace BizAppDev
         }
         protected void bind()
         {
-            List<Offers> offerList = new List<Offers>();
-            offerList = aOffer.getOffersAll();
-            gvOffer.DataSource = offerList;
-            gvOffer.DataBind();
+           
+         
         }
 
         protected void gvOffer_SelectedIndexChanged(object sender, EventArgs e)
@@ -137,8 +135,9 @@ namespace BizAppDev
             int result = 0;
             Offers coup = new Offers();
             GridViewRow row = gvOffer.Rows[e.RowIndex];
-            Label itemIdLabel = (Label)row.FindControl("offer ID");
+    
             string itemId = row.Cells[0].Text;
+            Response.Write("<script>alert('"+itemId+"');</script>");
             //string categoryID = gvCoupons.DataKeys[e.RowIndex].Value.ToString();
             Console.WriteLine(itemId);
             result = coup.offerDelete(itemId);
@@ -156,7 +155,7 @@ namespace BizAppDev
                 lbl_alert.ForeColor = System.Drawing.Color.Red;
             }
 
-            Response.Redirect("Coupons(lermin).aspx");
+            Response.Redirect("Offers(lermin).aspx");
         }
 
         protected void filter_click(object sender, EventArgs e)
@@ -190,5 +189,8 @@ namespace BizAppDev
             gvOffer.DataSource = offerList;
             gvOffer.DataBind();
         }
+
+
+
     }
 }

@@ -10,6 +10,7 @@ namespace BizAppDev
     public class ProductOrdering
     {
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+       
         private string _orderid = null;
         private string _orderquantity = "";
         private string _orderdate = ""; // this is another way to specify empty string
@@ -205,5 +206,6 @@ namespace BizAppDev
 
             return orderdetails;
         }
+
     }
 }

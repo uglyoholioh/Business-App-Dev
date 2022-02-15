@@ -4,9 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
 
 namespace BizAppDev
 {
@@ -79,10 +76,10 @@ namespace BizAppDev
             string cname = ((TextBox)row.Cells[1].Controls[0]).Text;
             string cstartdate = ((TextBox)row.Cells[2].Controls[0]).Text;
             string cenddate = ((TextBox)row.Cells[3].Controls[0]).Text;
-            string cdesc = ((TextBox)row.Cells[4].Controls[0]).Text;
-            Decimal cAmt = decimal.Parse(((TextBox)row.Cells[5].Controls[0]).Text);
 
-            result = coup.CoupUpdate(cid, cname, cstartdate, cenddate, cdesc, cAmt);
+            Decimal cAmt = decimal.Parse(((TextBox)row.Cells[4].Controls[0]).Text);
+
+            result = coup.CoupUpdate(cid, cname, cstartdate, cenddate, cAmt);
             if (result > 0)
             {
                 Response.Write("<script>alert('Coupon updated successfully');</script>");
@@ -122,6 +119,17 @@ namespace BizAppDev
                         }
                     }
 
+                }
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    string item = e.Row.Cells[0].Text;
+                    foreach (Button button in e.Row.Cells[2].Controls.OfType<Button>())
+                    {
+                        if (button.CommandName == "Delete")
+                        {
+                            button.Attributes["onclick"] = "if(!confirm('Do you want to delete " + item + "?')){ return false; };";
+                        }
+                    }
                 }
             }
             catch
@@ -206,5 +214,8 @@ namespace BizAppDev
                 Response.Redirect("CouponsValidity(lermin).aspx");
             }
         }
+
+
+
     }
 }

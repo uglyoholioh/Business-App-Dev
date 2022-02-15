@@ -39,14 +39,22 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666"  BorderWidth="1px" CellPadding="7" DataSourceID="SqlDataSource2" GridLines="Horizontal" Width="1000px" OnRowDataBound="GridView1_RowDataBound" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666"  BorderWidth="1px" CellPadding="7" DataSourceID="SqlDataSource2" GridLines="Horizontal" Width="1000px" OnRowDataBound="GridView1_RowDataBound" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDeleting="GridView1_RowDeleting">
                                             <Columns>
-                                                <asp:BoundField DataField="CouponID" HeaderText="coupon ID" />
-                                                <asp:BoundField DataField="cName" HeaderText="coupon name " />
-                                                <asp:BoundField DataField="cDesc" HeaderText="coupon desc" />
+                                                <asp:BoundField DataField="couponID" HeaderText="coupon ID" />
+                                                <asp:BoundField DataField="couponName" HeaderText="coupon name " />
+                                                <asp:BoundField DataField="couponDesc" HeaderText="coupon desc" />
                                                 <asp:BoundField DataField="amount" HeaderText="amount of coupons left" />
                                                 <asp:BoundField DataField="discount" HeaderText="discount amount " />
-                                                <asp:CommandField ShowSelectButton="True" />
+                                               
+                                             
+                                               
+                                                <asp:CommandField ShowSelectButton="True" ShowEditButton="True" />
+                                                <asp:TemplateField ShowHeader="False">
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm('Are you sure you want to delete this coupon?');" Text="Delete"></asp:LinkButton>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
                                             </Columns>
                                             <FooterStyle BackColor="White" ForeColor="#333333" />
                                             <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
@@ -77,4 +85,7 @@
        
         
        </form>
+
+
+
 </asp:Content>

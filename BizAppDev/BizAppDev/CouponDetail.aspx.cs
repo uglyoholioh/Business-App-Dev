@@ -10,6 +10,7 @@ namespace BizAppDev
     public partial class CouponDetail : System.Web.UI.Page
     {
         Coupons coup = null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Coupons acoup = new Coupons();
@@ -21,11 +22,12 @@ namespace BizAppDev
             lbl_startDate.Text = coup.couponstartDate;
             lbl_endDate.Text = coup.couponendDate;
             lbl_desc.Text = coup.couponDesc;
-        }
 
+        }
         protected void btn_back_Click(object sender, EventArgs e)
         {
             Response.Redirect("Coupons(lermin).aspx");
         }
+
     }
 }

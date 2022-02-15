@@ -13,7 +13,6 @@ namespace BizAppDev
         {
 
         }
-
         protected void btn_view_Click(object sender, EventArgs e)
         {
             Response.Redirect("Products(lermin).aspx");
@@ -21,32 +20,38 @@ namespace BizAppDev
 
         protected void btn_edit_Click(object sender, EventArgs e)
         {
-            int result = 0;
-            string pass = "1234567890";
-            Random r = new Random();
-            char[] mypass = new char[5];
-            string image = "";
-
-            if (fu_image.HasFile == true)
+            if (Page.IsValid)
             {
-                image = "Images\\" + fu_image.FileName;
-            }
-            for (int i = 0; i < 5; i++)
-            {
-                mypass[i] = pass[r.Next(pass.Length)];
-            }
-            var kan = new String(mypass);
+                int result = 0;
+                string pass = "1234567890";
+                Random r = new Random();
+                char[] mypass = new char[5];
+                string image = "";
 
-            Product coup = new Product(kan, tb_name.Text, tb_desc.Text,
-                decimal.Parse(tb_price.Text), fu_image.FileName, int.Parse(tb_stock.Text), tb_supplname.Text, tb_supplemail.Text);
-            result = coup.ProductInsert();
+                if (fu_image.HasFile == true)
+                {
+                    image = "Images\\" + fu_image.FileName;
+                }
+                for (int i = 0; i < 5; i++)
+                {
+                    mypass[i] = pass[r.Next(pass.Length)];
+                }
+                var kan = new String(mypass);
 
-            if (result > 0)
-            {
-                Response.Write("<script>alert('Insert successful');</script>");
-                Response.Redirect("Products(lermin).aspx?result =" + result);
+                Product coup = new Product(kan, tb_name.Text, tb_desc.Text,
+                    decimal.Parse(tb_price.Text), fu_image.FileName, int.Parse(tb_stock.Text), tb_supplname.Text, tb_supplemail.Text, tb_keywords.Text, ddl_category.SelectedItem.Text);
+                result = coup.ProductInsert();
+
+                if (result > 0)
+                {
+                    Response.Write("<script>alert('Insert successful');</script>");
+                    Response.Redirect("Products(lermin).aspx?result =" + result);
+                }
+                else { Response.Write("<script>alert('Insert NOT successful');</script>"); }
             }
-            else { Response.Write("<script>alert('Insert NOT successful');</script>"); }
         }
+
+
+
     }
 }

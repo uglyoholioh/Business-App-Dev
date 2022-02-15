@@ -26,35 +26,36 @@
                       
                       <p class="card-text">
                           <h5 class="card-title">
-                          <asp:Label ID="lbl_id" runat="server" Text='<%# Eval("customer_id") %>'></asp:Label>
+                          <asp:Label ID="lbl_id" runat="server" Text='<%# Eval("Cust_ID") %>'></asp:Label>
                           ,
-                          <asp:Label ID="lbl_name" runat="server" Text='<%# Eval("customer_name") %>'></asp:Label>
+                          <asp:Label ID="lbl_name" runat="server" Text='<%# Eval("First_Name") %>'></asp:Label>
                         </h5>
 
                           Customer Email:
-                          <asp:Label ID="lbl_email" runat="server" Text='<%# Eval("customer_email") %>'></asp:Label>
+                          <asp:Label ID="lbl_email" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
+
+                          <br />
+                          Customer User Name:
+                          <asp:Label ID="lbl_username" runat="server" Text='<%# Eval("Username") %>'></asp:Label>
 
                           <p class="card-text">
                               Customer Contact:
-                              <asp:Label ID="lbl_contact" runat="server" Text='<%# Eval("customer_contactNo") %>'></asp:Label>
+                              <asp:Label ID="lbl_contact" runat="server" Text='<%# Eval("PhoneNo") %>'></asp:Label>
                           </p>
                           <p class="card-text">
-                              Member status:<asp:Label ID="lbl_member" runat="server" Text='<%# Eval("customer_member") %>'></asp:Label>
+                              Member status:<asp:Label ID="lbl_member" runat="server" Text='<%# Eval("member") %>'></asp:Label>
                           </p>
                           <p class="card-text">
-                              Member Address:
-                              <asp:Label ID="lbl_address" runat="server" Text='<%# Eval("customer_address") %>'></asp:Label>
+                              Address:
+                              <asp:Label ID="lbl_address" runat="server" Text='<%# Eval("Address") %>'></asp:Label>
                           </p>
                           <p class="card-text">
-                              Member Date of Birth:
+                              Date of Birth:
                               <asp:Label ID="lbl_DOB" runat="server" Text='<%# Eval("DOB") %>'></asp:Label>
                           </p>
                           <p class="card-text">
-                              Member Payment:<asp:Label ID="lbl_payment" runat="server" Text='<%# Eval("customer_paymentmethod") %>'></asp:Label>
-                          </p>
-                          <p class="card-text">
-                              Member Remarks:
-                              <asp:Label ID="lbl_remarks" runat="server" Text='<%# Eval("customer_remarks") %>'></asp:Label>
+                              Gender:
+                              <asp:Label ID="lbl_gender" runat="server" Text='<%# Eval("Gender") %>'></asp:Label>
                           </p>
                           <p class="card-text">
                               Point Tier ID:
@@ -65,7 +66,17 @@
                               <asp:Label ID="lbl_lvlpoints" runat="server" Text='<%# Eval("lvlPoints") %>'></asp:Label>
                           </p>
                           <p class="card-text">
-                              <asp:Button ID="btn_back" runat="server" CommandName="back" Text="Back" class="btn btn-secondary" style="color: white;"/>
+                              Points:
+                              <asp:Label ID="lbl_points" runat="server" Text='<%# Eval("Points") %>'></asp:Label>
+                          </p>
+                          <p class="card-text">
+                              <asp:Button ID="btn_back" runat="server" CommandName="back" Text="Back" class="btn btn-secondary" style="color: white;" OnClick="btn_back_Click"/>
+                          </p>
+
+                          <p>
+                          </p>
+
+                          <p>
                           </p>
 
                           <p>
@@ -83,10 +94,14 @@
                   </div>
                  </ItemTemplate>
         </asp:DataList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Customers] WHERE ([customer_id] = @customer_id)">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Customer] WHERE ([Cust_ID] = @customer_id)">
             <SelectParameters>
                 <asp:QueryStringParameter Name="customer_id" QueryStringField="customerid" Type="String" Direction = "Input" DefaultValue='<%= Request.QueryString["customerid"] %>'/>
             </SelectParameters>
         </asp:SqlDataSource>
     </form>
+
+
+
+
 </asp:Content>

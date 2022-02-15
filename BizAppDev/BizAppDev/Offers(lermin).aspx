@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Offers(lermin).aspx.cs" Inherits="BizAppDev.Offers_lermin_" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<form id="form1" runat="server">
+    <form id="form1" runat="server">
         <div class="card mb-0" style="margin-left:40px;  margin-left:150px;">
                     <div class="card-header">
                       <div class="card-close">
@@ -38,13 +38,18 @@
                     
                         </table>
                            
-            <asp:GridView ID="gvOffer" runat="server" AutoGenerateColumns="False"  Width="1000px" OnSelectedIndexChanged="gvOffer_SelectedIndexChanged" OnRowCancelingEdit="gvOffer_RowCancelingEdit" OnRowEditing="gvOffer_RowEditing" OnRowUpdating="gvOffer_RowUpdating" OnRowDataBound="gvOffer_RowDataBound" OnRowDeleting="gvOffer_RowDeleting1" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="1px" CellPadding="4" GridLines="Horizontal">
+            <asp:GridView ID="gvOffer" runat="server" AutoGenerateColumns="False"  Width="1000px" OnSelectedIndexChanged="gvOffer_SelectedIndexChanged" OnRowCancelingEdit="gvOffer_RowCancelingEdit" OnRowEditing="gvOffer_RowEditing" OnRowUpdating="gvOffer_RowUpdating" OnRowDataBound="gvOffer_RowDataBound" OnRowDeleting="gvOffer_RowDeleting1" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="1px" CellPadding="4" GridLines="Horizontal" DataSourceID="SqlDataSource1">
                 <Columns>
                     <asp:BoundField DataField="offer_ID" HeaderText="offer ID" />
                     <asp:BoundField DataField="offer_Name" HeaderText="offer name" />
-                    <asp:BoundField DataField="offer_startDate" HeaderText="offer start date" />
-                    <asp:BoundField DataField="offer_endDate" HeaderText="offer end date" />
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" ButtonType="Button" />
+                    <asp:BoundField DataField="offer_startDate" HeaderText="offer start date"  DataFormatString="{0:dd/MM/yyyy}" />
+                    <asp:BoundField DataField="offer_endDate" HeaderText="offer end date"  DataFormatString="{0:dd/MM/yyyy}" />
+                    <asp:CommandField ShowEditButton="True" ShowSelectButton="True" />
+                    <asp:TemplateField ShowHeader="False">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this offer?');"></asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
                 <FooterStyle BackColor="White" ForeColor="#333333" />
                 <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
@@ -56,6 +61,7 @@
                 <SortedDescendingCellStyle BackColor="#E5E5E5" />
                 <SortedDescendingHeaderStyle BackColor="#275353" />
             </asp:GridView>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Offers]"></asp:SqlDataSource>
         </p>
         <p>
             <asp:Button ID="btn_add" runat="server" Text="Add Offers/ Events"  OnClick="btn_add_Click" class="btn btn-primary" style="color: white;"/>
@@ -63,4 +69,7 @@
                             </div>
             </div>
     </form>
+
+
+
 </asp:Content>

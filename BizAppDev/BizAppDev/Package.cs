@@ -15,19 +15,21 @@ namespace BizAppDev
         private string _packageDesc = "";
         private decimal _packagePrice = 0;
         private string _packageImage = "";
+        private string _packageKeyword = "";
         // Default constructor
         public Package()
         {
         }
 
         // Constructor that take in all data required to build a Product object
-        public Package(string packageName, string packageItems, string packageDesc, decimal packagePrice, string packageImage)
+        public Package(string packageName, string packageItems, string packageDesc, decimal packagePrice, string packageImage, string packageKeyword)
         {
             _packageName = packageName;
             _packageItems = packageItems;
             _packageDesc = packageDesc;
             _packagePrice = packagePrice;
             _packageImage = packageImage;
+            _packageKeyword = packageKeyword;
         }
 
         // Constructor that take in all except product ID
@@ -65,12 +67,17 @@ namespace BizAppDev
             get { return _packageImage; }
             set { _packageImage = value; }
         }
+        public string package_Keyword
+        {
+            get { return _packageKeyword; }
+            set { _packageKeyword = value; }
+        }
         public Package get_Package(string package_Name)
         {
 
             Package package_details = null;
 
-            string package_Items, package_Desc, package_Image;
+            string package_Items, package_Desc, package_Image, package_Keyword;
             decimal package_Price;
 
 
@@ -90,9 +97,9 @@ namespace BizAppDev
                 package_Items = dr["package_Items"].ToString();
                 package_Desc = dr["package_Desc"].ToString();
                 package_Price = decimal.Parse(dr["prodDesc"].ToString());
+                package_Keyword = dr["package_keyword"].ToString();
 
-
-                package_details = new Package(package_Name.ToString(), package_Items, package_Desc, package_Price, package_Image);
+                package_details = new Package(package_Name.ToString(), package_Items, package_Desc, package_Price, package_Image, package_Keyword);
             }
             else
             {
@@ -109,7 +116,7 @@ namespace BizAppDev
         {
             List<Package> packageList = new List<Package>();
 
-            string package_Name, package_Items, package_Desc, package_Image;
+            string package_Name, package_Items, package_Desc, package_Image, package_Keyword;
             decimal package_Price;
 
 
@@ -128,8 +135,9 @@ namespace BizAppDev
                 package_Desc = dr["package_Desc"].ToString();
                 package_Price = decimal.Parse(dr["package_Price"].ToString());
                 package_Name = dr["package_Name"].ToString();
+                package_Keyword = dr["package_keyword"].ToString();
 
-                Package a = new Package(package_Name, package_Items, package_Desc, package_Price, package_Image);
+                Package a = new Package(package_Name, package_Items, package_Desc, package_Price, package_Image, package_Keyword);
                 packageList.Add(a);
             }
 
@@ -145,8 +153,8 @@ namespace BizAppDev
             // string msg = null;
             int result = 0;
 
-            string queryStr = "INSERT INTO Package(package_Name,package_Items, package_Desc, package_Price,package_Image) "
-                + "values (@package_Name,@package_Items, @package_Desc, @package_Price, @package_Image)";
+            string queryStr = "INSERT INTO Package(package_Name,package_Items, package_Desc, package_Price,package_Image, package_keyword) "
+                + "values (@package_Name,@package_Items, @package_Desc, @package_Price, @package_Image, @package_keyword)";
 
 
             SqlConnection conn = new SqlConnection(_connStr);
@@ -156,6 +164,7 @@ namespace BizAppDev
             cmd.Parameters.AddWithValue("@package_Desc", this.package_Desc);
             cmd.Parameters.AddWithValue("@package_Price", this.package_Price);
             cmd.Parameters.AddWithValue("@package_Image", this.package_Image);
+            cmd.Parameters.AddWithValue("@package_keyword", this.package_Keyword);
 
             conn.Open();
             result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
@@ -163,5 +172,6 @@ namespace BizAppDev
 
             return result;
         }//end Insert
+
     }
 }

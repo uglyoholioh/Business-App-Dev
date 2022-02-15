@@ -16,40 +16,51 @@ namespace BizAppDev
 
         protected void btn_insert_Click(object sender, EventArgs e)
         {
-            int result = 0;
-            string image = "";
-            string str = "";
-            string IMAGE = "Image\\";
-
-            for (int i = 0; i < CheckBoxList1.Items.Count; i++)
+            if (Page.IsValid)
             {
-                if (CheckBoxList1.Items[i].Selected == true)
-                { // getting selected value from CheckBox List  
-                    str += CheckBoxList1.Items[i].Text + " ," + "<br/>"; // add selected Item text to the String .  
+                int result = 0;
+                string image = "";
+                string str = "";
+                string IMAGE = "images\\";
+
+                for (int i = 0; i < CheckBoxList1.Items.Count; i++)
+                {
+                    if (CheckBoxList1.Items[i].Selected == true)
+                    { // getting selected value from CheckBox List  
+                        str += CheckBoxList1.Items[i].Text + " ," + "<br/>"; // add selected Item text to the String .  
+                    }
                 }
-            }
 
-            if (FileUpload1.HasFile == true)
-            {
-                image = IMAGE + FileUpload1.FileName;
-            }
+                if (FileUpload1.HasFile == true)
+                {
+                    image = IMAGE + FileUpload1.FileName;
+                }
 
-            Package package = new Package(tb_name.Text, str, tb_desc.Text,
-                decimal.Parse(tb_price.Text), FileUpload1.FileName);
-            result = package.packageInsert();
+                Package package = new Package(tb_name.Text, str, tb_desc.Text,
+                    decimal.Parse(tb_price.Text), FileUpload1.FileName, td_keyword.Text);
+                result = package.packageInsert();
 
-            if (result > 0)
-            {
-                string saveimg = Server.MapPath(" ") + "\\" + image;
-                Label1.Text = saveimg.ToString();
-                FileUpload1.SaveAs(saveimg);
-                //loadProductInfo();
-                //loadProduct();
-                //clear1();
-                Response.Write("<script>alert('Insert successful');</script>");
-                Response.Redirect("Products(lermin).aspx?result = " + result);
+                if (result > 0)
+                {
+                    string saveimg = Server.MapPath(" ") + "\\" + image;
+                    Label1.Text = saveimg.ToString();
+                    FileUpload1.SaveAs(saveimg);
+                    //loadProductInfo();
+                    //loadProduct();
+                    //clear1();
+                    Response.Write("<script>alert('Insert successful');</script>");
+                    Response.Redirect("Products(lermin).aspx?result = " + result);
+                }
+                else { Response.Write("<script>alert('Insert NOT successful');</script>"); }
             }
-            else { Response.Write("<script>alert('Insert NOT successful');</script>"); }
         }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs e)
+        {
+
+        }
+
+
+
     }
 }

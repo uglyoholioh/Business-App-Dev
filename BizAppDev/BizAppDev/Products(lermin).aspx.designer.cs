@@ -33,6 +33,15 @@ namespace BizAppDev
         protected global::System.Web.UI.WebControls.Button btn_add_product;
 
         /// <summary>
+        /// ddl_sortproduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_sortproduct;
+
+        /// <summary>
         /// tb_search control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace BizAppDev
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_addpackage;
+
+        /// <summary>
+        /// DropDownList1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
         /// tb_name2 control.

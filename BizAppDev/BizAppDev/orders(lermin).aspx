@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="orders(lermin).aspx.cs" Inherits="BizAppDev.orders_lermin_" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<form id="form1" runat="server">
+    <form id="form1" runat="server">
         <div class="card mb-0" style="margin-left:40px; width:1000px; margin-left:150px;">
                     <div class="card-header">
                       <div class="card-close">
@@ -30,7 +30,7 @@
                                         <asp:BoundField DataField="order_ID" HeaderText="Order ID" />
                                         <asp:BoundField DataField="prod_id" HeaderText="Product Name" />
                                         <asp:BoundField DataField="order_Quantity" HeaderText="Quantity " />
-                                        <asp:BoundField DataField="order_Date" HeaderText="Delivery Date" />
+                                        <asp:BoundField DataField="order_Date" HeaderText="Delivery Date" DataFormatString="{0:dd/MM/yyyy}"/>
                                         <asp:BoundField DataField="status" HeaderText="status" />
                                     </Columns>
                                     <FooterStyle BackColor="White" ForeColor="#333333" />
@@ -48,4 +48,5 @@
             </div>
 
      </form>
+
 </asp:Content>

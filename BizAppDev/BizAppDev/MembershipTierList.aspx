@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="MembershipTierList.aspx.cs" Inherits="BizAppDev.MembershipTierList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<form id="form1" runat="server">
+    <form id="form1" runat="server">
     <header class="bg-white shadow-sm px-4 py-3 z-index-20">
             <div class="container-fluid px-0">
               <h2 class="mb-0 p-1">Membership Tier List</h2>
@@ -39,7 +39,7 @@
 
                 <p class="card-text"><asp:Label ID="lbl_desc" runat="server" Text='<%# Eval("membership_desc") %>'></asp:Label></p>
                 <br />
-                <asp:Button ID="btn_more" runat="server" Text="More Information"  class="btn btn-primary" style="color: white;"/>
+                <asp:Button ID="btn_more" runat="server" Text="More Information"  class="btn btn-primary" style="color: white;" OnClick="btn_more_Click"/>
                           </div>
                       </div>
                     </div>
@@ -57,4 +57,5 @@
         <br />
 
             </form>
+
 </asp:Content>

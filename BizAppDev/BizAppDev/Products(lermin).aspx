@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Products(lermin).aspx.cs" Inherits="BizAppDev.Products_lermin_" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
- <form id="form1" runat="server">
+<form id="form1" runat="server">
     <header class="bg-white shadow-sm px-4 py-3 z-index-20">
             <div class="container-fluid px-0">
               <h2 class="mb-0 p-1" style="text-align:center;">Product List</h2>
@@ -11,7 +11,7 @@
             <div class="container-fluid">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 py-3" style="margin-left:30px;">
-                  <li class="breadcrumb-item"><a class="fw-light" href="~/Products(lermin).aspx">Product List</a></li>
+                  <li class="breadcrumb-item"><a class="fw-light" href="~/Products(lermin).aspx">ProdProduct List</a></li>
                   
                 </ol>
                   
@@ -25,7 +25,14 @@
                 <div class="col-md-6 col-lg-3">
                     <table style="width: 1309px;">
                         <tr>
-                            <td><asp:TextBox ID="tb_search" runat="server" Width="251px" style="margin-left:820px;" OnTextChanged="tb_search_TextChanged"></asp:TextBox><asp:Button ID="Button4" runat="server" Text="Search" class="btn btn-secondary" style="color:white;" OnClick="Button4_Click"/></td>
+                            <td>
+                                <asp:DropDownList ID="ddl_sortproduct" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_sortproduct_SelectedIndexChanged" Width="271px">
+                                    <asp:ListItem>Highest to Lowest(unit price)</asp:ListItem>
+                                    <asp:ListItem>Lowest to Highest (unit price)</asp:ListItem>
+                                    <asp:ListItem>Highest to Lowest (stock level)</asp:ListItem>
+                                    <asp:ListItem>Lowest to Highest (stock level)</asp:ListItem>
+                                </asp:DropDownList>
+&nbsp;&nbsp; <asp:TextBox ID="tb_search" runat="server" Width="251px" style="margin-left:820px;" OnTextChanged="tb_search_TextChanged"></asp:TextBox><asp:Button ID="Button4" runat="server" Text="Search" class="btn btn-secondary" style="color:white;" OnClick="Button4_Click"/></td>
                         </tr>
                     
                     
@@ -35,7 +42,7 @@
                     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnCancelCommand="DataList1_CancelCommand" OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand" OnItemCommand="DataList1_ItemCommand1" OnDeleteCommand="DataList1_DeleteCommand" RepeatColumns="3" Height="1103px" CellPadding="5" >
                         <EditItemTemplate>
                             <div class="card" style="margin-left:30px;width:349px;">
-                      <asp:Image class="card-img-top img-fluid" runat="server" width="170px" style="margin-left:80px; " ID="img_product" ImageUrl='<%# "/Image/" + Eval("Product_Image") %>' />
+                      <asp:Image class="card-img-top img-fluid" runat="server" width="170px" style="margin-left:80px; " ID="img_product" ImageUrl='<%# "/images/" + Eval("Product_Image") %>' />
                         <div class="card-body">
                             <h4 class="card-title">
 
@@ -62,6 +69,15 @@
                                 <asp:TextBox ID="tb_supplemail" runat="server" Height="19px" Text='<%# Eval("supplierEmail") %>' Width="203px"></asp:TextBox>
                             </p>
                             <p class="card-text">
+                                <b>Category:</b>
+                                <asp:DropDownList ID="ddl_category" runat="server" Width="145px">
+                                    <asp:ListItem>Joss Money</asp:ListItem>
+                                    <asp:ListItem>Joss Paper</asp:ListItem>
+                                    <asp:ListItem>Joss Sticks</asp:ListItem>
+                                    <asp:ListItem>Candles</asp:ListItem>
+                                </asp:DropDownList>
+                            </p>
+                            <p class="card-text">
                                 <asp:Button ID="btn_update" runat="server" class="btn btn-primary" CommandName="update" style="color: white;" Text="Update" />
                                 <asp:Button ID="btn_cancel" runat="server" class="btn btn-primary" CommandName="cancel" style="color: white;" Text="Cancel" />
                             </p>
@@ -71,13 +87,13 @@
                         </EditItemTemplate>
                         <ItemTemplate>
                             <div class="card" style="margin-left:30px;width:349px;padding-top:0px;height:580px;">
-                      <asp:Image class="card-img-top img-fluid" runat="server" width="170px" height="140px" style="margin-left:80px; padding:0px 0px 0px 0px; " ID="img_product" ImageUrl='<%# "/Image/" + Eval("Product_Image") %>' />
+                      <asp:Image class="card-img-top img-fluid" runat="server" width="170px" height="140px" style="margin-left:80px; padding:0px 0px 0px 0px; " ID="Image1" ImageUrl='<%# "/images/" + Eval("Product_Image") %>' />
                         <div class="card-body">
                             <h4 class="card-title">
 
                                 <asp:Label ID="lbl_id" runat="server" Text='<%# Eval("Product_ID") %>'></asp:Label>
                                 ,
-                                <asp:Label ID="lbl_name" runat="server" Text='<%# Eval("Product_Name") %>'></asp:Label></h4>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("Product_Name") %>'></asp:Label></h4>
                                 <p class="card-text">
                                    <b>Product Description:</b>
                                     <asp:Label ID="lbl_desc" runat="server" Text='<%# Eval("Product_Desc") %>'></asp:Label>
@@ -90,7 +106,7 @@
                                     <asp:Label ID="lbl_price" runat="server" Text='<%# Eval("Unit_Price") %>'></asp:Label>
                                 </p>
                                 <p class="card-text">
-                                    <b>Stock Level:</b><asp:Label ID="lbl_stock" runat="server" Text='<%# Eval("Stock_Level") %>'></asp:Label>
+                                    <b>Stock Level:</b><asp:Label ID="Label3" runat="server" Text='<%# Eval("Stock_Level") %>'></asp:Label>
                                 </p>
                                 <p class="card-text">
                                     <b>Supplier Name:</b>
@@ -100,10 +116,14 @@
                                      <b>Supplier Email:</b>
                                     <asp:Label ID="lbl_supplemail" runat="server" Text='<%# Eval("supplierEmail") %>'></asp:Label>
                                 </p>
+                            <p class="card-text">
+                                <b>Category:</b>
+                                <asp:Label ID="lbl_category" runat="server" Text='<%# Eval("Category") %>'></asp:Label>
+                            </p>
                             <br />
                                 <p class="card-text">
                                     <asp:Button ID="btn_order" runat="server" Text="Order" CommandName="Order" class="btn btn-primary" style="color: white;"/> <asp:Button ID="btn_edit" runat="server" Text="Edit" CommandName="Edit" class="btn btn-primary" style="color: white;"/>
-                                    <asp:Button ID="Button3" runat="server" CommandName="delete" Text="Delete" class="btn btn-primary" style="color: white;" />
+                                    <asp:Button ID="Button3" runat="server" CommandName="delete" Text="Delete" class="btn btn-primary" style="color: white;" OnClientClick="return confirm('Are you sure you want to delete this product?');"/>
                                 </p>
                                 
                             
@@ -116,7 +136,7 @@
           
                     <hr style="border-top:1px solid gray; width:1200px;" />
     
-              <h3 class="mb-0 p-1" style="margin-left:600px;">Package</h3>
+              <h3 class="mb-0 p-1" style="margin-left:600px;">Package>
             
           <!-- Breadcrumb-->
           <div class="bg-white">
@@ -135,7 +155,12 @@
           </div>
                         <table style="width: 1309px;">
                         <tr>
-                            <td><asp:TextBox ID="tb_name2" runat="server" Width="251px" style="margin-left:820px;" OnTextChanged="tb_name2_TextChanged"></asp:TextBox><asp:Button ID="btn_search2" runat="server" Text="Search" class="btn btn-secondary" style="color:white;" OnClick="Button5_Click"/></td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Width="234px">
+                                    <asp:ListItem>Highest to Lowest (unit price)</asp:ListItem>
+                                    <asp:ListItem>Lowest to Highest (unit price)</asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:TextBox ID="tb_name2" runat="server" Width="251px" style="margin-left:820px;" OnTextChanged="tb_name2_TextChanged"></asp:TextBox><asp:Button ID="btn_search2" runat="server" Text="Search" class="btn btn-secondary" style="color:white;" OnClick="Button5_Click"/></td>
                         </tr>
                     
                     
@@ -148,22 +173,22 @@
                     <asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource2" DataKeyField="package_Name" OnCancelCommand="DataList2_CancelCommand" OnEditCommand="DataList2_EditCommand" OnUpdateCommand="DataList2_UpdateCommand" RepeatColumns="3" OnDeleteCommand="DataList2_DeleteCommand" >
                         <EditItemTemplate>
                             <div class="card" style="margin-left:30px;width:360px;">
-                      <asp:Image class="card-img-top img-fluid" runat="server" width="170px" height="140px" style="margin-left:80px; " ID="Image1" ImageUrl='<%#"/Image/" + Eval("package_Image") %>' />
+                      <asp:Image class="card-img-top img-fluid" runat="server" width="170px" height="140px" style="margin-left:80px; " ID="Image2" ImageUrl='<%#"/images/" + Eval("package_Image") %>' />
                         <div class="card-body">
                             <h4 class="card-title">
                             
                             <br />
                             <b>Package Name:</b>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("package_Name") %>'></asp:Label> </h4>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("package_Name") %>'></asp:Label> </h4>
                             <br />
                             <b>Package Item:</b>
-                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("package_Items") %>'></asp:Label>
+                            <asp:Label ID="Label5" runat="server" Text='<%# Eval("package_Items") %>'></asp:Label>
                             <br />
                             <b>Package Description:</b>
-                            <asp:TextBox ID="tb_desc" runat="server" Height="91px" Text='<%# Eval("package_Desc") %>' Width="274px" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox ID="TextBox1" runat="server" Height="91px" Text='<%# Eval("package_Desc") %>' Width="274px" TextMode="MultiLine"></asp:TextBox>
                             <br />
                             <b>Package Price:</b>
-                            <asp:TextBox ID="tb_price" runat="server" Text='<%# Eval("package_Price") %>'></asp:TextBox>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Eval("package_Price") %>'></asp:TextBox>
                             <br />
                             <b>Package Festival:</b>&nbsp;<asp:TextBox ID="tb_festival" runat="server" Text='<%# Eval("package_festival") %>'></asp:TextBox>
                             <br />
@@ -173,7 +198,7 @@
                         </EditItemTemplate>
                         <ItemTemplate>
                             <div class="card" style="margin-left:30px;width:349px;height:630px;">
-                      <asp:Image class="card-img-top img-fluid" runat="server" width="170px" height="140px" style="margin-left:80px; " ID="img_product" ImageUrl='<%# "/Image/" + Eval("package_Image") %>' />
+                      <asp:Image class="card-img-top img-fluid" runat="server" width="170px" height="140px" style="margin-left:80px; " ID="Image3" ImageUrl='<%# "/images/" + Eval("package_Image") %>' />
                         <div class="card-body">
                             <h4 class="card-title">
                             
@@ -196,9 +221,9 @@
                             </p>
                             <br />
                             <br />
-                            <asp:Button ID="btn_edit" runat="server" Text="Edit" CommandName="edit" class="btn btn-primary" style="color: white;" />
+                            <asp:Button ID="Button5" runat="server" Text="Edit" CommandName="edit" class="btn btn-primary" style="color: white;" />
                             
-                            <asp:Button ID="btn_delete" runat="server" CommandName="delete" Text="Delete" class="btn btn-primary" style="color: white;"/>
+                            <asp:Button ID="btn_delete" runat="server" CommandName="delete" Text="Delete" class="btn btn-primary" style="color: white;" OnClientClick="return confirm('Are you sure you want to delete this package?');"/>
                             <br />
                             </div>
                                 </div>
@@ -219,4 +244,7 @@
 
     </section>
     </form>
+
+
+
 </asp:Content>

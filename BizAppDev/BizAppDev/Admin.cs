@@ -12,6 +12,7 @@ namespace BizAppDev
     public class Admin
     {
         string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+
         private string _AdmID = null;
         private string _AdmName = "";
         private string _NRIC = "";
@@ -203,44 +204,5 @@ namespace BizAppDev
             conn.Close();
             return nofRow;
         }//end Delete
-
-        public Admin searchAdmin(string AdmID)
-        {
-            Admin AdmDetail = null;
-
-            string Adm_name, Adm_NRIC, Adm_Bdate, Adm_gender, Adm_Contact, Adm_Email, Adm_Address;
-
-            string queryStr = "SELECT * FROM Admin WHERE AdmID = @AdmID";
-
-            SqlConnection conn = new SqlConnection(_connStr);
-            SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@AdmID", AdmID);
-
-            conn.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.Read())
-            {
-                Adm_name = dr["AdmName"].ToString();
-                Adm_NRIC = dr["NRIC"].ToString();
-                Adm_Bdate = dr["Birthdate"].ToString();
-                Adm_gender = dr["Gender"].ToString();
-                Adm_Contact = dr["Contactno"].ToString();
-                Adm_Email = dr["Email"].ToString();
-                Adm_Address = dr["Address"].ToString();
-                AdmDetail = new Admin(AdmID, Adm_name, Adm_NRIC, Adm_Bdate, Adm_gender, Adm_Contact, Adm_Email, Adm_Address);
-            }
-            else
-            {
-                AdmDetail = null;
-            }
-
-            conn.Close();
-            dr.Close();
-            dr.Dispose();
-
-            return AdmDetail;
-        }
-
     }
 }
