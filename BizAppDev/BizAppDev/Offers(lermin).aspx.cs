@@ -73,6 +73,7 @@ namespace BizAppDev
             string oid = ((TextBox)row.Cells[0].Controls[0]).Text;
             string oname = ((TextBox)row.Cells[1].Controls[0]).Text;
             string ostartDate = ((TextBox)row.Cells[2].Controls[0]).Text;
+            
             string oendDate = ((TextBox)row.Cells[3].Controls[0]).Text;
 
             result = offer.OfferUpdate(oid, oname, ostartDate, oendDate);

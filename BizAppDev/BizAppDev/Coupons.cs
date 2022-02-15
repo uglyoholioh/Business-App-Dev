@@ -199,7 +199,8 @@ namespace BizAppDev
                 "coup_disccountamt = @cAmt " +
 
                 " WHERE coupon_ID = @cId";
-
+            Convert.ToDateTime(cstartDate);
+            Convert.ToDateTime(cEndDate);
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@cId", cId);

@@ -196,11 +196,13 @@ namespace BizAppDev
                 " offer_endDate = @offerendDate " +
                 "WHERE offer_ID = @offerID";
 
+            DateTime DTostartDate = Convert.ToDateTime(ostartDate);
+            DateTime DToendDate = Convert.ToDateTime(oendDate);
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@offerName", oName);
-            cmd.Parameters.AddWithValue("@offerstartDate", ostartDate);
-            cmd.Parameters.AddWithValue("@offerendDate", oendDate);
+            cmd.Parameters.AddWithValue("@offerstartDate", DTostartDate);
+            cmd.Parameters.AddWithValue("@offerendDate", DToendDate);
             cmd.Parameters.AddWithValue("@offerID", oId);
 
             conn.Open();

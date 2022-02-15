@@ -1,1 +1,1 @@
-﻿SELECT TOP 1 * FROM PointTiers WHERE price<=2662 order by price desc
+﻿Update Coupons 

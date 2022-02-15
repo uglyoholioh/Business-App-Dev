@@ -1,6 +1,1 @@
-﻿"UPDATE PointTiers SET" +
-                " name = @name," +
-                " desc = @desc," +
-                " price = @price"+
-                " WHERE pointTierID = @pointTierID";
-UPDATE PointTiers SET name = 'hello', desc = 'shitface', 
+﻿Update Coupons SET coupon_startDate = '2/2/2022' WHERE coupon_ID = 32557;
