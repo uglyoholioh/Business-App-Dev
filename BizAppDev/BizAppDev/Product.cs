@@ -177,6 +177,23 @@ namespace BizAppDev
             return result;
         }//end Insert
 
+        public int ProductBought(string Product_ID, int quantityBought)
+        {
+            int result = 0;
+            string queryStr = "UPDATE Products SET Stock_Level = Stock_Level - @quantityBought WHERE Product_ID = @Product_ID";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@quantitybought", quantityBought);
+            cmd.Parameters.AddWithValue("@Product_ID", Product_ID);
+
+            conn.Open();
+            result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
+            conn.Close();
+
+            return result;
+
+        }
+
 
     }
 }

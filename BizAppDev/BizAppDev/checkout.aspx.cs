@@ -368,6 +368,9 @@ namespace BizAppDev
                 cmd.Parameters.AddWithValue("@grandtotal", Convert.ToDecimal(Labelgrandtotal.Text));
                 cmd.Parameters.AddWithValue("@OrderStatus", "Pending");
                 cmd.Parameters.AddWithValue("@Cust_ID", "Guest");
+                Product bProd = new Product();
+                int prodresult = 0;
+                prodresult = bProd.ProductBought(dt.Rows[i]["Product_ID"].ToString(), int.Parse(dt.Rows[i]["quantity"].ToString()));
                 if (lbl_discountedprice.Text == string.Empty)
                 {
                     cmd.Parameters.AddWithValue("@discountedtotal", Convert.ToDecimal(0.00));
@@ -436,17 +439,17 @@ namespace BizAppDev
                     while (i < nrow)
                     {
                         if (dt.Rows[i]["Category"].ToString() == category){
-                            gtotal = gtotal + (decimal.Parse(dt.Rows[i]["total"].ToString()));
                             finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString())*((100-perdiscount)/100 ));
-                            i = i + 1;
                             usedCoupon = true;
                         }
                         else
                         {
-                            gtotal = gtotal + (decimal.Parse(dt.Rows[i]["total"].ToString()));
                             finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString()));
-                            i = i + 1;
                         }
+                    
+                        gtotal = gtotal + (decimal.Parse(dt.Rows[i]["total"].ToString()));
+                        i = i + 1;
+
                     }
                     decimal gst = Math.Round(Convert.ToDecimal(gtotal) * Convert.ToDecimal(0.07), 2);
                     decimal Grandtotal = Math.Round(Convert.ToDecimal(gtotal) + Convert.ToDecimal(gst), 2);
