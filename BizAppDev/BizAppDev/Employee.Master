@@ -144,7 +144,7 @@
         
        <span class="heading">Customer Information</span>
           <ul class="list-unstyled">
-                <li class="active"><a runat="server" href="~/Coupons(lermin)(employee).aspx">Coupons</a></li>
+                <li><a runat="server" href="~/Coupons(lermin)(employee).aspx">Coupons</a></li>
                 <li><a runat="server" href="~/MembershipTierList(employee).aspx">Member Tier List</a></li>
                 <li><a runat="server" href="~/Offers(lermin)(employee).aspx">Offers</a></li>
                 <li><a runat="server" href="~/Customer(employee).aspx">Customer Details</a></li>

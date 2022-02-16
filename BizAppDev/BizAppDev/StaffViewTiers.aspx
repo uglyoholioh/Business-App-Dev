@@ -9,7 +9,17 @@
                 <asp:BoundField DataField="descr" HeaderText="Description" />
                 <asp:BoundField DataField="price" HeaderText="Points required to reach tier" />
                 <asp:BoundField DataField="pointMultiplier" HeaderText="Point multiplier" />
-                <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" SelectText="View perks" />
+                <asp:TemplateField ShowHeader="False">
+                    <EditItemTemplate>
+                        <asp:Button ID="Button1" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                        &nbsp;<asp:Button ID="Button2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Button ID="Button1" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                        &nbsp;<asp:Button ID="Button2" runat="server" CausesValidation="False" CommandName="Select" Text="View perks" />
+                        &nbsp;<asp:Button ID="Button3" runat="server" OnClientClick="return confirm('Are you sure you want to delete this Tier?')" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <EditRowStyle BackColor="#7C6F57" />
             <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -22,5 +32,7 @@
             <SortedDescendingCellStyle BackColor="#D4DFE1" />
             <SortedDescendingHeaderStyle BackColor="#15524A" />
         </asp:GridView>
-        <asp:Button CssClass="btn btn-primary" ID="btn_AddTiers" runat="server" Text="Add Tiers" OnClick="btn_AddTiers_Click" /></form>
+        <asp:Button CssClass="btn btn-primary" ID="btn_AddTiers" runat="server" Text="Add Tiers" OnClick="btn_AddTiers_Click" />
+        <asp:Button CssClass="btn btn-primary" ID="btn_ViewPerks" runat="server" Text="View all perks" OnClick="btn_ViewPerks_Click" />
+    </form>
 </asp:Content>

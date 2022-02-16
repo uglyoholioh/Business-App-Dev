@@ -135,7 +135,7 @@
      <div class="col-xs-6 col-md-4">
        <div class="product tumbnail thumbnail-3"><a href="#"><img src="images/custom product.jpg" width="350px" height="280px"     alt=""></a>
          <div class="caption">
-           <h6><a href="Loginpage.aspx">Custom Product</a></h6><span class="price"></span>
+           <h6><a href="ProductCustomization.aspx">Custom Product</a></h6><span class="price"></span>
          </div>
        </div>
      </div>

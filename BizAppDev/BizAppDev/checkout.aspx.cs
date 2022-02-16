@@ -370,6 +370,7 @@ namespace BizAppDev
             }
             PointsTransaction pt = new PointsTransaction(intEarnPoints, "Earned points from purchase", CID, DateTime.Now);
             pt.PointsTransactionInsert();
+            acust.CustomerUpdatePoints(CID, intEarnPoints);
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {
                 string updatepass = "insert into orderdetails(orderid,Product_ID,Product_Name,price,quantity,deliveryoption,deliverydate,grandtotal,discountedtotal,OrderStatus,Cust_ID,address,email)"
@@ -391,7 +392,7 @@ namespace BizAppDev
                 cmd.Parameters.AddWithValue("@deliverydate", Calendar2.SelectedDate);
                 cmd.Parameters.AddWithValue("@grandtotal", Convert.ToDecimal(Labelgrandtotal.Text));
                 cmd.Parameters.AddWithValue("@OrderStatus", "Pending");
-                cmd.Parameters.AddWithValue("@Cust_ID", "Guest");
+                cmd.Parameters.AddWithValue("@Cust_ID", CID);
                 cmd.Parameters.AddWithValue("@ema", tb_emaillll.Text);
                 Product bProd = new Product();
                 int prodresult = 0;
@@ -476,6 +477,7 @@ namespace BizAppDev
                     decimal percentc = 0;
                     while (i < nrow)
                     {
+                        lbl_test.Text = dt.Rows[i]["Category"].ToString() + " " + category;
                         if (dt.Rows[i]["Category"].ToString() == category)
                         {
 

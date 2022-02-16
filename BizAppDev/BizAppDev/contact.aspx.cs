@@ -21,7 +21,7 @@ namespace BizAppDev
             try
             {
                 var from = "josspapery2@gmail.com";
-                var to = "josspapeey2@gmaail.com";
+                var to = "josspapery2@gmail.com";
                 const string Password = "Bf2001grp4";
                 string mail_subject = tb_subject.Text.ToString();
                 string mail_message = "From:" + tb_name.Text + " " + tb_lastname.Text + "\n";

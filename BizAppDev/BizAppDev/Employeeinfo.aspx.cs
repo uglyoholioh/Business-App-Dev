@@ -40,7 +40,7 @@ namespace BizAppDev
             {
                 DataList1.EditItemIndex = -1;
                 DataList1.DataBind();
-                Response.Redirect("employeelist.aspx");
+                Response.Redirect("employeelist(nut).aspx");
             }
 
         protected void myListUpdateHandler(Object src, DataListCommandEventArgs e)
@@ -94,7 +94,7 @@ namespace BizAppDev
                 }
                 DataList1.EditItemIndex = -1;
                 DataList1.DataBind();
-                Response.Redirect("employeelist.aspx");         
+                Response.Redirect("employeelist(nut).aspx");         
         }
 
         protected void DataList1_DeleteCommand(object source, DataListCommandEventArgs e)

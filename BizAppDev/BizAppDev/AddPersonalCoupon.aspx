@@ -71,7 +71,7 @@
                     <td>
                         <asp:TextBox ID="tb_validdays" runat="server" CausesValidation="True"></asp:TextBox>
                         <br />
-                        <asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="tb_validdays" ErrorMessage="please input a valid day in number format (less than 31). " Type="Integer" ForeColor="Red" MaximumValue="31" MinimumValue="1"></asp:RangeValidator>
+                        <asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="tb_validdays" ErrorMessage="please input a valid day in number format (less than 31). " Type="Integer" ForeColor="Red" MaximumValue="31" MinimumValue="0"></asp:RangeValidator>
                         <br />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="tb_validdays" ErrorMessage="please enter no. of days. " ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
@@ -81,7 +81,7 @@
                     <td style="height: 29px">
                         <asp:TextBox ID="tb_validmonths" runat="server" CausesValidation="True"></asp:TextBox>
                         <br />
-                        <asp:RangeValidator ID="RangeValidator5" runat="server" ControlToValidate="tb_validmonths" ErrorMessage="please input a valid month in number format (less than or equals to 12). " Type="Integer" ForeColor="Red" MaximumValue="12" MinimumValue="1"></asp:RangeValidator>
+                        <asp:RangeValidator ID="RangeValidator5" runat="server" ControlToValidate="tb_validmonths" ErrorMessage="please input a valid month in number format (less than or equals to 12). " Type="Integer" ForeColor="Red" MaximumValue="12" MinimumValue="0"></asp:RangeValidator>
                         <br />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="tb_validmonths" ErrorMessage="please enter no. of months." ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
@@ -91,7 +91,7 @@
                     <td style="height: 56px">
                         <asp:TextBox ID="tb_validyears" runat="server" CausesValidation="True"></asp:TextBox>
                         <br />
-                        <asp:RangeValidator ID="RangeValidator6" runat="server" ControlToValidate="tb_validyears" ErrorMessage="please input a valid no. of years in number format. " Type="Integer" ForeColor="Red" MaximumValue="10" MinimumValue="1"></asp:RangeValidator>
+                        <asp:RangeValidator ID="RangeValidator6" runat="server" ControlToValidate="tb_validyears" ErrorMessage="please input a valid no. of years in number format. " Type="Integer" ForeColor="Red" MaximumValue="10" MinimumValue="0"></asp:RangeValidator>
                         <br />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="tb_validyears" ErrorMessage="please enter no. of years. " ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>

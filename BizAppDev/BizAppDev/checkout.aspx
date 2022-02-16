@@ -117,6 +117,7 @@
         <a href="checkout.aspx">CheckOut</a>
         </div>
     <table class="autoComplete_wrapper" HorizontalAlign="Center">
+        <asp:Label id="lbl_test" runat="server" />
         <tr>
             <td colspan="2">
                 <asp:GridView ID="GridView1" runat="server" Height="104px" Width="1068px" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" ShowFooter="True" >
@@ -166,7 +167,7 @@
                 <asp:TextBox ID="tb_address" runat="server" placeholder="Enter Address"></asp:TextBox>
                 <br />
                 <br />
-                <asp:TextBox ID="tb_emaillll" runat="server" placeholder="Enter Email"></asp:TextBox>
+                <asp:TextBox ID="tb_emaillll" runat="server" placeholder="Enter Email" required="true" ></asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tb_emaillll"
     ForeColor="Red" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
     Display = "Dynamic" ErrorMessage = "Invalid email address"/>

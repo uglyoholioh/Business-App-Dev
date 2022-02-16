@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+
 namespace BizAppDev
 {
     public partial class employeelist_nut_ : System.Web.UI.Page
@@ -47,5 +51,31 @@ namespace BizAppDev
             Response.Redirect("Employeeinfo.aspx?EmpID=" + lbl.Text);
         }
 
+        
+        protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+   
+
+        protected void Search_Employee_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnSearch_Click(object sender, EventArgs e)
+        {
+            string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+            SqlConnection conn = new SqlConnection(_connStr);
+            conn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from Employee where EmpID like '%" + tb_SearchEmp.Text + "%'", conn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            DataList1.DataSourceID = null;
+            DataList1.DataSource = dt;
+            DataList1.DataBind();
+            conn.Close();
+        }
     }
 }

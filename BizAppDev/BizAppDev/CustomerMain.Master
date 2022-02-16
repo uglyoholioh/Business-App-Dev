@@ -55,6 +55,8 @@
               </li>
                  <li class="nav-item"><a href="CustomerDetails.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Profile</a>
               </li>
+                                 <li class="nav-item"><a href="CustViewOrders.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Your orders</a>
+              </li>
               <li class="nav-item mt-4 mt-lg-0">
       
                   

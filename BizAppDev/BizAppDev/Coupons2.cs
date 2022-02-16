@@ -218,7 +218,7 @@ namespace BizAppDev
             cmd.Parameters.AddWithValue("@desc", this.couponDesc);
             cmd.Parameters.AddWithValue("@amount", this.amount);
             cmd.Parameters.AddWithValue("@cost", this.cost);
-            cmd.Parameters.AddWithValue("@discount", this.discount);
+            cmd.Parameters.AddWithValue("@discount", this.discount*100);
             cmd.Parameters.AddWithValue("@days", this.validDays);
             cmd.Parameters.AddWithValue("@months", this.validMonths);
             cmd.Parameters.AddWithValue("@years", this.validYears);

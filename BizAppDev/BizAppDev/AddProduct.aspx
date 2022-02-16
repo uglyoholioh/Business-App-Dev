@@ -72,7 +72,7 @@
                         <tr>
                             <td>&nbsp;</td>
                             <td>
-                                <asp:RangeValidator ID="RangeValidator3" runat="server" ControlToValidate="tb_stock" ErrorMessage="please input a valid stock number of more than 0." ForeColor="Red" MaximumValue="999999" MinimumValue="0"></asp:RangeValidator>
+                                <asp:RangeValidator ID="RangeValidator3" runat="server" ControlToValidate="tb_stock" ErrorMessage="please input a valid stock number of more than 0." ForeColor="Red" MaximumValue="999999" MinimumValue="0"  Type="Integer"></asp:RangeValidator>
                                 <br />
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="tb_stock" ErrorMessage="please input a valid stock level. " ForeColor="Red"></asp:RequiredFieldValidator>
                             </td>

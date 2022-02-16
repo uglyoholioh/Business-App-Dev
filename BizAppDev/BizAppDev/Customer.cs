@@ -165,10 +165,11 @@ namespace BizAppDev
             string queryStr = "SELECT * FROM Customer WHERE Cust_ID = @CustID";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@CustID", CustID);
+            cmd.Parameters.AddWithValue("@CustID", "C12345");
 
             conn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
+
             if (dr.Read())
             {
                 first_Name = dr["First_Name"].ToString();
@@ -272,15 +273,15 @@ namespace BizAppDev
             string queryStr = "UPDATE Customer SET" +
                 " lvlPoints = lvlPoints +@addedpoints, " +
                 " pointTierID = @pointTierID, " +
-                " pointExpiry = @pointExpiry, " +
+                " pointExpiry = @pointExpiry " +
 
-                " Points = Points + @addedpoints " +
-                " WHERE Cust_ID = @CustID";
+              " WHERE Cust_ID = @CustID";
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
             cmd.Parameters.AddWithValue("@CustID", CustID);
-            cmd.Parameters.AddWithValue("@addedpoints", addedpoints);
             cmd.Parameters.AddWithValue("@pointExpiry", newExpiry);
+            cmd.Parameters.AddWithValue("@addedpoints", addedpoints);
+
             conn.Open();
             int nofRow = 0;
             nofRow = cmd.ExecuteNonQuery();

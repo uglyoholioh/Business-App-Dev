@@ -4,6 +4,7 @@
     <h1>Insert Educational Videos</h1>
     <table class="auto-style1">
         <tr>
+            <form runat="server">
             <td class="auto-style2">Category:</td>
             <td class="auto-style3">
                 <form runat="server">
@@ -15,9 +16,11 @@
                 </asp:DropDownList>
             </td>
             <td>
+               
                 <asp:RequiredFieldValidator ID="rfv_cat" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Please enter a category" ForeColor="Red" ValidationGroup="insert" InitialValue="Select a Category"></asp:RequiredFieldValidator>
             </td>
         </tr>
+        
         <tr>
             <td class="auto-style2">Description:</td>
             <td class="auto-style3">

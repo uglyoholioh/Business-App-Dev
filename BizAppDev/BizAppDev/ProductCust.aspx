@@ -16,8 +16,13 @@
             <div class="container-fluid" id="div_Membership">
               <div class="row" style="margin-left:20px; ">
                 <div class="col-md-6 col-lg-3" >
-                    <h2>&nbsp;</h2>
+                   
+                   <div style="margin-left:20px; align-items:flex-start;">Order Status: <asp:DropDownList ID="ddl_Orderstatus" AutoPostBack="true" runat="server">
+                    <asp:ListItem Text="All" Value="" />
+                    <asp:ListItem Text="Preparing" Value="Preparing" />
+                    <asp:ListItem Text="Ready for collection" Value="Ready for collection" />
                  
+                     </asp:DropDownList></div><br />
                    
    
                     <asp:DataList ID="DataList8" runat="server" DataSourceID="SqlDataSource8"  DataKeyField="custID" OnDeleteCommand="DataList8_DeleteCommand" OnEditCommand="DataList8_EditCommand" style="width:1000px;">
@@ -47,8 +52,10 @@
                             <br />
 
                       
-             <asp:SqlDataSource id="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [ProductCust]">
-           
+             <asp:SqlDataSource id="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [ProductCust]" FilterExpression="status='{0}'">
+            <FilterParameters>
+                    <asp:ControlParameter Name="ProductCust" ControlId="ddl_Orderstatus" PropertyName="SelectedValue"/>
+                </FilterParameters>
             </asp:SqlDataSource>
                     
                     </div>               

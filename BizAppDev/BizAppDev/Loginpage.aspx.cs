@@ -22,7 +22,7 @@ namespace BizAppDev
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
             Employee emp = new Employee();
-            string queryStr = "SELECT * FROM Employee WHERE EmpID = @EmpID AND Password = @Password";        
+            string queryStr = "SELECT * FROM Employee WHERE EmpID = @EmpID AND Password = @Password";
             SqlCommand cmd = new SqlCommand(queryStr, con);
             cmd.Parameters.AddWithValue("@EmpID", tb_Username.Text);
             cmd.Parameters.AddWithValue("@Password", tb_Password.Text);
@@ -31,8 +31,8 @@ namespace BizAppDev
 
             if (dr.Read())
             {
-               Response.Write("<script>alert('Log in successful');</script>");
-               Response.Redirect("Ependingorder.aspx");
+                Response.Write("<script>alert('Log in successful');</script>");
+                Response.Redirect("Ependingorder.aspx");
             }
             else
             {
@@ -82,5 +82,5 @@ namespace BizAppDev
         }
 
     }
-    }
+}
 

@@ -65,18 +65,19 @@ namespace BizAppDev
         {
             int pointTierID = int.Parse(GridView1.DataKeys[e.RowIndex].Value.ToString());
             string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-            string queryStr = "DELETE FROM pointTiersPerks WHERE pointTierID=@pointTierID";
-            SqlConnection conn = new SqlConnection(_connStr);
-            SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
-            conn.Open();
-            int nofRow = 0;
             try
             {
+                string queryStr = "DELETE FROM pointTiersPerks WHERE pointTierID=@pointTierID";
+                SqlConnection conn = new SqlConnection(_connStr);
+                SqlCommand cmd = new SqlCommand(queryStr, conn);
+                cmd.Parameters.AddWithValue("@pointTierID", pointTierID);
+                conn.Open();
+                int nofRow = 0;
                 nofRow = cmd.ExecuteNonQuery();
                 conn.Close();
                 int result = 0;
                 pointsTier tier = new pointsTier();
+
                 result = tier.TierDelete(pointTierID);
 
                 if (result > 0)
@@ -87,15 +88,15 @@ namespace BizAppDev
                 {
                     Response.Write("<script>alert('Tier NOT removed successfully');</script>");
                 }
-
-                Response.Redirect("StaffViewTiers.aspx");
             }
             catch
             {
-                Response.Write("<script>alert('Customers currently on tier! Please remove tier from Customer first.');</script>");
-            }
-        }
+                Response.Write("<script>alert('Customers on tier, ensure no customer on tier before deletion.');</script>");
 
+            }
+            Response.Redirect("StaffViewTiers.aspx");
+
+        }
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
@@ -122,6 +123,11 @@ namespace BizAppDev
         protected void btn_AddTiers_Click(object sender, EventArgs e)
         {
             Response.Redirect("StaffAddPointTier.aspx");
+        }
+
+        protected void btn_ViewPerks_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("StaffViewPerks.aspx");
         }
     }
 }

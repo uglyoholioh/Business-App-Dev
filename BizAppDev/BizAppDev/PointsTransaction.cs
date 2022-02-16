@@ -124,7 +124,6 @@ namespace BizAppDev
             pt = apt.getPointsTier(Cust.pointTierID);
             if (this.PT_Points > 0)
             {
-                string addptsqueryStr = "UPDATE Customer set lvlpoints = lvlpoints + @PT_Points WHERE Cust_ID = @PT_CustID";
                 SqlCommand addptscmd = new SqlCommand(custqueryStr, conn);
                 addptscmd.Parameters.AddWithValue("@PT_CustID", this.PT_CustID);
                 addptscmd.Parameters.AddWithValue("@PT_Points", (this.PT_Points) * pt.pointMultiplier);

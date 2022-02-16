@@ -144,7 +144,7 @@
         
        <span class="heading">Customer Information</span>
           <ul class="list-unstyled">
-                <li class="active"><a runat="server" href="~/Coupons(lermin).aspx">Coupons</a></li>
+                <li><a runat="server" href="~/Coupons(lermin).aspx">Coupons</a></li>
                 <li><a runat="server" href="~/MembershipTierList.aspx">Member Tier List</a></li>
                 <li><a runat="server" href="~/Offers(lermin).aspx">Offers</a></li>
                 <li><a runat="server" href="~/Customer.aspx">Customer Details</a></li>
@@ -164,7 +164,7 @@
                 </ul>
           <span class="heading">Employee management</span>
       <ul class="list-unstyled">
-         <li><a href="Employeelist.aspx"> <i class="fa fa-bar-chart"></i>Employee List</a></li>
+         <li><a href="employeelist(nut).aspx"> <i class="fa fa-bar-chart"></i>Employee List</a></li>
             <li><a href="Adminlist.aspx"> <i class="fa fa-bar-chart"></i>Admin List</a></li>
             <li><a href="Addemployee.aspx"> <i class="fa fa-bar-chart"></i>Add Employee Form</a></li>
       </ul>
@@ -182,7 +182,13 @@
           <li> <a href="EduVideoInsert.aspx"> <i class="icon-flask"></i>Insert Video</a></li>
 
       </ul>
+        <span class="heading">Employee Tools</span>
+      <ul class="list-unstyled">
+         <li> <a href="StaffViewTiers.aspx"> <i class="icon-flask"></i>Manage Point Tiers</a></li>
+         <li> <a href="StaffViewPerks.aspx"> <i class="icon-flask"></i>Advisor</a></li>
+          <li> <a href="EduVideoInsert.aspx"> <i class="icon-flask"></i>Insert Video</a></li>
 
+      </ul>
     </nav>
       
       <div>
