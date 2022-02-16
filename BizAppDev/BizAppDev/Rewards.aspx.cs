@@ -25,21 +25,7 @@ namespace BizAppDev
         {
             HttpContext context = HttpContext.Current;
             string CID = (string)(context.Session["CustID"]);
-
-
             Cust = aCust.getCustomer(CID);
-            DateTime now = DateTime.Now;
-            int dateresult = DateTime.Compare(now, aCust.pointExpiry);
-            if (dateresult > 0 && aCust.points > 0)
-            {
-                int cost = -aCust.points;
-                string reason = "Expired";
-                DateTime expiryDate = aCust.pointExpiry;
-                PointsTransaction pt = new PointsTransaction(cost, reason, CID, expiryDate);
-                int ptresult = 0;
-
-                ptresult = pt.PointsTransactionInsert();
-            }
             lbl_Points.Text = Cust.points.ToString();
             int tierID = Cust.pointTierID;
             Tier = aTier.getPointsTier(tierID);
@@ -48,6 +34,7 @@ namespace BizAppDev
             lbl_Email.Text = Cust.email;
             lbl_Expiry.Text = Cust.pointExpiry.ToString("dddd, dd MMMM yyyy");
             decimal custLvlPoints = Cust.lvlPoints;
+            DateTime now = DateTime.Now;
             string queryStr = "SELECT COUNT(*) FROM CustCoupon WHERE Cust_ID = @CustID AND coupExpiry>@coupExpiry";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
