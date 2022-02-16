@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Threading;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
+using System.Web;
+using System.Web.UI.WebControls;
 namespace BizAppDev
 {
     public partial class checkout : System.Web.UI.Page
@@ -478,7 +474,7 @@ namespace BizAppDev
                     while (i < nrow)
                     {
                         lbl_test.Text = dt.Rows[i]["Category"].ToString() + " " + category;
-                        if (dt.Rows[i]["Category"].ToString() == category)
+                        if ((dt.Rows[i]["Category"].ToString()).Equals(category))
                         {
 
                             finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString()) * ((Convert.ToDecimal(100) - Convert.ToDecimal(perdiscount))) / 100);
@@ -486,6 +482,7 @@ namespace BizAppDev
                         }
                         else
                         {
+                            lbl_test.Text = "a"+dt.Rows[i]["Category"].ToString()+"a" + " " + "b"+category+"b";
                             finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString()));
                         }
 
