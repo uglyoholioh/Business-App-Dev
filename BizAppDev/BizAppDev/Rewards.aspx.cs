@@ -34,10 +34,12 @@ namespace BizAppDev
             lbl_Email.Text = Cust.email;
             lbl_Expiry.Text = Cust.pointExpiry.ToString("dddd, dd MMMM yyyy");
             decimal custLvlPoints = Cust.lvlPoints;
-            string queryStr = "SELECT COUNT(*) FROM CustCoupon WHERE Cust_ID = @CustID";
+            DateTime now = DateTime.Now;
+            string queryStr = "SELECT COUNT(*) FROM CustCoupon WHERE Cust_ID = @CustID AND coupExpiry>@coupExpiry";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@CustID", CID);
+            cmd.Parameters.AddWithValue("@coupExpiry", now);
             string ptqueryStr = "SELECT TOP 1 * FROM PointTiers WHERE price>@custPoints order by price asc";
             SqlCommand ptcmd = new SqlCommand(ptqueryStr, conn);
             ptcmd.Parameters.AddWithValue("@custPoints", custLvlPoints);
