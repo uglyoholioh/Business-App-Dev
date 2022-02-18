@@ -15,12 +15,12 @@ namespace BizAppDev
         {
             try
             {
-                int result = int.Parse(Request.QueryString["result"].ToString());
+                /*int result = int.Parse(Request.QueryString["result"].ToString());
                 if (result > 0)
                 {
                     lbl_alert.Text = "Added Sucessfully.";
                     lbl_alert.ForeColor = System.Drawing.Color.Green;
-                }
+                }*/
             }
             catch
             {
