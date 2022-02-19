@@ -22,7 +22,7 @@ namespace BizAppDev
         {
             HttpContext context = HttpContext.Current;
             //Session["CID"] = "ss1";
-            string CID = Session["CID"].ToString();
+            string CID = (string)(context.Session["CustID"]);
             List<Advisor> AdvisorList = new List<Advisor>();
             AdvisorList = aAdvisor.GetAdvisor(CID);
             gvAdvisor.DataSource = AdvisorList;

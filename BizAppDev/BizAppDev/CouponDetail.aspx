@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="CouponDetail.aspx.cs" Inherits="BizAppDev.CouponDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
     <form id="form1" runat="server">
         <div class="card mb-0" style="margin-left:40px; height:400px; margin-left:150px;">
                     <div class="card-header">

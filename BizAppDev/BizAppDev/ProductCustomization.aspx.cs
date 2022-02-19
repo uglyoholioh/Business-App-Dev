@@ -62,7 +62,6 @@ namespace BizAppDev
                     {
                         Response.Write("<script>alert('Customization not Submitted');</script>");
                     }
-                    TextBox1.Text = "";
                     ddl_prodcat.SelectedItem.Text = "Select a Category";
                     ddl_prodcol.SelectedItem.Text = "Default";
                     ddl_scent.SelectedItem.Text = "Default";

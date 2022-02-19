@@ -28,15 +28,7 @@
     <h2>Product Customization</h2>
     <p><b>For colour and Scent option, leave default for normal</b></p>
     <table class="auto-style1">
-        <tr>
-            <td class="auto-style2">Customer ID:</td>
-            <td class="auto-style3">
-                <asp:TextBox ID="TextBox1" runat="server" Width="200px"></asp:TextBox>
-            </td>
-            <td>
-                <asp:RequiredFieldValidator ID="rfvCustID" runat="server" ControlToValidate="TextBox1" ErrorMessage="Please enter customer id" ForeColor="Red" ValidationGroup="cfmbtn"></asp:RequiredFieldValidator>
-            </td>
-        </tr>
+        
         <tr>
             <td class="auto-style2">Name:</td>
             <td class="auto-style3">

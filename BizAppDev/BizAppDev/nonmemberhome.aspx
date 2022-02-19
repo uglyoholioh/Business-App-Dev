@@ -139,7 +139,7 @@
      <div class="col-xs-6 col-md-4">
        <div class="product tumbnail thumbnail-3"><a href="#"><img src="images/packages.jfif" width="350px" height="280px"     alt=""></a>
          <div class="caption">
-           <h6><a href="nonmemberproductpage.aspx">Packages</a></h6><span class="price"></span>
+           <h6><a href="nonmemberpackage.aspx">Packages</a></h6><span class="price"></span>
          </div>
        </div>
      </div>

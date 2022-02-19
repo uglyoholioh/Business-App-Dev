@@ -64,7 +64,7 @@ namespace BizAppDev
 
         protected void lb_packages_Click(object sender, EventArgs e)
         {
-            Response.Redirect("home.aspx");
+            Response.Redirect("package.aspx");
         }
 
         protected void lb_Allp_Click(object sender, EventArgs e)

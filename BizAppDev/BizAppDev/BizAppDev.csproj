@@ -169,7 +169,9 @@
     <Content Include="orders%28lermin%29%28employee%29.aspx" />
     <Content Include="orders%28lermin%29.aspx" />
     <Content Include="Orderstatus.aspx" />
+    <Content Include="package.aspx" />
     <Content Include="PackageAdd.aspx" />
+    <Content Include="package_desc.aspx" />
     <Content Include="payment.aspx" />
     <Content Include="PointsTransactions.aspx" />
     <Content Include="PointTierList.aspx" />
@@ -777,6 +779,13 @@
     <Compile Include="Orderstatus.aspx.designer.cs">
       <DependentUpon>Orderstatus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="package.aspx.cs">
+      <DependentUpon>package.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="package.aspx.designer.cs">
+      <DependentUpon>package.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Package.cs" />
     <Compile Include="PackageAdd.aspx.cs">
       <DependentUpon>PackageAdd.aspx</DependentUpon>
@@ -784,6 +793,13 @@
     </Compile>
     <Compile Include="PackageAdd.aspx.designer.cs">
       <DependentUpon>PackageAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="package_desc.aspx.cs">
+      <DependentUpon>package_desc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="package_desc.aspx.designer.cs">
+      <DependentUpon>package_desc.aspx</DependentUpon>
     </Compile>
     <Compile Include="payment.aspx.cs">
       <DependentUpon>payment.aspx</DependentUpon>
