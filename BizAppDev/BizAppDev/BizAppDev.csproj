@@ -101,6 +101,7 @@
     <Content Include="AdvisorsView.aspx" />
     <Content Include="checkout.aspx" />
     <Content Include="checkoutoverview.aspx" />
+    <Content Include="contact.aspx" />
     <Content Include="CouponDetail%28employee%29.aspx" />
     <Content Include="CouponDetail.aspx" />
     <Content Include="CouponInsert.aspx" />
@@ -276,6 +277,13 @@
     </Compile>
     <Compile Include="checkoutoverview.aspx.designer.cs">
       <DependentUpon>checkoutoverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Coupon.cs" />
     <Compile Include="CouponDetail%28employee%29.aspx.cs">
