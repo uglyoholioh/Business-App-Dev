@@ -143,6 +143,7 @@
     <Content Include="HiringAdvisor.aspx" />
     <Content Include="HiringPriest.aspx" />
     <Content Include="home.aspx" />
+    <Content Include="images\smallredbanknote.jfif" />
     <Content Include="images\winston-chen-5XBn_RTp7ik-unsplash.jpg" />
     <Content Include="Loginpage.aspx" />
     <Content Include="MembershipMoreInfo%28employee%29.aspx" />
