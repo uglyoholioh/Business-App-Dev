@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Data;
 namespace BizAppDev
 {
     public partial class nonmemberhome : System.Web.UI.Page
@@ -96,6 +97,90 @@ namespace BizAppDev
 
             smtpClient.EnableSsl = true;
             smtpClient.Send(mailMessage);
+        }
+        private void BindListView()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT offer_Name, offer_startDate, offer_endDate, offer_Desc, offer_Image FROM Offers WHERE offer_startDate > = @EventDate AND offer_endDate < = @EventDate";
+                    cmd.Connection = con;
+                    cmd.Parameters.AddWithValue("@EventDate", DateTime.Now.ToString("dd / MMM / yyyy hh: mm:ss"));
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        DataList1.DataSource = dt;
+                        DataList1.DataBind();
+                    }
+                }
+            }
+        }
+        private void BindListView1()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT coupon_Name, coup_disccountamt FROM Coupons WHERE coupon_startDate > = @EventDate AND coupon_endDate < = @EventDate";
+                    cmd.Connection = con;
+                    cmd.Parameters.AddWithValue("@EventDate", DateTime.Now.ToString("dd / MMM / yyyy hh: mm:ss"));
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        DataList1.DataSource = dt;
+                        DataList1.DataBind();
+                    }
+                }
+            }
+        }
+        private void Confirm()
+        {
+            string ToEmail = tb_email.Text.Trim();
+            string UserName = tb_name.Text + tb_lastname.Text;
+            string subject2 = tb_subject.Text;
+
+            MailMessage mailMessage = new MailMessage("emailaddress@gmail.com", ToEmail);
+
+            StringBuilder sbEmailBody = new StringBuilder();
+            sbEmailBody.Append("Dear  " + UserName);
+            sbEmailBody.Append("<br/><br/>");
+            sbEmailBody.Append("Thank you for your email");
+            sbEmailBody.Append("<br/><br/>");
+            sbEmailBody.Append("We receieved your email regarding  " + subject2 + "<br/>"); ;
+            sbEmailBody.Append("We will be back to you as soon as possible.");
+            sbEmailBody.Append("<br/><br/><br/>");
+            sbEmailBody.Append("Sincerely,");
+            sbEmailBody.Append("Xavier Ong, Kim Simi Zua Team .");
+
+            mailMessage.IsBodyHtml = true;
+
+            mailMessage.Body = sbEmailBody.ToString();
+            mailMessage.Subject = "Re: Thank you for your email ";
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            smtpClient.Credentials = new System.Net.NetworkCredential()
+            {
+                UserName = "josspapery2@gmail.com",
+                Password = "Bf2001grp4"
+            };
+
+            smtpClient.EnableSsl = true;
+            smtpClient.Send(mailMessage);
+        }
+
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            Label lbl = (Label)e.Item.FindControl("Label1");
+            Response.Redirect("nonmembermembershiptierlistmoreinfo.aspx?memberID=" + lbl.Text);
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("nonmemberhome.aspx");
         }
     }
 

@@ -16,10 +16,7 @@
 .checked {
   color: orange;
 }
-        .auto-style1 {
-            margin-left: 40px;
-        }
-    </style>
+        </style>
   
    <div class="header" style=" padding: 60px;
   text-align: center;
@@ -28,7 +25,7 @@
   font-size: 30px;height:320px;">
  <br />
         <br />
-        <h1>Product Description</h1>
+        <h1>Package Description</h1>
  
 </div>
     <br />
@@ -42,7 +39,7 @@
              <asp:Image ID="Image1" runat="server" Height="175px" ImageAlign="Left" ImageUrl='<%# "/images/" + Eval("package_Image") %>' />
              <div class="card">
               <h1><asp:Label ID="Product_NameLabel" runat="server" Text='<%# Eval("package_Name") %>' /></h1>
-                
+                <h1><asp:Label ID="Label1" runat="server" Text='<%# Eval("package_items") %>' /></h1>
              
               <h7> <asp:Label ID="Product_DescLabel" runat="server" Text='<%# Eval("package_Desc") %>' /></h7>
               <h5><asp:Label ID="Unit_PriceLabel" runat="server" Text='<%# Eval("Package_Price", "{0:C}") %>' />     <span class="fa fa-star checked"></span>
@@ -51,12 +48,8 @@
                                                                                                                 <span class="fa fa-star"></span>
                                                                                                                 <span class="fa fa-star"></span> </h5>
              
-                 <p class="auto-style1">
-                     Quantity:&nbsp;
-                     <asp:TextBox ID="tb_quantity" runat="server" Height="19px" Width="165px"></asp:TextBox>
-                     <asp:RequiredFieldValidator ID="rfv_quantity" runat="server" ErrorMessage="Cannot be Blank" ControlToValidate="tb_quantity" ForeColor="Red"></asp:RequiredFieldValidator>
-                 </p>
-               <center><asp:Button ID="btn_aDDTOCART" runat="server" Text="Add to Cart" BackColor="Blue" ForeColor="White"  Width="100px" CommandName="addtocart" CommandArgument='<%#Eval("package_name")%>'  /></center>
+                 
+               <center><asp:Button ID="btn_aDDTOCART" runat="server" Text="Back" BackColor="Blue" ForeColor="White"  Width="100px" CommandName="addtocart" CommandArgument='<%#Eval("package_name")%>'  /></center>
               </div>
            
         </ItemTemplate>
@@ -64,6 +57,9 @@
    
     
 
-     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [package_Name], [package_Items], [package_Desc], [package_Price], [package_Image] FROM [Package]">
+     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [package_Name], [package_Items], [package_Desc], [package_Price], [package_Image] FROM [Package] WHERE ([package_Name] = @package_Name)">
+         <SelectParameters>
+             <asp:QueryStringParameter Name="package_Name" QueryStringField="id" Type="String" />
+         </SelectParameters>
      </asp:SqlDataSource>
 </asp:Content>

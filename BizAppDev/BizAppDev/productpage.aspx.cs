@@ -59,7 +59,7 @@ namespace BizAppDev
 
         protected void lb_cProduct_Click(object sender, EventArgs e)
         {
-            Response.Redirect("home.aspx");
+            Response.Redirect("ProductCustView.aspx");
         }
 
         protected void lb_packages_Click(object sender, EventArgs e)

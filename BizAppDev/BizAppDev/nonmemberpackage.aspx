@@ -21,9 +21,17 @@
  
 </div>
     <br />
+    <h3 class="text-center">  Do Note Packages Are only available in-store If you wish to buy Kindly make a trip down to the store</h3><br />
+    <center> <asp:DropDownList ID="DropDownList1" runat="server">
+          <asp:ListItem>All Package</asp:ListItem>
+          <asp:ListItem>Chinese New Year</asp:ListItem>
+          <asp:ListItem>Hungry Ghost Festival</asp:ListItem>
+          <asp:ListItem>Qing Ming Festival</asp:ListItem>
+          <asp:ListItem>Death Anniversary Prayers</asp:ListItem>
+      </asp:DropDownList>
+      <asp:Button ID="Button1" runat="server" Height="24px" OnClick="Button1_Click" Text="Filter by Festival" Width="138px" />
     <br />
-    <br />
-    
+    </center> 
         <br />
     <div>
       
@@ -51,8 +59,8 @@
                     <div class="card-body">
                       <h5 class="card-title">
                           <asp:Label ID="Label1" runat="server" Text='<%# Eval("package_Name") %>'></asp:Label></h5>
-            <p class="card-text">
-                          <asp:Label ID="Label2" runat="server" Text='<%# Eval("package_Items", "{0:C}") %>'></asp:Label></p>
+            
+                         
                         <p class="card-text">
                           <asp:Label ID="Label3" runat="server" Text='<%# Eval("package_Price", "{0:C}") %>'></asp:Label></p>
                         <a class="btn btn-primary" href="nonmemberpackage_desc.aspx?id=<%#Eval("package_Name")%>">View</a>
@@ -65,6 +73,12 @@
             </div>
        <br />
        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT * FROM [Package]"></asp:SqlDataSource>
+      
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [package_Name], [package_Price], [package_Image] FROM [Package] WHERE ([package_festival] = @package_festival)">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="DropDownList1" Name="package_festival" PropertyName="SelectedValue" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
       
    </div>
         </div>
