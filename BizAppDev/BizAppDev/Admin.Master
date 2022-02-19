@@ -173,6 +173,14 @@
          <li> <a href="AcceptedOrder.aspx"> <i class="icon-flask"></i>Pending Order</a></li>
          <li> <a href="Orderstatus.aspx"> <i class="icon-flask"></i>Processing Order</a></li>
           <li> <a href="ProductCust.aspx"> <i class="icon-flask"></i>Product Customization</a></li>
+
+      </ul>
+         <span class="heading">Employee Tools</span>
+      <ul class="list-unstyled">
+         <li> <a href="StaffViewTiers.aspx"> <i class="icon-flask"></i>Manage Point Tiers</a></li>
+         <li> <a href="StaffViewPerks.aspx"> <i class="icon-flask"></i>Advisor</a></li>
+          <li> <a href="ProductCust.aspx"> <i class="icon-flask"></i>Insert Video</a></li>
+
       </ul>
 
     </nav>

@@ -38,8 +38,9 @@ namespace BizAppDev
         protected void Button1_Click(object sender, EventArgs e)
         {
             int result = 0;
-            Session["CID"] = TextBox3.Text;
-            Priests hirePriest = new Priests(TextBox3.Text,TextBox1.Text,TextBox2.Text);
+            HttpContext context = HttpContext.Current;
+            string CID = (string)(context.Session["CustID"]);
+            Priests hirePriest = new Priests(CID,TextBox1.Text,TextBox2.Text);
             result = hirePriest.PriestInsert();
             if (result > 0)
             {

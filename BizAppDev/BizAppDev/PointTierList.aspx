@@ -4,7 +4,7 @@
 
     <div style="margin-top:100px;margin-left:100px;" >
         <asp:Panel runat="server" ScrollBars="Horizontal">
-                    <asp:DataList ID="DataList1" runat="server" DataKeyField="pointTierID" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" CellPadding="15" RepeatLayout="Flow" OnItemCommand="DataList1_ItemCommand">
+                    <asp:DataList ID="DataList1" runat="server" DataKeyField="pointTierID" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" CellPadding="55" RepeatLayout="Table" OnItemCommand="DataList1_ItemCommand" RepeatColumns="4">
                         <ItemTemplate>
                                         <div class="container-fluid">
               <div class="row gx-3">

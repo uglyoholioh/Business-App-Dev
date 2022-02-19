@@ -38,8 +38,9 @@ namespace BizAppDev
         protected void hireBtn_Click(object sender, EventArgs e)
         {
             int result = 0;
-            Session["CID"] = TextBox1.Text;
-            Advisor hireAdvisor = new Advisor(TextBox1.Text,tbAdDesc.Text,
+            HttpContext context = HttpContext.Current;
+            string CID = (string)(context.Session["CustID"]);
+            Advisor hireAdvisor = new Advisor(CID,tbAdDesc.Text,
                 ddlAdMode.SelectedItem.Text, tbAdDate.Text);
             result = hireAdvisor.AdvisorInsert();
             if (result > 0)

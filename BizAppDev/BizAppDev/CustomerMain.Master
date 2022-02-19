@@ -8,11 +8,14 @@
   
 </head>
 <body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/multi/2-0/vendor/bootstrap/css/bootstrap.min.css">
 
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <header>      <nav class="navbar navbar-expand-lg py-lg-0" style="background-color:rosybrown;">
         <div class="container"><a href="display_item.aspx" class="navbar-brand text-uppercase font-weight-bold" style="color:white;"> KIM SIMI ZUA </a>
           <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right small"><span class="text-uppercase mr-2">Menu</span><i class="fas fa-bars"></i></button>
@@ -23,9 +26,25 @@
                 
                 <li class="nav-item"><a href="productpage.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Product </a>
               </li>
-                 <li class="nav-item"><a href="hire.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Hire</a>
-              </li>
-                 <li class="nav-item"><a href="home.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Videos</a>
+                   <li class="nav-item dropdown" style="color:white;">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hire</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="PriestsView.aspx">Priest</a>
+      <a class="dropdown-item" href="AdvisorsView.aspx">Advisor</a>
+     
+      
+  </li>
+                   <li class="nav-item dropdown" style="color:white;"> 
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="Rewards.aspx" role="button" aria-haspopup="true" aria-expanded="false">Rewards</a>
+    <div class="dropdown-menu">
+              <a class="dropdown-item" href="Rewards.aspx">View your rewards</a>
+      <a class="dropdown-item" href="CustomerCoupons.aspx">View your Coupons</a>
+      <a class="dropdown-item" href="CustomerCoupon.aspx">Purchase Coupons</a>
+     
+      
+  </li>
+          
+                 <li class="nav-item"><a href="VideosView.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Videos</a>
               </li>
                  <li class="nav-item"><a href="home.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Orders </a>
               </li>
@@ -34,11 +53,13 @@
                
                <li class="nav-item"><a href="ViewCart.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4"> Cart</a>
               </li>
+                 <li class="nav-item"><a href="CustomerDetails.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Profile</a>
+              </li>
               <li class="nav-item mt-4 mt-lg-0">
-       
+      
                   
                 <button style="color:white;" type="button" data-toggle="modal" data-target="#loginModal" class="btn btn-outline-primary nav-btn btn-sm"> <i class="fas fa-sign-out-alt mr-2"></i>
-                    <a href="Loginpage.aspx" style="color:white;">Login</a></button>
+                    <a href="nonmemberhome.aspx" style="color:white;">Logout</a></button>
                
               </li>
             </ul>

@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerMain.Master" AutoEventWireup="true" CodeBehind="HiringPriest.aspx.cs" Inherits="BizAppDev.HiringPriest" %>
  
+    
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style type="text/css">
         .auto-style1 {
             width: 100%;
@@ -27,18 +29,9 @@
             width: 477px;
         }
     </style>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Appointment for Priest</h2>
     <table class="auto-style1">
-        <tr>
-            <td class="auto-style2">Customer ID:</td>
-            <td class="auto-style6">
-                <asp:TextBox ID="TextBox3" runat="server" ValidationGroup="hireBtn" Width="365px"></asp:TextBox>
-            </td>
-            <td class="auto-style5">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="Input Customer ID" ForeColor="Red" ValidationGroup="hireBtn"></asp:RequiredFieldValidator>
-            </td>
-        </tr>
+        
         <tr>
             <td class="auto-style2">Location:</td>
             <td class="auto-style6">

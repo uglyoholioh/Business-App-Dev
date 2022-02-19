@@ -36,8 +36,9 @@ namespace BizAppDev
 
         protected void confirmBtn_Click(object sender, EventArgs e)
         {
-            Session["CID"] = TextBox1.Text;
-             
+            HttpContext context = HttpContext.Current;
+            string CID = (string)(context.Session["CustID"]);
+
             int result = 0;
 
             if (ddl_prodcat.SelectedValue != "0")
@@ -48,7 +49,7 @@ namespace BizAppDev
                 }
                 else
                 {
-                    ProductCust prodCust = new ProductCust(TextBox1.Text, ddl_prodcat.SelectedItem.Text,
+                    ProductCust prodCust = new ProductCust(CID, ddl_prodcat.SelectedItem.Text,
                         ddl_prodcol.SelectedItem.Text, ddl_scent.SelectedItem.Text, tb_name.Text, tb_email.Text, tb_contact.Text, tb_date.Text);
                     
                     result = prodCust.ProdCustInsert();

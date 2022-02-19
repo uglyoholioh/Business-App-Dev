@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerMain.Master" AutoEventWireup="true" CodeBehind="ProductCustomization.aspx.cs" Inherits="BizAppDev.ProductCustomization" %>
  
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    
     <style type="text/css">
         .auto-style1 {
             width: 100%;
@@ -22,7 +25,6 @@
             height: 33px;
         }
     </style>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Product Customization</h2>
     <p><b>For colour and Scent option, leave default for normal</b></p>
     <table class="auto-style1">

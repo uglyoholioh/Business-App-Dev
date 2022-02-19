@@ -13,7 +13,7 @@ namespace BizAppDev
 {
     public partial class EduVideoInsert : System.Web.UI.Page
     {
-        string _connStr = ConfigurationManager.ConnectionStrings["ServicesContext"].ConnectionString;
+        string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
         }

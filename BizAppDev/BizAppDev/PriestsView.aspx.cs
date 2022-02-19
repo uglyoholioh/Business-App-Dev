@@ -21,8 +21,7 @@ namespace BizAppDev
         protected void bind()
         {
             HttpContext context = HttpContext.Current;
-            //Session["CID"] = "ss4";
-            string CID = Session["CID"].ToString();
+            string CID = (string)(context.Session["CustID"]);
             List<Priests> PriestList = new List<Priests>();
             PriestList = aPriest.GetPriest(CID);
             gvPriest.DataSource = PriestList;

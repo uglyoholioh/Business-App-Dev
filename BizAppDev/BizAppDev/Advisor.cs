@@ -10,7 +10,7 @@ namespace BizAppDev
 {
     public class Advisor
     {
-        string _connStr = ConfigurationManager.ConnectionStrings["ServicesContext"].ConnectionString;
+        string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
 
         private string _CustID = "";
         private string _haID = null;

@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerMain.Master" AutoEventWireup="true" CodeBehind="PriestsView.aspx.cs" Inherits="BizAppDev.PriestsView" %>
- 
+ <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <style type="text/css">
         .auto-style1 {
             margin-right: 80px;
         }
     </style>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Booking Details</h2>
     <p>
         <asp:GridView ID="gvPriest" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" OnRowCancelingEdit="gvPriest_RowCancelingEdit" OnRowDeleting="gvPriest_RowDeleting" OnRowEditing="gvPriest_RowEditing" OnRowUpdating="gvPriest_RowUpdating" CssClass="auto-style1" Width="1000px" ShowHeaderWhenEmpty="True">
