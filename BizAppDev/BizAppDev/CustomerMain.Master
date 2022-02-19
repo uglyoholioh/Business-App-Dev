@@ -23,16 +23,16 @@
                 
                 <li class="nav-item"><a href="productpage.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Product </a>
               </li>
-                 <li class="nav-item"><a href=".aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Hire</a>
+                 <li class="nav-item"><a href="hire.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Hire</a>
               </li>
                  <li class="nav-item"><a href="home.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Videos</a>
               </li>
-                 <li class="nav-item"><a href="nonmemberorderstatus.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Orders </a>
+                 <li class="nav-item"><a href="home.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Orders </a>
               </li>
                  <li class="nav-item"><a href="contact.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Contact </a>
               </li>
                
-               <li class="nav-item"><a href="nonmemberViewCart.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4"> Cart</a>
+               <li class="nav-item"><a href="ViewCart.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4"> Cart</a>
               </li>
               <li class="nav-item mt-4 mt-lg-0">
        
