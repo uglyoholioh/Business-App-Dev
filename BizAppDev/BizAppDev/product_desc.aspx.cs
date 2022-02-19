@@ -45,11 +45,10 @@ namespace BizAppDev
                 //    
                 Session["addproduct"] = "true";
 
-                Response.Redirect("nonmemberViewCart.aspx?id=" + e.CommandArgument.ToString() + "&Quantity=" + tb_quantity.Text);
+                Response.Redirect("ViewCart.aspx?id=" + e.CommandArgument.ToString() + "&Quantity=" + tb_quantity.Text);
             }
 
         }
-
-
+      
     }
 }

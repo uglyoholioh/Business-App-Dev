@@ -23,7 +23,7 @@
   text-align: center;
   background: #FEBBC1;
   color: white;
-  font-size: 30px;height:320px;">
+  font-size: 30px;height:320px;"> 
  <br />
         <br />
         <h1>Your Shopping Cart</h1>

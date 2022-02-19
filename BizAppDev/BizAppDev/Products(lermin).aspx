@@ -39,7 +39,7 @@
                         </table>
                     <br />
 
-                    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnCancelCommand="DataList1_CancelCommand" OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand" OnItemCommand="DataList1_ItemCommand1" OnDeleteCommand="DataList1_DeleteCommand" RepeatColumns="3" Height="1103px" CellPadding="5" >
+                    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnCancelCommand="DataList1_CancelCommand" OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand" OnItemCommand="DataList1_ItemCommand1" OnDeleteCommand="DataList1_DeleteCommand" RepeatColumns="3" CellPadding="5" >
                         <EditItemTemplate>
                             <div class="card" style="margin-left:30px;width:349px;">
                       <asp:Image class="card-img-top img-fluid" runat="server" width="170px" style="margin-left:80px; " ID="img_product" ImageUrl='<%# "/images/" + Eval("Product_Image") %>' />
@@ -136,8 +136,7 @@
           
                     <hr style="border-top:1px solid gray; width:1200px;" />
     
-              <h3 class="mb-0 p-1" style="margin-left:600px;">Package>
-            
+              <h3 class="mb-0 p-1" style="margin-left:600px;">Packages</h3>
           <!-- Breadcrumb-->
           <div class="bg-white">
             <div class="container-fluid">

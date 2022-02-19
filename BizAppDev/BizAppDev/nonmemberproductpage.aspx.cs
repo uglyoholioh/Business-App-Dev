@@ -59,12 +59,12 @@ namespace BizAppDev
 
         protected void lb_cProduct_Click(object sender, EventArgs e)
         {
-            Response.Redirect("home.aspx");
+            Response.Redirect("Login.aspx");
         }
 
         protected void lb_packages_Click(object sender, EventArgs e)
         {
-            Response.Redirect("home.aspx");
+            Response.Redirect("nonmemberpackage.aspx");
         }
 
         protected void lb_Allp_Click(object sender, EventArgs e)

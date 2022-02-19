@@ -46,7 +46,7 @@ namespace BizAppDev
         }
         protected void Button_shopnow_Click(object sender, EventArgs e)
         {
-            Response.Redirect("nonmemberproductpage.aspx");
+            Response.Redirect("productpage.aspx");
         }
         protected void btn_submit_Click(object sender, EventArgs e)
         {
@@ -171,7 +171,7 @@ namespace BizAppDev
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("nonmemberhome.aspx");
+            Response.Redirect("home.aspx");
         }
 
 

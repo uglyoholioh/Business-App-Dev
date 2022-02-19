@@ -72,7 +72,7 @@
             
                         <p class="card-text">
                           <asp:Label ID="Label3" runat="server" Text='<%# Eval("Unit_Price", "{0:C}") %>'></asp:Label></p>
-                        <a class="btn btn-primary" href="nonmemberproduct_desc.aspx?id=<%#Eval("Product_ID")%>">View</a>
+                        <a class="btn btn-primary" href="product_desc.aspx?id=<%#Eval("Product_ID")%>">View</a>
                       
                     </div>
                   </div>

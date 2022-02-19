@@ -18,12 +18,12 @@
           <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right small"><span class="text-uppercase mr-2">Menu</span><i class="fas fa-bars"></i></button>
           <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <<ul class="navbar-nav ml-auto d-lg-flex align-items-lg-center" style="color:white;">
-              <li class="nav-item"><a href="nonmemberhome.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4 active">Home</a>
+              <li class="nav-item"><a href="home.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4 active">Home</a>
               </li>
                 
-                <li class="nav-item"><a href="nonmemberproductpage.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Product </a>
+                <li class="nav-item"><a href="productpage.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Product </a>
               </li>
-                 <li class="nav-item"><a href="Login.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Hire</a>
+                 <li class="nav-item"><a href=".aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Hire</a>
               </li>
                  <li class="nav-item"><a href="home.aspx" class="nav-link font-weight-bold text-uppercase px-lg-3 py-lg-4">Videos</a>
               </li>

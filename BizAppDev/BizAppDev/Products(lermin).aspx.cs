@@ -37,11 +37,11 @@ namespace BizAppDev
         protected void DataList2_UpdateCommand(object source, DataListCommandEventArgs e)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Project"].ToString());
-            Label productid = (Label)e.Item.FindControl("Label1");
+            Label productid = (Label)e.Item.FindControl("Label4");
             Label productitem = (Label)e.Item.FindControl("Label2");
 
-            TextBox packagedesc = (TextBox)e.Item.FindControl("tb_desc");
-            TextBox packageprice = (TextBox)e.Item.FindControl("tb_price");
+            TextBox packagedesc = (TextBox)e.Item.FindControl("TextBox1");
+            TextBox packageprice = (TextBox)e.Item.FindControl("TextBox2");
             TextBox packagefestive = (TextBox)e.Item.FindControl("tb_festival");
 
 

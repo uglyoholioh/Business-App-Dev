@@ -37,7 +37,7 @@
                         </table>
                     <br />
 
-                    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnCancelCommand="DataList1_CancelCommand" OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand" OnItemCommand="DataList1_ItemCommand1" OnDeleteCommand="DataList1_DeleteCommand" RepeatColumns="3" Height="1103px" CellPadding="5" >
+                    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnCancelCommand="DataList1_CancelCommand" OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand" OnItemCommand="DataList1_ItemCommand1" OnDeleteCommand="DataList1_DeleteCommand" RepeatColumns="3"  CellPadding="5" >
                         <EditItemTemplate>
                             <div class="card" style="margin-left:30px;width:349px;">
                       <asp:Image class="card-img-top img-fluid" runat="server" width="170px" style="margin-left:80px; " ID="img_product" ImageUrl='<%# "/images/" + Eval("Product_Image") %>' />

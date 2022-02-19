@@ -49,7 +49,7 @@
                                                
                                              
                                                
-                                                <asp:CommandField ShowSelectButton="True" ShowEditButton="True" />
+                                                <asp:CommandField ShowSelectButton="True" />
                                                 <asp:TemplateField ShowHeader="False">
                                                     <ItemTemplate>
                                                         <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm('Are you sure you want to delete this coupon?');" Text="Delete"></asp:LinkButton>

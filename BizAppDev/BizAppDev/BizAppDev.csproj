@@ -154,6 +154,8 @@
     <Content Include="nonmemberhome.aspx" />
     <Content Include="nonmembermembershiptierlistmoreinfo.aspx" />
     <Content Include="nonmemberorderstatus.aspx" />
+    <Content Include="nonmemberpackage.aspx" />
+    <Content Include="nonmemberpackage_desc.aspx" />
     <Content Include="nonmemberproductpage.aspx" />
     <Content Include="nonmemberproduct_desc.aspx" />
     <Content Include="nonmembersuccess.aspx" />
@@ -175,6 +177,7 @@
     <Content Include="ProductCust.aspx" />
     <Content Include="ProductCustomization.aspx" />
     <Content Include="ProductCustView.aspx" />
+    <Content Include="productpage.aspx" />
     <Content Include="Products%28lermin%29%28employee%29.aspx" />
     <Content Include="Products%28lermin%29.aspx" />
     <Content Include="ProductsOrdering.aspx" />
@@ -665,6 +668,20 @@
     <Compile Include="nonmemberorderstatus.aspx.designer.cs">
       <DependentUpon>nonmemberorderstatus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="nonmemberpackage.aspx.cs">
+      <DependentUpon>nonmemberpackage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonmemberpackage.aspx.designer.cs">
+      <DependentUpon>nonmemberpackage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nonmemberpackage_desc.aspx.cs">
+      <DependentUpon>nonmemberpackage_desc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonmemberpackage_desc.aspx.designer.cs">
+      <DependentUpon>nonmemberpackage_desc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="nonmemberproductpage.aspx.cs">
       <DependentUpon>nonmemberproductpage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -822,6 +839,13 @@
       <DependentUpon>ProductCustView.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductOrdering.cs" />
+    <Compile Include="productpage.aspx.cs">
+      <DependentUpon>productpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productpage.aspx.designer.cs">
+      <DependentUpon>productpage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Products%28lermin%29%28employee%29.aspx.cs">
       <DependentUpon>Products%28lermin%29%28employee%29.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
