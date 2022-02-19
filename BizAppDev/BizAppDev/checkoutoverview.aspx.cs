@@ -16,19 +16,17 @@ namespace BizAppDev
     {
         public string sessionIds = "";
 
+      
+
+        SqlConnection knn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CUSTOMER.MDF;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
-            string _connStr = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
-
-            SqlConnection knn = new SqlConnection(_connStr);
-
-
             decimal discountedtotal;
             decimal grandtotal;
             knn.Open();
             SqlCommand cmd = knn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select grandtotal,discountedtotal,orderid,deliveryoption,deliverydate from orderdetails where orderid=@orderid";
+            cmd.CommandText = "select grandtotal,discountedtotal,orderid,deliveryoption,deliverydate,address,email from orderdetails where orderid=@orderid";
             cmd.Parameters.AddWithValue("@orderid", Request.QueryString["orderid"].ToString());
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -41,6 +39,8 @@ namespace BizAppDev
                     Labelgg.Text = row.Field<decimal>("grandtotal").ToString();
                     Labelorderii.Text = row.Field<string>("orderid").ToString();
                     lbldelop.Text = "Delivery Option: " + row.Field<string>("deliveryoption").ToString();
+                    Labeladd.Text = "Delivery Address" + row.Field<string>("address").ToString();
+                    Lbl_em.Text = "Email Address:   " + row.Field<string>("email").ToString();
                     lbldeldate.Text = "Delivery Date: " + row.Field<DateTime>("deliverydate").ToString();
                     break;
 
@@ -48,10 +48,13 @@ namespace BizAppDev
                 if (row.Field<decimal>("discountedtotal") > Convert.ToDecimal(0.00))
                 {
                     Labelorderii.Text = row.Field<string>("orderid").ToString();
-                    Labelgg.Text = row.Field<decimal>("grandtotal").ToString();
-                    Labeldisc.Text = "Discount Total:$ " + row.Field<decimal>("discountedtotal").ToString();
+                    Labelgg.Text = row.Field<decimal>("discountedtotal").ToString();
+
                     lbldelop.Text = "Delivery Option: " + row.Field<string>("deliveryoption").ToString();
+                    Labeladd.Text = "Delivery Address" + row.Field<string>("address").ToString();
+                    Lbl_em.Text = "Email Address" + row.Field<string>("email").ToString();
                     lbldeldate.Text = "Delivery Date: " + row.Field<DateTime>("deliverydate").ToString();
+
                     break;
                 }
 
@@ -60,8 +63,8 @@ namespace BizAppDev
 
             var options = new SessionCreateOptions
             {
-                SuccessUrl = "https://localhost:44397/success.aspx",
-                CancelUrl = "https://localhost:8080/cancel",
+                SuccessUrl = "https://localhost:44397/nonmembersuccess.aspx?oid=" + Labelorderii.Text,
+                CancelUrl = "https://localhost:44397/nonmembercheckout.aspx",
                 PaymentMethodTypes = new List<string>
                 {
                     "card",
@@ -72,7 +75,9 @@ namespace BizAppDev
                     {
                         Name="Please Pay",
 
-                      Amount= Convert.ToInt64(Decimal.Parse(Labelgg.Text)*100) ,
+                        Amount = Convert.ToInt64(Decimal.Parse(Labelgg.Text) * 100) ,
+
+
                      Currency="sgd",
                       Quantity=1,
                     },
@@ -83,13 +88,7 @@ namespace BizAppDev
             Session session = service.Create(options);
             sessionIds = session.Id;
             knn.Close();
-
-
         }
 
-        protected void btn_proceed_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("payment.aspx");
-        }
     }
 }

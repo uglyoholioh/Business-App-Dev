@@ -145,17 +145,33 @@
         </tr>
         <tr>
             <td rowspan="3" class="auto-style3">
+                 Select The Delivery Date
                 <asp:Calendar ID="Calendar2" runat="server" Height="280px"  OnDayRender="Calendar1_DayRender" Width="741px" CaptionAlign="NotSet">
                     <DayHeaderStyle HorizontalAlign="Center" />
                     <TitleStyle HorizontalAlign="Center" />
                 </asp:Calendar>
             </td>
             <td class="auto-style2">
-                <h3>Total</h3>
+                 <h3>Enter Following Information Required.</h3>
                 <asp:DropDownList ID="DropDownList1" runat="server" Height="30px" Width="183px">
                     <asp:ListItem>Door-Step</asp:ListItem>
                     <asp:ListItem>In-Store</asp:ListItem>
                 </asp:DropDownList>
+              
+                <asp:Button ID="Btn_confirm" runat="server" Height="27px" OnClick="Btn_confirm_Click" Text="Confirm" Width="68px" BackColor="#333333" ForeColor="White" />
+              
+                <br />
+              
+                <br />
+                <asp:TextBox ID="tb_address" runat="server" placeholder="Enter Address"></asp:TextBox>
+                <br />
+                <br />
+                <asp:TextBox ID="tb_emaillll" runat="server" placeholder="Enter Email"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tb_emaillll"
+    ForeColor="Red" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+    Display = "Dynamic" ErrorMessage = "Invalid email address"/>
+                <br />
+            </td>
             </td>
         </tr>
         <tr>

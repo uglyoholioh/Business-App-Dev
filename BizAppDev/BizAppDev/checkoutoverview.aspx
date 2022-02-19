@@ -22,7 +22,7 @@
             width: 103%
         }
         .ordersum{
-            margin-left:75px;
+            margin-left:775px;
             font-size:18px;
            
         }
@@ -30,7 +30,15 @@
             width: 44px;
         }
     </style>
-  
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- Choices CSS-->
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/vendor/choices.js/public/assets/styles/choices.min.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/css/style.default.premium.2a30c8f8.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/css/custom.0a822280.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/img/favicon.3903ee9d.ico">
        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- Choices CSS-->
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/vendor/choices.js/public/assets/styles/choices.min.css">
@@ -40,13 +48,8 @@
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/css/custom.0a822280.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="https://d19m59y37dris4.cloudfront.net/admin-premium/2-0/img/favicon.3903ee9d.ico">
-    <link rel="stylesheet" href="css/home.css" />
-   <div class="header">
-  <h1>Please check all informations and products are correct</h1>
-  <a href="">Order Overview</a>
-</div>
  
-    <div class="ordersum">
+    <div class="ordersum" style="margin-top:250px;">
   <div layout="column" layout-fil ng-controller="DemoController as vm">
     <md-toolbar class="md-primary" layout="row" layout-align="start" layout-padding>
       <div class="md-toolbar-tools" layout="row">
@@ -70,7 +73,7 @@
                         <td class="auto-style8"style="font-size:18px;"> PRICE</td>
                     </tr>
                 </table>
-                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" Width="31%" BorderStyle="None">
+                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" Width="33%" BorderStyle="None">
                     <ItemTemplate>
                        
                         <table class="auto-style7" border="0">
@@ -97,6 +100,10 @@
                 <br />
                 <asp:Label ID="lbldelop" runat="server"></asp:Label>
                 <br />
+           <asp:Label ID="Labeladd" runat="server" Text="Lbl_address"></asp:Label>
+            <br />
+           <asp:Label ID="Lbl_em" runat="server" Text="Label"></asp:Label>
+                <br />
                 <asp:Label ID="lbldeldate" runat="server" Text="Label"></asp:Label>
     <br>
                  <td>
@@ -104,8 +111,10 @@
                   Grand Total:$ <asp:Label  ID="Labelgg" runat="server" Text="Label"></asp:Label>
                          
                    <br />
+&nbsp;&nbsp;
+                         
+                   <br />
                   
-                   <asp:Label ID="Labeldisc" runat="server"></asp:Label>
                        <form id="form1">
                         <button type="submit">Pay</button>
                     </form>

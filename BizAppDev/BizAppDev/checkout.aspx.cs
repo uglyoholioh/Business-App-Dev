@@ -146,7 +146,17 @@ namespace BizAppDev
 
             }
         }
-
+        protected void Btn_confirm_Click(object sender, EventArgs e)
+        {
+            if (DropDownList1.SelectedItem.Text == "In-Store")
+            {
+                tb_address.Enabled = false;
+            }
+            else
+            {
+                tb_address.Enabled = true;
+            }
+        }
         private void checkdesignid()
         {
             DataTable dt1;
@@ -345,8 +355,8 @@ namespace BizAppDev
 
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {
-                string updatepass = "insert into orderdetails(orderid,Product_ID,Product_Name,price,quantity,deliveryoption,deliverydate,grandtotal,discountedtotal,OrderStatus,Cust_ID)"
-                    + "values(@orderid,@product_id,@product_name,@price,@quantity,@deliveryoption,@deliverydate,@grandtotal,@discountedtotal,@OrderStatus,@Cust_ID)";
+                string updatepass = "insert into orderdetails(orderid,Product_ID,Product_Name,price,quantity,deliveryoption,deliverydate,grandtotal,discountedtotal,OrderStatus,Cust_ID,address,email)"
+                    + "values(@orderid,@product_id,@product_name,@price,@quantity,@deliveryoption,@deliverydate,@grandtotal,@discountedtotal,@OrderStatus,@Cust_ID,@add,@ema)";
                 string mycon = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
                 Customer acust = new Customer();
                 HttpContext context = HttpContext.Current;
@@ -368,10 +378,21 @@ namespace BizAppDev
                 cmd.Parameters.AddWithValue("@grandtotal", Convert.ToDecimal(Labelgrandtotal.Text));
                 cmd.Parameters.AddWithValue("@OrderStatus", "Pending");
                 cmd.Parameters.AddWithValue("@Cust_ID", "Guest");
+                cmd.Parameters.AddWithValue("@ema", tb_emaillll.Text);
                 Product bProd = new Product();
                 int prodresult = 0;
 
                 prodresult = bProd.ProductBought(dt.Rows[i]["Product_ID"].ToString(), int.Parse((dt.Rows[i]["quantity"].ToString())));
+               if (tb_address.Text == "")
+                {
+                    cmd.Parameters.AddWithValue("@add", "The Trilinq");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@add", tb_address.Text);
+                }
+
+
                 if (lbl_discountedprice.Text == string.Empty)
                 {
                     cmd.Parameters.AddWithValue("@discountedtotal", Convert.ToDecimal(0.00));
@@ -437,11 +458,13 @@ namespace BizAppDev
                     finalprice = 0;
                     bool usedCoupon = false;
                     int claimresult = 0;
+                    decimal percentc = 0;
                     while (i < nrow)
                     {
                         if (dt.Rows[i]["Category"].ToString() == category)
                         {
-                            finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString()) * ((100 - perdiscount) / 100));
+
+                            finalprice = finalprice + (decimal.Parse(dt.Rows[i]["total"].ToString()) * ((Convert.ToDecimal(100) - Convert.ToDecimal(perdiscount))) / 100);
                             usedCoupon = true;
                         }
                         else
@@ -455,9 +478,11 @@ namespace BizAppDev
                     }
                     decimal gst = Math.Round(Convert.ToDecimal(gtotal) * Convert.ToDecimal(0.07), 2);
                     decimal Grandtotal = Math.Round(Convert.ToDecimal(gtotal) + Convert.ToDecimal(gst), 2);
+                    decimal newgst = Convert.ToDecimal(finalprice) / Convert.ToDecimal(gtotal) * gst;
+
 
                     Labelgrandtotal.Text = Grandtotal.ToString();
-                    lbl_discountedprice.Text = finalprice.ToString();
+                    lbl_discountedprice.Text = Math.Round((finalprice + newgst), 2).ToString();
                     if (usedCoupon == true)
                     {
                         claimresult = aCoup.useCoupon(CID, Code);
